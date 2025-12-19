@@ -42,15 +42,45 @@ transform: scale(1) rotate(2deg);
   <body class="bg-[#Fdfcf8] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
     
 <!-- COMMON HEADER START -->
-<header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-  <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-    <a href="#" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-      Bila. </a> <!-- Desktop Menu -->
-    <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center"> <a href="services.html" class="hover:opacity-70 transition-opacity text-lg font-medium"> Services </a> <a href="portfolio.html" class="hover:opacity-70 transition-opacity text-lg font-medium"> Portfolio </a> <a href="agence.html" class="hover:opacity-70 transition-opacity text-lg font-medium"> L'agence </a> </div> <!-- Desktop CTA --> <a href="contact.html" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-      Discutons </a> <!-- Mobile Menu Button -->
-    <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu"> <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300"> <path d="M4 12h16"></path> <path d="M4 6h16"></path> <path d="M4 18h16"></path> </svg> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button>
-  </nav>
-</header> <!-- COMMON HEADER END -->
+    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
+      <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+        <a href="index.html" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+          Bila.
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
+          <a href="services.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Services
+          </a>
+          <a href="portfolio.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Portfolio
+          </a>
+          <a href="agence.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            L'agence
+          </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <a href="contact.html" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+          Discutons
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
+            <path d="M4 12h16"></path>
+            <path d="M4 6h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- COMMON HEADER END -->
 
     <main class="min-h-screen flex flex-col w-full relative">
       <!-- Header Section -->
