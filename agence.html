@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Agence - Bila Design Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar { width: 0px; background: transparent; }
+/* Smooth Reveal */
+.reveal-text {
+animation: revealText 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+transform: translateY(100%);
+opacity: 0;
+}
+@keyframes revealText {
+from { transform: translateY(20px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+/* Stacking Cards Logic */
+.card-stack-wrapper {
+position: relative;
+view-timeline-name: --stack;
+}
+/* Grain Texture */
+.noise-overlay {
+position: absolute;
+inset: 0;
+pointer-events: none;
+opacity: 0.4;
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+mix-blend-mode: overlay;
+}
+/* Infinite Marquee Animation */
+.marquee-container {
+display: flex;
+overflow: hidden;
+user-select: none;
+}
+.marquee-content {
+flex-shrink: 0;
+display: flex;
+justify-content: space-around;
+min-width: 100%;
+gap: 2rem;
+animation: scroll 20s linear infinite;
+}
+@keyframes scroll {
+from { transform: translateX(0); }
+to { transform: translateX(calc(-100% - 2rem)); }
+}
+</style>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap">
+<style id="all-fonts-style-font-geist">
+.font-geist { font-family: 'Geist', sans-serif !important; }
+</style>
+<link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap">
+<style id="all-fonts-style-font-instrument-serif">
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+</style>
+<link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap">
+<style id="all-fonts-style-font-manrope">
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+</style></head>
+  <body class="bg-[#Fdfcf8] text-[#0f2f28] antialiased overflow-x-hidden selection:bg-[#2d6a5d] selection:text-[#Fdfcf8]">
+    <!-- COMMON HEADER START -->
+    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
+      <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+        <a href="#" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+          Bila.
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
+          <a href="services.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Services
+          </a>
+          <a href="portfolio.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Portfolio
+          </a>
+          <a href="agence.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            L'agence
+          </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <a href="contact.html" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+          Discutons
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
+            <path d="M4 12h16"></path>
+            <path d="M4 6h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- COMMON HEADER END -->
+
+      <!-- Section 1: Hero - Full Width -->
+      <section class="min-h-[90vh] flex flex-col w-full pt-40 px-6 md:px-12 pb-20 relative justify-center">
+        <!-- Grid Lines Background - Full Width -->
+        <div class="absolute inset-0 pointer-events-none flex justify-between px-6 md:px-12 opacity-30">
+          <div class="w-px h-full bg-[#0f2f28]/10"></div>
+          <div class="w-px h-full bg-[#0f2f28]/10 hidden md:block"></div>
+          <div class="w-px h-full bg-[#0f2f28]/10"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 w-full">
+          <div class="lg:col-span-8">
+            <div class="overflow-hidden mb-2">
+              <span class="block text-[#2d6a5d] font-mono text-xs uppercase tracking-widest mb-4 reveal-text" style="animation-delay: 0.1s;">
+                — Since 2024
+              </span>
+            </div>
+            <h1 class="text-[11vw] md:text-[6.5rem] leading-[0.9] reveal-text text-[#0f2f28] tracking-tight font-serif mb-8" style="animation-delay: 0.2s">
+              Design avec
+              <br class="">
+              <span class="italic text-[#2d6a5d]">intention.</span>
+            </h1>
+          </div>
+
+          <div class="lg:col-span-4 flex flex-col justify-end pb-4 reveal-text" style="animation-delay: 0.4s;">
+            <p class="md:text-xl leading-relaxed text-lg font-light text-[#0f2f28]/80 text-justify">
+              Nous donnons à votre marque l'image qu'elle mérite. Une image
+              précise, harmonieuse et porteuse de sens, conçue pour traduire
+              votre savoir-faire en une présence digitale forte, crédible et
+              inoubliable.
+            </p>
+            <div class="mt-8 flex gap-4">
+              <div class="h-px w-12 bg-[#0f2f28] self-center"></div>
+              <span class="text-lg italic font-serif">
+                Bila Mathieu, Fondateur
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large Hero Image -->
+        <div class="mt-16 w-full h-[50vh] md:h-[60vh] relative overflow-hidden rounded-sm reveal-text" style="animation-delay: 0.5s;">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Architecture minimaliste" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105">
+          <div class="absolute inset-0 bg-[#0f2f28]/10"></div>
+        </div>
+      </section>
+
+      <!-- Section 2: Values - Full Width -->
+      <section class="border-y border-[#0f2f28]/10 bg-[#Fdfcf8] w-full">
+        <div class="w-full grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0f2f28]/10">
+          <!-- Header for this section -->
+          <div class="p-8 md:p-12 flex flex-col justify-between h-full bg-[#Fdfcf8]">
+            <h2 class="font-serif text-3xl md:text-4xl">
+              Nos
+              <br>
+              Piliers
+            </h2>
+            <div class="mt-8">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2d6a5d" stroke-width="1.5" class="mb-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <p class="text-xs font-mono uppercase tracking-widest opacity-60">
+                Standards de qualité
+              </p>
+            </div>
+          </div>
+
+          <!-- Value 1 -->
+          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
+              01
+            </div>
+            <div class="mb-6 text-[#2d6a5d]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale">
+                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
+                <path d="M7 21h10"></path>
+                <path d="M12 3v18"></path>
+                <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl mb-3 group-hover:translate-x-1 transition-transform">
+              Équilibre
+            </h3>
+            <p class="text-sm leading-relaxed opacity-70">
+              Entre esthétique et fonction. Nous ne sacrifions jamais
+              l'utilisabilité pour le style, ni l'inverse.
+            </p>
+          </div>
+
+          <!-- Value 2 -->
+          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
+              02
+            </div>
+            <div class="mb-6 text-[#2d6a5d]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-eye">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                <circle cx="12" cy="12" r="1"></circle>
+                <path d="M5 12s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5"></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl mb-3 group-hover:translate-x-1 transition-transform">
+              Clarté
+            </h3>
+            <p class="text-sm leading-relaxed opacity-70">
+              Dans un monde bruyant, la clarté est le luxe ultime. Nous
+              simplifions les messages complexes.
+            </p>
+          </div>
+
+          <!-- Value 3 -->
+          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+            <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
+              03
+            </div>
+            <div class="mb-6 text-[#2d6a5d]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint">
+                <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path>
+                <path d="M15.71 15.26a13 13 0 0 1-1.12 3.98"></path>
+                <path d="M5.15 11.96a9 9 0 0 1 13.71 0"></path>
+                <path d="M9 14.12a8 8 0 0 1 3.84 6.07"></path>
+                <path d="M15 11v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2Z"></path>
+                <path d="M8.12 21.49a15 15 0 0 1-2.2-6.72"></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl mb-3 group-hover:translate-x-1 transition-transform">
+              Identité
+            </h3>
+            <p class="text-sm leading-relaxed opacity-70">
+              Chaque marque a une empreinte unique. Notre travail est de la
+              digitaliser sans la dénaturer.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Methodology - Full Width Wrapper -->
+      <section class="py-32 px-6 md:px-12 w-full bg-[#Fdfcf8]">
+        <div class="text-center max-w-3xl mx-auto mb-24">
+          <h2 class="font-serif text-5xl md:text-7xl text-[#0f2f28] mb-6">
+            Le Processus
+          </h2>
+          <p class="text-[#2d6a5d] font-medium text-lg">
+            Une méthodologie linéaire pour des résultats exponentiels.
+          </p>
+        </div>
+
+        <!-- Stacking Wrapper -->
+        <div class="relative w-full max-w-5xl mx-auto flex flex-col gap-8 pb-20">
+          <!-- Background Line -->
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#0f2f28]/10 -translate-x-1/2 z-0 hidden md:block"></div>
+
+          <!-- Card 01 -->
+          <div class="sticky top-24 md:top-[15vh] z-10">
+            <div class="relative bg-[#0f2f28] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-2xl origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+              <div class="noise-overlay"></div>
+              <div class="md:w-1/3 flex flex-col justify-between relative z-10">
+                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                  1
+                </span>
+                <div class="mt-auto">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#2d6a5d] mb-2 block">
+                    Phase 01
+                  </span>
+                  <h3 class="font-serif text-4xl md:text-5xl">Immersion</h3>
+                </div>
+              </div>
+              <div class="md:w-2/3 flex flex-col justify-center relative z-10">
+                <p class="md:text-2xl leading-relaxed text-xl font-light text-[#e0e5e3]">
+                  Avant de créer, nous analysons. Nous étudions votre marque,
+                  votre marché et vos besoins pour comprendre ce qui compte
+                  vraiment. Cette immersion pose les bases d'une solution juste,
+                  cohérente et efficace.
+                </p>
+                <div class="mt-8 flex gap-3 flex-wrap">
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    Audit UX
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    Analyse de données
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    Stratégie d'entreprise
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="sticky top-28 md:top-[20vh] z-20">
+            <div class="relative bg-[#173d34] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.2)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+              <div class="noise-overlay"></div>
+              <div class="md:w-1/3 flex flex-col justify-between relative z-10">
+                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                  2
+                </span>
+                <div class="mt-auto">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#5ba896] mb-2 block">
+                    Phase 02
+                  </span>
+                  <h3 class="font-serif text-4xl md:text-5xl">Élévation</h3>
+                </div>
+              </div>
+              <div class="md:w-2/3 flex flex-col justify-center relative z-10">
+                <p class="text-xl md:text-2xl font-light leading-relaxed text-[#e0e5e3]">
+                  La stratégie prend forme. Nous créons des systèmes visuels qui
+                  parlent. Chaque pixel est justifié, chaque interaction est
+                  intentionnelle.
+                </p>
+                <div class="mt-8 flex gap-3 flex-wrap">
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    design ui
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    Motion design
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    Responsive design
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="sticky top-32 md:top-[25vh] z-30">
+            <div class="relative bg-[#1f4d42] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.3)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+              <div class="noise-overlay"></div>
+              <div class="md:w-1/3 flex flex-col justify-between relative z-10">
+                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                  3
+                </span>
+                <div class="mt-auto">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#8cdad0] mb-2 block">
+                    Phase 03
+                  </span>
+                  <h3 class="font-serif text-4xl md:text-5xl">Impact</h3>
+                </div>
+              </div>
+              <div class="md:w-2/3 flex flex-col justify-center relative z-10">
+                <p class="text-xl md:text-2xl font-light leading-relaxed text-[#e0e5e3]">
+                  Déploiement technique impeccable. Nous transformons les
+                  maquettes en produits vivants, rapides et optimisés pour la
+                  croissance.
+                </p>
+                <div class="mt-8 flex gap-3 flex-wrap">
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    dÉVELOPPEMENT
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    CONTRÔLE QUALITÉ
+                  </span>
+                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                    LANCEMENT
+                  </span>
+                </div>
+                <div class="absolute bottom-4 right-4 animate-pulse">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: La Politique - Full Width -->
+      <section class="border-y border-[#0f2f28]/10 bg-[#Fdfcf8] relative overflow-hidden w-full">
+        <!-- Scrolling Marquee -->
+        <div class="border-b border-[#0f2f28]/10 bg-[#0f2f28] text-[#Fdfcf8] py-3 marquee-container z-20 relative w-full">
+          <div class="marquee-content font-mono text-xs uppercase tracking-[0.3em]">
+            <span>Disponibilité Limitée</span>
+            <span>•</span>
+            <span>Qualité intransigeante</span>
+            <span>•</span>
+            <span>Focus Absolu</span>
+            <span>•</span>
+            <span>Deadlines garanties</span>
+            <span>•</span>
+            <span>3 Projets Mensuels</span>
+            <span>•</span>
+            <span>Disponibilité Limitée</span>
+            <span>•</span>
+            <span>Qualité intransigeante</span>
+            <span>•</span>
+            <span>Focus Absolu</span>
+            <span>•</span>
+            <span>Deadlines garanties</span>
+            <span>•</span>
+            <span>3 Projets Mensuels</span>
+            <span>•</span>
+          </div>
+        </div>
+
+        <div class="w-full grid grid-cols-1 lg:grid-cols-2">
+          <!-- Left: Manifesto -->
+          <div class="md:p-20 lg:border-r flex flex-col border-[#0f2f28]/10 pt-8 pr-8 pb-8 pl-8 justify-center">
+            <h2 class="font-serif text-6xl md:text-8xl text-[#0f2f28] tracking-tighter mb-8 leading-[0.9]">
+              La
+              <span class="italic text-[#2d6a5d]">Politique.</span>
+            </h2>
+            <div class="max-w-md space-y-6">
+              <p class="text-xl font-medium text-[#0f2f28]">
+                Moins de volume. Plus d'impact.
+              </p>
+              <p class="text-[#0f2f28]/70 leading-relaxed text-justify">
+                Nous avons fait le choix radical de limiter notre production à .
+                Ce n'est pas de l'exclusivité pour la forme, c'est une nécessité
+                pour le fond. Cela nous permet de nous dédier corps et âme à
+                votre vision et de garantir que chaque projet est livré, poli et
+                parfait à la fin du mois.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Availability Grid -->
+          <div class="flex flex-col border-t lg:border-t-0 border-[#0f2f28]/10">
+            <!-- Decembre (Sold Out) -->
+            <div class="flex-1 bg-[#1a1a1a] text-[#Fdfcf8] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group border-b border-[#Fdfcf8]/10">
+              <div class="noise-overlay"></div>
+              <div class="flex justify-between items-start relative z-10 opacity-40 group-hover:opacity-60 transition-opacity">
+                <span class="font-mono text-sm uppercase tracking-widest border border-[#Fdfcf8]/30 rounded-full px-3 py-1">
+                  Décembre 2024
+                </span>
+                <span class="h-2 w-2 rounded-full bg-red-500"></span>
+              </div>
+              <div class="relative z-10 mt-12 flex items-center justify-between">
+                <div>
+                  <span class="block font-serif text-4xl md:text-5xl text-[#Fdfcf8]/30 line-through decoration-[#2d6a5d] decoration-2">
+                    Complet
+                  </span>
+                  <span class="text-xs font-mono uppercase text-[#Fdfcf8]/30 mt-2 block">
+                    0 places disponibles
+                  </span>
+                </div>
+                <svg class="w-12 h-12 text-[#Fdfcf8]/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Janvier (Available) -->
+            <div class="flex-1 md:p-12 flex flex-col group hover:bg-[#2d6a5d]/5 transition-colors cursor-pointer text-[#0f2f28] bg-[#Fdfcf8] pt-8 pr-8 pb-8 pl-8 relative justify-between">
+              <div class="flex justify-between items-start">
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-sm uppercase tracking-widest border border-[#0f2f28] rounded-full px-3 py-1 bg-[#0f2f28] text-[#Fdfcf8]">
+                    Janvier 2025
+                  </span>
+                  <span class="inline-flex relative h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                </div>
+                <div class="hidden md:block">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                    <line x1="7" x2="17" y1="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="mt-12">
+                <div class="flex items-baseline gap-4">
+                  <span class="font-serif text-7xl md:text-8xl tracking-tighter text-[#0f2f28]">
+                    2
+                  </span>
+                  <span class="font-serif text-3xl italic text-[#2d6a5d]">
+                    places restantes
+                  </span>
+                </div>
+                <div class="w-full bg-[#0f2f28]/10 h-1 mt-6 overflow-hidden">
+                  <div class="bg-[#0f2f28] h-full w-[33%]"></div>
+                </div>
+                <p class="mt-4 text-xs font-mono uppercase tracking-widest text-[#0f2f28]/60">
+                  Réservez maintenant pour livraison fin Janvier
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer - Full Width Block -->
+      <footer class="relative mx-4 md:mx-12 mb-4 md:mb-12 mt-24 md:mt-32 rounded-[2rem] bg-[#0f2f28] text-[#Fdfcf8] overflow-hidden isolate">
+        <!-- Noise Texture -->
+        <div class="noise-overlay opacity-30"></div>
+
+        <div class="flex flex-col md:px-12 md:pt-20 text-center z-10 pt-16 pr-6 pb-16 pl-6 relative items-center justify-center">
+          <!-- Decoration -->
+          <div class="mb-10 text-[#2d6a5d]/60">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="opacity-80">
+              <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" class=""></path>
+            </svg>
+          </div>
+
+          <!-- Citation -->
+          <blockquote class="max-w-4xl mx-auto mb-8">
+            <p class="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-8">
+              "Le design est l'intelligence rendue visible."
+            </p>
+            <cite class="font-mono text-xs uppercase tracking-[0.2em] text-[#2d6a5d] not-italic">
+              — Alina Wheeler
+            </cite>
+          </blockquote>
+
+          <!-- Footer Bottom -->
+          <div class="w-full mt-16 md:mt-20 pt-8 border-t border-[#Fdfcf8]/10 flex flex-col items-center gap-6">
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2d6a5d] animate-pulse"></span>
+              <span class="text-[10px] uppercase text-[#Fdfcf8]/40 tracking-widest font-mono">
+                Lyon, France
+              </span>
+            </div>
+
+            <nav class="flex flex-wrap gap-8 scale-100 gap-x-8 gap-y-8 justify-center">
+              <a href="services.html" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+                services
+              </a>
+              <a href="portfolio.html" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+                PORTFOLIO
+              </a>
+              <a href="contact.html" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+                l'agence
+              </a>
+              <a href="contact.html" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+                Contact
+              </a>
+            </nav>
+            <div class="flex flex-wrap justify-center gap-6 mt-4">
+              <a href="/mentions-legales" class="text-[9px] uppercase tracking-widest font-normal text-[#Fdfcf8]/30 hover:text-[#Fdfcf8]/50 transition-colors">
+                Mentions légales
+              </a>
+              <a href="/politique-confidentialite" class="text-[9px] uppercase tracking-widest font-normal text-[#Fdfcf8]/30 hover:text-[#Fdfcf8]/50 transition-colors">
+                Politique de confidentialité
+              </a>
+            </div>
+
+            <div class="flex items-center">
+              <a href="index.html" class="text-xl italic tracking-tight font-serif mr-4">
+                Bila.
+              </a>
+              <span class="text-[10px] uppercase tracking-widest font-mono text-[#Fdfcf8]/40">
+                © 2025
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+
+    <script>
+      lucide.createIcons();
+    </script>
+  
+</body></html>

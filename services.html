@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Bila Design Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+body { font-family: 'Manrope', sans-serif; }
+h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+html { scroll-behavior: smooth; }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar { -ms-overflow-style: none;  scrollbar-width: none; }
+/* Animation for the hero text reveal */
+@keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-reveal { animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+/* Sticky Sidebar Logic: Active state marker */
+.step-marker { transition: all 0.5s ease; }
+.group:hover .step-marker { background-color: #0d9488; border-color: #0d9488; color: white; }
+/* Mobile Card Tilt Animation (Scroll Hint) */
+@keyframes cardHint {
+0%, 100% { transform: rotate(0deg) translateX(0); }
+50% { transform: rotate(1.5deg) translateX(4px); }
+}
+/* Apply only on mobile, specific duration and easing */
+.mobile-scroll-hint { animation: cardHint 4s ease-in-out infinite; }
+/* Reset on desktop */
+@media (min-width: 768px) {
+.mobile-scroll-hint { animation: none; transform: none; }
+}
+</style>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""></head>
+<body class="bg-[#Fdfcf8] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- COMMON HEADER START -->
+    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
+      <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+        <a href="#" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+          Bila.
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
+          <a href="services.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Services
+          </a>
+          <a href="portfolio.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            Portfolio
+          </a>
+          <a href="agence.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
+            L'agence
+          </a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <a href="contact.html" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+          Discutons
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
+            <path d="M4 12h16"></path>
+            <path d="M4 6h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- COMMON HEADER END -->
+
+      <!-- Services Hero Section -->
+      <section class="pt-48 pb-20 md:pt-60 md:pb-32 px-6 md:px-12 max-w-[90rem] mx-auto w-full">
+        <div class="max-w-4xl">
+          <h1 class="text-[12vw] md:text-[7vw] leading-[0.9] tracking-tighter text-stone-900 mb-8 animate-reveal">
+            Notre <span class="italic text-teal-600 font-light serif">Processus</span>
+            <br>de Création.
+          </h1>
+          <p class="text-lg md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed animate-reveal delay-200">
+            Une approche en trois temps pour transformer votre vision en une marque digitale pérenne et impactante.
+          </p>
+        </div>
+      </section>
+
+      <!-- The 3-Step Structure Layout -->
+      <section class="relative w-full px-6 md:px-12 pb-32 max-w-[90rem] mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+          
+          <!-- LEFT SIDEBAR (Sticky Navigation) -->
+          <aside class="hidden md:block w-1/4 min-w-[280px]">
+            <div class="sticky top-40 flex flex-col gap-8 border-l border-stone-200 pl-8">
+              <span class="text-xs font-bold tracking-widest uppercase text-stone-400 mb-2">Étapes Clés</span>
+              <a href="#step-1" class="group flex items-center gap-4 opacity-100 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white group-hover:bg-stone-900 group-hover:text-white group-hover:border-stone-900">1</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Fondation &amp; Stratégie</span>
+              </a>
+              <a href="#step-2" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">2</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Interface Web</span>
+              </a>
+              <a href="#step-3" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">3</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Rebranding Global</span>
+              </a>
+            </div>
+          </aside>
+
+          <!-- RIGHT CONTENT -->
+          <div class="flex-1 flex flex-col gap-24 md:gap-40">
+            
+            <!-- STEP 1 -->
+            <div id="step-1" class="group scroll-mt-40">
+              <div class="border-t border-stone-900 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-teal-600 uppercase">Phase 01</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Stratégie &amp; Identité.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Tout commence par une immersion. Avant de dessiner, nous définissons l'âme de votre projet. Cette première phase pose les bases de votre discours et de votre univers visuel initial.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Audit de marque &amp; positionnement
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Direction Artistique (Moodboards)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Logotype &amp; Typographie
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-[#E8E6E1] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <div class="absolute w-40 h-40 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 top-10 left-10 animate-pulse"></div>
+                  <div class="absolute w-40 h-40 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 bottom-10 right-10"></div>
+                  <div class="z-10 bg-white/40 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg">
+                    <div class="serif text-4xl italic text-stone-900">Aa</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div id="step-2" class="group scroll-mt-40">
+              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 02</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Création Digitale.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Nous traduisons votre stratégie en une expérience interactive. Votre site web n'est pas une simple vitrine, c'est un outil de conversion alliant esthétique éditoriale et performance technique.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> UX/UI Design (Maquettes)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Développement (Webflow / Next.js)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Animations &amp; Intéractions
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-stone-900 rounded-2xl overflow-hidden flex items-center justify-center border border-stone-800">
+                  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#2dd4bf 1px, transparent 1px); background-size: 20px 20px;"></div>
+                  <div class="w-2/3 h-40 bg-stone-800 rounded border border-stone-700 shadow-2xl flex flex-col p-3 gap-2 group-hover:scale-105 transition-transform duration-500">
+                     <div class="flex gap-1.5 mb-1">
+                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
+                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
+                     </div>
+                     <div class="w-full h-full bg-stone-700/50 rounded flex items-center justify-center">
+                        <span class="text-teal-500/50 text-xs font-mono">&lt;Code /&gt;</span>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div id="step-3" class="group scroll-mt-40">
+              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 03</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Rebranding Complet.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Une fois le digital établi, nous étendons votre nouvelle identité à l'ensemble de votre écosystème. C'est l'étape de la maturité : une refonte globale pour assurer une cohérence totale sur tous les supports.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Charte Graphique Étendue
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Supports Marketing (Print &amp; Social)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Brand Book &amp; Guidelines
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl overflow-hidden flex items-center justify-center">
+                  <div class="absolute inset-0 bg-white/10 backdrop-blur-3xl"></div>
+                   <div class="relative z-10 flex flex-col items-center">
+                      <div class="text-white text-5xl serif italic mb-2">Bila.</div>
+                      <span class="text-teal-100 text-xs tracking-[0.3em] uppercase">Collection 2025</span>
+                   </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION: SEO SERVICES -->
+      <section class="w-full px-6 md:px-12 pb-32 max-w-[90rem] mx-auto border-t border-stone-200 pt-24">
+        
+        <!-- Section Header -->
+        <div class="mb-16 md:mb-20">
+          <h2 class="serif text-5xl md:text-7xl text-stone-900 mb-4 tracking-tight">Et après...</h2>
+          <p class="text-xl md:text-2xl text-stone-500 font-light tracking-tight max-w-2xl">
+            La visibilité ne s'arrête pas au lancement. Découvrez nos packs d'optimisation continue.
+          </p>
+        </div>
+
+        <!-- Horizontal Scroll Container -->
+        <!-- Added overflow-x-auto for scroll and adjusted padding for mobile edge -->
+        <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
+          
+          <!-- Card 1: Pack SEO Base -->
+          <!-- Added 'mobile-scroll-hint' class for the subtle tilt animation on mobile only -->
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint">
+            <div class="h-full bg-[#F0F0EE] p-8 md:p-10 rounded-2xl border border-stone-200 flex flex-col justify-between group hover:border-stone-400 transition-colors duration-300">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-white border border-stone-200 flex items-center justify-center mb-6 text-stone-900">
+                  <i data-lucide="search" class="w-5 h-5"></i>
+                </div>
+                <h3 class="serif text-3xl text-stone-900 mb-2">Pack SEO Initial</h3>
+                <p class="text-stone-500 text-sm font-medium uppercase tracking-wider mb-6">L'essentiel pour exister</p>
+                <div class="w-full h-px bg-stone-300 mb-6"></div>
+                <ul class="flex flex-col gap-4">
+                  <li class="flex items-start gap-3 text-stone-700 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-stone-400 shrink-0"></i>
+                    Audit technique complet
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-700 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-stone-400 shrink-0"></i>
+                    Indexation &amp; Sitemap
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-700 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-stone-400 shrink-0"></i>
+                    Optimisation balises (Title/Meta)
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-700 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-stone-400 shrink-0"></i>
+                    Configuration Google Console
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-10 mt-auto">
+                <span class="block text-right text-sm font-bold text-stone-400">One shot</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Pack Premium -->
+          <!-- Also added hint class for consistency if user scrolls past first -->
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint" style="animation-delay: 0.2s;">
+            <div class="h-full bg-[#E0F2F1] p-8 md:p-10 rounded-2xl border border-teal-200 flex flex-col justify-between group hover:border-teal-400 transition-colors duration-300">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-teal-500 border border-teal-600 flex items-center justify-center mb-6 text-white shadow-lg shadow-teal-500/20">
+                  <i data-lucide="trending-up" class="w-5 h-5"></i>
+                </div>
+                <h3 class="serif text-3xl text-teal-950 mb-2">Pack SEO Premium</h3>
+                <p class="text-teal-700 text-sm font-medium uppercase tracking-wider mb-6">Stratégie de croissance</p>
+                <div class="w-full h-px bg-teal-200/60 mb-6"></div>
+                <ul class="flex flex-col gap-4">
+                  <li class="flex items-start gap-3 text-teal-900 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-teal-500 shrink-0"></i>
+                    Recherche mots-clés mensuelle
+                  </li>
+                  <li class="flex items-start gap-3 text-teal-900 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-teal-500 shrink-0"></i>
+                    Stratégie de Netlinking
+                  </li>
+                  <li class="flex items-start gap-3 text-teal-900 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-teal-500 shrink-0"></i>
+                    Suivi de positionnement
+                  </li>
+                  <li class="flex items-start gap-3 text-teal-900 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-teal-500 shrink-0"></i>
+                    Rapport de performance
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-10 mt-auto">
+                <span class="block text-right text-sm font-bold text-teal-600">Mensuel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Pack Max -->
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint" style="animation-delay: 0.4s;">
+            <div class="h-full bg-[#F5E6D3] p-8 md:p-10 rounded-2xl border border-orange-200/50 flex flex-col justify-between group hover:border-orange-300 transition-colors duration-300">
+              <div>
+                <div class="w-12 h-12 rounded-full bg-white border border-orange-200 flex items-center justify-center mb-6 text-orange-800">
+                  <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                </div>
+                <h3 class="serif text-3xl text-stone-900 mb-2">Pack SEO Max</h3>
+                <p class="text-orange-800/70 text-sm font-medium uppercase tracking-wider mb-6">Autorité &amp; Contenu</p>
+                <div class="w-full h-px bg-orange-900/10 mb-6"></div>
+                <ul class="flex flex-col gap-4">
+                  <li class="flex items-start gap-3 text-stone-800 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-orange-600/70 shrink-0"></i>
+                    Tout le Pack Premium inclus
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-800 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-orange-600/70 shrink-0"></i>
+                    Rédaction 2 articles / mois
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-800 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-orange-600/70 shrink-0"></i>
+                    Optimisation sémantique
+                  </li>
+                  <li class="flex items-start gap-3 text-stone-800 text-lg">
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-orange-600/70 shrink-0"></i>
+                    Maillage interne avancé
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-10 mt-auto">
+                <span class="block text-right text-sm font-bold text-orange-800/60">Mensuel +</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spacer for scroll padding right -->
+          <div class="w-6 shrink-0 md:hidden"></div>
+        </div>
+      </section>
+
+      <!-- CTA Footer Section -->
+      <section class="mt-auto bg-stone-900 py-24 px-6 md:px-12 rounded-t-[3rem] text-center">
+        <h2 class="serif text-5xl md:text-8xl text-[#Fdfcf8] mb-8">
+          Prêt à commencer ?
+        </h2>
+        <p class="text-stone-400 text-lg mb-12 max-w-xl mx-auto">
+          Discutons de vos objectifs et définissons ensemble la première étape de votre transformation.
+        </p>
+        <button class="hover:bg-teal-400 transition-colors duration-300 text-lg font-medium text-stone-900 bg-teal-500 rounded-full pt-4 pr-8 pb-4 pl-8" onclick="window.location.href='contact.html'" role="button">
+          Réserver un appel découverte
+        </button>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-stone-900 pb-8 text-center">
+         <div class="border-t border-stone-800 max-w-[90rem] mx-auto pt-8 flex flex-col md:flex-row justify-between items-center px-6 md:px-12 text-sm text-stone-500">
+            <p class="">© 2025 Bila Designs</p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+               <a href="#" class="hover:text-teal-400">Mentions légales</a>
+               <a href="#" class="hover:text-teal-400">Politique de confidentialité</a>
+            </div>
+         </div>
+      </footer>
+
+    
+
+    <script>
+      lucide.createIcons();
+    </script>
+</body></html>
