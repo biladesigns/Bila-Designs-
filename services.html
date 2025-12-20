@@ -379,13 +379,170 @@ html { scroll-behavior: smooth; }
             <div class="flex gap-6 mt-4 md:mt-0">
                <a href="#" class="hover:text-teal-400">Mentions légales</a>
                <a href="#" class="hover:text-teal-400">Politique de confidentialité</a>
+               <button onclick="cookieManager.openPreferences()" class="hover:text-teal-400">Gestion des cookies</button>
             </div>
          </div>
       </footer>
 
-    
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#Fdfcf8] rounded-2xl p-6 shadow-2xl border border-[#0f2f28]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-start gap-3">
+          <div class="bg-[#2d6a5d]/10 p-2 rounded-full text-[#2d6a5d] shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
+              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
+              <path d="M8.5 8.5v.01"></path>
+              <path d="M16 15.5v.01"></path>
+              <path d="M12 12v.01"></path>
+              <path d="M11 17v.01"></path>
+              <path d="M7 14v.01"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-serif text-lg text-[#0f2f28] mb-1">Votre vie privée</h3>
+            <p class="text-xs text-[#2d6a5d] leading-relaxed">
+              Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Refuser</button>
+            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Personnaliser</button>
+          </div>
+          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#0f2f28] text-[#Fdfcf8] text-xs font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">Tout Accepter</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookie Preferences Modal -->
+    <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
+      <div class="absolute inset-0 bg-[#0f2f28]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#Fdfcf8] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="p-6 md:p-8">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="font-serif text-3xl md:text-4xl text-[#0f2f28] mb-2">Préférences Cookies</h2>
+              <p class="text-sm text-[#2d6a5d]">Gérez vos préférences de consentement pour chaque catégorie.</p>
+            </div>
+            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#0f2f28]/5 rounded-full transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#0f2f28]/5 border border-[#0f2f28]/5">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="font-bold text-[#0f2f28]">Essentiels</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#0f2f28] text-white">Requis</span>
+                </div>
+                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
+              </div>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
+                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#0f2f28] appearance-none cursor-not-allowed right-0">
+                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#0f2f28] cursor-not-allowed"></label>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+              <div>
+                <span class="font-bold text-[#0f2f28] block mb-1">Analytique</span>
+                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
+              </div>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
+                <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+              <div>
+                <span class="font-bold text-[#0f2f28] block mb-1">Marketing</span>
+                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
+              </div>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
+                <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+              <div>
+                <span class="font-bold text-[#0f2f28] block mb-1">Performance</span>
+                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
+              </div>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
+                <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+              <div>
+                <span class="font-bold text-[#0f2f28] block mb-1">Préférences</span>
+                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
+              </div>
+              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
+                <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#0f2f28]/10 justify-end">
+            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#0f2f28]/20 text-sm font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Tout Refuser</button>
+            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#0f2f28] text-[#Fdfcf8] text-sm font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
       lucide.createIcons();
+
+      // GDPR Cookie Manager Logic
+      const cookieManager = {
+        consent: { essential: true, analytics: false, marketing: false, performance: false, preferences: false },
+        init() {
+          const storedConsent = localStorage.getItem('bila_cookie_consent');
+          if (storedConsent) { this.consent = JSON.parse(storedConsent); }
+          else { this.showBanner(); }
+        },
+        showBanner() {
+          const banner = document.getElementById('cookie-banner');
+          banner.classList.remove('hidden');
+          setTimeout(() => { banner.classList.remove('translate-y-20', 'opacity-0'); }, 100);
+        },
+        hideBanner() {
+          const banner = document.getElementById('cookie-banner');
+          banner.classList.add('translate-y-20', 'opacity-0');
+          setTimeout(() => { banner.classList.add('hidden'); }, 500);
+        },
+        openPreferences() {
+          document.getElementById('cookie_analytics').checked = this.consent.analytics;
+          document.getElementById('cookie_marketing').checked = this.consent.marketing;
+          document.getElementById('cookie_performance').checked = this.consent.performance;
+          document.getElementById('cookie_preferences').checked = this.consent.preferences;
+          document.getElementById('cookie-preferences').classList.remove('hidden');
+        },
+        closePreferences() { document.getElementById('cookie-preferences').classList.add('hidden'); },
+        acceptAll() {
+          this.consent = { essential: true, analytics: true, marketing: true, performance: true, preferences: true };
+          this.saveAndRun();
+        },
+        refuseAll() {
+          this.consent = { essential: true, analytics: false, marketing: false, performance: false, preferences: false };
+          this.saveAndRun();
+        },
+        savePreferences() {
+          this.consent.analytics = document.getElementById('cookie_analytics').checked;
+          this.consent.marketing = document.getElementById('cookie_marketing').checked;
+          this.consent.performance = document.getElementById('cookie_performance').checked;
+          this.consent.preferences = document.getElementById('cookie_preferences').checked;
+          this.closePreferences();
+          this.saveAndRun();
+        },
+        saveAndRun() {
+          localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
+          this.hideBanner();
+        }
+      };
+      document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
     </script>
+
 </body></html>
