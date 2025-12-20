@@ -532,6 +532,22 @@ overflow: hidden;
       </div>
     </footer>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+      <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
+        <a href="services.html" class="mobile-link hover:text-teal-600 transition-colors">Services</a>
+        <a href="portfolio.html" class="mobile-link hover:text-teal-600 transition-colors">Portfolio</a>
+        <a href="agence.html" class="mobile-link hover:text-teal-600 transition-colors">L'agence</a>
+        <a href="contact.html" class="mobile-link mt-4 px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
+      </nav>
+    </div>
+
     <!-- Cookie Consent Banner -->
     <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#Fdfcf8] rounded-2xl p-6 shadow-2xl border border-[#0f2f28]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
       <div class="flex flex-col gap-4">
@@ -701,6 +717,40 @@ overflow: hidden;
 
     <script>
       lucide.createIcons();
+
+      // Navigation Mobile
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('mobile-menu-close');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      function openMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+          document.body.style.overflow = 'hidden';
+          if (menuIcon) menuIcon.classList.add('opacity-0');
+          if (closeIcon) closeIcon.classList.remove('opacity-0');
+        }
+      }
+
+      function closeMenu() {
+        if (mobileMenu) {
+          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+          document.body.style.overflow = '';
+          if (menuIcon) menuIcon.classList.remove('opacity-0');
+          if (closeIcon) closeIcon.classList.add('opacity-0');
+        }
+      }
+
+      if (menuBtn) menuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
+      });
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
       // GDPR Cookie Manager Logic
       const cookieManager = {
