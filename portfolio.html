@@ -7,6 +7,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 body { font-family: 'Manrope', sans-serif; }
 h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
@@ -36,6 +37,147 @@ transform: scale(1) rotate(2deg);
 /* Utilities for filtering display */
 .hidden-force { display: none !important; }
 .fade-in { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* ===== BOUTON 1: Nos Réalisations ===== */
+.btn-container-focus { position: relative; display: inline-block; }
+.btn-glow-focus {
+  position: absolute; inset: -4px;
+  background: linear-gradient(90deg, #3b5bdb, #e64980, #fd7e14, #3b5bdb);
+  background-size: 300% 100%; border-radius: 60px; filter: blur(20px);
+  opacity: 0.6; animation: glowMoveFocus 4s ease-in-out infinite; z-index: 0;
+}
+@keyframes glowMoveFocus {
+  0%, 100% { background-position: 0% 50%; opacity: 0.5; }
+  50% { background-position: 100% 50%; opacity: 0.8; }
+}
+.btn-realisations-focus {
+  position: relative; z-index: 1; padding: 20px 52px; font-size: 17px;
+  font-weight: 600; font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;
+  color: #fff; background: #12121f; border: none; border-radius: 56px;
+  cursor: pointer; overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.btn-realisations-focus:hover { transform: scale(1.02); }
+.btn-realisations-focus::before {
+  content: ''; position: absolute; inset: 0; border-radius: 56px; padding: 2px;
+  background: linear-gradient(90deg, #3b5bdb, #7048e8, #e64980, #fd7e14, #fab005, #3b5bdb);
+  background-size: 200% 100%; animation: borderMoveFocus 3s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+}
+@keyframes borderMoveFocus { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+.particles-focus { position: absolute; inset: 0; border-radius: 56px; overflow: hidden; pointer-events: none; }
+.particle-focus {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;
+}
+.btn-realisations-focus:hover .particle-focus { opacity: 1; animation: particleFloatFocus 2s ease-in-out infinite; }
+.particle-focus:nth-child(1) { background: #3b5bdb; left: 10%; top: 30%; animation-delay: 0s; }
+.particle-focus:nth-child(2) { background: #e64980; left: 25%; top: 60%; animation-delay: 0.4s; }
+.particle-focus:nth-child(3) { background: #fd7e14; left: 50%; top: 20%; animation-delay: 0.8s; }
+.particle-focus:nth-child(4) { background: #7048e8; left: 75%; top: 70%; animation-delay: 1.2s; }
+.particle-focus:nth-child(5) { background: #fab005; left: 90%; top: 40%; animation-delay: 1.6s; }
+@keyframes particleFloatFocus {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-10px) scale(1.5); opacity: 1; }
+}
+.focus-ring-focus {
+  position: absolute; inset: -8px; border-radius: 64px;
+  border: 2px solid rgba(230, 73, 128, 0.6); opacity: 0; pointer-events: none;
+}
+.btn-realisations-focus:hover .focus-ring-focus { animation: focusExpandFocus 1.5s ease-out infinite; }
+@keyframes focusExpandFocus {
+  0% { transform: scale(0.95); opacity: 0; }
+  30% { opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+.inner-light-focus {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 60%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  pointer-events: none;
+}
+.btn-text-focus { position: relative; z-index: 2; color: #fff; }
+
+/* ===== BOUTON 2: Nous Contacter ===== */
+.button-wrapper-focus { position: relative; padding: 30px; }
+.button-aura-focus {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 120%; height: 120%; border-radius: 60px;
+  background: radial-gradient(circle, rgba(255, 20, 147, 0.3) 0%, rgba(0, 102, 255, 0.2) 50%, transparent 70%);
+  animation: auraPulseFocus 2s ease-in-out infinite; filter: blur(15px);
+}
+@keyframes auraPulseFocus {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
+}
+.focus-button-contact {
+  position: relative; padding: 0; background: transparent; border: none; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 10px 30px rgba(255, 20, 147, 0.4));
+}
+.focus-button-contact:hover {
+  transform: translateY(-5px);
+  filter: drop-shadow(0 15px 40px rgba(255, 20, 147, 0.6));
+}
+.button-body-focus {
+  position: relative; padding: 22px 55px;
+  background: linear-gradient(135deg, #FF1493 0%, #0066FF 50%, #FF1493 100%);
+  background-size: 200% 200%; border-radius: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.3), inset 0 2px 10px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.4);
+  overflow: hidden; animation: gradientShiftFocus 4s ease infinite;
+}
+@keyframes gradientShiftFocus { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.button-flows-focus {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden; border-radius: 50px; pointer-events: none;
+}
+.inner-flow-focus {
+  position: absolute; border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; animation: innerFlowMoveFocus 6s ease-in-out infinite;
+}
+.inner-flow-focus:nth-child(1) { width: 80px; height: 80px; top: -20px; left: -20px; animation-delay: 0s; }
+.inner-flow-focus:nth-child(2) { width: 60px; height: 60px; top: 50%; right: -15px; animation-delay: 1s; }
+.inner-flow-focus:nth-child(3) { width: 70px; height: 70px; bottom: -25px; left: 30%; animation-delay: 2s; }
+@keyframes innerFlowMoveFocus {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(15px, -15px) scale(1.2); opacity: 0.7; }
+}
+.button-text-contact {
+  font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: #FFFFFF;
+  position: relative; z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.focus-button-contact:hover .button-text-contact {
+  letter-spacing: 2px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
+}
+.contact-icon-focus {
+  display: inline-block; margin-left: 12px; width: 24px; height: 24px;
+  position: relative; vertical-align: middle;
+}
+.icon-circle-focus {
+  position: absolute; border: 2px solid #FFFFFF; border-radius: 50%;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.icon-circle-focus:nth-child(1) { width: 8px; height: 8px; background: #FFFFFF; animation: targetPulseFocus 1.5s ease-in-out infinite; }
+.icon-circle-focus:nth-child(2) { width: 16px; height: 16px; animation: targetPulseFocus 1.5s ease-in-out infinite 0.2s; }
+.icon-circle-focus:nth-child(3) { width: 24px; height: 24px; animation: targetPulseFocus 1.5s ease-in-out infinite 0.4s; }
+@keyframes targetPulseFocus {
+  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+}
+.shine-effect-focus {
+  position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-25deg); animation: shineFocus 3s ease-in-out infinite;
+}
+@keyframes shineFocus { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
 </style>
 <script src="https://www.aura.build/FxFilter.js"></script>
 <link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap"><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
@@ -143,17 +285,19 @@ transform: scale(1) rotate(2deg);
                 </span>
               </div>
               <h2 class="text-5xl md:text-7xl serif leading-none mb-6">
-                Orion
+                Focus
                 <br>
-                <i class="text-teal-600">Security</i>
+                <i class="text-teal-600">emlyon</i>
               </h2>
-              <p class="md:text-xl leading-relaxed text-lg text-stone-500 max-w-sm">Refonte complète de l'expérience digitale
-                d'un spécialiste de la sécurité privée. Une interface repensée pour incarner confiance, modernité et fluidité.
+              <p class="md:text-xl leading-relaxed text-lg text-stone-500 max-w-sm">L'œil de l'école. Une identité numérique dynamique pour l'association audiovisuelle d'emlyon business school. Capturer l'instant, sublimer le mouvement.
               </p>
 
               <div class="mt-8 flex gap-2">
                 <span class="px-3 py-1 bg-stone-100 rounded text-xs font-medium text-stone-600">
                   Web Design
+                </span>
+                <span class="px-3 py-1 bg-stone-100 rounded text-xs font-medium text-stone-600">
+                  Motion
                 </span>
                 <span class="text-xs font-medium text-stone-600 bg-stone-100 rounded pt-1 pr-3 pb-1 pl-3">À la une</span>
               </div>
@@ -172,19 +316,51 @@ transform: scale(1) rotate(2deg);
               </div>
             </div>
 
-            <!-- Image 2 -->
-            <div class="grid grid-cols-2 gap-4 md:gap-8 gap-x-4 gap-y-4 my-12 md:my-0">
-              <div class="group relative w-full">
-                <div class="transition-transform duration-700 group-hover:scale-105 flex bg-[#0E0F22] absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
-                  <span class="serif italic text-6xl text-stone-700 opacity-20">
-                    Aa
-                  </span>
+            <!-- Boutons Focus -->
+            <div class="my-12 md:my-0">
+              <p class="text-center text-sm text-stone-400 uppercase tracking-widest mb-8">Des boutons designés spécialement pour Focus</p>
+              <div class="flex flex-col md:flex-row gap-8 items-center justify-center py-16 bg-[#0a0a1a] rounded-2xl">
+
+                <!-- Bouton 1: Nos Réalisations -->
+                <div class="btn-container-focus">
+                  <div class="btn-glow-focus"></div>
+                  <button class="btn-realisations-focus">
+                    <div class="particles-focus">
+                      <div class="particle-focus"></div>
+                      <div class="particle-focus"></div>
+                      <div class="particle-focus"></div>
+                      <div class="particle-focus"></div>
+                      <div class="particle-focus"></div>
+                    </div>
+                    <div class="focus-ring-focus"></div>
+                    <div class="inner-light-focus"></div>
+                    <span class="btn-text-focus">Nos Réalisations</span>
+                  </button>
                 </div>
-              </div>
-              <div class="group relative w-full aspect-[3/4] overflow-hidden rounded-2xl cursor-pointer bg-stone-100 mt-12">
-                <div class="transition-transform duration-700 group-hover:scale-105 flex bg-[#0C5EA8] absolute top-0 right-0 bottom-0 left-0 items-center justify-center">
-                  <div class="bg-[#0C5EA8] opacity-50 w-20 h-20 rounded-full blur-3xl"></div>
+
+                <!-- Bouton 2: Nous Contacter -->
+                <div class="button-wrapper-focus">
+                  <div class="button-aura-focus"></div>
+                  <button class="focus-button-contact">
+                    <div class="button-body-focus">
+                      <div class="button-flows-focus">
+                        <div class="inner-flow-focus"></div>
+                        <div class="inner-flow-focus"></div>
+                        <div class="inner-flow-focus"></div>
+                      </div>
+                      <div class="shine-effect-focus"></div>
+                      <span class="button-text-contact">
+                        Nous Contacter
+                        <span class="contact-icon-focus">
+                          <span class="icon-circle-focus"></span>
+                          <span class="icon-circle-focus"></span>
+                          <span class="icon-circle-focus"></span>
+                        </span>
+                      </span>
+                    </div>
+                  </button>
                 </div>
+
               </div>
             </div>
 
@@ -192,12 +368,12 @@ transform: scale(1) rotate(2deg);
             <div class="group relative w-full aspect-[16/9] overflow-hidden rounded-2xl cursor-pointer">
               <div class="absolute inset-0 bg-stone-900 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
                 <div class="text-white/30 text-9xl font-bold tracking-tighter">
-                  ORION
+                  FOCUS
                 </div>
               </div>
               <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full">
                 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay="" loop="" muted="" playsinline="">
-                  <source src="https://orionsecurity.fr/wp-content/uploads/2025/12/orio.mp4" type="video/mp4">
+                  <source src="https://orionsecurity.fr/wp-content/uploads/2025/12/Enregistrement-de-lecran-2025-12-22-a-01.15.56.mov" type="video/mp4">
                 </video>
                 <div class="absolute inset-0 bg-stone-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute top-0 right-0 bottom-0 left-0 translate-y-4 items-center justify-center">
