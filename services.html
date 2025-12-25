@@ -32,6 +32,18 @@ html { scroll-behavior: smooth; }
 @media (min-width: 768px) {
 .mobile-scroll-hint { animation: none; transform: none; }
 }
+/* SEO Cards Animation */
+.seo-card { opacity: 0; transform: translateY(60px); }
+.seo-card.animate {
+  animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.seo-card:nth-child(1) { animation-delay: 0s; }
+.seo-card:nth-child(2) { animation-delay: 0.15s; }
+.seo-card:nth-child(3) { animation-delay: 0.3s; }
+@keyframes seoCardReveal {
+  from { opacity: 0; transform: translateY(60px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 </style>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -252,8 +264,7 @@ html { scroll-behavior: smooth; }
         <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar -mx-6 px-6 md:mx-0 md:px-0">
           
           <!-- Card 1: Pack SEO Base -->
-          <!-- Added 'mobile-scroll-hint' class for the subtle tilt animation on mobile only -->
-          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint">
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full seo-card">
             <div class="h-full bg-[#F0F0EE] p-8 md:p-10 rounded-2xl border border-stone-200 flex flex-col justify-between group hover:border-stone-400 transition-colors duration-300">
               <div>
                 <div class="w-12 h-12 rounded-full bg-white border border-stone-200 flex items-center justify-center mb-6 text-stone-900">
@@ -288,8 +299,7 @@ html { scroll-behavior: smooth; }
           </div>
 
           <!-- Card 2: Pack Premium -->
-          <!-- Also added hint class for consistency if user scrolls past first -->
-          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint" style="animation-delay: 0.2s;">
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full seo-card">
             <div class="h-full bg-[#E0F2F1] p-8 md:p-10 rounded-2xl border border-teal-200 flex flex-col justify-between group hover:border-teal-400 transition-colors duration-300">
               <div>
                 <div class="w-12 h-12 rounded-full bg-teal-500 border border-teal-600 flex items-center justify-center mb-6 text-white shadow-lg shadow-teal-500/20">
@@ -324,7 +334,7 @@ html { scroll-behavior: smooth; }
           </div>
 
           <!-- Card 3: Pack Max -->
-          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full mobile-scroll-hint" style="animation-delay: 0.4s;">
+          <div class="flex-none w-[85vw] md:w-[400px] snap-center h-full seo-card">
             <div class="h-full bg-[#F5E6D3] p-8 md:p-10 rounded-2xl border border-orange-200/50 flex flex-col justify-between group hover:border-orange-300 transition-colors duration-300">
               <div>
                 <div class="w-12 h-12 rounded-full bg-white border border-orange-200 flex items-center justify-center mb-6 text-orange-800">
@@ -514,6 +524,18 @@ html { scroll-behavior: smooth; }
 
     <script>
       lucide.createIcons();
+
+      // SEO Cards Animation on Scroll
+      const seoCards = document.querySelectorAll('.seo-card');
+      const seoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            seoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      seoCards.forEach(card => seoObserver.observe(card));
 
       // Navigation Mobile
       const menuBtn = document.getElementById('mobile-menu-btn');
