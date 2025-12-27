@@ -1,0 +1,11 @@
+# Robots.txt for Bila Design Studio
+# https://biladesigns.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://biladesigns.com/sitemap.xml
+
+# Disallow admin or private areas (none currently)
+# Disallow: /admin/
