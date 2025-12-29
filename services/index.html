@@ -604,6 +604,15 @@ html { scroll-behavior: smooth; }
         seoCards.forEach(card => card.classList.add('visible'));
       }, 2000);
 
+      // Fonction pour réinitialiser les icônes Lucide
+      function refreshLucideIcons() {
+        try {
+          if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+          }
+        } catch (e) {}
+      }
+
       try {
         const seoObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -611,6 +620,7 @@ html { scroll-behavior: smooth; }
               clearTimeout(seoFallbackTimeout);
               entry.target.classList.add('animate');
               seoObserver.unobserve(entry.target);
+              refreshLucideIcons(); // Re-render icônes après animation
             }
           });
         }, { threshold: 0.1, rootMargin: '50px' });
@@ -618,7 +628,11 @@ html { scroll-behavior: smooth; }
       } catch (e) {
         // Fallback si IntersectionObserver non supporté
         seoCards.forEach(card => card.classList.add('visible'));
+        refreshLucideIcons();
       }
+
+      // Re-render icônes après chargement complet
+      window.addEventListener('load', refreshLucideIcons);
 
       // Navigation Mobile
       const menuBtn = document.getElementById('mobile-menu-btn');
