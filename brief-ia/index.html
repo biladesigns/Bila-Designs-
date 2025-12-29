@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief IA | Bila Designs - Créez votre brief en quelques minutes</title>
+  <meta name="description" content="Utilisez notre assistant IA pour créer rapidement un brief complet pour votre projet web. Suggestions intelligentes et structure optimisée.">
+  <meta name="keywords" content="brief projet web, assistant IA, création site web, bila designs, brief digital">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Brief IA | Bila Designs">
+  <meta property="og:description" content="Créez votre brief projet en quelques minutes avec notre assistant IA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://biladesigns.com/brief-ia">
+  <meta property="og:locale" content="fr_FR">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brief IA | Bila Designs">
+  <meta name="twitter:description" content="Créez votre brief projet en quelques minutes avec notre assistant IA.">
+  <link rel="canonical" href="https://biladesigns.com/brief-ia">
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Scripts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+    html { scroll-behavior: smooth; }
+    ::-webkit-scrollbar { width: 0px; background: transparent; }
+    .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+    .font-manrope { font-family: 'Manrope', sans-serif !important; }
+
+    /* Progress bar animation */
+    .progress-fill { transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+    /* Step transitions */
+    .step-container {
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      display: none;
+    }
+    .step-container.active {
+      opacity: 1;
+      transform: translateX(0);
+      display: block;
+    }
+    .step-container.exit {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    /* Loading spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 1s linear infinite; }
+
+    /* Select styling */
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(253, 252, 248, 0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1em;
+    }
+
+    /* Checkbox styling */
+    .checkbox-item input:checked + label {
+      background-color: rgba(45, 106, 93, 0.2);
+      border-color: #2d6a5d;
+    }
+    .checkbox-item input:checked + label .checkbox-icon {
+      opacity: 1;
+      background-color: #2d6a5d;
+    }
+
+    /* Tag input */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(253, 252, 248, 0.1);
+      border: 1px solid rgba(253, 252, 248, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+    }
+    .tag button { opacity: 0.6; transition: opacity 0.2s; }
+    .tag button:hover { opacity: 1; }
+
+    /* Generated content box */
+    .ai-content {
+      background: rgba(45, 106, 93, 0.1);
+      border: 1px solid rgba(45, 106, 93, 0.3);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Pulse animation for AI button */
+    @keyframes pulse-subtle {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(45, 106, 93, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(45, 106, 93, 0); }
+    }
+    .ai-btn:not(:disabled):hover { animation: pulse-subtle 2s infinite; }
+
+    /* Page cards - Enhanced design */
+    .page-card {
+      background: linear-gradient(135deg, rgba(253, 252, 248, 0.03) 0%, rgba(45, 106, 93, 0.05) 100%);
+      border: 1px solid rgba(253, 252, 248, 0.1);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .page-card:hover {
+      border-color: rgba(45, 106, 93, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+    .page-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2d6a5d 0%, #1a4a42 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .page-card-icon svg { color: #Fdfcf8; }
+
+    /* Loading skeleton */
+    .skeleton {
+      background: linear-gradient(90deg, rgba(253, 252, 248, 0.05) 25%, rgba(253, 252, 248, 0.1) 50%, rgba(253, 252, 248, 0.05) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+      border-radius: 0.5rem;
+    }
+    @keyframes skeleton-loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: #0f2f28;
+      border: 1px solid rgba(253, 252, 248, 0.1);
+      border-radius: 1.5rem;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    /* Textarea enhanced */
+    .textarea-enhanced {
+      min-height: 120px;
+      line-height: 1.6;
+    }
+    .textarea-enhanced::placeholder {
+      color: rgba(253, 252, 248, 0.4);
+      font-style: italic;
+    }
+
+    /* Line clamp utility */
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Amélioration du bouton IA */
+    .ai-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    .ai-btn:hover::before {
+      left: 100%;
+    }
+  </style>
+</head>
+<body class="bg-[#Fdfcf8] text-[#0f2f28] antialiased overflow-x-hidden selection:bg-[#2d6a5d] selection:text-[#Fdfcf8]">
+  <!-- HEADER -->
+  <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
+    <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+      <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+        Bila.
+      </a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-10 text-slate-950 items-center">
+        <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">Services</a>
+        <a href="/portfolio" class="hover:opacity-70 transition-opacity text-lg font-medium">Portfolio</a>
+        <a href="/agence" class="hover:opacity-70 transition-opacity text-lg font-medium">L'agence</a>
+      </div>
+      <!-- Desktop CTA -->
+      <a href="/contact" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+        Discutons
+      </a>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
+        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
+          <path d="M4 12h16"></path>
+          <path d="M4 6h16"></path>
+          <path d="M4 18h16"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
+      <a href="/services" class="mobile-link hover:text-teal-600 transition-colors">Services</a>
+      <a href="/portfolio" class="mobile-link hover:text-teal-600 transition-colors">Portfolio</a>
+      <a href="/agence" class="mobile-link hover:text-teal-600 transition-colors">L'agence</a>
+      <a href="/contact" class="mobile-link mt-4 px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="md:px-12 md:pt-32 w-full max-w-[95rem] mx-auto pt-24 px-6 pb-12">
+    <div class="max-w-4xl">
+      <span class="uppercase block text-xs font-bold text-[#2d6a5d] tracking-widest mb-6 pl-1">
+        Assistant IA
+      </span>
+      <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-serif text-[#0f2f28] tracking-tight mb-6">
+        <span class="block">Créez votre brief</span>
+        <span class="block italic opacity-90">en quelques minutes.</span>
+      </h1>
+      <p class="md:text-xl leading-relaxed text-lg font-medium text-[#2d6a5d] max-w-xl">
+        Notre assistant IA vous guide étape par étape pour définir votre projet web.
+        Recevez des suggestions intelligentes et un brief structuré.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROGRESS BAR -->
+  <section class="px-6 md:px-12 max-w-[95rem] mx-auto mb-8">
+    <div class="flex items-center justify-between mb-3">
+      <span id="step-label" class="text-sm font-medium text-[#2d6a5d]">Étape 1 sur 6</span>
+      <span id="step-name" class="text-sm text-stone-500">Votre activité</span>
+    </div>
+    <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
+      <div id="progress-bar" class="progress-fill h-full bg-[#2d6a5d] rounded-full" style="width: 16.66%"></div>
+    </div>
+  </section>
+
+  <!-- FORM CONTAINER -->
+  <section class="px-4 md:px-12 max-w-[95rem] mx-auto w-full mb-32">
+    <div class="flex gap-8">
+      <!-- FORMULAIRE -->
+      <div class="flex-1 bg-[#0f2f28] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden">
+        <!-- Decorative blob -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#2d6a5d] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
+
+        <form id="brief-form" class="relative z-10">
+
+        <!-- STEP 1: Activité -->
+        <div class="step-container active" data-step="1">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Parlez-nous de votre activité</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Ces informations nous aident à personnaliser les suggestions.</p>
+
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Nom de l'entreprise *</label>
+              <input type="text" name="business" required
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                placeholder="Ex: Boulangerie Dupont">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Secteur d'activité *</label>
+              <select name="sector" id="sector-select" required
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                <option value="" disabled selected>Choisissez un secteur</option>
+                <option value="commerce">Commerce / Retail</option>
+                <option value="restauration">Restauration / Food</option>
+                <option value="sante">Santé / Bien-être</option>
+                <option value="tech">Tech / Startup</option>
+                <option value="artisanat">Artisanat / Métiers d'art</option>
+                <option value="services">Services aux entreprises</option>
+                <option value="immobilier">Immobilier</option>
+                <option value="education">Éducation / Formation</option>
+                <option value="mode">Mode / Beauté</option>
+                <option value="sport">Sport / Fitness</option>
+                <option value="culture">Culture / Événementiel</option>
+                <option value="avocat">Avocat / Juridique</option>
+                <option value="medical">Médecin / Cabinet médical</option>
+                <option value="autre">Autre</option>
+              </select>
+              <!-- Tip IA -->
+              <div id="sector-tip" class="hidden mt-4 p-4 bg-[#2d6a5d]/20 border border-[#2d6a5d]/30 rounded-xl">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="lightbulb" class="w-5 h-5 text-[#2d6a5d] flex-shrink-0 mt-0.5"></i>
+                  <p id="sector-tip-text" class="text-sm text-[#Fdfcf8]/80"></p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Description courte</label>
+              <textarea name="description" rows="3"
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                placeholder="Décrivez votre activité en quelques mots..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Cible -->
+        <div class="step-container" data-step="2">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Qui est votre cible ?</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Définissez votre audience principale.</p>
+
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-3">Type de clientèle *</label>
+              <div class="flex flex-wrap gap-3">
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="target_type" value="b2c" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Particuliers (B2C)
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="target_type" value="b2b" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Entreprises (B2B)
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Tranche d'âge principale</label>
+              <select name="age_range"
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                <option value="" disabled selected>Choisissez une tranche</option>
+                <option value="18-25">18-25 ans</option>
+                <option value="25-35">25-35 ans</option>
+                <option value="35-50">35-50 ans</option>
+                <option value="50+">50 ans et plus</option>
+                <option value="all">Tous âges</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Description de votre client idéal</label>
+              <textarea name="target_description" rows="3"
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                placeholder="Ex: Jeunes professionnels urbains à la recherche de produits bio..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Pages souhaitées -->
+        <div class="step-container" data-step="3">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Structure de votre site</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Définissez les pages et leur hiérarchie. Vous pouvez créer des sous-pages.</p>
+
+          <div class="space-y-6">
+            <!-- Pages standards -->
+            <div>
+              <label class="block text-sm font-medium mb-3">Pages principales</label>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="pages-grid">
+                <label class="checkbox-item cursor-pointer" data-page="Accueil">
+                  <input type="checkbox" name="pages" value="Accueil" class="sr-only" checked>
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Accueil
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer" data-page="À propos">
+                  <input type="checkbox" name="pages" value="À propos" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    À propos
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer" data-page="Services">
+                  <input type="checkbox" name="pages" value="Services" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Services
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer" data-page="Contact">
+                  <input type="checkbox" name="pages" value="Contact" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Contact
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer" data-page="Portfolio">
+                  <input type="checkbox" name="pages" value="Portfolio" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Portfolio
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer" data-page="Blog">
+                  <input type="checkbox" name="pages" value="Blog" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Blog
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Ajouter page personnalisée -->
+            <div class="pt-4 border-t border-[#Fdfcf8]/10">
+              <label class="block text-sm font-medium mb-2">Ajouter une page personnalisée</label>
+              <div class="flex gap-2 mb-3">
+                <input type="text" id="custom-page-input"
+                  class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                  placeholder="Nom de la page (ex: Tarifs, FAQ...)">
+                <select id="parent-page-select" class="bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-3 py-3 text-[#Fdfcf8] text-sm">
+                  <option value="">Page principale</option>
+                </select>
+                <button type="button" id="add-custom-page-btn" class="px-4 py-3 bg-[#Fdfcf8]/10 rounded-lg hover:bg-[#Fdfcf8]/20 transition-all">
+                  <i data-lucide="plus" class="w-5 h-5"></i>
+                </button>
+              </div>
+              <p class="text-xs text-[#Fdfcf8]/40">Sélectionnez une page parente pour créer une sous-page (ex: Services > Droit du travail)</p>
+            </div>
+
+            <!-- Pages personnalisées ajoutées -->
+            <div id="custom-pages-container" class="space-y-2 hidden">
+              <label class="block text-sm font-medium mb-2">Pages ajoutées</label>
+              <div id="custom-pages-list" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Suggestions IA -->
+            <div class="pt-4 border-t border-[#Fdfcf8]/10">
+              <button type="button" id="suggest-pages-btn" class="ai-btn flex items-center gap-2 px-5 py-3 bg-[#2d6a5d] text-white rounded-full font-medium hover:bg-[#2d6a5d]/80 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Suggérer des pages avec l'IA</span>
+              </button>
+              <p class="text-xs text-[#Fdfcf8]/40 mt-2">L'IA suggèrera des pages adaptées à votre secteur (hors pages déjà sélectionnées)</p>
+              <div id="ai-pages-suggestions" class="ai-content hidden">
+                <p class="text-sm text-[#Fdfcf8]/60 mb-2">Suggestions de l'IA :</p>
+                <div id="ai-pages-list" class="flex flex-wrap gap-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Contenu par page -->
+        <div class="step-container" data-step="4">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Contenu des pages</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Décrivez les éléments clés de chaque page. L'IA générera du contenu basé sur vos notes ET votre description d'entreprise.</p>
+
+          <div id="pages-content-container" class="space-y-6">
+            <!-- Dynamically populated based on selected pages -->
+          </div>
+        </div>
+
+        <!-- STEP 5: SEO -->
+        <div class="step-container" data-step="5">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Vos mots-clés</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Quels mots décrivent le mieux votre activité ? Ces mots aideront vos clients à vous trouver sur Google.</p>
+
+          <!-- Suggestions IA -->
+          <div id="keywords-suggestions" class="hidden mb-6">
+            <label class="block text-xs text-[#2d6a5d] font-medium mb-3">
+              <i data-lucide="sparkles" class="w-3 h-3 inline mr-1"></i>
+              Suggestions basées sur votre secteur (cliquez pour ajouter)
+            </label>
+            <div id="keywords-suggestions-list" class="flex flex-wrap gap-2">
+              <!-- Suggestions cliquables -->
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-3">Vos mots-clés</label>
+            <div class="flex gap-2 mb-4">
+              <input type="text" id="keyword-input"
+                class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                placeholder="Tapez ou cliquez sur une suggestion...">
+              <button type="button" id="add-keyword-btn" class="px-4 py-3 bg-[#2d6a5d] text-white rounded-lg hover:bg-[#2d6a5d]/80 transition-all">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </button>
+            </div>
+            <div id="keywords-container" class="flex flex-wrap gap-2">
+              <!-- Tags will be added here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: Design -->
+        <div class="step-container" data-step="6">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Préférences design</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Définissez l'univers visuel de votre site.</p>
+
+          <div class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Style souhaité *</label>
+              <select name="design_style" required
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                <option value="" disabled selected>Choisissez un style</option>
+                <option value="moderne">Moderne & Épuré</option>
+                <option value="minimaliste">Minimaliste</option>
+                <option value="corporate">Corporate & Professionnel</option>
+                <option value="creatif">Créatif & Artistique</option>
+                <option value="luxe">Luxe & Premium</option>
+                <option value="dynamique">Dynamique & Coloré</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-2">Sites de référence (optionnel)</label>
+              <textarea name="reference_sites" rows="2"
+                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                placeholder="https://site1.com, https://site2.com"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium mb-3">Fonctionnalités souhaitées</label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="features" value="animations" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Animations
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="features" value="dark_mode" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Mode sombre
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="features" value="multilingual" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    Multilingue
+                  </span>
+                </label>
+                <label class="checkbox-item cursor-pointer">
+                  <input type="checkbox" name="features" value="ecommerce" class="sr-only">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                    </span>
+                    E-commerce
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 7: Récapitulatif -->
+        <div class="step-container" data-step="7">
+          <h2 class="font-serif text-3xl md:text-4xl mb-2">Récapitulatif de votre brief</h2>
+          <p class="text-[#Fdfcf8]/60 mb-8">Vérifiez les informations avant de finaliser.</p>
+
+          <div id="summary-content" class="space-y-6">
+            <!-- Summary will be generated here -->
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 mt-8 pt-8 border-t border-[#Fdfcf8]/10">
+            <button type="button" id="download-pdf-btn" class="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
+              <i data-lucide="download" class="w-5 h-5"></i>
+              Télécharger le PDF
+            </button>
+            <button type="submit" class="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-[#2d6a5d] text-white rounded-full font-bold hover:bg-[#2d6a5d]/80 hover:scale-105 transition-all duration-300">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              Envoyer le brief
+            </button>
+          </div>
+        </div>
+
+        <!-- NAVIGATION BUTTONS -->
+        <div class="flex justify-between mt-10 pt-8 border-t border-[#Fdfcf8]/10" id="nav-buttons">
+          <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#Fdfcf8]/20 hover:bg-[#Fdfcf8]/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            Précédent
+          </button>
+          <button type="button" id="next-btn" class="flex items-center gap-2 px-6 py-3 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
+            Suivant
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Hidden form fields for FormSubmit -->
+        <input type="hidden" name="_subject" value="Nouveau Brief IA - Bila Designs">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="brief_data" id="brief-data-field">
+      </form>
+      </div>
+
+      <!-- SIDEBAR PREVIEW -->
+      <div class="hidden lg:block w-80 flex-shrink-0">
+        <div class="sticky top-8">
+          <div class="bg-[#0f2f28] rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Browser mockup header -->
+            <div class="bg-[#1a3d35] px-4 py-3 flex items-center gap-2">
+              <div class="flex gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                <span class="w-3 h-3 rounded-full bg-green-400"></span>
+              </div>
+              <div class="flex-1 bg-[#0f2f28] rounded px-3 py-1 text-xs text-[#Fdfcf8]/40 font-mono truncate" id="preview-url">
+                votresite.com
+              </div>
+            </div>
+
+            <!-- Preview content -->
+            <div class="p-4 min-h-[400px] bg-gradient-to-b from-[#0f2f28] to-[#162f29]">
+              <!-- Header preview -->
+              <div class="flex items-center justify-between mb-6 pb-3 border-b border-[#Fdfcf8]/10">
+                <span id="preview-business" class="text-sm font-bold text-[#Fdfcf8]">Votre entreprise</span>
+                <div class="flex gap-2">
+                  <span class="w-8 h-1 bg-[#Fdfcf8]/20 rounded"></span>
+                  <span class="w-8 h-1 bg-[#Fdfcf8]/20 rounded"></span>
+                </div>
+              </div>
+
+              <!-- Navigation preview -->
+              <div class="mb-6">
+                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Navigation</p>
+                <div id="preview-pages" class="flex flex-wrap gap-1.5">
+                  <span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">Accueil</span>
+                </div>
+              </div>
+
+              <!-- Hero preview -->
+              <div class="mb-6 p-4 bg-[#Fdfcf8]/5 rounded-lg">
+                <div class="w-16 h-1.5 bg-[#2d6a5d] rounded mb-2"></div>
+                <div class="w-full h-2 bg-[#Fdfcf8]/10 rounded mb-1.5"></div>
+                <div class="w-3/4 h-2 bg-[#Fdfcf8]/10 rounded"></div>
+              </div>
+
+              <!-- Keywords preview -->
+              <div class="mb-4">
+                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Mots-clés SEO</p>
+                <div id="preview-keywords" class="flex flex-wrap gap-1">
+                  <span class="text-[9px] text-[#Fdfcf8]/40 italic">Aucun mot-clé</span>
+                </div>
+              </div>
+
+              <!-- Style preview -->
+              <div>
+                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Style</p>
+                <div id="preview-style" class="text-[10px] text-[#Fdfcf8]/50">
+                  Non défini
+                </div>
+              </div>
+            </div>
+
+            <!-- Completeness indicator -->
+            <div class="px-4 py-3 bg-[#1a3d35] border-t border-[#Fdfcf8]/5">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[10px] text-[#Fdfcf8]/60">Complétion du brief</span>
+                <span id="preview-completion" class="text-[10px] font-bold text-[#2d6a5d]">0%</span>
+              </div>
+              <div class="h-1.5 bg-[#0f2f28] rounded-full overflow-hidden">
+                <div id="preview-completion-bar" class="h-full bg-[#2d6a5d] rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full px-4 md:px-6 pb-6">
+    <div class="bg-[#0f2f28] text-[#Fdfcf8] rounded-[2.5rem] py-16 px-6 md:px-12 relative overflow-hidden">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-[#Fdfcf8]/60 text-sm mb-8">
+          Bila Designs - Créateur d'identités digitales
+        </p>
+        <nav class="flex flex-wrap justify-center gap-8 mb-8">
+          <a href="/services" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Services</a>
+          <a href="/portfolio" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Portfolio</a>
+          <a href="/agence" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">L'agence</a>
+          <a href="/contact" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Contact</a>
+        </nav>
+        <div class="flex flex-wrap justify-center gap-8">
+          <a href="/mentions-legales" class="text-[10px] uppercase tracking-[0.1em] text-[#Fdfcf8]/30 hover:text-[#Fdfcf8] transition-colors">Mentions Légales</a>
+          <a href="/politique-confidentialite" class="text-[10px] uppercase tracking-[0.1em] text-[#Fdfcf8]/30 hover:text-[#Fdfcf8] transition-colors">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL VALIDATION CONTENU -->
+  <div id="content-modal" class="modal-overlay">
+    <div class="modal-content p-6 md:p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-serif text-2xl text-[#Fdfcf8]">Contenu peaufiné</h3>
+        <button onclick="closeModal()" class="text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <p class="text-sm text-[#Fdfcf8]/60 mb-4">Voici le contenu généré par l'IA. Vous pouvez le modifier avant de l'accepter.</p>
+      <div class="mb-6">
+        <label class="text-xs text-[#2d6a5d] font-medium mb-2 block" id="modal-page-label">Page: Accueil</label>
+        <textarea id="modal-content-textarea" rows="8"
+          class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"></textarea>
+      </div>
+      <div class="flex gap-3">
+        <button onclick="closeModal()" class="flex-1 px-4 py-3 border border-[#Fdfcf8]/20 rounded-full text-[#Fdfcf8]/80 hover:bg-[#Fdfcf8]/10 transition-all">
+          Annuler
+        </button>
+        <button onclick="acceptModalContent()" class="flex-1 px-4 py-3 bg-[#2d6a5d] text-white rounded-full font-medium hover:bg-[#2d6a5d]/80 transition-all">
+          Accepter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =====================================================
+    // CONFIGURATION
+    // =====================================================
+    // IMPORTANT: Remplacez cette URL par l'URL de votre Cloudflare Worker
+    const API_URL = 'https://dark-grass-57d6.matbila63.workers.dev';
+
+    // =====================================================
+    // STATE
+    // =====================================================
+    let currentStep = 1;
+    const totalSteps = 7;
+    const formData = {
+      business: '',
+      sector: '',
+      description: '',
+      target_type: [],
+      age_range: '',
+      target_description: '',
+      pages: ['Accueil'],
+      customPages: [], // Pages personnalisées ajoutées par l'utilisateur
+      pagesHierarchy: {}, // { 'Sous-page': 'Page parente' }
+      pages_content: {},
+      pages_notes: {}, // Notes utilisateur par page
+      keywords: [],
+      seo_by_page: {}, // SEO par page { 'Accueil': { h1, h2, meta } }
+      design_style: '',
+      reference_sites: '',
+      features: []
+    };
+
+    // Suggestions IA par secteur (cache)
+    let sectorSuggestions = {
+      pages: [],
+      keywords: [],
+      features: [],
+      tip: ''
+    };
+
+    // Pages standards (pour filtrage IA)
+    const STANDARD_PAGES = ['Accueil', 'À propos', 'Services', 'Contact', 'Portfolio', 'Blog'];
+
+    // Icônes par type de page
+    const PAGE_ICONS = {
+      'Accueil': 'home',
+      'À propos': 'user',
+      'Services': 'briefcase',
+      'Contact': 'mail',
+      'Portfolio': 'image',
+      'Blog': 'file-text',
+      'Tarifs': 'tag',
+      'FAQ': 'help-circle',
+      'Équipe': 'users',
+      'Témoignages': 'message-circle',
+      'Galerie': 'images',
+      'Actualités': 'newspaper',
+      'default': 'file'
+    };
+
+    // État pour la modal
+    let currentModalPage = null;
+    let placeholdersGenerated = false;
+
+    // Step names for display
+    const stepNames = [
+      'Votre activité',
+      'Votre cible',
+      'Pages souhaitées',
+      'Contenu des pages',
+      'SEO',
+      'Design',
+      'Récapitulatif'
+    ];
+
+    // =====================================================
+    // DOM ELEMENTS
+    // =====================================================
+    const form = document.getElementById('brief-form');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const navButtons = document.getElementById('nav-buttons');
+    const progressBar = document.getElementById('progress-bar');
+    const stepLabel = document.getElementById('step-label');
+    const stepNameEl = document.getElementById('step-name');
+
+    // =====================================================
+    // INITIALIZATION
+    // =====================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      loadFromSession();
+      initMobileMenu();
+      initCheckboxes();
+      initKeywords();
+      initCustomPages();
+      initAIButtons();
+      initSectorListener();
+      initLivePreview();
+      updateParentPageSelect();
+      updateUI();
+    });
+
+    // =====================================================
+    // LIVE PREVIEW LISTENERS
+    // =====================================================
+    function initLivePreview() {
+      const form = document.getElementById('brief-form');
+      if (!form) return;
+
+      // Listen to all input changes
+      form.addEventListener('input', (e) => {
+        if (e.target.matches('input, textarea, select')) {
+          updatePreview();
+        }
+      });
+
+      form.addEventListener('change', (e) => {
+        if (e.target.matches('input, select')) {
+          updatePreview();
+        }
+      });
+    }
+
+    // =====================================================
+    // SECTOR SUGGESTIONS (IA)
+    // =====================================================
+    function initSectorListener() {
+      const sectorSelect = document.getElementById('sector-select');
+      if (sectorSelect) {
+        sectorSelect.addEventListener('change', async (e) => {
+          const sector = e.target.value;
+          if (sector && sector !== 'autre') {
+            await fetchSectorSuggestions(sector);
+          }
+        });
+      }
+    }
+
+    async function fetchSectorSuggestions(sector) {
+      const tipContainer = document.getElementById('sector-tip');
+      const tipText = document.getElementById('sector-tip-text');
+
+      // Afficher loading
+      tipContainer.classList.remove('hidden');
+      tipText.innerHTML = '<span class="opacity-50">Analyse du secteur en cours...</span>';
+      lucide.createIcons();
+
+      try {
+        const result = await callAI('sector_suggestions', { sector });
+
+        // Stocker les suggestions
+        sectorSuggestions = {
+          pages: result.pages || [],
+          keywords: result.keywords || [],
+          features: result.features || [],
+          tip: result.tip || ''
+        };
+
+        // Afficher le tip
+        if (sectorSuggestions.tip) {
+          tipText.textContent = sectorSuggestions.tip;
+        } else {
+          tipContainer.classList.add('hidden');
+        }
+
+        // Mettre à jour les suggestions de mots-clés
+        renderKeywordSuggestions();
+
+        lucide.createIcons();
+      } catch (error) {
+        console.error('Erreur suggestions secteur:', error);
+        tipContainer.classList.add('hidden');
+      }
+    }
+
+    function renderKeywordSuggestions() {
+      const container = document.getElementById('keywords-suggestions');
+      const list = document.getElementById('keywords-suggestions-list');
+
+      if (!container || !list) return;
+
+      if (sectorSuggestions.keywords.length > 0) {
+        container.classList.remove('hidden');
+        list.innerHTML = sectorSuggestions.keywords.map(kw => `
+          <button type="button" onclick="addSuggestedKeyword('${kw.replace(/'/g, "\\'")}')"
+            class="suggestion-chip px-3 py-1.5 text-sm bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/20 rounded-full hover:bg-[#2d6a5d]/30 hover:border-[#2d6a5d] transition-all ${formData.keywords.includes(kw) ? 'opacity-40 pointer-events-none' : ''}">
+            <i data-lucide="plus" class="w-3 h-3 inline mr-1"></i>${kw}
+          </button>
+        `).join('');
+        lucide.createIcons();
+      } else {
+        container.classList.add('hidden');
+      }
+    }
+
+    function addSuggestedKeyword(keyword) {
+      if (!formData.keywords.includes(keyword)) {
+        formData.keywords.push(keyword);
+        renderKeywords();
+        renderKeywordSuggestions(); // Update to show as added
+        saveToSession();
+      }
+    }
+
+    // =====================================================
+    // MOBILE MENU
+    // =====================================================
+    function initMobileMenu() {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.contains('opacity-100');
+          if (isOpen) {
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            menuIcon.classList.remove('opacity-0');
+            closeIcon.classList.add('opacity-0');
+            document.body.style.overflow = '';
+          } else {
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            menuIcon.classList.add('opacity-0');
+            closeIcon.classList.remove('opacity-0');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      }
+    }
+
+    // =====================================================
+    // CHECKBOXES
+    // =====================================================
+    function initCheckboxes() {
+      document.querySelectorAll('.checkbox-item input').forEach(input => {
+        // Set initial state
+        if (input.checked) {
+          input.nextElementSibling.querySelector('.checkbox-icon').style.opacity = '1';
+          input.nextElementSibling.querySelector('.checkbox-icon').style.backgroundColor = '#2d6a5d';
+        }
+
+        input.addEventListener('change', () => {
+          const icon = input.nextElementSibling.querySelector('.checkbox-icon');
+          if (input.checked) {
+            icon.style.opacity = '1';
+            icon.style.backgroundColor = '#2d6a5d';
+          } else {
+            icon.style.opacity = '0';
+            icon.style.backgroundColor = 'transparent';
+          }
+          saveToSession();
+        });
+      });
+    }
+
+    // =====================================================
+    // CUSTOM PAGES & HIERARCHY
+    // =====================================================
+    function initCustomPages() {
+      const input = document.getElementById('custom-page-input');
+      const addBtn = document.getElementById('add-custom-page-btn');
+      const parentSelect = document.getElementById('parent-page-select');
+
+      const addCustomPage = () => {
+        const pageName = input.value.trim();
+        const parentPage = parentSelect.value;
+
+        if (!pageName) return;
+
+        // Vérifier si la page existe déjà
+        const allPages = [...formData.pages, ...formData.customPages];
+        if (allPages.includes(pageName)) {
+          alert('Cette page existe déjà.');
+          return;
+        }
+
+        // Ajouter la page
+        formData.customPages.push(pageName);
+        if (parentPage) {
+          formData.pagesHierarchy[pageName] = parentPage;
+        }
+
+        renderCustomPages();
+        updateParentPageSelect();
+        input.value = '';
+        parentSelect.value = '';
+        saveToSession();
+      };
+
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addCustomPage();
+        }
+      });
+
+      addBtn.addEventListener('click', addCustomPage);
+
+      // Mettre à jour le select quand les checkboxes changent
+      document.querySelectorAll('#pages-grid input[name="pages"]').forEach(cb => {
+        cb.addEventListener('change', updateParentPageSelect);
+      });
+    }
+
+    function updateParentPageSelect() {
+      const select = document.getElementById('parent-page-select');
+      const checkedPages = Array.from(document.querySelectorAll('[name="pages"]:checked')).map(el => el.value);
+      const allPages = [...checkedPages, ...formData.customPages];
+
+      select.innerHTML = '<option value="">Page principale</option>';
+      allPages.forEach(page => {
+        select.innerHTML += `<option value="${page}">↳ Sous-page de "${page}"</option>`;
+      });
+    }
+
+    function renderCustomPages() {
+      const container = document.getElementById('custom-pages-container');
+      const list = document.getElementById('custom-pages-list');
+
+      if (formData.customPages.length === 0) {
+        container.classList.add('hidden');
+        return;
+      }
+
+      container.classList.remove('hidden');
+      list.innerHTML = formData.customPages.map((page, idx) => {
+        const parent = formData.pagesHierarchy[page];
+        const displayName = parent ? `${parent} > ${page}` : page;
+        return `
+          <span class="tag bg-[#2d6a5d]/20 border-[#2d6a5d]">
+            ${displayName}
+            <button type="button" onclick="removeCustomPage(${idx})">&times;</button>
+          </span>
+        `;
+      }).join('');
+    }
+
+    function removeCustomPage(idx) {
+      const pageName = formData.customPages[idx];
+      formData.customPages.splice(idx, 1);
+      delete formData.pagesHierarchy[pageName];
+      renderCustomPages();
+      updateParentPageSelect();
+      saveToSession();
+    }
+
+    // =====================================================
+    // KEYWORDS
+    // =====================================================
+    function initKeywords() {
+      const input = document.getElementById('keyword-input');
+      const addBtn = document.getElementById('add-keyword-btn');
+      const container = document.getElementById('keywords-container');
+
+      const addKeyword = () => {
+        const value = input.value.trim();
+        if (value && !formData.keywords.includes(value)) {
+          formData.keywords.push(value);
+          renderKeywords();
+          input.value = '';
+          saveToSession();
+        }
+      };
+
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addKeyword();
+        }
+      });
+
+      addBtn.addEventListener('click', addKeyword);
+    }
+
+    function renderKeywords() {
+      const container = document.getElementById('keywords-container');
+      container.innerHTML = formData.keywords.map((kw, idx) => `
+        <span class="tag">
+          ${kw}
+          <button type="button" onclick="removeKeyword(${idx})">&times;</button>
+        </span>
+      `).join('');
+      updatePreview();
+    }
+
+    function removeKeyword(idx) {
+      formData.keywords.splice(idx, 1);
+      renderKeywords();
+      renderKeywordSuggestions();
+      saveToSession();
+    }
+
+    // =====================================================
+    // AI INTEGRATION
+    // =====================================================
+    function initAIButtons() {
+      // Suggest pages button
+      document.getElementById('suggest-pages-btn').addEventListener('click', suggestPages);
+    }
+
+    async function callAI(type, context) {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type, context })
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+          throw new Error(data.error || 'Erreur API');
+        }
+
+        return data.data;
+      } catch (error) {
+        console.error('AI Error:', error);
+        throw error;
+      }
+    }
+
+    async function suggestPages() {
+      const btn = document.getElementById('suggest-pages-btn');
+      const container = document.getElementById('ai-pages-suggestions');
+      const listEl = document.getElementById('ai-pages-list');
+
+      collectFormData();
+
+      if (!formData.sector) {
+        alert('Veuillez d\'abord sélectionner un secteur d\'activité.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner w-4 h-4 border-2 border-white/30 border-t-white rounded-full"></span> Génération...';
+
+      try {
+        // Collecter toutes les pages déjà sélectionnées
+        const existingPages = [
+          ...Array.from(document.querySelectorAll('[name="pages"]:checked')).map(el => el.value),
+          ...formData.customPages
+        ];
+
+        const result = await callAI('pages', {
+          sector: formData.sector,
+          target: formData.target_description || 'Non spécifiée',
+          description: formData.description,
+          excludePages: existingPages // Envoyer les pages à exclure
+        });
+
+        const suggestions = result.suggestions || [];
+
+        // Filtrer côté client aussi (double sécurité)
+        const filteredSuggestions = suggestions.filter(page =>
+          !existingPages.some(existing =>
+            existing.toLowerCase() === page.toLowerCase()
+          )
+        );
+
+        if (filteredSuggestions.length === 0) {
+          listEl.innerHTML = '<p class="text-sm text-[#Fdfcf8]/60">Aucune suggestion supplémentaire pour votre secteur.</p>';
+        } else {
+          listEl.innerHTML = filteredSuggestions.map(page => `
+            <button type="button" class="tag hover:bg-[#2d6a5d] hover:border-[#2d6a5d] transition-all cursor-pointer" onclick="addSuggestedPage('${page.replace(/'/g, "\\'")}')">
+              + ${page}
+            </button>
+          `).join('');
+        }
+
+        container.classList.remove('hidden');
+      } catch (error) {
+        alert('Erreur lors de la génération. Réessayez plus tard.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="sparkles" class="w-4 h-4"></i><span>Suggérer des pages avec l\'IA</span>';
+        lucide.createIcons();
+      }
+    }
+
+    function addSuggestedPage(pageName) {
+      if (!formData.pages.includes(pageName)) {
+        formData.pages.push(pageName);
+
+        // Add new checkbox
+        const grid = document.getElementById('pages-grid');
+        const label = document.createElement('label');
+        label.className = 'checkbox-item cursor-pointer';
+        label.innerHTML = `
+          <input type="checkbox" name="pages" value="${pageName}" class="sr-only" checked>
+          <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all" style="background-color: rgba(45, 106, 93, 0.2); border-color: #2d6a5d;">
+            <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center transition-all" style="opacity: 1; background-color: #2d6a5d;">
+              <i data-lucide="check" class="w-3 h-3"></i>
+            </span>
+            ${pageName}
+          </span>
+        `;
+        grid.appendChild(label);
+
+        // Init checkbox listener
+        const input = label.querySelector('input');
+        input.addEventListener('change', () => {
+          const icon = input.nextElementSibling.querySelector('.checkbox-icon');
+          if (input.checked) {
+            icon.style.opacity = '1';
+            icon.style.backgroundColor = '#2d6a5d';
+            input.nextElementSibling.style.backgroundColor = 'rgba(45, 106, 93, 0.2)';
+            input.nextElementSibling.style.borderColor = '#2d6a5d';
+          } else {
+            icon.style.opacity = '0';
+            icon.style.backgroundColor = 'transparent';
+            input.nextElementSibling.style.backgroundColor = 'transparent';
+            input.nextElementSibling.style.borderColor = 'rgba(253, 252, 248, 0.2)';
+          }
+          saveToSession();
+        });
+
+        lucide.createIcons();
+        saveToSession();
+      }
+    }
+
+    async function generatePageContent(pageName) {
+      const btn = document.querySelector(`[data-generate-page="${pageName}"]`);
+      const notesTextarea = document.querySelector(`[data-notes-page="${pageName}"]`);
+      const contentDiv = document.querySelector(`[data-content-result="${pageName}"]`);
+
+      collectFormData();
+
+      // Récupérer les notes de l'utilisateur
+      const userNotes = notesTextarea?.value || '';
+      formData.pages_notes[pageName] = userNotes;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner w-4 h-4 border-2 border-white/30 border-t-white rounded-full"></span> Génération...';
+
+      try {
+        const result = await callAI('content', {
+          page: pageName,
+          business: formData.business,
+          sector: formData.sector,
+          target: formData.target_description,
+          description: formData.description, // Description entreprise
+          userNotes: userNotes // Notes spécifiques à la page
+        });
+
+        formData.pages_content[pageName] = result.content || '';
+
+        // Afficher le contenu généré
+        contentDiv.innerHTML = `
+          <div class="bg-[#2d6a5d]/10 border border-[#2d6a5d]/30 rounded-lg p-4 mt-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-medium text-[#2d6a5d]">Contenu généré par l'IA</span>
+              <button type="button" onclick="copyContent('${pageName}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+                Copier
+              </button>
+            </div>
+            <p class="text-sm text-[#Fdfcf8]/90 whitespace-pre-wrap">${result.content || 'Aucun contenu généré.'}</p>
+          </div>
+        `;
+        contentDiv.classList.remove('hidden');
+
+        saveToSession();
+      } catch (error) {
+        alert('Erreur lors de la génération. Réessayez plus tard.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="sparkles" class="w-4 h-4"></i> Générer avec l\'IA';
+        lucide.createIcons();
+      }
+    }
+
+    function copyContent(pageName) {
+      const content = formData.pages_content[pageName];
+      if (content) {
+        navigator.clipboard.writeText(content);
+        alert('Contenu copié !');
+      }
+    }
+
+    // =====================================================
+    // SEO PAR PAGE
+    // =====================================================
+    function renderSeoPages() {
+      collectFormData();
+      const container = document.getElementById('seo-pages-container');
+
+      // Combiner pages standards et personnalisées
+      const allPages = [...formData.pages, ...formData.customPages];
+
+      container.innerHTML = allPages.map(page => {
+        const escapedPage = page.replace(/'/g, "\\'");
+        const seoData = formData.seo_by_page[page];
+
+        return `
+          <div class="border border-[#Fdfcf8]/10 rounded-xl p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="font-medium">${page}</h4>
+              <button type="button" data-seo-page="${page}" onclick="generatePageSEO('${escapedPage}')"
+                class="ai-btn flex items-center gap-2 px-3 py-1.5 bg-[#2d6a5d] text-white text-sm rounded-full hover:bg-[#2d6a5d]/80 transition-all">
+                <i data-lucide="sparkles" class="w-3 h-3"></i>
+                Générer SEO
+              </button>
+            </div>
+
+            <div data-seo-result="${page}" class="${seoData ? '' : 'hidden'}">
+              ${seoData ? `
+                <div class="bg-[#Fdfcf8]/5 rounded-lg p-3 space-y-2 text-sm">
+                  <div>
+                    <span class="text-[#2d6a5d] font-medium">H1:</span>
+                    <span class="text-[#Fdfcf8]/90">${seoData.h1 || '-'}</span>
+                  </div>
+                  <div>
+                    <span class="text-[#2d6a5d] font-medium">H2:</span>
+                    <span class="text-[#Fdfcf8]/80">${(seoData.h2 || []).join(' | ') || '-'}</span>
+                  </div>
+                  <div>
+                    <span class="text-[#2d6a5d] font-medium">Meta:</span>
+                    <span class="text-[#Fdfcf8]/70 text-xs">${seoData.metaDescription || '-'}</span>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    async function generatePageSEO(pageName) {
+      const btn = document.querySelector(`[data-seo-page="${pageName}"]`);
+      const resultDiv = document.querySelector(`[data-seo-result="${pageName}"]`);
+
+      collectFormData();
+
+      if (formData.keywords.length === 0) {
+        alert('Veuillez d\'abord ajouter des mots-clés dans la section ci-dessus.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner w-3 h-3 border-2 border-white/30 border-t-white rounded-full"></span>';
+
+      try {
+        const result = await callAI('seo', {
+          keywords: formData.keywords,
+          sector: formData.sector,
+          page: pageName,
+          pageNotes: formData.pages_notes[pageName] || ''
+        });
+
+        formData.seo_by_page[pageName] = result;
+
+        resultDiv.innerHTML = `
+          <div class="bg-[#Fdfcf8]/5 rounded-lg p-3 space-y-2 text-sm">
+            <div>
+              <span class="text-[#2d6a5d] font-medium">H1:</span>
+              <span class="text-[#Fdfcf8]/90">${result.h1 || '-'}</span>
+            </div>
+            <div>
+              <span class="text-[#2d6a5d] font-medium">H2:</span>
+              <span class="text-[#Fdfcf8]/80">${(result.h2 || []).join(' | ') || '-'}</span>
+            </div>
+            <div>
+              <span class="text-[#2d6a5d] font-medium">Meta:</span>
+              <span class="text-[#Fdfcf8]/70 text-xs">${result.metaDescription || '-'}</span>
+            </div>
+          </div>
+        `;
+        resultDiv.classList.remove('hidden');
+
+        saveToSession();
+      } catch (error) {
+        alert('Erreur lors de la génération. Réessayez plus tard.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="sparkles" class="w-3 h-3"></i> Générer SEO';
+        lucide.createIcons();
+      }
+    }
+
+    // =====================================================
+    // STEP NAVIGATION
+    // =====================================================
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        goToStep(currentStep - 1);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (validateCurrentStep()) {
+        collectFormData();
+        if (currentStep < totalSteps) {
+          goToStep(currentStep + 1);
+        }
+      }
+    });
+
+    function goToStep(step) {
+      const currentContainer = document.querySelector(`[data-step="${currentStep}"]`);
+      const nextContainer = document.querySelector(`[data-step="${step}"]`);
+
+      // Hide current
+      currentContainer.classList.add('exit');
+      setTimeout(() => {
+        currentContainer.classList.remove('active', 'exit');
+      }, 400);
+
+      // Show next
+      setTimeout(() => {
+        nextContainer.classList.add('active');
+
+        // Special handling for step 4 (content pages)
+        if (step === 4) {
+          renderPagesContent();
+        }
+
+        // Special handling for step 5 (SEO par page)
+        if (step === 5) {
+          renderSeoPages();
+        }
+
+        // Special handling for step 7 (summary)
+        if (step === 7) {
+          renderSummary();
+        }
+
+        lucide.createIcons();
+      }, 200);
+
+      currentStep = step;
+      updateUI();
+      saveToSession();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateUI() {
+      // Progress bar
+      const progress = (currentStep / totalSteps) * 100;
+      progressBar.style.width = `${progress}%`;
+      stepLabel.textContent = `Étape ${currentStep} sur ${totalSteps}`;
+      stepNameEl.textContent = stepNames[currentStep - 1];
+
+      // Navigation buttons
+      prevBtn.disabled = currentStep === 1;
+
+      if (currentStep === totalSteps) {
+        navButtons.classList.add('hidden');
+      } else {
+        navButtons.classList.remove('hidden');
+        nextBtn.textContent = currentStep === totalSteps - 1 ? 'Voir le récapitulatif' : 'Suivant';
+      }
+
+      // Update sidebar preview
+      updatePreview();
+    }
+
+    // =====================================================
+    // SIDEBAR PREVIEW
+    // =====================================================
+    function updatePreview() {
+      collectFormData();
+
+      // Business name
+      const previewBusiness = document.getElementById('preview-business');
+      if (previewBusiness) {
+        previewBusiness.textContent = formData.business || 'Votre entreprise';
+      }
+
+      // URL
+      const previewUrl = document.getElementById('preview-url');
+      if (previewUrl && formData.business) {
+        const slug = formData.business.toLowerCase()
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '')
+          .substring(0, 15);
+        previewUrl.textContent = slug ? `${slug}.com` : 'votresite.com';
+      }
+
+      // Pages
+      const previewPages = document.getElementById('preview-pages');
+      if (previewPages) {
+        const allPages = [...formData.pages, ...formData.customPages];
+        if (allPages.length > 0) {
+          previewPages.innerHTML = allPages.slice(0, 6).map(p =>
+            `<span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">${p}</span>`
+          ).join('');
+          if (allPages.length > 6) {
+            previewPages.innerHTML += `<span class="px-2 py-1 text-[10px] text-[#Fdfcf8]/40">+${allPages.length - 6}</span>`;
+          }
+        } else {
+          previewPages.innerHTML = '<span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">Accueil</span>';
+        }
+      }
+
+      // Keywords
+      const previewKeywords = document.getElementById('preview-keywords');
+      if (previewKeywords) {
+        if (formData.keywords.length > 0) {
+          previewKeywords.innerHTML = formData.keywords.slice(0, 5).map(k =>
+            `<span class="px-1.5 py-0.5 text-[9px] bg-[#Fdfcf8]/10 text-[#Fdfcf8]/60 rounded">${k}</span>`
+          ).join('');
+        } else {
+          previewKeywords.innerHTML = '<span class="text-[9px] text-[#Fdfcf8]/40 italic">Aucun mot-clé</span>';
+        }
+      }
+
+      // Style
+      const previewStyle = document.getElementById('preview-style');
+      if (previewStyle) {
+        const styleLabels = {
+          'moderne': 'Moderne & Épuré',
+          'minimaliste': 'Minimaliste',
+          'corporate': 'Corporate',
+          'creatif': 'Créatif',
+          'luxe': 'Luxe & Premium',
+          'dynamique': 'Dynamique'
+        };
+        previewStyle.textContent = styleLabels[formData.design_style] || 'Non défini';
+      }
+
+      // Completion percentage
+      updateCompletionPercentage();
+    }
+
+    function updateCompletionPercentage() {
+      let completed = 0;
+      let total = 6;
+
+      // Check each field
+      if (formData.business) completed++;
+      if (formData.sector) completed++;
+      if (formData.target_type.length > 0) completed++;
+      if (formData.pages.length > 1 || formData.customPages.length > 0) completed++;
+      if (formData.keywords.length > 0) completed++;
+      if (formData.design_style) completed++;
+
+      const percentage = Math.round((completed / total) * 100);
+
+      const previewCompletion = document.getElementById('preview-completion');
+      const previewCompletionBar = document.getElementById('preview-completion-bar');
+
+      if (previewCompletion) previewCompletion.textContent = `${percentage}%`;
+      if (previewCompletionBar) previewCompletionBar.style.width = `${percentage}%`;
+    }
+
+    function validateCurrentStep() {
+      const stepContainer = document.querySelector(`[data-step="${currentStep}"]`);
+      const requiredInputs = stepContainer.querySelectorAll('[required]');
+
+      for (const input of requiredInputs) {
+        if (!input.value) {
+          input.focus();
+          input.classList.add('border-red-500');
+          setTimeout(() => input.classList.remove('border-red-500'), 2000);
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    // =====================================================
+    // FORM DATA COLLECTION
+    // =====================================================
+    function collectFormData() {
+      // Step 1
+      formData.business = form.querySelector('[name="business"]')?.value || '';
+      formData.sector = form.querySelector('[name="sector"]')?.value || '';
+      formData.description = form.querySelector('[name="description"]')?.value || '';
+
+      // Step 2
+      formData.target_type = Array.from(form.querySelectorAll('[name="target_type"]:checked')).map(el => el.value);
+      formData.age_range = form.querySelector('[name="age_range"]')?.value || '';
+      formData.target_description = form.querySelector('[name="target_description"]')?.value || '';
+
+      // Step 3
+      formData.pages = Array.from(form.querySelectorAll('[name="pages"]:checked')).map(el => el.value);
+
+      // Step 4 (collected in renderPagesContent)
+
+      // Step 6
+      formData.design_style = form.querySelector('[name="design_style"]')?.value || '';
+      formData.reference_sites = form.querySelector('[name="reference_sites"]')?.value || '';
+      formData.features = Array.from(form.querySelectorAll('[name="features"]:checked')).map(el => el.value);
+    }
+
+    // =====================================================
+    // RENDER PAGES CONTENT (Step 4) - Design amélioré
+    // =====================================================
+    function renderPagesContent() {
+      collectFormData();
+      const container = document.getElementById('pages-content-container');
+
+      // Combiner pages standards et personnalisées, avec hiérarchie
+      const allPages = [...formData.pages, ...formData.customPages];
+
+      // Organiser par hiérarchie
+      const mainPages = allPages.filter(p => !formData.pagesHierarchy[p]);
+      const subPages = allPages.filter(p => formData.pagesHierarchy[p]);
+
+      // Obtenir l'icône pour une page
+      const getPageIcon = (pageName) => {
+        // Chercher une correspondance exacte ou partielle
+        for (const [key, icon] of Object.entries(PAGE_ICONS)) {
+          if (pageName.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(pageName.toLowerCase())) {
+            return icon;
+          }
+        }
+        return PAGE_ICONS.default;
+      };
+
+      // Générer un placeholder intelligent basé sur la description de l'entreprise
+      const getPlaceholderForPage = (page) => {
+        const business = formData.business || 'votre entreprise';
+        const sector = formData.sector || '';
+
+        const placeholders = {
+          'Accueil': `Présentez ${business} en quelques mots clés :\n- Votre mission principale\n- Ce qui vous différencie\n- Un message d'accroche pour vos visiteurs`,
+          'À propos': `Racontez l'histoire de ${business} :\n- Comment tout a commencé\n- Vos valeurs\n- Votre équipe ou votre parcours`,
+          'Services': `Listez vos services principaux :\n- Service 1 : description courte\n- Service 2 : description courte\n- Tarifs ou formules (optionnel)`,
+          'Contact': `Informations de contact :\n- Adresse, téléphone, email\n- Horaires d'ouverture\n- Zone géographique couverte`,
+          'Portfolio': `Décrivez vos réalisations :\n- Types de projets à mettre en avant\n- Clients remarquables\n- Résultats obtenus`,
+          'Blog': `Thématiques de votre blog :\n- Sujets que vous souhaitez aborder\n- Fréquence de publication\n- Ton éditorial souhaité`,
+          'Tarifs': `Structure de vos tarifs :\n- Formules ou packages\n- Options et suppléments\n- Conditions particulières`,
+          'FAQ': `Questions fréquentes de vos clients :\n- Question 1 ?\n- Question 2 ?\n- Question 3 ?`,
+          'Équipe': `Présentez votre équipe :\n- Membres clés et leurs rôles\n- Expertises\n- Valeurs communes`,
+          'Témoignages': `Types de témoignages souhaités :\n- Clients à contacter\n- Format (texte, vidéo)\n- Aspects à mettre en avant`
+        };
+
+        // Chercher une correspondance
+        for (const [key, placeholder] of Object.entries(placeholders)) {
+          if (page.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(page.toLowerCase())) {
+            return placeholder;
+          }
+        }
+
+        // Placeholder générique pour les pages personnalisées
+        return `Décrivez le contenu de la page "${page}" :\n- Points clés à aborder\n- Informations importantes\n- Call-to-action souhaité`;
+      };
+
+      const renderPageCard = (page, isSubPage = false) => {
+        const parent = formData.pagesHierarchy[page];
+        const indent = isSubPage ? 'ml-4 md:ml-8' : '';
+        const escapedPage = page.replace(/'/g, "\\'");
+        const icon = getPageIcon(page);
+        const placeholder = getPlaceholderForPage(page);
+        const hasContent = formData.pages_content[page];
+        const currentNotes = formData.pages_notes[page] || '';
+
+        return `
+          <div class="page-card ${indent}">
+            <div class="flex items-start gap-4">
+              <!-- Icône de la page -->
+              <div class="page-card-icon flex-shrink-0">
+                <i data-lucide="${icon}" class="w-6 h-6"></i>
+              </div>
+
+              <!-- Contenu de la carte -->
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-3">
+                  <div>
+                    ${parent ? `<span class="text-xs text-[#2d6a5d] font-medium">${parent} ›</span>` : ''}
+                    <h3 class="font-serif text-xl text-[#Fdfcf8]">${page}</h3>
+                  </div>
+                  ${hasContent ? `
+                    <span class="flex items-center gap-1 text-xs text-[#2d6a5d] bg-[#2d6a5d]/20 px-2 py-1 rounded-full">
+                      <i data-lucide="check" class="w-3 h-3"></i>
+                      Complété
+                    </span>
+                  ` : ''}
+                </div>
+
+                <div class="space-y-4">
+                  <!-- Zone de texte avec placeholder intelligent -->
+                  <div>
+                    <label class="text-xs text-[#Fdfcf8]/50 block mb-2">Vos idées pour cette page</label>
+                    <textarea data-notes-page="${page}" rows="4"
+                      class="textarea-enhanced w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl px-4 py-3 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#2d6a5d]/50 transition-all resize-none text-sm"
+                      placeholder="${placeholder}"
+                      oninput="formData.pages_notes['${escapedPage}'] = this.value; saveToSession();">${currentNotes}</textarea>
+                  </div>
+
+                  <!-- Bouton Peaufiner avec l'IA -->
+                  <div class="flex items-center gap-3">
+                    <button type="button" data-peaufiner-page="${page}" onclick="peaufinerContent('${escapedPage}')"
+                      class="ai-btn flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2d6a5d] to-[#1a4a42] text-white text-sm rounded-full hover:shadow-lg hover:shadow-[#2d6a5d]/20 transition-all duration-300">
+                      <i data-lucide="wand-2" class="w-4 h-4"></i>
+                      Peaufiner avec l'IA
+                    </button>
+                    ${hasContent ? `
+                      <button type="button" onclick="viewContent('${escapedPage}')"
+                        class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors underline">
+                        Voir le contenu
+                      </button>
+                    ` : ''}
+                  </div>
+
+                  <!-- Aperçu du contenu généré (si existant) -->
+                  <div data-content-preview="${page}" class="${hasContent ? '' : 'hidden'}">
+                    ${hasContent ? `
+                      <div class="bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl p-4 mt-2">
+                        <div class="flex items-center justify-between mb-2">
+                          <span class="text-xs font-medium text-[#2d6a5d]">Aperçu du contenu</span>
+                          <div class="flex items-center gap-2">
+                            <button type="button" onclick="editContent('${escapedPage}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+                              Modifier
+                            </button>
+                            <button type="button" onclick="copyContent('${escapedPage}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+                              Copier
+                            </button>
+                          </div>
+                        </div>
+                        <p class="text-sm text-[#Fdfcf8]/80 line-clamp-3">${formData.pages_content[page].substring(0, 200)}${formData.pages_content[page].length > 200 ? '...' : ''}</p>
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      };
+
+      let html = `
+        <div class="mb-6 p-4 bg-[#2d6a5d]/10 border border-[#2d6a5d]/30 rounded-xl">
+          <div class="flex items-center gap-2 text-sm text-[#Fdfcf8]/80">
+            <i data-lucide="lightbulb" class="w-4 h-4 text-[#2d6a5d]"></i>
+            <span>Remplissez vos idées dans chaque carte, puis cliquez sur "Peaufiner avec l'IA" pour générer un contenu professionnel.</span>
+          </div>
+        </div>
+        <div class="grid gap-6">
+      `;
+
+      // Afficher les pages principales
+      mainPages.forEach(page => {
+        html += renderPageCard(page, false);
+        // Afficher les sous-pages de cette page
+        subPages.filter(sp => formData.pagesHierarchy[sp] === page).forEach(subPage => {
+          html += renderPageCard(subPage, true);
+        });
+      });
+
+      html += '</div>';
+      container.innerHTML = html;
+      lucide.createIcons();
+    }
+
+    // =====================================================
+    // PEAUFINER CONTENT (avec modal)
+    // =====================================================
+    async function peaufinerContent(pageName) {
+      const btn = document.querySelector(`[data-peaufiner-page="${pageName}"]`);
+      const notesTextarea = document.querySelector(`[data-notes-page="${pageName}"]`);
+
+      collectFormData();
+
+      // Récupérer les notes de l'utilisateur
+      const userNotes = notesTextarea?.value || '';
+      formData.pages_notes[pageName] = userNotes;
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner w-4 h-4 border-2 border-white/30 border-t-white rounded-full"></span> Génération...';
+
+      try {
+        const result = await callAI('content', {
+          page: pageName,
+          business: formData.business,
+          sector: formData.sector,
+          target: formData.target_description,
+          description: formData.description,
+          userNotes: userNotes
+        });
+
+        // Ouvrir la modal avec le contenu généré
+        openModal(pageName, result.content || '');
+
+      } catch (error) {
+        alert('Erreur lors de la génération. Réessayez plus tard.');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i data-lucide="wand-2" class="w-4 h-4"></i> Peaufiner avec l\'IA';
+        lucide.createIcons();
+      }
+    }
+
+    // =====================================================
+    // MODAL FUNCTIONS
+    // =====================================================
+    function openModal(pageName, content) {
+      currentModalPage = pageName;
+      const modal = document.getElementById('content-modal');
+      const textarea = document.getElementById('modal-content-textarea');
+      const label = document.getElementById('modal-page-label');
+
+      label.textContent = `Page: ${pageName}`;
+      textarea.value = content || '';
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      setTimeout(() => textarea.focus(), 300);
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('content-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      currentModalPage = null;
+    }
+
+    function acceptModalContent() {
+      const textarea = document.getElementById('modal-content-textarea');
+      const content = textarea.value.trim();
+
+      if (currentModalPage && content) {
+        formData.pages_content[currentModalPage] = content;
+        saveToSession();
+
+        // Mettre à jour l'affichage de la carte
+        renderPagesContent();
+      }
+
+      closeModal();
+    }
+
+    function viewContent(pageName) {
+      const content = formData.pages_content[pageName];
+      if (content) {
+        openModal(pageName, content);
+      }
+    }
+
+    function editContent(pageName) {
+      viewContent(pageName);
+    }
+
+    // Fermer la modal en cliquant en dehors
+    document.getElementById('content-modal').addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-overlay')) {
+        closeModal();
+      }
+    });
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('content-modal').classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // =====================================================
+    // RENDER SUMMARY (Step 7)
+    // =====================================================
+    function renderSummary() {
+      collectFormData();
+      const container = document.getElementById('summary-content');
+
+      const targetTypeLabels = {
+        'b2c': 'Particuliers (B2C)',
+        'b2b': 'Entreprises (B2B)'
+      };
+
+      const styleLabels = {
+        'moderne': 'Moderne & Épuré',
+        'minimaliste': 'Minimaliste',
+        'corporate': 'Corporate & Professionnel',
+        'creatif': 'Créatif & Artistique',
+        'luxe': 'Luxe & Premium',
+        'dynamique': 'Dynamique & Coloré'
+      };
+
+      const featureLabels = {
+        'animations': 'Animations',
+        'dark_mode': 'Mode sombre',
+        'multilingual': 'Multilingue',
+        'ecommerce': 'E-commerce'
+      };
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Entreprise</h3>
+              <p class="font-medium text-lg">${formData.business || 'Non renseigné'}</p>
+              <p class="text-[#Fdfcf8]/60">${formData.sector || 'Secteur non précisé'}</p>
+              ${formData.description ? `<p class="text-sm mt-2">${formData.description}</p>` : ''}
+            </div>
+
+            <div>
+              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Cible</h3>
+              <p>${formData.target_type.map(t => targetTypeLabels[t] || t).join(', ') || 'Non précisée'}</p>
+              ${formData.age_range ? `<p class="text-[#Fdfcf8]/60">Tranche d'âge: ${formData.age_range}</p>` : ''}
+              ${formData.target_description ? `<p class="text-sm mt-2">${formData.target_description}</p>` : ''}
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Pages</h3>
+              <div class="flex flex-wrap gap-2">
+                ${formData.pages.map(p => `<span class="tag">${p}</span>`).join('')}
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">SEO - Mots-clés</h3>
+              <div class="flex flex-wrap gap-2">
+                ${formData.keywords.length ? formData.keywords.map(k => `<span class="tag">${k}</span>`).join('') : '<span class="text-[#Fdfcf8]/60">Aucun mot-clé</span>'}
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Design</h3>
+              <p>${styleLabels[formData.design_style] || 'Non précisé'}</p>
+              ${formData.features.length ? `<p class="text-[#Fdfcf8]/60 text-sm mt-1">${formData.features.map(f => featureLabels[f] || f).join(', ')}</p>` : ''}
+            </div>
+          </div>
+        </div>
+
+        ${Object.keys(formData.pages_content).length ? `
+          <div class="mt-6 pt-6 border-t border-[#Fdfcf8]/10">
+            <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-4">Contenu des pages</h3>
+            <div class="space-y-4">
+              ${Object.entries(formData.pages_content).filter(([k, v]) => v).map(([page, content]) => `
+                <div class="bg-[#Fdfcf8]/5 rounded-lg p-4">
+                  <h4 class="font-medium mb-2">${page}</h4>
+                  <p class="text-sm text-[#Fdfcf8]/80 whitespace-pre-wrap">${content}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+
+        ${formData.seo_structure ? `
+          <div class="mt-6 pt-6 border-t border-[#Fdfcf8]/10">
+            <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-4">Structure SEO suggérée</h3>
+            <div class="bg-[#Fdfcf8]/5 rounded-lg p-4 space-y-2">
+              <p><strong>H1:</strong> ${formData.seo_structure.h1}</p>
+              <p><strong>H2:</strong> ${(formData.seo_structure.h2 || []).join(' | ')}</p>
+              <p><strong>Meta:</strong> ${formData.seo_structure.metaDescription}</p>
+            </div>
+          </div>
+        ` : ''}
+      `;
+    }
+
+    // =====================================================
+    // PDF GENERATION
+    // =====================================================
+    document.getElementById('download-pdf-btn').addEventListener('click', generatePDF);
+
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const margin = 20;
+      let y = margin;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const contentWidth = pageWidth - 2 * margin;
+
+      // Helper functions
+      const addTitle = (text, size = 16) => {
+        doc.setFontSize(size);
+        doc.setFont('helvetica', 'bold');
+        doc.text(text, margin, y);
+        y += size * 0.5;
+      };
+
+      const addText = (text, indent = 0) => {
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        const lines = doc.splitTextToSize(text, contentWidth - indent);
+        doc.text(lines, margin + indent, y);
+        y += lines.length * 5 + 2;
+      };
+
+      const addSection = (title, content) => {
+        if (y > 260) { doc.addPage(); y = margin; }
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(45, 106, 93);
+        doc.text(title.toUpperCase(), margin, y);
+        y += 8;
+        doc.setTextColor(0, 0, 0);
+        if (typeof content === 'string') {
+          addText(content);
+        } else if (Array.isArray(content)) {
+          content.forEach(item => addText('• ' + item, 5));
+        }
+        y += 5;
+      };
+
+      // Header
+      doc.setFillColor(15, 47, 40);
+      doc.rect(0, 0, pageWidth, 40, 'F');
+      doc.setTextColor(253, 252, 248);
+      doc.setFontSize(24);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Brief Projet', margin, 25);
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text(formData.business || 'Projet sans nom', margin, 33);
+      doc.text(new Date().toLocaleDateString('fr-FR'), pageWidth - margin - 30, 33);
+
+      y = 55;
+      doc.setTextColor(0, 0, 0);
+
+      // Content
+      addSection('Entreprise', `${formData.business}\nSecteur: ${formData.sector}\n${formData.description || ''}`);
+
+      const targetTypes = formData.target_type.map(t => t === 'b2c' ? 'Particuliers' : 'Entreprises').join(', ');
+      addSection('Cible', `${targetTypes || 'Non précisée'}\nTranche d'âge: ${formData.age_range || 'Non précisée'}\n${formData.target_description || ''}`);
+
+      addSection('Pages du site', formData.pages);
+
+      if (formData.keywords.length) {
+        addSection('Mots-clés SEO', formData.keywords);
+      }
+
+      if (formData.seo_structure) {
+        addSection('Structure SEO suggérée', `H1: ${formData.seo_structure.h1}\nH2: ${(formData.seo_structure.h2 || []).join(' | ')}\nMeta: ${formData.seo_structure.metaDescription}`);
+      }
+
+      const styleLabels = {
+        'moderne': 'Moderne & Épuré',
+        'minimaliste': 'Minimaliste',
+        'corporate': 'Corporate & Professionnel',
+        'creatif': 'Créatif & Artistique',
+        'luxe': 'Luxe & Premium',
+        'dynamique': 'Dynamique & Coloré'
+      };
+      addSection('Design', `Style: ${styleLabels[formData.design_style] || 'Non précisé'}\nFonctionnalités: ${formData.features.join(', ') || 'Aucune'}\n${formData.reference_sites ? 'Références: ' + formData.reference_sites : ''}`);
+
+      // Pages content
+      Object.entries(formData.pages_content).filter(([k, v]) => v).forEach(([page, content]) => {
+        if (y > 240) { doc.addPage(); y = margin; }
+        addSection(`Contenu - ${page}`, content);
+      });
+
+      // Footer
+      const pageCount = doc.internal.getNumberOfPages();
+      for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.setFontSize(8);
+        doc.setTextColor(150);
+        doc.text(`Bila Designs - Brief IA | Page ${i}/${pageCount}`, pageWidth / 2, 290, { align: 'center' });
+      }
+
+      // Download
+      doc.save(`brief-${formData.business || 'projet'}-${Date.now()}.pdf`);
+    }
+
+    // =====================================================
+    // FORM SUBMISSION
+    // =====================================================
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      collectFormData();
+
+      // Prepare data for email
+      document.getElementById('brief-data-field').value = JSON.stringify(formData, null, 2);
+
+      // Change form action to FormSubmit
+      form.action = 'https://formsubmit.co/matbila63@gmail.com';
+      form.method = 'POST';
+
+      // Submit
+      form.submit();
+    });
+
+    // =====================================================
+    // SESSION STORAGE
+    // =====================================================
+    function saveToSession() {
+      sessionStorage.setItem('bila_brief_data', JSON.stringify(formData));
+      sessionStorage.setItem('bila_brief_step', currentStep.toString());
+    }
+
+    function loadFromSession() {
+      const savedData = sessionStorage.getItem('bila_brief_data');
+      const savedStep = sessionStorage.getItem('bila_brief_step');
+
+      if (savedData) {
+        Object.assign(formData, JSON.parse(savedData));
+
+        // Restore form values
+        if (formData.business) form.querySelector('[name="business"]').value = formData.business;
+        if (formData.sector) form.querySelector('[name="sector"]').value = formData.sector;
+        if (formData.description) form.querySelector('[name="description"]').value = formData.description;
+        if (formData.age_range) form.querySelector('[name="age_range"]').value = formData.age_range;
+        if (formData.target_description) form.querySelector('[name="target_description"]').value = formData.target_description;
+        if (formData.design_style) form.querySelector('[name="design_style"]').value = formData.design_style;
+        if (formData.reference_sites) form.querySelector('[name="reference_sites"]').value = formData.reference_sites;
+
+        // Restore checkboxes
+        formData.target_type.forEach(val => {
+          const cb = form.querySelector(`[name="target_type"][value="${val}"]`);
+          if (cb) cb.checked = true;
+        });
+        formData.pages.forEach(val => {
+          const cb = form.querySelector(`[name="pages"][value="${val}"]`);
+          if (cb) cb.checked = true;
+        });
+        formData.features.forEach(val => {
+          const cb = form.querySelector(`[name="features"][value="${val}"]`);
+          if (cb) cb.checked = true;
+        });
+
+        // Render keywords
+        renderKeywords();
+      }
+
+      if (savedStep && parseInt(savedStep) > 1) {
+        // Go to saved step
+        const targetStep = parseInt(savedStep);
+        document.querySelector('[data-step="1"]').classList.remove('active');
+        document.querySelector(`[data-step="${targetStep}"]`).classList.add('active');
+        currentStep = targetStep;
+        updateUI();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,31 +1,14 @@
-<!DOCTYPE html>
+cl<!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="google-site-verification" content="Oj3liP5Lr66iUeKpmd0JBHDn18SN1DfZQ09xbNRVG1g">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bila Designs | Agence Web Design Lyon</title>
-<meta name="description" content="Bila Designs, agence de design web à Lyon. Création de sites web sur-mesure, identité visuelle et stratégie digitale pour entreprises ambitieuses.">
-<meta name="keywords" content="agence web lyon, design web, création site internet, identité visuelle, stratégie digitale">
-<!-- Open Graph -->
-<meta property="og:title" content="Bila Designs | Agence Web Design Lyon">
-<meta property="og:description" content="Agence de design web à Lyon. Création de sites web sur-mesure et identité visuelle pour entreprises ambitieuses.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://biladesigns.com/accueil">
-<meta property="og:image" content="https://orionsecurity.fr/wp-content/uploads/2025/12/Generated-Image-December-22-2025-11_52AM.jpeg">
-<meta property="og:locale" content="fr_FR">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bila Designs | Agence Web Design Lyon">
-<meta name="twitter:description" content="Agence de design web à Lyon. Création de sites web sur-mesure et identité visuelle.">
-<meta name="twitter:image" content="https://orionsecurity.fr/wp-content/uploads/2025/12/Generated-Image-December-22-2025-11_52AM.jpeg">
-<link rel="canonical" href="https://biladesigns.com/accueil">
+<title>Bila Design Studio</title>
 <!-- Preconnect pour optimiser le chargement -->
 <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <!-- Scripts -->
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com" defer></script>
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <!-- Fonts optimisées -->
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -106,32 +89,27 @@ pointer-events: none;
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
       <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+        <a href="accueil.html" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
           Bila.
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
+          <a href="services.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
             Services
           </a>
-          <a href="/portfolio" class="hover:opacity-70 transition-opacity text-lg font-medium">
+          <a href="portfolio.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
             Portfolio
           </a>
-          <a href="/agence" class="hover:opacity-70 transition-opacity text-lg font-medium">
+          <a href="agence.html" class="hover:opacity-70 transition-opacity text-lg font-medium">
             L'agence
           </a>
         </div>
 
         <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-4">
-          <a href="/brief-ia" class="text-lg font-medium text-teal-700 hover:text-teal-900 transition-colors">
-            Démarrer un projet
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
+        <a href="contact.html" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+          Discutons
+        </a>
 
         <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
@@ -209,7 +187,7 @@ pointer-events: none;
           <div id="portfolio" class="grid grid-cols-1 md:grid-cols-2 md:gap-y-32 gap-x-12 gap-y-20 scroll-mt-32">
             <!-- Project 1: Orion -->
             <article class="group cursor-pointer">
-              <a href="https://orionsecurity.fr" target="_blank" rel="noopener noreferrer" class="block">
+              <a href="https://orionsecurity.fr" target="_blank" class="block">
                 <div class="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-stone-200 mb-6">
                   <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-in-out">
                     <div class="w-full h-full flex items-center justify-center bg-[#0E0F22] relative">
@@ -246,7 +224,7 @@ pointer-events: none;
 
             <!-- Project 2: Scierie Marthuret -->
             <article class="group cursor-pointer md:mt-24">
-              <a href="https://scieriedumarthuret.fr/" target="_blank" rel="noopener noreferrer" class="block">
+              <a href="https://scieriedumarthuret.fr/" target="_blank" class="block">
                 <div class="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-stone-200 mb-6">
                   <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-in-out">
                     <div class="w-full h-full flex items-center justify-center bg-[#232F42] relative">
@@ -318,7 +296,7 @@ pointer-events: none;
 
             <!-- Project 4: Neptune Forêts -->
             <article class="group cursor-pointer md:mt-24">
-              <a href="https://neptuneforets.com" target="_blank" rel="noopener noreferrer" class="block">
+              <a href="https://neptuneforets.com" target="_blank" class="block">
                 <div class="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-stone-200 mb-6">
                   <div class="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-in-out">
                     <div class="w-full h-full flex items-center justify-center bg-[#2e3243] relative">
@@ -362,7 +340,7 @@ pointer-events: none;
                 <h2 class="md:text-5xl serif text-4xl italic text-stone-900 mb-8">
                   Notre expertise
                 </h2>
-                <a href="/portfolio" class="inline-flex items-center gap-3 hover:bg-teal-600 transition-all duration-300 hover:shadow-xl group text-lg font-medium text-white bg-stone-900 rounded-full pt-4 pr-8 pb-4 pl-8 shadow-lg">
+                <a href="portfolio.html" class="inline-flex items-center gap-3 hover:bg-teal-600 transition-all duration-300 hover:shadow-xl group text-lg font-medium text-white bg-stone-900 rounded-full pt-4 pr-8 pb-4 pl-8 shadow-lg">
                   Voir le portfolio
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
                     <path d="M5 12h14"></path>
@@ -527,29 +505,29 @@ pointer-events: none;
 
             <!-- Main Navigation -->
             <nav class="flex flex-wrap justify-center gap-8 md:gap-16 text-teal-100/80 uppercase tracking-[0.15em] text-xs font-bold font-manrope">
-              <a href="/services" class="hover:text-white transition-colors">
+              <a href="services.html" class="hover:text-white transition-colors">
                 Services
               </a>
-              <a href="/portfolio" class="hover:text-white transition-colors">
+              <a href="portfolio.html" class="hover:text-white transition-colors">
                 Portfolio
               </a>
-              <a href="/agence" class="hover:text-white transition-colors">
+              <a href="agence.html" class="hover:text-white transition-colors">
                 L'agence
               </a>
-              <a href="/contact" class="hover:text-white transition-colors">
+              <a href="contact.html" class="hover:text-white transition-colors">
                 Contact
               </a>
             </nav>
 
             <!-- Legal Links -->
             <nav class="flex flex-wrap justify-center gap-6 md:gap-8 text-teal-400/30 uppercase tracking-[0.1em] text-[10px] font-medium font-manrope">
-              <a href="/mentions-legales" class="hover:text-teal-200/50 transition-colors">
+              <a href="mentions-legales.html" class="hover:text-teal-200/50 transition-colors">
                 Mentions Légales
               </a>
               <button onclick="cookieManager.openPreferences()" class="hover:text-teal-200/50 transition-colors uppercase tracking-[0.1em] text-[10px] font-medium">
                 Gestion des Cookies
               </button>
-              <a href="/politique-confidentialite" class="hover:text-teal-200/50 transition-colors">
+              <a href="politique-confidentialite.html" class="hover:text-teal-200/50 transition-colors">
                 Politique de confidentialité
               </a>
             </nav>
@@ -577,19 +555,16 @@ pointer-events: none;
         </svg>
       </button>
       <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-        <a href="/services" class="mobile-link hover:text-teal-600 transition-colors">
+        <a href="services.html" class="mobile-link hover:text-teal-600 transition-colors">
           Services
         </a>
-        <a href="/portfolio" class="mobile-link hover:text-teal-600 transition-colors">
+        <a href="portfolio.html" class="mobile-link hover:text-teal-600 transition-colors">
           Portfolio
         </a>
-        <a href="/agence" class="mobile-link hover:text-teal-600 transition-colors">
+        <a href="agence.html" class="mobile-link hover:text-teal-600 transition-colors">
           L'agence
         </a>
-        <a href="/brief-ia" class="mobile-link mt-4 px-8 py-3 bg-teal-700 text-white rounded-full font-manrope not-italic text-lg hover:bg-teal-800 transition-all">
-          Démarrer un projet
-        </a>
-        <a href="/contact" class="mobile-link px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">
+        <a href="contact.html" class="mobile-link mt-4 px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">
           Discutons
         </a>
       </nav>
