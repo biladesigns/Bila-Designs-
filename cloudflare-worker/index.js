@@ -95,6 +95,28 @@ Format de réponse (JSON uniquement):
   "h1": "Titre principal optimisé pour SEO",
   "h2": ["Sous-titre 1", "Sous-titre 2", "Sous-titre 3"],
   "metaDescription": "Description meta (max 160 caractères)"
+}`,
+
+  // Suggestions de mots-clés basées sur la description des services
+  keyword_suggestions: (context) => `Tu es un expert SEO et marketing digital.
+
+ENTREPRISE: ${context.business || 'Non spécifiée'}
+SECTEUR: ${context.sector || 'Non spécifié'}
+DESCRIPTION DES SERVICES:
+${context.description}
+
+Analyse cette description et génère les 8-10 MOTS-CLÉS les plus pertinents que les clients potentiels rechercheraient sur Google pour trouver ces services.
+
+Pense comme un client qui cherche ces services. Quels termes utiliserait-il ?
+
+Inclus:
+- Des mots-clés principaux (1-2 mots)
+- Des mots-clés longue traîne (3-4 mots)
+- Des mots-clés locaux si pertinent
+
+Réponds UNIQUEMENT en JSON valide:
+{
+  "keywords": ["mot-clé 1", "mot-clé 2", ...]
 }`
 };
 
@@ -129,7 +151,7 @@ function checkRateLimit(ip) {
 
 // Validation des données d'entrée
 function validateRequest(data) {
-  const validTypes = ['pages', 'content', 'seo', 'sector_suggestions'];
+  const validTypes = ['pages', 'content', 'seo', 'sector_suggestions', 'keyword_suggestions'];
 
   if (!data.type || !validTypes.includes(data.type)) {
     return { valid: false, error: 'Type invalide' };
@@ -159,6 +181,11 @@ function validateRequest(data) {
     case 'seo':
       if (!data.context.keywords || !Array.isArray(data.context.keywords) || data.context.keywords.length === 0) {
         return { valid: false, error: 'keywords (array) requis pour SEO' };
+      }
+      break;
+    case 'keyword_suggestions':
+      if (!data.context.description) {
+        return { valid: false, error: 'description requise pour keyword_suggestions' };
       }
       break;
   }
@@ -230,6 +257,15 @@ function parseResponse(type, rawResponse) {
           return JSON.parse(seoMatch[0]);
         }
         return { h1: rawResponse, h2: [], metaDescription: '' };
+
+      case 'keyword_suggestions':
+        // Extraire le JSON avec les keywords
+        const keywordMatch = rawResponse.match(/\{[\s\S]*\}/);
+        if (keywordMatch) {
+          const parsed = JSON.parse(keywordMatch[0]);
+          return { keywords: parsed.keywords || [] };
+        }
+        return { keywords: [] };
 
       default:
         return { raw: rawResponse };
