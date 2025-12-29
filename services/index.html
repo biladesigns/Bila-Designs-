@@ -67,6 +67,30 @@ html { scroll-behavior: smooth; }
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style>
+<style>
+/* MAGNETIC PULSE BUTTON */
+:root { --noir-profond: #1a1a1a; --emeraude: #0D5C4A; --emeraude-light: #0f7a62; --emeraude-glow: rgba(13, 92, 74, 0.4); }
+.btn-magnetic-wrapper { position: relative; display: inline-block; }
+.btn-magnetic-wrapper::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); background: radial-gradient(ellipse at center, var(--emeraude-glow) 0%, transparent 70%); border-radius: 60px; animation: magneticPulse 2.8s ease-in-out infinite; z-index: 0; pointer-events: none; }
+.btn-magnetic-wrapper::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 35px); height: calc(100% + 35px); background: radial-gradient(ellipse at center, rgba(13, 92, 74, 0.15) 0%, transparent 60%); border-radius: 70px; animation: magneticPulseOuter 2.8s ease-in-out infinite; animation-delay: 0.4s; z-index: 0; pointer-events: none; }
+.btn-magnetic { position: relative; z-index: 1; font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-magnetic::before { content: ''; position: absolute; inset: 0; border-radius: 50px; padding: 1.5px; background: linear-gradient(135deg, transparent 30%, var(--emeraude) 50%, transparent 70%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.5; transition: opacity 0.4s ease; }
+.btn-magnetic::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(13, 92, 74, 0.2), transparent); transition: left 0.6s ease; }
+.btn-magnetic span { position: relative; z-index: 2; display: flex; align-items: center; gap: 0.5rem; transform: translateX(12px); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.btn-magnetic .arrow { opacity: 0; transform: translateX(-8px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; }
+.btn-magnetic:hover span { transform: translateX(0); }
+.btn-magnetic-wrapper:hover::before { animation: magneticPulseHover 1.8s ease-in-out infinite; width: calc(100% + 30px); height: calc(100% + 30px); }
+.btn-magnetic-wrapper:hover::after { animation: magneticPulseOuterHover 1.8s ease-in-out infinite; width: calc(100% + 50px); height: calc(100% + 50px); }
+.btn-magnetic:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 40px var(--emeraude-glow); background: linear-gradient(135deg, var(--noir-profond) 0%, #252525 100%); }
+.btn-magnetic:hover::before { opacity: 1; background: linear-gradient(135deg, var(--emeraude) 0%, var(--emeraude-light) 50%, var(--emeraude) 100%); }
+.btn-magnetic:hover::after { left: 100%; }
+.btn-magnetic:hover .arrow { opacity: 1; transform: translateX(0); }
+.btn-magnetic:active { transform: scale(0.98); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15), 0 0 20px var(--emeraude-glow); }
+@keyframes magneticPulse { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
+@keyframes magneticPulseOuter { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); } }
+@keyframes magneticPulseHover { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); } }
+@keyframes magneticPulseOuterHover { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
+</style>
 </head>
 <body class="bg-[#Fdfcf8] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
 
@@ -91,10 +115,17 @@ html { scroll-behavior: smooth; }
         </div>
 
         <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-4">
-          <a href="/brief-ia" class="text-lg font-medium text-teal-700 hover:text-teal-900 transition-colors">
-            Démarrer un projet
-          </a>
+        <div class="hidden md:flex items-center gap-5">
+          <div class="btn-magnetic-wrapper">
+            <a href="/brief-ia" class="btn-magnetic">
+              <span>
+                Démarrer un projet
+                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </div>
           <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
             Discutons
           </a>
