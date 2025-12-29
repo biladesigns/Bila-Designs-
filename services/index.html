@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://unpkg.com">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
 <style>
 body { font-family: 'Manrope', sans-serif; }
 h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
@@ -50,17 +50,28 @@ html { scroll-behavior: smooth; }
 .mobile-scroll-hint { animation: none; transform: none; }
 }
 /* SEO Cards Animation */
-.seo-card { opacity: 0; transform: translateY(60px); }
+.seo-card {
+  opacity: 0;
+  transform: translateY(60px);
+  -webkit-transform: translateY(60px);
+}
 .seo-card.animate {
+  -webkit-animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
-.seo-card:nth-child(1) { animation-delay: 0s; }
-.seo-card:nth-child(2) { animation-delay: 0.15s; }
-.seo-card:nth-child(3) { animation-delay: 0.3s; }
+.seo-card:nth-child(1).animate { -webkit-animation-delay: 0s; animation-delay: 0s; }
+.seo-card:nth-child(2).animate { -webkit-animation-delay: 0.15s; animation-delay: 0.15s; }
+.seo-card:nth-child(3).animate { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+@-webkit-keyframes seoCardReveal {
+  from { opacity: 0; -webkit-transform: translateY(60px) scale(0.95); transform: translateY(60px) scale(0.95); }
+  to { opacity: 1; -webkit-transform: translateY(0) scale(1); transform: translateY(0) scale(1); }
+}
 @keyframes seoCardReveal {
   from { opacity: 0; transform: translateY(60px) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+/* Fallback: si pas de JS ou animation échoue */
+.no-js .seo-card, .seo-card.visible { opacity: 1; transform: translateY(0); }
 </style>
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -576,19 +587,38 @@ html { scroll-behavior: smooth; }
     </div>
 
     <script>
-      lucide.createIcons();
+      // Safe Lucide init
+      try {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+          lucide.createIcons();
+        }
+      } catch (e) {
+        console.warn('Lucide icons non disponible:', e);
+      }
 
       // SEO Cards Animation on Scroll
       const seoCards = document.querySelectorAll('.seo-card');
-      const seoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-            seoObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      seoCards.forEach(card => seoObserver.observe(card));
+
+      // Fallback: rendre les cartes visibles après 2s si IntersectionObserver échoue
+      const seoFallbackTimeout = setTimeout(() => {
+        seoCards.forEach(card => card.classList.add('visible'));
+      }, 2000);
+
+      try {
+        const seoObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              clearTimeout(seoFallbackTimeout);
+              entry.target.classList.add('animate');
+              seoObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '50px' });
+        seoCards.forEach(card => seoObserver.observe(card));
+      } catch (e) {
+        // Fallback si IntersectionObserver non supporté
+        seoCards.forEach(card => card.classList.add('visible'));
+      }
 
       // Navigation Mobile
       const menuBtn = document.getElementById('mobile-menu-btn');

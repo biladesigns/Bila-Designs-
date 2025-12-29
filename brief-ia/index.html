@@ -780,15 +780,21 @@
         </div>
 
         <!-- NAVIGATION BUTTONS -->
-        <div class="flex justify-between mt-10 pt-8 border-t border-[#Fdfcf8]/10" id="nav-buttons">
-          <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#Fdfcf8]/20 hover:bg-[#Fdfcf8]/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
-            <i data-lucide="arrow-left" class="w-4 h-4"></i>
-            Précédent
-          </button>
-          <button type="button" id="next-btn" class="flex items-center gap-2 px-6 py-3 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
-            Suivant
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </button>
+        <div class="flex flex-col items-center mt-10 pt-8 border-t border-[#Fdfcf8]/10" id="nav-buttons">
+          <div class="flex justify-between w-full">
+            <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#Fdfcf8]/20 hover:bg-[#Fdfcf8]/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              Précédent
+            </button>
+            <button type="button" id="next-btn" class="flex items-center gap-2 px-6 py-3 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
+              Suivant
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <p id="pdf-hint" class="hidden text-center text-sm text-[#Fdfcf8]/50 mt-4">
+            <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+            Vous pourrez télécharger une version PDF à la page suivante
+          </p>
         </div>
 
         <!-- Hidden form fields for FormSubmit -->
@@ -1773,10 +1779,13 @@
       } else {
         navButtons.classList.remove('hidden');
         nextBtn.disabled = false;
+        const pdfHint = document.getElementById('pdf-hint');
         if (currentStep === totalSteps - 1) {
           nextBtn.innerHTML = '<i data-lucide="send" class="w-4 h-4"></i> Envoyer le brief';
+          pdfHint?.classList.remove('hidden');
         } else {
           nextBtn.innerHTML = 'Suivant <i data-lucide="arrow-right" class="w-4 h-4"></i>';
+          pdfHint?.classList.add('hidden');
         }
         safeLucideIcons();
       }
