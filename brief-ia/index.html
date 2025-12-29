@@ -96,6 +96,47 @@
     .tag button { opacity: 0.6; transition: opacity 0.2s; }
     .tag button:hover { opacity: 1; }
 
+    /* Info Carousel */
+    .info-slides {
+      position: relative;
+    }
+    .info-slide {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .info-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+    .info-slide.exit {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    .info-dot {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .info-dot.active {
+      width: 1.5rem;
+      background-color: #2d6a5d;
+    }
+    .info-dot:hover:not(.active) {
+      background-color: rgba(45, 106, 93, 0.4);
+    }
+    .info-icon {
+      animation: iconPulse 2s ease-in-out infinite;
+    }
+    @keyframes iconPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
     /* Generated content box */
     .ai-content {
       background: rgba(45, 106, 93, 0.1);
@@ -276,6 +317,48 @@
         Notre assistant IA vous guide étape par étape pour définir votre projet web.
         Recevez des suggestions intelligentes et un brief structuré.
       </p>
+
+      <!-- Info Carousel -->
+      <div class="mt-10 max-w-lg">
+        <div class="info-carousel relative bg-white/80 backdrop-blur-sm border border-[#2d6a5d]/10 rounded-2xl p-5 shadow-lg overflow-hidden">
+          <!-- Decorative gradient -->
+          <div class="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#2d6a5d]/10 to-transparent rounded-full -ml-12 -mt-12"></div>
+
+          <div class="relative flex items-start gap-4">
+            <!-- Icon container with pulse -->
+            <div class="flex-shrink-0 relative">
+              <div class="w-10 h-10 bg-[#2d6a5d]/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#2d6a5d] info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div class="absolute inset-0 w-10 h-10 bg-[#2d6a5d]/20 rounded-xl animate-ping opacity-30"></div>
+            </div>
+
+            <!-- Text carousel -->
+            <div class="flex-1 min-h-[60px] relative overflow-hidden">
+              <div id="info-slides" class="info-slides">
+                <div class="info-slide active">
+                  <p class="text-sm text-[#0f2f28] leading-relaxed">
+                    <span class="font-semibold text-[#2d6a5d]">Confidentialité garantie</span> — Vos données restent privées, rien n'est conservé sans votre accord.
+                  </p>
+                </div>
+                <div class="info-slide">
+                  <p class="text-sm text-[#0f2f28] leading-relaxed">
+                    <span class="font-semibold text-[#2d6a5d]">Rapide et sans engagement</span> — Envoyez-nous votre brief, recevez un devis sous 24h et votre site en 1 semaine. On s'occupe de tout.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress dots -->
+          <div class="flex justify-center gap-2 mt-4">
+            <button class="info-dot active w-2 h-2 rounded-full bg-[#2d6a5d] transition-all" data-slide="0"></button>
+            <button class="info-dot w-2 h-2 rounded-full bg-[#2d6a5d]/20 transition-all" data-slide="1"></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -882,9 +965,60 @@
       initAIButtons();
       initSectorListener();
       initLivePreview();
+      initInfoCarousel();
       updateParentPageSelect();
       updateUI();
     });
+
+    // =====================================================
+    // INFO CAROUSEL
+    // =====================================================
+    function initInfoCarousel() {
+      const slides = document.querySelectorAll('.info-slide');
+      const dots = document.querySelectorAll('.info-dot');
+      if (slides.length === 0) return;
+
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        // Exit current slide
+        slides[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.add('exit');
+        dots[currentSlide].classList.remove('active');
+        dots[currentSlide].style.width = '';
+        dots[currentSlide].style.backgroundColor = '';
+
+        // After exit animation
+        setTimeout(() => {
+          slides[currentSlide].classList.remove('exit');
+          currentSlide = index;
+
+          // Enter new slide
+          slides[currentSlide].classList.add('active');
+          dots[currentSlide].classList.add('active');
+        }, 200);
+      }
+
+      function nextSlide() {
+        const next = (currentSlide + 1) % totalSlides;
+        goToSlide(next);
+      }
+
+      // Auto-rotate every 6 seconds
+      let autoRotate = setInterval(nextSlide, 6000);
+
+      // Click on dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          if (index !== currentSlide) {
+            clearInterval(autoRotate);
+            goToSlide(index);
+            autoRotate = setInterval(nextSlide, 6000);
+          }
+        });
+      });
+    }
 
     // =====================================================
     // LIVE PREVIEW LISTENERS
