@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brief IA | Bila Designs - Créez votre brief en quelques minutes</title>
+  <title>Brief IA | Bila Designs - Créons votre projet en quelques minutes</title>
   <meta name="description" content="Utilisez notre assistant IA pour créer rapidement un brief complet pour votre projet web. Suggestions intelligentes et structure optimisée.">
   <meta name="keywords" content="brief projet web, assistant IA, création site web, bila designs, brief digital">
   <!-- Open Graph -->
@@ -312,7 +312,7 @@
           Assistant IA
         </span>
         <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-serif text-[#0f2f28] tracking-tight mb-6">
-          <span class="block">Créez votre brief</span>
+          <span class="block">Créons votre projet</span>
           <span class="block italic opacity-90">en quelques minutes.</span>
         </h1>
         <p class="md:text-xl leading-relaxed text-lg font-medium text-[#2d6a5d] max-w-xl">
@@ -731,6 +731,16 @@
 
           <div id="summary-content" class="space-y-6">
             <!-- Summary will be generated here -->
+          </div>
+
+          <!-- Case à cocher recontact -->
+          <div class="mt-8 p-4 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl">
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <input type="checkbox" id="accept-contact" class="mt-1 w-5 h-5 rounded border-2 border-[#Fdfcf8]/30 bg-transparent checked:bg-[#2d6a5d] checked:border-[#2d6a5d] cursor-pointer">
+              <span class="text-sm text-[#Fdfcf8]/80 group-hover:text-[#Fdfcf8] transition-colors">
+                J'accepte d'être recontacté pour une proposition de devis
+              </span>
+            </label>
           </div>
 
           <div class="flex justify-center mt-8 pt-8 border-t border-[#Fdfcf8]/10">
@@ -2393,6 +2403,30 @@
     // Empêcher la soumission classique du formulaire
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+    });
+
+    // =====================================================
+    // CHECKBOX RECONTACT
+    // =====================================================
+    document.getElementById('accept-contact')?.addEventListener('change', async (e) => {
+      if (e.target.checked) {
+        try {
+          const notifData = new FormData();
+          notifData.append('_subject', '🔔 Demande de devis - ' + (formData.business || 'Nouveau client'));
+          notifData.append('message', `Le client "${formData.business || 'Non spécifié'}" accepte d'être recontacté pour un devis.`);
+          notifData.append('secteur', formData.sector || 'Non spécifié');
+          notifData.append('pages', formData.pages.join(', '));
+
+          await fetch('https://formsubmit.co/ajax/matbila63@gmail.com', {
+            method: 'POST',
+            body: notifData
+          });
+
+          console.log('Notification recontact envoyée');
+        } catch (error) {
+          console.error('Erreur notification:', error);
+        }
+      }
     });
 
     // =====================================================
