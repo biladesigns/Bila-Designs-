@@ -720,7 +720,12 @@ overflow: hidden;
     </div>
 
     <script>
-      lucide.createIcons();
+      // Lucide icons - attendre le chargement
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
 
       // Navigation Mobile
       const menuBtn = document.getElementById('mobile-menu-btn');
