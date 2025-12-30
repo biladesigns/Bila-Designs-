@@ -817,14 +817,30 @@ to { transform: translateX(calc(-100% - 2rem)); }
             performance: false,
             preferences: false
         },
+        gaLoaded: false,
 
         init() {
             const storedConsent = localStorage.getItem('bila_cookie_consent');
             if (storedConsent) {
                 this.consent = JSON.parse(storedConsent);
+                if (this.consent.analytics) { this.loadGoogleAnalytics(); }
             } else {
                 this.showBanner();
             }
+        },
+
+        loadGoogleAnalytics() {
+            if (this.gaLoaded) return;
+            this.gaLoaded = true;
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-8CXZ6K9C2R');
         },
 
         showBanner() {
@@ -889,6 +905,7 @@ to { transform: translateX(calc(-100% - 2rem)); }
         saveAndRun() {
             localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
             this.hideBanner();
+            if (this.consent.analytics) { this.loadGoogleAnalytics(); }
         }
       };
 

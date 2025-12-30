@@ -770,6 +770,7 @@ overflow: hidden;
             performance: false,
             preferences: false
         },
+        gaLoaded: false,
 
         init() {
             const storedConsent = localStorage.getItem('bila_cookie_consent');
@@ -779,6 +780,20 @@ overflow: hidden;
             } else {
                 this.showBanner();
             }
+        },
+
+        loadGoogleAnalytics() {
+            if (this.gaLoaded) return;
+            this.gaLoaded = true;
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-8CXZ6K9C2R');
         },
 
         showBanner() {
@@ -851,7 +866,10 @@ overflow: hidden;
         },
 
         runScripts() {
-            console.log('Running scripts based on consent:', this.consent);
+            // Handle Analytics Scripts (Google Analytics)
+            if (this.consent.analytics) {
+                this.loadGoogleAnalytics();
+            }
 
             // Handle Marketing Scripts (e.g., Calendly)
             if (this.consent.marketing) {
