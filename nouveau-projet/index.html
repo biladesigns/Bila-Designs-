@@ -1165,11 +1165,19 @@
 
     // Générer suggestions SEO basées sur la description des services
     async function fetchKeywordSuggestions() {
+      console.log('[SEO] fetchKeywordSuggestions called');
       const container = document.getElementById('keywords-suggestions');
       const list = document.getElementById('keywords-suggestions-list');
 
-      if (!container || !list) return;
+      console.log('[SEO] container:', container, 'list:', list);
+      console.log('[SEO] formData.description:', formData.description);
+
+      if (!container || !list) {
+        console.log('[SEO] Container or list not found, returning');
+        return;
+      }
       if (!formData.description) {
+        console.log('[SEO] No description, hiding container');
         container.classList.add('hidden');
         return;
       }
@@ -1179,16 +1187,18 @@
       list.innerHTML = '<span class="text-[#Fdfcf8]/50 text-sm">Analyse de vos services...</span>';
 
       try {
+        console.log('[SEO] Calling API...');
         const result = await callAI('keyword_suggestions', {
           description: formData.description,
           business: formData.business,
           sector: formData.sector
         });
 
+        console.log('[SEO] API result:', result);
         sectorSuggestions.keywords = result.keywords || [];
         renderKeywordSuggestions();
       } catch (error) {
-        console.error('Erreur suggestions mots-clés:', error);
+        console.error('[SEO] Erreur suggestions mots-clés:', error);
         container.classList.add('hidden');
       }
     }
