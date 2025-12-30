@@ -1757,6 +1757,8 @@
 
         // Special handling for step 5 (SEO par page)
         if (step === 5) {
+          console.log('[DEBUG] Entering step 5, calling fetchKeywordSuggestions');
+          console.log('[DEBUG] Current formData:', JSON.stringify(formData));
           renderSeoPages();
           fetchKeywordSuggestions(); // Générer suggestions basées sur la description
         }
@@ -1917,6 +1919,7 @@
       formData.business = form.querySelector('[name="business"]')?.value || '';
       formData.sector = form.querySelector('[name="sector"]')?.value || '';
       formData.description = form.querySelector('[name="description"]')?.value || '';
+      console.log('[DEBUG] collectFormData - description:', formData.description);
 
       // Step 2
       formData.target_type = Array.from(form.querySelectorAll('[name="target_type"]:checked')).map(el => el.value);
