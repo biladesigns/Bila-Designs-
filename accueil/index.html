@@ -864,45 +864,57 @@ pointer-events: none;
     </div>
 
     <script>
-      lucide.createIcons();
+      // Lucide icons - attendre le chargement
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    </script>
 
+    <script>
       // Smooth scroll personnalisé compatible desktop et mobile
-      function smoothScrollTo(targetY, duration) {
-        const startY = window.pageYOffset;
-        const difference = targetY - startY;
-        const startTime = performance.now();
+      (function() {
+        function smoothScrollTo(targetY, duration) {
+          const startY = window.pageYOffset;
+          const difference = targetY - startY;
+          const startTime = performance.now();
 
-        function easeInOutCubic(t) {
-          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+          // Courbe exponentielle ultra fluide - effet de glissement
+          function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+          }
+
+          function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = easeOutExpo(progress);
+
+            window.scrollTo(0, startY + difference * ease);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            }
+          }
+
+          requestAnimationFrame(step);
         }
 
-        function step(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const ease = easeInOutCubic(progress);
-
-          window.scrollTo(0, startY + difference * ease);
-
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          }
+        // Smooth scroll pour le bouton Découvrir
+        const discoverBtn = document.getElementById('discover-btn');
+        if (discoverBtn) {
+          discoverBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = document.getElementById('intro');
+            if (target) {
+              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+              smoothScrollTo(targetPosition, 1800);
+            }
+            return false;
+          }, true);
         }
-
-        requestAnimationFrame(step);
-      }
-
-      // Smooth scroll pour le bouton Découvrir
-      const discoverBtn = document.getElementById('discover-btn');
-      if (discoverBtn) {
-        discoverBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.getElementById('intro');
-          if (target) {
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-            smoothScrollTo(targetPosition, 800);
-          }
-        });
-      }
+      })();
     </script>
 
     <script>
