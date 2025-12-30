@@ -1617,6 +1617,12 @@
       collectFormData();
       const container = document.getElementById('seo-pages-container');
 
+      // Si le container n'existe pas, ne rien faire
+      if (!container) {
+        console.log('[DEBUG] seo-pages-container not found, skipping renderSeoPages');
+        return;
+      }
+
       // Combiner pages standards et personnalisées
       const allPages = [...formData.pages, ...formData.customPages];
 
