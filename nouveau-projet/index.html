@@ -399,14 +399,14 @@
 
           <div class="space-y-6">
             <div>
-              <label class="block text-sm font-medium mb-2">Nom de l'entreprise *</label>
-              <input type="text" name="business" required
+              <label for="business-input" class="block text-sm font-medium mb-2">Nom de l'entreprise *</label>
+              <input type="text" name="business" id="business-input" required
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
                 placeholder="Ex: Boulangerie Dupont">
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-2">Secteur d'activité *</label>
+              <label for="sector-select" class="block text-sm font-medium mb-2">Secteur d'activité *</label>
               <select name="sector" id="sector-select" required
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez un secteur</option>
@@ -435,8 +435,8 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-2">Description courte</label>
-              <textarea name="description" rows="3"
+              <label for="description-input" class="block text-sm font-medium mb-2">Description courte</label>
+              <textarea name="description" id="description-input" rows="3"
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
                 placeholder="Décrivez votre activité en quelques mots..."></textarea>
             </div>
@@ -450,7 +450,7 @@
 
           <div class="space-y-6">
             <div>
-              <label class="block text-sm font-medium mb-3">Type de clientèle *</label>
+              <span class="block text-sm font-medium mb-3">Type de clientèle *</span>
               <div class="flex flex-wrap gap-3">
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="target_type" value="b2c" class="sr-only">
@@ -474,8 +474,8 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-2">Tranche d'âge principale</label>
-              <select name="age_range"
+              <label for="age-range-select" class="block text-sm font-medium mb-2">Tranche d'âge principale</label>
+              <select name="age_range" id="age-range-select"
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez une tranche</option>
                 <option value="18-25">18-25 ans</option>
@@ -487,8 +487,8 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-2">Description de votre client idéal</label>
-              <textarea name="target_description" rows="3"
+              <label for="target-description-input" class="block text-sm font-medium mb-2">Description de votre client idéal</label>
+              <textarea name="target_description" id="target-description-input" rows="3"
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
                 placeholder="Ex: Jeunes professionnels urbains à la recherche de produits bio..."></textarea>
             </div>
@@ -503,7 +503,7 @@
           <div class="space-y-6">
             <!-- Pages standards -->
             <div>
-              <label class="block text-sm font-medium mb-3">Pages principales</label>
+              <span class="block text-sm font-medium mb-3">Pages principales</span>
               <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="pages-grid">
                 <label class="checkbox-item cursor-pointer" data-page="Accueil">
                   <input type="checkbox" name="pages" value="Accueil" class="sr-only" checked>
@@ -564,7 +564,7 @@
 
             <!-- Ajouter page personnalisée -->
             <div class="pt-4 border-t border-[#Fdfcf8]/10">
-              <label class="block text-sm font-medium mb-2">Ajouter une page personnalisée</label>
+              <label for="custom-page-input" class="block text-sm font-medium mb-2">Ajouter une page personnalisée</label>
               <div class="flex gap-2 mb-3">
                 <input type="text" id="custom-page-input"
                   class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
@@ -581,7 +581,7 @@
 
             <!-- Pages personnalisées ajoutées -->
             <div id="custom-pages-container" class="space-y-2 hidden">
-              <label class="block text-sm font-medium mb-2">Pages ajoutées</label>
+              <span class="block text-sm font-medium mb-2">Pages ajoutées</span>
               <div id="custom-pages-list" class="flex flex-wrap gap-2"></div>
             </div>
 
@@ -617,17 +617,17 @@
 
           <!-- Suggestions IA -->
           <div id="keywords-suggestions" class="hidden mb-6">
-            <label class="block text-xs text-[#2d6a5d] font-medium mb-3">
+            <span class="block text-xs text-[#2d6a5d] font-medium mb-3">
               <i data-lucide="sparkles" class="w-3 h-3 inline mr-1"></i>
               Suggestions basées sur vos services (cliquez pour ajouter)
-            </label>
+            </span>
             <div id="keywords-suggestions-list" class="flex flex-wrap gap-2">
               <!-- Suggestions cliquables -->
             </div>
           </div>
 
           <div>
-            <label class="block text-sm font-medium mb-3">Vos mots-clés</label>
+            <label for="keyword-input" class="block text-sm font-medium mb-3">Vos mots-clés</label>
             <div class="flex gap-2 mb-4">
               <input type="text" id="keyword-input"
                 class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
@@ -649,8 +649,8 @@
 
           <div class="space-y-6">
             <div>
-              <label class="block text-sm font-medium mb-2">Style souhaité *</label>
-              <select name="design_style" required
+              <label for="design-style-select" class="block text-sm font-medium mb-2">Style souhaité *</label>
+              <select name="design_style" id="design-style-select" required
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez un style</option>
                 <option value="moderne">Moderne & Épuré</option>
@@ -663,14 +663,14 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-2">Sites de référence (optionnel)</label>
-              <textarea name="reference_sites" rows="2"
+              <label for="reference-sites-input" class="block text-sm font-medium mb-2">Sites de référence (optionnel)</label>
+              <textarea name="reference_sites" id="reference-sites-input" rows="2"
                 class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
                 placeholder="https://site1.com, https://site2.com"></textarea>
             </div>
 
             <div>
-              <label class="block text-sm font-medium mb-3">Fonctionnalités souhaitées</label>
+              <span class="block text-sm font-medium mb-3">Fonctionnalités souhaitées</span>
               <div class="grid grid-cols-2 gap-3">
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="features" value="animations" class="sr-only">
@@ -912,7 +912,7 @@
       </div>
       <p class="text-sm text-[#Fdfcf8]/60 mb-4">Voici le contenu généré par l'IA. Vous pouvez le modifier avant de l'accepter.</p>
       <div class="mb-6">
-        <label class="text-xs text-[#2d6a5d] font-medium mb-2 block" id="modal-page-label">Page: Accueil</label>
+        <label for="modal-content-textarea" class="text-xs text-[#2d6a5d] font-medium mb-2 block" id="modal-page-label">Page: Accueil</label>
         <textarea id="modal-content-textarea" rows="8"
           class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"></textarea>
       </div>
@@ -1165,19 +1165,11 @@
 
     // Générer suggestions SEO basées sur la description des services
     async function fetchKeywordSuggestions() {
-      console.log('[SEO] fetchKeywordSuggestions called');
       const container = document.getElementById('keywords-suggestions');
       const list = document.getElementById('keywords-suggestions-list');
 
-      console.log('[SEO] container:', container, 'list:', list);
-      console.log('[SEO] formData.description:', formData.description);
-
-      if (!container || !list) {
-        console.log('[SEO] Container or list not found, returning');
-        return;
-      }
+      if (!container || !list) return;
       if (!formData.description) {
-        console.log('[SEO] No description, hiding container');
         container.classList.add('hidden');
         return;
       }
@@ -1187,18 +1179,16 @@
       list.innerHTML = '<span class="text-[#Fdfcf8]/50 text-sm">Analyse de vos services...</span>';
 
       try {
-        console.log('[SEO] Calling API...');
         const result = await callAI('keyword_suggestions', {
           description: formData.description,
           business: formData.business,
           sector: formData.sector
         });
 
-        console.log('[SEO] API result:', result);
         sectorSuggestions.keywords = result.keywords || [];
         renderKeywordSuggestions();
       } catch (error) {
-        console.error('[SEO] Erreur suggestions mots-clés:', error);
+        console.error('Erreur suggestions mots-clés:', error);
         container.classList.add('hidden');
       }
     }
@@ -1618,10 +1608,7 @@
       const container = document.getElementById('seo-pages-container');
 
       // Si le container n'existe pas, ne rien faire
-      if (!container) {
-        console.log('[DEBUG] seo-pages-container not found, skipping renderSeoPages');
-        return;
-      }
+      if (!container) return;
 
       // Combiner pages standards et personnalisées
       const allPages = [...formData.pages, ...formData.customPages];
@@ -1763,10 +1750,8 @@
 
         // Special handling for step 5 (SEO par page)
         if (step === 5) {
-          console.log('[DEBUG] Entering step 5, calling fetchKeywordSuggestions');
-          console.log('[DEBUG] Current formData:', JSON.stringify(formData));
           renderSeoPages();
-          fetchKeywordSuggestions(); // Générer suggestions basées sur la description
+          fetchKeywordSuggestions();
         }
 
         // Special handling for step 7 (summary)
@@ -1925,7 +1910,6 @@
       formData.business = form.querySelector('[name="business"]')?.value || '';
       formData.sector = form.querySelector('[name="sector"]')?.value || '';
       formData.description = form.querySelector('[name="description"]')?.value || '';
-      console.log('[DEBUG] collectFormData - description:', formData.description);
 
       // Step 2
       formData.target_type = Array.from(form.querySelectorAll('[name="target_type"]:checked')).map(el => el.value);
@@ -2032,7 +2016,7 @@
                 <div class="space-y-4">
                   <!-- Zone de texte avec placeholder intelligent -->
                   <div>
-                    <label class="text-xs text-[#Fdfcf8]/50 block mb-2">Vos idées pour cette page</label>
+                    <span class="text-xs text-[#Fdfcf8]/50 block mb-2">Vos idées pour cette page</span>
                     <textarea data-notes-page="${page}" rows="4"
                       class="textarea-enhanced w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl px-4 py-3 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#2d6a5d]/50 transition-all resize-none text-sm"
                       placeholder="${placeholder}"
