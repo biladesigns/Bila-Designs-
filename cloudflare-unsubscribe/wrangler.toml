@@ -1,0 +1,8 @@
+name = "bila-unsubscribe"
+main = "index.js"
+compatibility_date = "2025-01-01"
+
+# KV Namespace for storing unsubscribed emails
+[[kv_namespaces]]
+binding = "UNSUBSCRIBE_KV"
+id = "YOUR_KV_NAMESPACE_ID"
