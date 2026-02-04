@@ -133,15 +133,25 @@
       submitBtn.textContent = 'Traitement...';
 
       try {
-        const response = await fetch('https://bila-unsubscribe.biladesigns.workers.dev/unsubscribe', {
+        // Envoyer via Formsubmit (solution temporaire)
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('_subject', 'Demande de désabonnement');
+        formData.append('message', `Demande de désabonnement pour: ${email}`);
+
+        const response = await fetch('https://formsubmit.co/ajax/matbila63@gmail.com', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
+          body: formData
         });
 
         if (response.ok) {
+          // Stocker localement aussi
+          const unsubscribed = JSON.parse(localStorage.getItem('unsubscribed_emails') || '[]');
+          if (!unsubscribed.includes(email)) {
+            unsubscribed.push(email);
+            localStorage.setItem('unsubscribed_emails', JSON.stringify(unsubscribed));
+          }
+
           formContainer.classList.add('hidden');
           successContainer.classList.remove('hidden');
         } else {
