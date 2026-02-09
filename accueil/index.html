@@ -873,76 +873,17 @@ pointer-events: none;
     </script>
 
     <script>
-      // Smooth scroll personnalisé compatible desktop et mobile
+      // Smooth scroll natif pour le bouton Découvrir
       (function() {
-        let isAnimating = false;
-        let animationId = null;
-
-        function smoothScrollTo(targetY, duration) {
-          const startY = window.pageYOffset;
-          const difference = targetY - startY;
-          const startTime = performance.now();
-          isAnimating = true;
-
-          // Courbe exponentielle ultra fluide - effet de glissement
-          function easeOutExpo(t) {
-            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-          }
-
-          function step(currentTime) {
-            // Si l'utilisateur a scrollé, on arrête l'animation
-            if (!isAnimating) return;
-
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const ease = easeOutExpo(progress);
-
-            window.scrollTo(0, startY + difference * ease);
-
-            if (progress < 1) {
-              animationId = requestAnimationFrame(step);
-            } else {
-              isAnimating = false;
-            }
-          }
-
-          animationId = requestAnimationFrame(step);
-        }
-
-        // Annuler l'animation si l'utilisateur scrolle manuellement
-        function cancelAnimation() {
-          if (isAnimating) {
-            isAnimating = false;
-            if (animationId) {
-              cancelAnimationFrame(animationId);
-              animationId = null;
-            }
-          }
-        }
-
-        // Écouter les événements de scroll utilisateur (molette, touch, clavier)
-        window.addEventListener('wheel', cancelAnimation, { passive: true });
-        window.addEventListener('touchmove', cancelAnimation, { passive: true });
-        window.addEventListener('keydown', function(e) {
-          // Annuler si touches de navigation (flèches, page up/down, espace)
-          if ([32, 33, 34, 38, 40].includes(e.keyCode)) {
-            cancelAnimation();
-          }
-        }, { passive: true });
-
-        // Smooth scroll pour le bouton Découvrir
         const discoverBtn = document.getElementById('discover-btn');
         if (discoverBtn) {
           discoverBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            e.stopPropagation();
             const target = document.getElementById('intro');
             if (target) {
-              const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-              smoothScrollTo(targetPosition, 1800);
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            return false;
-          }, true);
+          });
         }
       })();
     </script>
