@@ -875,10 +875,14 @@ pointer-events: none;
     <script>
       // Smooth scroll personnalisé compatible desktop et mobile
       (function() {
+        let isAnimating = false;
+        let animationId = null;
+
         function smoothScrollTo(targetY, duration) {
           const startY = window.pageYOffset;
           const difference = targetY - startY;
           const startTime = performance.now();
+          isAnimating = true;
 
           // Courbe exponentielle ultra fluide - effet de glissement
           function easeOutExpo(t) {
@@ -886,6 +890,9 @@ pointer-events: none;
           }
 
           function step(currentTime) {
+            // Si l'utilisateur a scrollé, on arrête l'animation
+            if (!isAnimating) return;
+
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const ease = easeOutExpo(progress);
@@ -893,12 +900,35 @@ pointer-events: none;
             window.scrollTo(0, startY + difference * ease);
 
             if (progress < 1) {
-              requestAnimationFrame(step);
+              animationId = requestAnimationFrame(step);
+            } else {
+              isAnimating = false;
             }
           }
 
-          requestAnimationFrame(step);
+          animationId = requestAnimationFrame(step);
         }
+
+        // Annuler l'animation si l'utilisateur scrolle manuellement
+        function cancelAnimation() {
+          if (isAnimating) {
+            isAnimating = false;
+            if (animationId) {
+              cancelAnimationFrame(animationId);
+              animationId = null;
+            }
+          }
+        }
+
+        // Écouter les événements de scroll utilisateur (molette, touch, clavier)
+        window.addEventListener('wheel', cancelAnimation, { passive: true });
+        window.addEventListener('touchmove', cancelAnimation, { passive: true });
+        window.addEventListener('keydown', function(e) {
+          // Annuler si touches de navigation (flèches, page up/down, espace)
+          if ([32, 33, 34, 38, 40].includes(e.keyCode)) {
+            cancelAnimation();
+          }
+        }, { passive: true });
 
         // Smooth scroll pour le bouton Découvrir
         const discoverBtn = document.getElementById('discover-btn');
