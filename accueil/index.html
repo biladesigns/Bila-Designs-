@@ -879,6 +879,7 @@ pointer-events: none;
         if (discoverBtn) {
           discoverBtn.addEventListener('click', function(e) {
             e.preventDefault();
+            this.blur(); // Retire le focus pour ne pas bloquer le scroll
             const target = document.getElementById('intro');
             if (target) {
               target.scrollIntoView({ behavior: 'smooth', block: 'start' });
