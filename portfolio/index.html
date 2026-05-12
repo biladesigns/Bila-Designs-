@@ -196,6 +196,19 @@ transform: scale(1) rotate(2deg);
   transform: skewX(-25deg); animation: shineFocus 3s ease-in-out infinite;
 }
 @keyframes shineFocus { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
+
+/* 3D portfolio card */
+.pf-3d-wrapper { perspective: 1100px; }
+.pf-3d {
+  transform: rotateX(6deg) scale(0.97);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.38), 0 10px 30px rgba(0,0,0,0.18);
+  transition: transform 0.9s cubic-bezier(0.4,0,0.2,1), box-shadow 0.9s ease;
+  will-change: transform;
+}
+.group:hover .pf-3d {
+  transform: rotateX(0deg) scale(1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+}
 </style>
 <script src="https://www.aura.build/FxFilter.js"></script>
 <link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap"><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style>
@@ -414,25 +427,16 @@ transform: scale(1) rotate(2deg);
 
             <!-- Image 3 -->
             <div class="group relative w-full aspect-[16/9] overflow-hidden rounded-2xl cursor-pointer">
-              <div class="absolute inset-0 bg-stone-900 transition-transform duration-700 group-hover:scale-105 flex items-center justify-center">
-                <div class="text-white/30 text-9xl font-bold tracking-tighter">
-                  FOCUS
-                </div>
-              </div>
-              <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full">
-                <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" autoplay="" loop="" muted="" playsinline="" preload="metadata">
-                  <source src="https://orionsecurity.fr/wp-content/uploads/2025/12/video-focus-sute-web.mp4" type="video/mp4">
-                </video>
-                <div class="absolute inset-0 bg-stone-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute top-0 right-0 bottom-0 left-0 translate-y-4 items-center justify-center">
-                  <a href="https://focus-emlyon.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
-                    <span>Voir le site</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
+              <img src="/public/images/focus-preview.png" alt="Focus emlyon" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center">
+                <a href="https://focus-emlyon.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                  <span>Voir le site</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
@@ -497,17 +501,19 @@ transform: scale(1) rotate(2deg);
             </div>
 
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
-              <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="" preload="metadata" src="https://orionsecurity.fr/wp-content/uploads/2025/12/Motion-Design.mp4"></video>
-              <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center">
-                <a href="https://orionsecurity.fr" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
-                  <span>Voir le site</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </a>
+            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="" preload="metadata" src="https://orionsecurity.fr/wp-content/uploads/2025/12/Motion-Design.mp4"></video>
+                <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center">
+                  <a href="https://orionsecurity.fr" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                    <span>Voir le site</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -515,23 +521,21 @@ transform: scale(1) rotate(2deg);
           <!-- PROJECT 02: Marthuret -->
           <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <!-- Image Column -->
-            <div class="md:col-span-7 relative h-[50vh] md:h-[80vh] overflow-hidden rounded-2xl">
-              <div class="relative w-full h-full">
-                <div class="absolute inset-0 bg-[#232F42]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#AA7A56]/30 rounded-full group-hover:scale-125 transition-transform duration-1000 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-[#AA7A56]/30 rounded-full group-hover:scale-110 transition-transform duration-1000 delay-75 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#AA7A56] rounded-full flex items-center justify-center group-hover:scale-90 transition-transform duration-1000 delay-150 ease-out">
-                  <span class="serif italic text-4xl text-white">Sm</span>
-                </div>
-                <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
-                  <a href="https://scieriedumarthuret.fr/" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
-                    <span>Voir le site</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
+            <div class="md:col-span-7 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <div class="relative w-full h-full">
+                  <img src="/public/images/marthuret-preview.png" alt="Scierie du Marthuret" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <div class="absolute inset-0 bg-[#232F42]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
+                    <a href="https://scieriedumarthuret.fr/" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                      <span>Voir le site</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -643,53 +647,59 @@ transform: scale(1) rotate(2deg);
 
             </div>
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 relative h-[50vh] md:h-[80vh] bg-stone-100 rounded-2xl overflow-hidden flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-500">
-              <div class="relative w-full h-full">
-                <div class="absolute inset-0 bg-[#2e3243]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#b57d4d]/30 rounded-full group-hover:scale-125 transition-transform duration-1000 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-[#b57d4d]/30 rounded-full group-hover:scale-110 transition-transform duration-1000 delay-75 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#b57d4d] rounded-full flex items-center justify-center group-hover:scale-90 transition-transform duration-1000 delay-150 ease-out">
-                  <span class="serif italic text-4xl text-white">Nf</span>
-                </div>
-                <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
-                  <a href="https://neptuneforets.com" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
-                    <span>Voir le site</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
+            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <div class="relative w-full h-full">
+                  <img src="/public/images/neptune-preview.png" alt="Neptune Forêts" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <div class="absolute inset-0 bg-[#2e3243]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
+                    <a href="https://neptuneforets.com" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                      <span>Voir le site</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Section: Bientôt disponible -->
-          <div class="w-full border-t border-stone-200 pt-16 pb-8 mt-8">
+          <!-- Section: Nos dernières sorties -->
+          <div class="w-full border-b border-stone-200 pb-16 pt-0 order-first">
             <div class="flex items-center gap-6 justify-center">
               <div class="h-px w-16 bg-stone-300"></div>
               <div class="text-center">
                 <span class="inline-flex items-center gap-3 px-6 py-3 bg-stone-100 rounded-full">
-                  <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                  <span class="text-sm font-medium uppercase tracking-widest text-stone-500">Bientôt disponible</span>
+                  <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                  <span class="text-sm font-medium uppercase tracking-widest text-stone-500">Nos dernières sorties</span>
                 </span>
-                <h3 class="text-4xl md:text-6xl serif italic text-stone-300 mt-6">Projets en cours</h3>
+                <h3 class="text-4xl md:text-6xl serif italic text-stone-700 mt-6">Récemment livrés</h3>
               </div>
               <div class="h-px w-16 bg-stone-300"></div>
             </div>
           </div>
 
           <!-- PROJECT 04: Auravocats -->
-          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start order-first">
             <!-- Image Column -->
-            <div class="md:col-span-7 relative h-[50vh] md:h-[80vh] bg-stone-100 rounded-2xl overflow-hidden flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-500">
-              <div class="relative w-full h-full">
-                <div class="absolute inset-0 bg-[#333333]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#6EC6D9]/30 rounded-full group-hover:scale-125 transition-transform duration-1000 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-[#6EC6D9]/30 rounded-full group-hover:scale-110 transition-transform duration-1000 delay-75 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#6EC6D9] rounded-full flex items-center justify-center group-hover:scale-90 transition-transform duration-1000 delay-150 ease-out">
-                  <span class="serif italic text-4xl text-[#333333]">Aa</span>
+            <div class="md:col-span-7 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <div class="relative w-full h-full">
+                  <img src="/public/images/auravocats-preview.png" alt="Auravocats" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <div class="absolute inset-0 bg-[#333333]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
+                    <a href="https://auravocats.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                      <span>Voir le site</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -748,7 +758,7 @@ transform: scale(1) rotate(2deg);
           </div>
 
           <!-- PROJECT 05: Fremont-Bousso -->
-          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start order-first">
             <!-- Text Column -->
             <div class="md:col-span-5 order-2 md:order-1 flex flex-col justify-center md:items-end md:text-right md:sticky md:top-32">
               <div class="mb-6 flex items-center gap-4 justify-end">
@@ -801,28 +811,44 @@ transform: scale(1) rotate(2deg);
 
             </div>
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 relative h-[50vh] md:h-[80vh] bg-stone-100 rounded-2xl overflow-hidden flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-500">
-              <div class="relative w-full h-full">
-                <div class="absolute inset-0 bg-[#334058]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#C72C4C]/30 rounded-full group-hover:scale-125 transition-transform duration-1000 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-[#C72C4C]/30 rounded-full group-hover:scale-110 transition-transform duration-1000 delay-75 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#C72C4C] rounded-full flex items-center justify-center group-hover:scale-90 transition-transform duration-1000 delay-150 ease-out">
-                  <span class="serif italic text-4xl text-white">Fb</span>
+            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <div class="relative w-full h-full">
+                  <img src="/public/images/fremont-preview.png" alt="Fremont-Bousso" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <div class="absolute inset-0 bg-[#334058]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
+                    <a href="https://fremont-avocat.fr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                      <span>Voir le site</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- PROJECT 06: Pierre Hamoumou -->
-          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start order-first">
             <!-- Image Column -->
-            <div class="md:col-span-7 relative h-[50vh] md:h-[80vh] bg-stone-100 rounded-2xl overflow-hidden flex items-center justify-center group-hover:bg-stone-200 transition-colors duration-500">
-              <div class="relative w-full h-full">
-                <div class="absolute inset-0 bg-[#2C6E68]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-[#AED18E]/30 rounded-full group-hover:scale-125 transition-transform duration-1000 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 border border-[#AED18E]/30 rounded-full group-hover:scale-110 transition-transform duration-1000 delay-75 ease-out"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#AED18E] rounded-full flex items-center justify-center group-hover:scale-90 transition-transform duration-1000 delay-150 ease-out">
-                  <span class="serif italic text-4xl text-[#2C6E68]">Ph</span>
+            <div class="md:col-span-7 pf-3d-wrapper">
+              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+                <div class="relative w-full h-full">
+                  <img src="/public/images/hamoumou-preview.png" alt="Pierre Hamoumou" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <div class="absolute inset-0 bg-[#2C6E68]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center z-10">
+                    <a href="https://pierrehamoumou-avocat.fr" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-white text-stone-900 rounded-full text-sm font-medium tracking-wide hover:bg-stone-100 transition-colors shadow-lg">
+                      <span>Voir le site</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
