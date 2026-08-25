@@ -25,17 +25,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Scripts -->
   <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: {
+    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
+    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
+            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
+    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
+    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
+  } } }
+}
+</script>
   <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Manrope', sans-serif; }
-    h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+    body { font-family: 'Poppins', system-ui, sans-serif; }
+    h1, h2, h3, h4, .serif { font-family: 'Fraunces', Georgia, serif; }
     html { scroll-behavior: smooth; }
     ::-webkit-scrollbar { width: 0px; background: transparent; }
-    .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
-    .font-manrope { font-family: 'Manrope', sans-serif !important; }
+    .font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }
+    .font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
 
     /* Progress bar animation */
     .progress-fill { transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -75,11 +86,11 @@
     /* Checkbox styling */
     .checkbox-item input:checked + label {
       background-color: rgba(45, 106, 93, 0.2);
-      border-color: #2d6a5d;
+      border-color: #2A4AD1;
     }
     .checkbox-item input:checked + label .checkbox-icon {
       opacity: 1;
-      background-color: #2d6a5d;
+      background-color: #2A4AD1;
     }
 
     /* Tag input */
@@ -124,7 +135,7 @@
     }
     .info-dot.active {
       width: 1.5rem;
-      background-color: #2d6a5d;
+      background-color: #2A4AD1;
     }
     .info-dot:hover:not(.active) {
       background-color: rgba(45, 106, 93, 0.4);
@@ -170,13 +181,13 @@
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #2d6a5d 0%, #1a4a42 100%);
+      background: linear-gradient(135deg, #2A4AD1 0%, #1a4a42 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
     }
-    .page-card-icon svg { color: #Fdfcf8; }
+    .page-card-icon svg { color: #FAFBFD; }
 
     /* Loading skeleton */
     .skeleton {
@@ -209,7 +220,7 @@
       pointer-events: auto;
     }
     .modal-content {
-      background: #0f2f28;
+      background: #161A22;
       border: 1px solid rgba(253, 252, 248, 0.1);
       border-radius: 1.5rem;
       max-width: 600px;
@@ -261,7 +272,7 @@
     }
   </style>
 </head>
-<body class="bg-[#Fdfcf8] text-[#0f2f28] antialiased overflow-x-hidden selection:bg-[#2d6a5d] selection:text-[#Fdfcf8]">
+<body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
   <!-- HEADER -->
   <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
     <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
@@ -294,7 +305,7 @@
   </header>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
     <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
       <a href="/services" class="mobile-link hover:text-teal-600 transition-colors">Services</a>
       <a href="/portfolio" class="mobile-link hover:text-teal-600 transition-colors">Portfolio</a>
@@ -308,52 +319,53 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:gap-12">
       <!-- Left: Text content -->
       <div class="max-w-2xl">
-        <span class="uppercase block text-xs font-bold text-[#2d6a5d] tracking-widest mb-6 pl-1">
+        <span class="uppercase block text-xs font-bold text-[#2A4AD1] tracking-widest mb-6 pl-1">
           Assistant IA
         </span>
-        <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-serif text-[#0f2f28] tracking-tight mb-6">
+        <h1 class="text-[10vw] md:text-[5rem] leading-[0.95] font-serif text-[#161A22] tracking-tight mb-6">
           <span class="block">Créons votre projet</span>
           <span class="block italic opacity-90">en quelques minutes.</span>
         </h1>
-        <p class="md:text-xl leading-relaxed text-lg font-medium text-[#2d6a5d] max-w-xl">
-          Notre assistant IA vous guide étape par étape pour façonner le <span class="text-[#2d6a5d] font-bold">contenu</span> de votre site web.
+            <p class="hand text-2xl mt-4">cinq minutes, pas trente</p>
+        <p class="md:text-xl leading-relaxed text-lg font-medium text-[#2A4AD1] max-w-xl">
+          Notre assistant IA vous guide étape par étape pour façonner le <span class="text-[#2A4AD1] font-bold">contenu</span> de votre site web.
           Recevez des suggestions intelligentes et un brief structuré.
         </p>
       </div>
 
       <!-- Right: Info Carousel (desktop) / Below on mobile -->
       <div class="mt-10 lg:mt-0 lg:flex-shrink-0 lg:w-[480px]">
-        <div class="info-carousel relative bg-white/80 backdrop-blur-sm border border-[#2d6a5d]/10 rounded-2xl p-5 shadow-lg overflow-hidden">
+        <div class="info-carousel relative bg-white/80 backdrop-blur-sm border border-[#2A4AD1]/10 rounded-2xl p-5 shadow-lg overflow-hidden">
           <!-- Decorative gradient -->
-          <div class="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#2d6a5d]/10 to-transparent rounded-full -ml-12 -mt-12"></div>
+          <div class="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#2A4AD1]/10 to-transparent rounded-full -ml-12 -mt-12"></div>
 
           <div class="relative flex items-start gap-4">
             <!-- Icon container with pulse -->
             <div class="flex-shrink-0 relative">
-              <div class="w-10 h-10 bg-[#2d6a5d]/10 rounded-xl flex items-center justify-center">
-                <svg class="w-5 h-5 text-[#2d6a5d] info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div class="w-10 h-10 bg-[#2A4AD1]/10 rounded-xl flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#2A4AD1] info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
-              <div class="absolute inset-0 w-10 h-10 bg-[#2d6a5d]/20 rounded-xl animate-ping opacity-30"></div>
+              <div class="absolute inset-0 w-10 h-10 bg-[#2A4AD1]/20 rounded-xl animate-ping opacity-30"></div>
             </div>
 
             <!-- Text carousel -->
             <div class="flex-1 min-h-[60px] relative overflow-hidden">
               <div id="info-slides" class="info-slides">
                 <div class="info-slide active">
-                  <p class="text-sm text-[#0f2f28] leading-relaxed">
-                    <span class="font-semibold text-[#2d6a5d]">Confidentialité garantie</span> — Vos données restent privées, rien n'est conservé sans votre accord.
+                  <p class="text-sm text-[#161A22] leading-relaxed">
+                    <span class="font-semibold text-[#2A4AD1]">Confidentialité garantie</span> — Vos données restent privées, rien n'est conservé sans votre accord.
                   </p>
                 </div>
                 <div class="info-slide">
-                  <p class="text-sm text-[#0f2f28] leading-relaxed">
-                    <span class="font-semibold text-[#2d6a5d]">Rapide et sans engagement</span> — Envoyez-nous votre brief, recevez un devis sous 24h et votre site en 1 semaine. On s'occupe de tout.
+                  <p class="text-sm text-[#161A22] leading-relaxed">
+                    <span class="font-semibold text-[#2A4AD1]">Rapide et sans engagement</span> — Envoyez-nous votre brief, recevez un devis sous 24h et votre site en 1 semaine. On s'occupe de tout.
                   </p>
                 </div>
                 <div class="info-slide">
-                  <p class="text-sm text-[#0f2f28] leading-relaxed">
-                    <span class="font-semibold text-[#2d6a5d]">À votre rythme</span> — Répondez comme vous le souhaitez, en détail ou en quelques mots. On s'adapte à votre niveau de précision.
+                  <p class="text-sm text-[#161A22] leading-relaxed">
+                    <span class="font-semibold text-[#2A4AD1]">À votre rythme</span> — Répondez comme vous le souhaitez, en détail ou en quelques mots. On s'adapte à votre niveau de précision.
                   </p>
                 </div>
               </div>
@@ -362,9 +374,9 @@
 
           <!-- Progress dots -->
           <div class="flex justify-center gap-2 mt-4">
-            <button class="info-dot active w-2 h-2 rounded-full bg-[#2d6a5d] transition-all" data-slide="0"></button>
-            <button class="info-dot w-2 h-2 rounded-full bg-[#2d6a5d]/20 transition-all" data-slide="1"></button>
-            <button class="info-dot w-2 h-2 rounded-full bg-[#2d6a5d]/20 transition-all" data-slide="2"></button>
+            <button class="info-dot active w-2 h-2 rounded-full bg-[#2A4AD1] transition-all" data-slide="0"></button>
+            <button class="info-dot w-2 h-2 rounded-full bg-[#2A4AD1]/20 transition-all" data-slide="1"></button>
+            <button class="info-dot w-2 h-2 rounded-full bg-[#2A4AD1]/20 transition-all" data-slide="2"></button>
           </div>
         </div>
       </div>
@@ -374,11 +386,11 @@
   <!-- PROGRESS BAR -->
   <section class="px-6 md:px-12 max-w-[95rem] mx-auto mb-8">
     <div class="flex items-center justify-between mb-3">
-      <span id="step-label" class="text-sm font-medium text-[#2d6a5d]">Étape 1 sur 6</span>
+      <span id="step-label" class="text-sm font-medium text-[#2A4AD1]">Étape 1 sur 6</span>
       <span id="step-name" class="text-sm text-stone-500">Votre activité</span>
     </div>
     <div class="h-2 bg-stone-200 rounded-full overflow-hidden">
-      <div id="progress-bar" class="progress-fill h-full bg-[#2d6a5d] rounded-full" style="width: 16.66%"></div>
+      <div id="progress-bar" class="progress-fill h-full bg-[#2A4AD1] rounded-full" style="width: 16.66%"></div>
     </div>
   </section>
 
@@ -386,29 +398,29 @@
   <section class="px-4 md:px-12 max-w-[95rem] mx-auto w-full mb-32">
     <div class="flex gap-8">
       <!-- FORMULAIRE -->
-      <div class="flex-1 bg-[#0f2f28] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden">
+      <div class="flex-1 bg-[#161A22] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden">
         <!-- Decorative blob -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[#2d6a5d] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#2A4AD1] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
 
         <form id="brief-form" class="relative z-10">
 
         <!-- STEP 1: Activité -->
         <div class="step-container active" data-step="1">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Parlez-nous de votre activité</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Ces informations nous aident à personnaliser les suggestions.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Ces informations nous aident à personnaliser les suggestions.</p>
 
           <div class="space-y-6">
             <div>
               <label for="business-input" class="block text-sm font-medium mb-2">Nom de l'entreprise *</label>
               <input type="text" name="business" id="business-input" required
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all"
                 placeholder="Ex: Boulangerie Dupont">
             </div>
 
             <div>
               <label for="sector-select" class="block text-sm font-medium mb-2">Secteur d'activité *</label>
               <select name="sector" id="sector-select" required
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 text-[#FAFBFD] focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez un secteur</option>
                 <option value="commerce">Commerce / Retail</option>
                 <option value="restauration">Restauration / Food</option>
@@ -426,10 +438,10 @@
                 <option value="autre">Autre</option>
               </select>
               <!-- Tip IA -->
-              <div id="sector-tip" class="hidden mt-4 p-4 bg-[#2d6a5d]/20 border border-[#2d6a5d]/30 rounded-xl">
+              <div id="sector-tip" class="hidden mt-4 p-4 bg-[#2A4AD1]/20 border border-[#2A4AD1]/30 rounded-xl">
                 <div class="flex items-start gap-3">
-                  <i data-lucide="lightbulb" class="w-5 h-5 text-[#2d6a5d] flex-shrink-0 mt-0.5"></i>
-                  <p id="sector-tip-text" class="text-sm text-[#Fdfcf8]/80"></p>
+                  <i data-lucide="lightbulb" class="w-5 h-5 text-[#2A4AD1] flex-shrink-0 mt-0.5"></i>
+                  <p id="sector-tip-text" class="text-sm text-[#FAFBFD]/80"></p>
                 </div>
               </div>
             </div>
@@ -437,7 +449,7 @@
             <div>
               <label for="description-input" class="block text-sm font-medium mb-2">Description courte</label>
               <textarea name="description" id="description-input" rows="3"
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all resize-none"
                 placeholder="Décrivez votre activité en quelques mots..."></textarea>
             </div>
           </div>
@@ -446,7 +458,7 @@
         <!-- STEP 2: Cible -->
         <div class="step-container" data-step="2">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Qui est votre cible ?</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Définissez votre audience principale.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Définissez votre audience principale.</p>
 
           <div class="space-y-6">
             <div>
@@ -454,8 +466,8 @@
               <div class="flex flex-wrap gap-3">
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="target_type" value="b2c" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Particuliers (B2C)
@@ -463,8 +475,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="target_type" value="b2b" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Entreprises (B2B)
@@ -476,7 +488,7 @@
             <div>
               <label for="age-range-select" class="block text-sm font-medium mb-2">Tranche d'âge principale</label>
               <select name="age_range" id="age-range-select"
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 text-[#FAFBFD] focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez une tranche</option>
                 <option value="18-25">18-25 ans</option>
                 <option value="25-35">25-35 ans</option>
@@ -489,7 +501,7 @@
             <div>
               <label for="target-description-input" class="block text-sm font-medium mb-2">Description de votre client idéal</label>
               <textarea name="target_description" id="target-description-input" rows="3"
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all resize-none"
                 placeholder="Ex: Jeunes professionnels urbains à la recherche de produits bio..."></textarea>
             </div>
           </div>
@@ -498,7 +510,7 @@
         <!-- STEP 3: Pages souhaitées -->
         <div class="step-container" data-step="3">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Structure de votre site</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Définissez les pages et leur hiérarchie. Vous pouvez créer des sous-pages.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Définissez les pages et leur hiérarchie. Vous pouvez créer des sous-pages.</p>
 
           <div class="space-y-6">
             <!-- Pages standards -->
@@ -507,8 +519,8 @@
               <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="pages-grid">
                 <label class="checkbox-item cursor-pointer" data-page="Accueil">
                   <input type="checkbox" name="pages" value="Accueil" class="sr-only" checked>
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Accueil
@@ -516,8 +528,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer" data-page="À propos">
                   <input type="checkbox" name="pages" value="À propos" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     À propos
@@ -525,8 +537,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer" data-page="Services">
                   <input type="checkbox" name="pages" value="Services" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Services
@@ -534,8 +546,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer" data-page="Contact">
                   <input type="checkbox" name="pages" value="Contact" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Contact
@@ -543,8 +555,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer" data-page="Portfolio">
                   <input type="checkbox" name="pages" value="Portfolio" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Portfolio
@@ -552,8 +564,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer" data-page="Blog">
                   <input type="checkbox" name="pages" value="Blog" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Blog
@@ -563,20 +575,20 @@
             </div>
 
             <!-- Ajouter page personnalisée -->
-            <div class="pt-4 border-t border-[#Fdfcf8]/10">
+            <div class="pt-4 border-t border-[#FAFBFD]/10">
               <label for="custom-page-input" class="block text-sm font-medium mb-2">Ajouter une page personnalisée</label>
               <div class="flex gap-2 mb-3">
                 <input type="text" id="custom-page-input"
-                  class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                  class="flex-1 bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-3 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all"
                   placeholder="Nom de la page (ex: Tarifs, FAQ...)">
-                <select id="parent-page-select" class="bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-3 py-3 text-[#Fdfcf8] text-sm">
+                <select id="parent-page-select" class="bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-3 py-3 text-[#FAFBFD] text-sm">
                   <option value="">Page principale</option>
                 </select>
-                <button type="button" id="add-custom-page-btn" class="px-4 py-3 bg-[#Fdfcf8]/10 rounded-lg hover:bg-[#Fdfcf8]/20 transition-all">
+                <button type="button" id="add-custom-page-btn" class="px-4 py-3 bg-[#FAFBFD]/10 rounded-lg hover:bg-[#FAFBFD]/20 transition-all">
                   <i data-lucide="plus" class="w-5 h-5"></i>
                 </button>
               </div>
-              <p class="text-xs text-[#Fdfcf8]/40">Sélectionnez une page parente pour créer une sous-page (ex: Services > Droit du travail)</p>
+              <p class="text-xs text-[#FAFBFD]/40">Sélectionnez une page parente pour créer une sous-page (ex: Services > Droit du travail)</p>
             </div>
 
             <!-- Pages personnalisées ajoutées -->
@@ -586,14 +598,14 @@
             </div>
 
             <!-- Suggestions IA -->
-            <div class="pt-4 border-t border-[#Fdfcf8]/10">
-              <button type="button" id="suggest-pages-btn" class="ai-btn flex items-center gap-2 px-5 py-3 bg-[#2d6a5d] text-white rounded-full font-medium hover:bg-[#2d6a5d]/80 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+            <div class="pt-4 border-t border-[#FAFBFD]/10">
+              <button type="button" id="suggest-pages-btn" class="ai-btn flex items-center gap-2 px-5 py-3 bg-[#2A4AD1] text-white rounded-full font-medium hover:bg-[#2A4AD1]/80 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
                 <i data-lucide="sparkles" class="w-4 h-4"></i>
                 <span>Suggérer des pages avec l'IA</span>
               </button>
-              <p class="text-xs text-[#Fdfcf8]/40 mt-2">L'IA suggèrera des pages adaptées à votre secteur (hors pages déjà sélectionnées)</p>
+              <p class="text-xs text-[#FAFBFD]/40 mt-2">L'IA suggèrera des pages adaptées à votre secteur (hors pages déjà sélectionnées)</p>
               <div id="ai-pages-suggestions" class="ai-content hidden">
-                <p class="text-sm text-[#Fdfcf8]/60 mb-2">Suggestions de l'IA :</p>
+                <p class="text-sm text-[#FAFBFD]/60 mb-2">Suggestions de l'IA :</p>
                 <div id="ai-pages-list" class="flex flex-wrap gap-2"></div>
               </div>
             </div>
@@ -603,7 +615,7 @@
         <!-- STEP 4: Contenu par page -->
         <div class="step-container" data-step="4">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Contenu des pages</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Décrivez les éléments clés de chaque page. L'IA générera du contenu basé sur vos notes ET votre description d'entreprise.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Décrivez les éléments clés de chaque page. L'IA générera du contenu basé sur vos notes ET votre description d'entreprise.</p>
 
           <div id="pages-content-container" class="space-y-6">
             <!-- Dynamically populated based on selected pages -->
@@ -613,11 +625,11 @@
         <!-- STEP 5: SEO -->
         <div class="step-container" data-step="5">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Vos mots-clés</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Quels mots décrivent le mieux votre activité ? Ces mots aideront vos clients à vous trouver sur Google.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Quels mots décrivent le mieux votre activité ? Ces mots aideront vos clients à vous trouver sur Google.</p>
 
           <!-- Suggestions IA -->
           <div id="keywords-suggestions" class="hidden mb-6">
-            <span class="block text-xs text-[#2d6a5d] font-medium mb-3">
+            <span class="block text-xs text-[#2A4AD1] font-medium mb-3">
               <i data-lucide="sparkles" class="w-3 h-3 inline mr-1"></i>
               Suggestions basées sur vos services (cliquez pour ajouter)
             </span>
@@ -630,9 +642,9 @@
             <label for="keyword-input" class="block text-sm font-medium mb-3">Vos mots-clés</label>
             <div class="flex gap-2 mb-4">
               <input type="text" id="keyword-input"
-                class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-3 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all"
+                class="flex-1 bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-3 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all"
                 placeholder="Tapez ou cliquez sur une suggestion...">
-              <button type="button" id="add-keyword-btn" class="px-4 py-3 bg-[#2d6a5d] text-white rounded-lg hover:bg-[#2d6a5d]/80 transition-all">
+              <button type="button" id="add-keyword-btn" class="px-4 py-3 bg-[#2A4AD1] text-white rounded-lg hover:bg-[#2A4AD1]/80 transition-all">
                 <i data-lucide="plus" class="w-5 h-5"></i>
               </button>
             </div>
@@ -645,13 +657,13 @@
         <!-- STEP 6: Design -->
         <div class="step-container" data-step="6">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Préférences design</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Définissez l'univers visuel de votre site.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Définissez l'univers visuel de votre site.</p>
 
           <div class="space-y-6">
             <div>
               <label for="design-style-select" class="block text-sm font-medium mb-2">Style souhaité *</label>
               <select name="design_style" id="design-style-select" required
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all cursor-pointer">
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 text-[#FAFBFD] focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all cursor-pointer">
                 <option value="" disabled selected>Choisissez un style</option>
                 <option value="moderne">Moderne & Épuré</option>
                 <option value="minimaliste">Minimaliste</option>
@@ -665,7 +677,7 @@
             <div>
               <label for="reference-sites-input" class="block text-sm font-medium mb-2">Sites de référence (optionnel)</label>
               <textarea name="reference_sites" id="reference-sites-input" rows="2"
-                class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"
+                class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all resize-none"
                 placeholder="https://site1.com, https://site2.com"></textarea>
             </div>
 
@@ -674,8 +686,8 @@
               <div class="grid grid-cols-2 gap-3">
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="features" value="animations" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Animations
@@ -683,8 +695,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="features" value="dark_mode" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Mode sombre
@@ -692,8 +704,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="features" value="multilingual" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     Multilingue
@@ -701,8 +713,8 @@
                 </label>
                 <label class="checkbox-item cursor-pointer">
                   <input type="checkbox" name="features" value="ecommerce" class="sr-only">
-                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all">
-                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center opacity-0 transition-all">
+                  <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all">
+                    <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center opacity-0 transition-all">
                       <i data-lucide="check" class="w-3 h-3"></i>
                     </span>
                     E-commerce
@@ -716,15 +728,15 @@
         <!-- STEP 7: Récapitulatif -->
         <div class="step-container" data-step="7">
           <h2 class="font-serif text-3xl md:text-4xl mb-2">Récapitulatif de votre brief</h2>
-          <p class="text-[#Fdfcf8]/60 mb-8">Votre brief a été envoyé automatiquement.</p>
+          <p class="text-[#FAFBFD]/60 mb-8">Votre brief a été envoyé automatiquement.</p>
 
           <!-- Message de remerciement -->
-          <div class="mb-8 p-5 bg-[#2d6a5d]/20 border border-[#2d6a5d]/40 rounded-2xl">
+          <div class="mb-8 p-5 bg-[#2A4AD1]/20 border border-[#2A4AD1]/40 rounded-2xl">
             <div class="flex items-start gap-3">
-              <i data-lucide="check-circle" class="w-6 h-6 text-[#2d6a5d] flex-shrink-0 mt-0.5"></i>
+              <i data-lucide="check-circle" class="w-6 h-6 text-[#2A4AD1] flex-shrink-0 mt-0.5"></i>
               <div>
-                <p class="text-[#Fdfcf8] font-medium mb-1">Merci pour vos réponses !</p>
-                <p class="text-sm text-[#Fdfcf8]/70">Nous reviendrons vers vous rapidement. Pour toute précision : <a href="mailto:mathieu@biladesigns.com" class="text-[#2d6a5d] hover:underline font-medium">mathieu@biladesigns.com</a></p>
+                <p class="text-[#FAFBFD] font-medium mb-1">Merci pour vos réponses !</p>
+                <p class="text-sm text-[#FAFBFD]/70">Nous reviendrons vers vous rapidement. Pour toute précision : <a href="mailto:mathieu@biladesigns.com" class="text-[#2A4AD1] hover:underline font-medium">mathieu@biladesigns.com</a></p>
               </div>
             </div>
           </div>
@@ -734,16 +746,16 @@
           </div>
 
           <!-- Case à cocher recontact -->
-          <div id="contact-checkbox-container" class="mt-8 p-5 bg-gradient-to-r from-[#2d6a5d]/10 to-[#2d6a5d]/5 border border-[#2d6a5d]/20 rounded-2xl transition-all duration-500">
+          <div id="contact-checkbox-container" class="mt-8 p-5 bg-gradient-to-r from-[#2A4AD1]/10 to-[#2A4AD1]/5 border border-[#2A4AD1]/20 rounded-2xl transition-all duration-500">
             <!-- Étape 1: Checkbox -->
             <div id="contact-step-checkbox">
               <label class="flex items-center gap-4 cursor-pointer group">
                 <div class="relative flex-shrink-0">
                   <input type="checkbox" id="accept-contact" class="peer sr-only">
-                  <div class="w-6 h-6 border-2 border-[#2d6a5d]/40 rounded-lg bg-transparent peer-checked:bg-[#2d6a5d] peer-checked:border-[#2d6a5d] transition-all duration-300 group-hover:border-[#2d6a5d]"></div>
+                  <div class="w-6 h-6 border-2 border-[#2A4AD1]/40 rounded-lg bg-transparent peer-checked:bg-[#2A4AD1] peer-checked:border-[#2A4AD1] transition-all duration-300 group-hover:border-[#2A4AD1]"></div>
                   <i data-lucide="check" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-300"></i>
                 </div>
-                <span class="text-[#Fdfcf8] group-hover:text-white transition-colors">
+                <span class="text-[#FAFBFD] group-hover:text-white transition-colors">
                   J'accepte d'être recontacté pour une proposition de devis
                 </span>
               </label>
@@ -751,11 +763,11 @@
 
             <!-- Étape 2: Email (caché par défaut) -->
             <div id="contact-step-email" class="hidden">
-              <p class="text-[#Fdfcf8] font-medium mb-4">Sur quelle adresse pouvons-nous vous joindre ?</p>
+              <p class="text-[#FAFBFD] font-medium mb-4">Sur quelle adresse pouvons-nous vous joindre ?</p>
               <div class="flex flex-col sm:flex-row gap-3">
                 <input type="email" id="contact-email" placeholder="votre@email.com"
-                  class="flex-1 bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/20 rounded-xl px-4 py-3 text-[#Fdfcf8] placeholder-[#Fdfcf8]/40 focus:outline-none focus:border-[#2d6a5d] focus:bg-[#Fdfcf8]/10 transition-all">
-                <button type="button" id="contact-submit-btn" class="flex items-center justify-center gap-2 px-6 py-3 bg-[#2d6a5d] text-white rounded-xl font-medium hover:bg-[#2d6a5d]/80 transition-all">
+                  class="flex-1 bg-[#FAFBFD]/5 border border-[#FAFBFD]/20 rounded-xl px-4 py-3 text-[#FAFBFD] placeholder-[#FAFBFD]/40 focus:outline-none focus:border-[#2A4AD1] focus:bg-[#FAFBFD]/10 transition-all">
+                <button type="button" id="contact-submit-btn" class="flex items-center justify-center gap-2 px-6 py-3 bg-[#2A4AD1] text-white rounded-xl font-medium hover:bg-[#2A4AD1]/80 transition-all">
                   <i data-lucide="send" class="w-4 h-4"></i>
                   Valider
                 </button>
@@ -764,15 +776,15 @@
 
             <!-- Étape 3: Confirmation (caché par défaut) -->
             <div id="contact-step-confirm" class="hidden">
-              <div class="flex items-center gap-3 text-[#2d6a5d]">
+              <div class="flex items-center gap-3 text-[#2A4AD1]">
                 <i data-lucide="check-circle" class="w-6 h-6"></i>
                 <span class="font-medium">Merci ! Nous vous recontacterons rapidement.</span>
               </div>
             </div>
           </div>
 
-          <div class="flex justify-center mt-8 pt-8 border-t border-[#Fdfcf8]/10">
-            <button type="button" id="download-pdf-btn" class="flex items-center justify-center gap-2 px-8 py-4 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
+          <div class="flex justify-center mt-8 pt-8 border-t border-[#FAFBFD]/10">
+            <button type="button" id="download-pdf-btn" class="flex items-center justify-center gap-2 px-8 py-4 bg-[#FAFBFD] text-[#161A22] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
               <i data-lucide="download" class="w-5 h-5"></i>
               Télécharger le PDF
             </button>
@@ -780,18 +792,18 @@
         </div>
 
         <!-- NAVIGATION BUTTONS -->
-        <div class="flex flex-col items-center mt-10 pt-8 border-t border-[#Fdfcf8]/10" id="nav-buttons">
+        <div class="flex flex-col items-center mt-10 pt-8 border-t border-[#FAFBFD]/10" id="nav-buttons">
           <div class="flex justify-between w-full">
-            <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#Fdfcf8]/20 hover:bg-[#Fdfcf8]/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+            <button type="button" id="prev-btn" class="flex items-center gap-2 px-6 py-3 rounded-full border border-[#FAFBFD]/20 hover:bg-[#FAFBFD]/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed" disabled>
               <i data-lucide="arrow-left" class="w-4 h-4"></i>
               Précédent
             </button>
-            <button type="button" id="next-btn" class="flex items-center gap-2 px-6 py-3 bg-[#Fdfcf8] text-[#0f2f28] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
+            <button type="button" id="next-btn" class="flex items-center gap-2 px-6 py-3 bg-[#FAFBFD] text-[#161A22] rounded-full font-bold hover:bg-white hover:scale-105 transition-all duration-300">
               Suivant
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
           </div>
-          <p id="pdf-hint" class="hidden text-center text-sm text-[#Fdfcf8]/50 mt-4">
+          <p id="pdf-hint" class="hidden text-center text-sm text-[#FAFBFD]/50 mt-4">
             <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
             Vous pourrez télécharger une version PDF à la page suivante
           </p>
@@ -808,7 +820,7 @@
       <!-- SIDEBAR PREVIEW -->
       <div class="hidden lg:block w-80 flex-shrink-0">
         <div class="sticky top-8">
-          <div class="bg-[#0f2f28] rounded-2xl overflow-hidden shadow-2xl">
+          <div class="bg-[#161A22] rounded-2xl overflow-hidden shadow-2xl">
             <!-- Browser mockup header -->
             <div class="bg-[#1a3d35] px-4 py-3 flex items-center gap-2">
               <div class="flex gap-1.5">
@@ -816,62 +828,62 @@
                 <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
                 <span class="w-3 h-3 rounded-full bg-green-400"></span>
               </div>
-              <div class="flex-1 bg-[#0f2f28] rounded px-3 py-1 text-xs text-[#Fdfcf8]/40 font-mono truncate" id="preview-url">
+              <div class="flex-1 bg-[#161A22] rounded px-3 py-1 text-xs text-[#FAFBFD]/40 font-mono truncate" id="preview-url">
                 votresite.com
               </div>
             </div>
 
             <!-- Preview content -->
-            <div class="p-4 min-h-[400px] bg-gradient-to-b from-[#0f2f28] to-[#162f29]">
+            <div class="p-4 min-h-[400px] bg-gradient-to-b from-[#161A22] to-[#162f29]">
               <!-- Header preview -->
-              <div class="flex items-center justify-between mb-6 pb-3 border-b border-[#Fdfcf8]/10">
-                <span id="preview-business" class="text-sm font-bold text-[#Fdfcf8]">Votre entreprise</span>
+              <div class="flex items-center justify-between mb-6 pb-3 border-b border-[#FAFBFD]/10">
+                <span id="preview-business" class="text-sm font-bold text-[#FAFBFD]">Votre entreprise</span>
                 <div class="flex gap-2">
-                  <span class="w-8 h-1 bg-[#Fdfcf8]/20 rounded"></span>
-                  <span class="w-8 h-1 bg-[#Fdfcf8]/20 rounded"></span>
+                  <span class="w-8 h-1 bg-[#FAFBFD]/20 rounded"></span>
+                  <span class="w-8 h-1 bg-[#FAFBFD]/20 rounded"></span>
                 </div>
               </div>
 
               <!-- Navigation preview -->
               <div class="mb-6">
-                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Navigation</p>
+                <p class="text-[10px] uppercase tracking-wider text-[#2A4AD1] mb-2">Navigation</p>
                 <div id="preview-pages" class="flex flex-wrap gap-1.5">
-                  <span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">Accueil</span>
+                  <span class="px-2 py-1 text-[10px] bg-[#2A4AD1]/30 text-[#FAFBFD]/70 rounded">Accueil</span>
                 </div>
               </div>
 
               <!-- Hero preview -->
-              <div class="mb-6 p-4 bg-[#Fdfcf8]/5 rounded-lg">
-                <div class="w-16 h-1.5 bg-[#2d6a5d] rounded mb-2"></div>
-                <div class="w-full h-2 bg-[#Fdfcf8]/10 rounded mb-1.5"></div>
-                <div class="w-3/4 h-2 bg-[#Fdfcf8]/10 rounded"></div>
+              <div class="mb-6 p-4 bg-[#FAFBFD]/5 rounded-lg">
+                <div class="w-16 h-1.5 bg-[#2A4AD1] rounded mb-2"></div>
+                <div class="w-full h-2 bg-[#FAFBFD]/10 rounded mb-1.5"></div>
+                <div class="w-3/4 h-2 bg-[#FAFBFD]/10 rounded"></div>
               </div>
 
               <!-- Keywords preview -->
               <div class="mb-4">
-                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Mots-clés SEO</p>
+                <p class="text-[10px] uppercase tracking-wider text-[#2A4AD1] mb-2">Mots-clés SEO</p>
                 <div id="preview-keywords" class="flex flex-wrap gap-1">
-                  <span class="text-[9px] text-[#Fdfcf8]/40 italic">Aucun mot-clé</span>
+                  <span class="text-[9px] text-[#FAFBFD]/40 italic">Aucun mot-clé</span>
                 </div>
               </div>
 
               <!-- Style preview -->
               <div>
-                <p class="text-[10px] uppercase tracking-wider text-[#2d6a5d] mb-2">Style</p>
-                <div id="preview-style" class="text-[10px] text-[#Fdfcf8]/50">
+                <p class="text-[10px] uppercase tracking-wider text-[#2A4AD1] mb-2">Style</p>
+                <div id="preview-style" class="text-[10px] text-[#FAFBFD]/50">
                   Non défini
                 </div>
               </div>
             </div>
 
             <!-- Completeness indicator -->
-            <div class="px-4 py-3 bg-[#1a3d35] border-t border-[#Fdfcf8]/5">
+            <div class="px-4 py-3 bg-[#1a3d35] border-t border-[#FAFBFD]/5">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="text-[10px] text-[#Fdfcf8]/60">Complétion du brief</span>
-                <span id="preview-completion" class="text-[10px] font-bold text-[#2d6a5d]">0%</span>
+                <span class="text-[10px] text-[#FAFBFD]/60">Complétion du brief</span>
+                <span id="preview-completion" class="text-[10px] font-bold text-[#2A4AD1]">0%</span>
               </div>
-              <div class="h-1.5 bg-[#0f2f28] rounded-full overflow-hidden">
-                <div id="preview-completion-bar" class="h-full bg-[#2d6a5d] rounded-full transition-all duration-500" style="width: 0%"></div>
+              <div class="h-1.5 bg-[#161A22] rounded-full overflow-hidden">
+                <div id="preview-completion-bar" class="h-full bg-[#2A4AD1] rounded-full transition-all duration-500" style="width: 0%"></div>
               </div>
             </div>
           </div>
@@ -882,20 +894,20 @@
 
   <!-- FOOTER -->
   <footer class="w-full px-4 md:px-6 pb-6">
-    <div class="bg-[#0f2f28] text-[#Fdfcf8] rounded-[2.5rem] py-16 px-6 md:px-12 relative overflow-hidden">
+    <div class="bg-[#161A22] text-[#FAFBFD] rounded-[2.5rem] py-16 px-6 md:px-12 relative overflow-hidden">
       <div class="max-w-6xl mx-auto text-center">
-        <p class="text-[#Fdfcf8]/60 text-sm mb-8">
+        <p class="text-[#FAFBFD]/60 text-sm mb-8">
           Bila Designs - Création de sites webs à votre image
         </p>
         <nav class="flex flex-wrap justify-center gap-8 mb-8">
-          <a href="/services" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Services</a>
-          <a href="/portfolio" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Portfolio</a>
-          <a href="/agence" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">L'agence</a>
-          <a href="/contact" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2d6a5d] transition-colors">Contact</a>
+          <a href="/services" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2A4AD1] transition-colors">Services</a>
+          <a href="/portfolio" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2A4AD1] transition-colors">Portfolio</a>
+          <a href="/agence" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2A4AD1] transition-colors">L'agence</a>
+          <a href="/contact" class="text-xs font-bold tracking-[0.15em] uppercase hover:text-[#2A4AD1] transition-colors">Contact</a>
         </nav>
         <div class="flex flex-wrap justify-center gap-8">
-          <a href="/mentions-legales" class="text-[10px] uppercase tracking-[0.1em] text-[#Fdfcf8]/30 hover:text-[#Fdfcf8] transition-colors">Mentions Légales</a>
-          <a href="/politique-confidentialite" class="text-[10px] uppercase tracking-[0.1em] text-[#Fdfcf8]/30 hover:text-[#Fdfcf8] transition-colors">Politique de confidentialité</a>
+          <a href="/mentions-legales" class="text-[10px] uppercase tracking-[0.1em] text-[#FAFBFD]/30 hover:text-[#FAFBFD] transition-colors">Mentions Légales</a>
+          <a href="/politique-confidentialite" class="text-[10px] uppercase tracking-[0.1em] text-[#FAFBFD]/30 hover:text-[#FAFBFD] transition-colors">Politique de confidentialité</a>
         </div>
       </div>
     </div>
@@ -905,22 +917,22 @@
   <div id="content-modal" class="modal-overlay">
     <div class="modal-content p-6 md:p-8">
       <div class="flex items-center justify-between mb-6">
-        <h3 class="font-serif text-2xl text-[#Fdfcf8]">Contenu peaufiné</h3>
-        <button onclick="closeModal()" class="text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+        <h3 class="font-serif text-2xl text-[#FAFBFD]">Contenu peaufiné</h3>
+        <button onclick="closeModal()" class="text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
-      <p class="text-sm text-[#Fdfcf8]/60 mb-4">Voici le contenu généré par l'IA. Vous pouvez le modifier avant de l'accepter.</p>
+      <p class="text-sm text-[#FAFBFD]/60 mb-4">Voici le contenu généré par l'IA. Vous pouvez le modifier avant de l'accepter.</p>
       <div class="mb-6">
-        <label for="modal-content-textarea" class="text-xs text-[#2d6a5d] font-medium mb-2 block" id="modal-page-label">Page: Accueil</label>
+        <label for="modal-content-textarea" class="text-xs text-[#2A4AD1] font-medium mb-2 block" id="modal-page-label">Page: Accueil</label>
         <textarea id="modal-content-textarea" rows="8"
-          class="w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-lg px-4 py-4 text-[#Fdfcf8] placeholder-[#Fdfcf8]/30 focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#Fdfcf8]/30 transition-all resize-none"></textarea>
+          class="w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-lg px-4 py-4 text-[#FAFBFD] placeholder-[#FAFBFD]/30 focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#FAFBFD]/30 transition-all resize-none"></textarea>
       </div>
       <div class="flex gap-3">
-        <button onclick="closeModal()" class="flex-1 px-4 py-3 border border-[#Fdfcf8]/20 rounded-full text-[#Fdfcf8]/80 hover:bg-[#Fdfcf8]/10 transition-all">
+        <button onclick="closeModal()" class="flex-1 px-4 py-3 border border-[#FAFBFD]/20 rounded-full text-[#FAFBFD]/80 hover:bg-[#FAFBFD]/10 transition-all">
           Annuler
         </button>
-        <button onclick="acceptModalContent()" class="flex-1 px-4 py-3 bg-[#2d6a5d] text-white rounded-full font-medium hover:bg-[#2d6a5d]/80 transition-all">
+        <button onclick="acceptModalContent()" class="flex-1 px-4 py-3 bg-[#2A4AD1] text-white rounded-full font-medium hover:bg-[#2A4AD1]/80 transition-all">
           Accepter
         </button>
       </div>
@@ -1176,7 +1188,7 @@
 
       // Afficher loading
       container.classList.remove('hidden');
-      list.innerHTML = '<span class="text-[#Fdfcf8]/50 text-sm">Analyse de vos services...</span>';
+      list.innerHTML = '<span class="text-[#FAFBFD]/50 text-sm">Analyse de vos services...</span>';
 
       try {
         const result = await callAI('keyword_suggestions', {
@@ -1203,7 +1215,7 @@
         container.classList.remove('hidden');
         list.innerHTML = sectorSuggestions.keywords.map(kw => `
           <button type="button" onclick="addSuggestedKeyword('${kw.replace(/'/g, "\\'")}')"
-            class="suggestion-chip px-3 py-1.5 text-sm bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/20 rounded-full hover:bg-[#2d6a5d]/30 hover:border-[#2d6a5d] transition-all ${formData.keywords.includes(kw) ? 'opacity-40 pointer-events-none' : ''}">
+            class="suggestion-chip px-3 py-1.5 text-sm bg-[#FAFBFD]/5 border border-[#FAFBFD]/20 rounded-full hover:bg-[#2A4AD1]/30 hover:border-[#2A4AD1] transition-all ${formData.keywords.includes(kw) ? 'opacity-40 pointer-events-none' : ''}">
             <i data-lucide="plus" class="w-3 h-3 inline mr-1"></i>${kw}
           </button>
         `).join('');
@@ -1259,14 +1271,14 @@
         // Set initial state
         if (input.checked) {
           input.nextElementSibling.querySelector('.checkbox-icon').style.opacity = '1';
-          input.nextElementSibling.querySelector('.checkbox-icon').style.backgroundColor = '#2d6a5d';
+          input.nextElementSibling.querySelector('.checkbox-icon').style.backgroundColor = '#2A4AD1';
         }
 
         input.addEventListener('change', () => {
           const icon = input.nextElementSibling.querySelector('.checkbox-icon');
           if (input.checked) {
             icon.style.opacity = '1';
-            icon.style.backgroundColor = '#2d6a5d';
+            icon.style.backgroundColor = '#2A4AD1';
           } else {
             icon.style.opacity = '0';
             icon.style.backgroundColor = 'transparent';
@@ -1350,7 +1362,7 @@
         const parent = formData.pagesHierarchy[page];
         const displayName = parent ? `${parent} > ${page}` : page;
         return `
-          <span class="tag bg-[#2d6a5d]/20 border-[#2d6a5d]">
+          <span class="tag bg-[#2A4AD1]/20 border-[#2A4AD1]">
             ${displayName}
             <button type="button" onclick="removeCustomPage(${idx})">&times;</button>
           </span>
@@ -1481,10 +1493,10 @@
         );
 
         if (filteredSuggestions.length === 0) {
-          listEl.innerHTML = '<p class="text-sm text-[#Fdfcf8]/60">Aucune suggestion supplémentaire pour votre secteur.</p>';
+          listEl.innerHTML = '<p class="text-sm text-[#FAFBFD]/60">Aucune suggestion supplémentaire pour votre secteur.</p>';
         } else {
           listEl.innerHTML = filteredSuggestions.map(page => `
-            <button type="button" class="tag hover:bg-[#2d6a5d] hover:border-[#2d6a5d] transition-all cursor-pointer" onclick="addSuggestedPage('${page.replace(/'/g, "\\'")}')">
+            <button type="button" class="tag hover:bg-[#2A4AD1] hover:border-[#2A4AD1] transition-all cursor-pointer" onclick="addSuggestedPage('${page.replace(/'/g, "\\'")}')">
               + ${page}
             </button>
           `).join('');
@@ -1510,8 +1522,8 @@
         label.className = 'checkbox-item cursor-pointer';
         label.innerHTML = `
           <input type="checkbox" name="pages" value="${pageName}" class="sr-only" checked>
-          <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#Fdfcf8]/20 transition-all" style="background-color: rgba(45, 106, 93, 0.2); border-color: #2d6a5d;">
-            <span class="checkbox-icon w-5 h-5 rounded-full border border-[#Fdfcf8]/30 flex items-center justify-center transition-all" style="opacity: 1; background-color: #2d6a5d;">
+          <span class="flex items-center gap-2 px-4 py-3 rounded-lg border border-[#FAFBFD]/20 transition-all" style="background-color: rgba(45, 106, 93, 0.2); border-color: #2A4AD1;">
+            <span class="checkbox-icon w-5 h-5 rounded-full border border-[#FAFBFD]/30 flex items-center justify-center transition-all" style="opacity: 1; background-color: #2A4AD1;">
               <i data-lucide="check" class="w-3 h-3"></i>
             </span>
             ${pageName}
@@ -1525,9 +1537,9 @@
           const icon = input.nextElementSibling.querySelector('.checkbox-icon');
           if (input.checked) {
             icon.style.opacity = '1';
-            icon.style.backgroundColor = '#2d6a5d';
+            icon.style.backgroundColor = '#2A4AD1';
             input.nextElementSibling.style.backgroundColor = 'rgba(45, 106, 93, 0.2)';
-            input.nextElementSibling.style.borderColor = '#2d6a5d';
+            input.nextElementSibling.style.borderColor = '#2A4AD1';
           } else {
             icon.style.opacity = '0';
             icon.style.backgroundColor = 'transparent';
@@ -1570,14 +1582,14 @@
 
         // Afficher le contenu généré
         contentDiv.innerHTML = `
-          <div class="bg-[#2d6a5d]/10 border border-[#2d6a5d]/30 rounded-lg p-4 mt-3">
+          <div class="bg-[#2A4AD1]/10 border border-[#2A4AD1]/30 rounded-lg p-4 mt-3">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-medium text-[#2d6a5d]">Contenu généré par l'IA</span>
-              <button type="button" onclick="copyContent('${pageName}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+              <span class="text-xs font-medium text-[#2A4AD1]">Contenu généré par l'IA</span>
+              <button type="button" onclick="copyContent('${pageName}')" class="text-xs text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors">
                 Copier
               </button>
             </div>
-            <p class="text-sm text-[#Fdfcf8]/90 whitespace-pre-wrap">${result.content || 'Aucun contenu généré.'}</p>
+            <p class="text-sm text-[#FAFBFD]/90 whitespace-pre-wrap">${result.content || 'Aucun contenu généré.'}</p>
           </div>
         `;
         contentDiv.classList.remove('hidden');
@@ -1618,11 +1630,11 @@
         const seoData = formData.seo_by_page[page];
 
         return `
-          <div class="border border-[#Fdfcf8]/10 rounded-xl p-4">
+          <div class="border border-[#FAFBFD]/10 rounded-xl p-4">
             <div class="flex items-center justify-between mb-3">
               <h4 class="font-medium">${page}</h4>
               <button type="button" data-seo-page="${page}" onclick="generatePageSEO('${escapedPage}')"
-                class="ai-btn flex items-center gap-2 px-3 py-1.5 bg-[#2d6a5d] text-white text-sm rounded-full hover:bg-[#2d6a5d]/80 transition-all">
+                class="ai-btn flex items-center gap-2 px-3 py-1.5 bg-[#2A4AD1] text-white text-sm rounded-full hover:bg-[#2A4AD1]/80 transition-all">
                 <i data-lucide="sparkles" class="w-3 h-3"></i>
                 Générer SEO
               </button>
@@ -1630,18 +1642,18 @@
 
             <div data-seo-result="${page}" class="${seoData ? '' : 'hidden'}">
               ${seoData ? `
-                <div class="bg-[#Fdfcf8]/5 rounded-lg p-3 space-y-2 text-sm">
+                <div class="bg-[#FAFBFD]/5 rounded-lg p-3 space-y-2 text-sm">
                   <div>
-                    <span class="text-[#2d6a5d] font-medium">H1:</span>
-                    <span class="text-[#Fdfcf8]/90">${seoData.h1 || '-'}</span>
+                    <span class="text-[#2A4AD1] font-medium">H1:</span>
+                    <span class="text-[#FAFBFD]/90">${seoData.h1 || '-'}</span>
                   </div>
                   <div>
-                    <span class="text-[#2d6a5d] font-medium">H2:</span>
-                    <span class="text-[#Fdfcf8]/80">${(seoData.h2 || []).join(' | ') || '-'}</span>
+                    <span class="text-[#2A4AD1] font-medium">H2:</span>
+                    <span class="text-[#FAFBFD]/80">${(seoData.h2 || []).join(' | ') || '-'}</span>
                   </div>
                   <div>
-                    <span class="text-[#2d6a5d] font-medium">Meta:</span>
-                    <span class="text-[#Fdfcf8]/70 text-xs">${seoData.metaDescription || '-'}</span>
+                    <span class="text-[#2A4AD1] font-medium">Meta:</span>
+                    <span class="text-[#FAFBFD]/70 text-xs">${seoData.metaDescription || '-'}</span>
                   </div>
                 </div>
               ` : ''}
@@ -1678,18 +1690,18 @@
         formData.seo_by_page[pageName] = result;
 
         resultDiv.innerHTML = `
-          <div class="bg-[#Fdfcf8]/5 rounded-lg p-3 space-y-2 text-sm">
+          <div class="bg-[#FAFBFD]/5 rounded-lg p-3 space-y-2 text-sm">
             <div>
-              <span class="text-[#2d6a5d] font-medium">H1:</span>
-              <span class="text-[#Fdfcf8]/90">${result.h1 || '-'}</span>
+              <span class="text-[#2A4AD1] font-medium">H1:</span>
+              <span class="text-[#FAFBFD]/90">${result.h1 || '-'}</span>
             </div>
             <div>
-              <span class="text-[#2d6a5d] font-medium">H2:</span>
-              <span class="text-[#Fdfcf8]/80">${(result.h2 || []).join(' | ') || '-'}</span>
+              <span class="text-[#2A4AD1] font-medium">H2:</span>
+              <span class="text-[#FAFBFD]/80">${(result.h2 || []).join(' | ') || '-'}</span>
             </div>
             <div>
-              <span class="text-[#2d6a5d] font-medium">Meta:</span>
-              <span class="text-[#Fdfcf8]/70 text-xs">${result.metaDescription || '-'}</span>
+              <span class="text-[#2A4AD1] font-medium">Meta:</span>
+              <span class="text-[#FAFBFD]/70 text-xs">${result.metaDescription || '-'}</span>
             </div>
           </div>
         `;
@@ -1721,7 +1733,7 @@
           // Envoi du brief à l'étape 6 avant de passer au récap
           if (currentStep === totalSteps - 1) {
             nextBtn.disabled = true;
-            nextBtn.innerHTML = '<span class="spinner w-4 h-4 border-2 border-[#0f2f28]/30 border-t-[#0f2f28] rounded-full"></span> Envoi en cours...';
+            nextBtn.innerHTML = '<span class="spinner w-4 h-4 border-2 border-[#161A22]/30 border-t-[#161A22] rounded-full"></span> Envoi en cours...';
             await autoSubmitBrief();
           }
           goToStep(currentStep + 1);
@@ -1825,13 +1837,13 @@
         const allPages = [...formData.pages, ...formData.customPages];
         if (allPages.length > 0) {
           previewPages.innerHTML = allPages.slice(0, 6).map(p =>
-            `<span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">${p}</span>`
+            `<span class="px-2 py-1 text-[10px] bg-[#2A4AD1]/30 text-[#FAFBFD]/70 rounded">${p}</span>`
           ).join('');
           if (allPages.length > 6) {
-            previewPages.innerHTML += `<span class="px-2 py-1 text-[10px] text-[#Fdfcf8]/40">+${allPages.length - 6}</span>`;
+            previewPages.innerHTML += `<span class="px-2 py-1 text-[10px] text-[#FAFBFD]/40">+${allPages.length - 6}</span>`;
           }
         } else {
-          previewPages.innerHTML = '<span class="px-2 py-1 text-[10px] bg-[#2d6a5d]/30 text-[#Fdfcf8]/70 rounded">Accueil</span>';
+          previewPages.innerHTML = '<span class="px-2 py-1 text-[10px] bg-[#2A4AD1]/30 text-[#FAFBFD]/70 rounded">Accueil</span>';
         }
       }
 
@@ -1840,10 +1852,10 @@
       if (previewKeywords) {
         if (formData.keywords.length > 0) {
           previewKeywords.innerHTML = formData.keywords.slice(0, 5).map(k =>
-            `<span class="px-1.5 py-0.5 text-[9px] bg-[#Fdfcf8]/10 text-[#Fdfcf8]/60 rounded">${k}</span>`
+            `<span class="px-1.5 py-0.5 text-[9px] bg-[#FAFBFD]/10 text-[#FAFBFD]/60 rounded">${k}</span>`
           ).join('');
         } else {
-          previewKeywords.innerHTML = '<span class="text-[9px] text-[#Fdfcf8]/40 italic">Aucun mot-clé</span>';
+          previewKeywords.innerHTML = '<span class="text-[9px] text-[#FAFBFD]/40 italic">Aucun mot-clé</span>';
         }
       }
 
@@ -2002,11 +2014,11 @@
               <div class="flex-1 min-w-0">
                 <div class="flex items-center justify-between mb-3">
                   <div>
-                    ${parent ? `<span class="text-xs text-[#2d6a5d] font-medium">${parent} ›</span>` : ''}
-                    <h3 class="font-serif text-xl text-[#Fdfcf8]">${page}</h3>
+                    ${parent ? `<span class="text-xs text-[#2A4AD1] font-medium">${parent} ›</span>` : ''}
+                    <h3 class="font-serif text-xl text-[#FAFBFD]">${page}</h3>
                   </div>
                   ${hasContent ? `
-                    <span class="flex items-center gap-1 text-xs text-[#2d6a5d] bg-[#2d6a5d]/20 px-2 py-1 rounded-full">
+                    <span class="flex items-center gap-1 text-xs text-[#2A4AD1] bg-[#2A4AD1]/20 px-2 py-1 rounded-full">
                       <i data-lucide="check" class="w-3 h-3"></i>
                       Complété
                     </span>
@@ -2016,9 +2028,9 @@
                 <div class="space-y-4">
                   <!-- Zone de texte avec placeholder intelligent -->
                   <div>
-                    <span class="text-xs text-[#Fdfcf8]/50 block mb-2">Vos idées pour cette page</span>
+                    <span class="text-xs text-[#FAFBFD]/50 block mb-2">Vos idées pour cette page</span>
                     <textarea data-notes-page="${page}" rows="4"
-                      class="textarea-enhanced w-full bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl px-4 py-3 text-[#Fdfcf8] focus:outline-none focus:bg-[#Fdfcf8]/10 focus:border-[#2d6a5d]/50 transition-all resize-none text-sm"
+                      class="textarea-enhanced w-full bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-xl px-4 py-3 text-[#FAFBFD] focus:outline-none focus:bg-[#FAFBFD]/10 focus:border-[#2A4AD1]/50 transition-all resize-none text-sm"
                       placeholder="${placeholder}"
                       oninput="formData.pages_notes['${escapedPage}'] = this.value; saveToSession();">${currentNotes}</textarea>
                   </div>
@@ -2026,13 +2038,13 @@
                   <!-- Bouton Peaufiner avec l'IA -->
                   <div class="flex items-center gap-3">
                     <button type="button" data-peaufiner-page="${page}" onclick="peaufinerContent('${escapedPage}')"
-                      class="ai-btn flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2d6a5d] to-[#1a4a42] text-white text-sm rounded-full hover:shadow-lg hover:shadow-[#2d6a5d]/20 transition-all duration-300">
+                      class="ai-btn flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2A4AD1] to-[#1a4a42] text-white text-sm rounded-full hover:shadow-lg hover:shadow-[#2A4AD1]/20 transition-all duration-300">
                       <i data-lucide="wand-2" class="w-4 h-4"></i>
                       Peaufiner avec l'IA
                     </button>
                     ${hasContent ? `
                       <button type="button" onclick="viewContent('${escapedPage}')"
-                        class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors underline">
+                        class="text-xs text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors underline">
                         Voir le contenu
                       </button>
                     ` : ''}
@@ -2041,19 +2053,19 @@
                   <!-- Aperçu du contenu généré (si existant) -->
                   <div data-content-preview="${page}" class="${hasContent ? '' : 'hidden'}">
                     ${hasContent ? `
-                      <div class="bg-[#Fdfcf8]/5 border border-[#Fdfcf8]/10 rounded-xl p-4 mt-2">
+                      <div class="bg-[#FAFBFD]/5 border border-[#FAFBFD]/10 rounded-xl p-4 mt-2">
                         <div class="flex items-center justify-between mb-2">
-                          <span class="text-xs font-medium text-[#2d6a5d]">Aperçu du contenu</span>
+                          <span class="text-xs font-medium text-[#2A4AD1]">Aperçu du contenu</span>
                           <div class="flex items-center gap-2">
-                            <button type="button" onclick="editContent('${escapedPage}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+                            <button type="button" onclick="editContent('${escapedPage}')" class="text-xs text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors">
                               Modifier
                             </button>
-                            <button type="button" onclick="copyContent('${escapedPage}')" class="text-xs text-[#Fdfcf8]/60 hover:text-[#Fdfcf8] transition-colors">
+                            <button type="button" onclick="copyContent('${escapedPage}')" class="text-xs text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors">
                               Copier
                             </button>
                           </div>
                         </div>
-                        <p class="text-sm text-[#Fdfcf8]/80 line-clamp-3">${formData.pages_content[page].substring(0, 200)}${formData.pages_content[page].length > 200 ? '...' : ''}</p>
+                        <p class="text-sm text-[#FAFBFD]/80 line-clamp-3">${formData.pages_content[page].substring(0, 200)}${formData.pages_content[page].length > 200 ? '...' : ''}</p>
                       </div>
                     ` : ''}
                   </div>
@@ -2065,14 +2077,14 @@
       };
 
       let html = `
-        <div class="mb-6 p-4 bg-[#2d6a5d]/10 border border-[#2d6a5d]/30 rounded-xl">
+        <div class="mb-6 p-4 bg-[#2A4AD1]/10 border border-[#2A4AD1]/30 rounded-xl">
           <div class="content-tip-carousel">
-            <div class="flex items-center gap-2 text-sm text-[#Fdfcf8]/80 content-tip active">
-              <i data-lucide="lightbulb" class="w-4 h-4 text-[#2d6a5d]"></i>
+            <div class="flex items-center gap-2 text-sm text-[#FAFBFD]/80 content-tip active">
+              <i data-lucide="lightbulb" class="w-4 h-4 text-[#2A4AD1]"></i>
               <span>Remplissez vos idées dans chaque carte, puis cliquez sur "Peaufiner avec l'IA" pour générer un contenu professionnel.</span>
             </div>
-            <div class="flex items-center gap-2 text-sm text-[#Fdfcf8]/80 content-tip" style="display:none;">
-              <i data-lucide="info" class="w-4 h-4 text-[#2d6a5d]"></i>
+            <div class="flex items-center gap-2 text-sm text-[#FAFBFD]/80 content-tip" style="display:none;">
+              <i data-lucide="info" class="w-4 h-4 text-[#2A4AD1]"></i>
               <span>Cette étape est optionnelle — le nombre de pages suffit pour établir un devis. Vous pourrez compléter le contenu plus tard.</span>
             </div>
           </div>
@@ -2247,51 +2259,51 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="space-y-4">
             <div>
-              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Entreprise</h3>
+              <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-2">Entreprise</h3>
               <p class="font-medium text-lg">${formData.business || 'Non renseigné'}</p>
-              <p class="text-[#Fdfcf8]/60">${formData.sector || 'Secteur non précisé'}</p>
+              <p class="text-[#FAFBFD]/60">${formData.sector || 'Secteur non précisé'}</p>
               ${formData.description ? `<p class="text-sm mt-2">${formData.description}</p>` : ''}
             </div>
 
             <div>
-              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Cible</h3>
+              <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-2">Cible</h3>
               <p>${formData.target_type.map(t => targetTypeLabels[t] || t).join(', ') || 'Non précisée'}</p>
-              ${formData.age_range ? `<p class="text-[#Fdfcf8]/60">Tranche d'âge: ${formData.age_range}</p>` : ''}
+              ${formData.age_range ? `<p class="text-[#FAFBFD]/60">Tranche d'âge: ${formData.age_range}</p>` : ''}
               ${formData.target_description ? `<p class="text-sm mt-2">${formData.target_description}</p>` : ''}
             </div>
           </div>
 
           <div class="space-y-4">
             <div>
-              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Pages</h3>
+              <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-2">Pages</h3>
               <div class="flex flex-wrap gap-2">
                 ${formData.pages.map(p => `<span class="tag">${p}</span>`).join('')}
               </div>
             </div>
 
             <div>
-              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">SEO - Mots-clés</h3>
+              <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-2">SEO - Mots-clés</h3>
               <div class="flex flex-wrap gap-2">
-                ${formData.keywords.length ? formData.keywords.map(k => `<span class="tag">${k}</span>`).join('') : '<span class="text-[#Fdfcf8]/60">Aucun mot-clé</span>'}
+                ${formData.keywords.length ? formData.keywords.map(k => `<span class="tag">${k}</span>`).join('') : '<span class="text-[#FAFBFD]/60">Aucun mot-clé</span>'}
               </div>
             </div>
 
             <div>
-              <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-2">Design</h3>
+              <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-2">Design</h3>
               <p>${styleLabels[formData.design_style] || 'Non précisé'}</p>
-              ${formData.features.length ? `<p class="text-[#Fdfcf8]/60 text-sm mt-1">${formData.features.map(f => featureLabels[f] || f).join(', ')}</p>` : ''}
+              ${formData.features.length ? `<p class="text-[#FAFBFD]/60 text-sm mt-1">${formData.features.map(f => featureLabels[f] || f).join(', ')}</p>` : ''}
             </div>
           </div>
         </div>
 
         ${Object.keys(formData.pages_content).length ? `
-          <div class="mt-6 pt-6 border-t border-[#Fdfcf8]/10">
-            <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-4">Contenu des pages</h3>
+          <div class="mt-6 pt-6 border-t border-[#FAFBFD]/10">
+            <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-4">Contenu des pages</h3>
             <div class="space-y-4">
               ${Object.entries(formData.pages_content).filter(([k, v]) => v).map(([page, content]) => `
-                <div class="bg-[#Fdfcf8]/5 rounded-lg p-4">
+                <div class="bg-[#FAFBFD]/5 rounded-lg p-4">
                   <h4 class="font-medium mb-2">${page}</h4>
-                  <p class="text-sm text-[#Fdfcf8]/80 whitespace-pre-wrap">${content}</p>
+                  <p class="text-sm text-[#FAFBFD]/80 whitespace-pre-wrap">${content}</p>
                 </div>
               `).join('')}
             </div>
@@ -2299,9 +2311,9 @@
         ` : ''}
 
         ${formData.seo_structure ? `
-          <div class="mt-6 pt-6 border-t border-[#Fdfcf8]/10">
-            <h3 class="text-sm font-bold text-[#2d6a5d] uppercase tracking-wider mb-4">Structure SEO suggérée</h3>
-            <div class="bg-[#Fdfcf8]/5 rounded-lg p-4 space-y-2">
+          <div class="mt-6 pt-6 border-t border-[#FAFBFD]/10">
+            <h3 class="text-sm font-bold text-[#2A4AD1] uppercase tracking-wider mb-4">Structure SEO suggérée</h3>
+            <div class="bg-[#FAFBFD]/5 rounded-lg p-4 space-y-2">
               <p><strong>H1:</strong> ${formData.seo_structure.h1}</p>
               <p><strong>H2:</strong> ${(formData.seo_structure.h2 || []).join(' | ')}</p>
               <p><strong>Meta:</strong> ${formData.seo_structure.metaDescription}</p>

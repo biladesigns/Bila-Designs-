@@ -20,10 +20,21 @@
 <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://unpkg.com">
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: {
+    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
+    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
+            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
+    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
+    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
+  } } }
+}
+</script>
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <style>
-body { font-family: 'Manrope', sans-serif; }
-h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+body { font-family: 'Poppins', system-ui, sans-serif; }
+h1, h2, h3, h4, .serif { font-family: 'Fraunces', Georgia, serif; }
 /* Hide scrollbar but keep functionality */
 ::-webkit-scrollbar { width: 0px; background: transparent; }
 /* Smooth Reveal */
@@ -72,16 +83,16 @@ to { transform: translateX(calc(-100% - 2rem)); }
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
-.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
-.font-manrope { font-family: 'Manrope', sans-serif !important; }
+.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }
+.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
 /* MAGNETIC PULSE BUTTON */
 :root { --noir-profond: #1a1a1a; --emeraude: #0D5C4A; --emeraude-light: #0f7a62; --emeraude-glow: rgba(13, 92, 74, 0.4); }
 .btn-magnetic-wrapper { position: relative; display: inline-block; }
 .btn-magnetic-wrapper::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); background: radial-gradient(ellipse at center, var(--emeraude-glow) 0%, transparent 70%); border-radius: 60px; animation: magneticPulse 2.8s ease-in-out infinite; z-index: 0; pointer-events: none; }
 .btn-magnetic-wrapper::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 35px); height: calc(100% + 35px); background: radial-gradient(ellipse at center, rgba(13, 92, 74, 0.15) 0%, transparent 60%); border-radius: 70px; animation: magneticPulseOuter 2.8s ease-in-out infinite; animation-delay: 0.4s; z-index: 0; pointer-events: none; }
-.btn-magnetic { position: relative; z-index: 1; font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-magnetic { position: relative; z-index: 1; font-family: 'Poppins', system-ui, sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
 .btn-magnetic::before { content: ''; position: absolute; inset: 0; border-radius: 50px; padding: 1.5px; background: linear-gradient(135deg, transparent 30%, var(--emeraude) 50%, transparent 70%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.5; transition: opacity 0.4s ease; }
 .btn-magnetic::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(13, 92, 74, 0.2), transparent); transition: left 0.6s ease; }
 .btn-magnetic span { position: relative; z-index: 2; display: flex; align-items: center; gap: 0.5rem; transform: translateX(12px); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -99,7 +110,7 @@ to { transform: translateX(calc(-100% - 2rem)); }
 @keyframes magneticPulseHover { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); } }
 @keyframes magneticPulseOuterHover { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
 </style></head>
-  <body class="bg-[#Fdfcf8] text-[#0f2f28] antialiased overflow-x-hidden selection:bg-[#2d6a5d] selection:text-[#Fdfcf8]">
+  <body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
       <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
@@ -157,34 +168,35 @@ to { transform: translateX(calc(-100% - 2rem)); }
       <section class="min-h-[90vh] flex flex-col w-full pt-40 px-6 md:px-12 pb-20 relative justify-center">
         <!-- Grid Lines Background - Full Width -->
         <div class="absolute inset-0 pointer-events-none flex justify-between px-6 md:px-12 opacity-30">
-          <div class="w-px h-full bg-[#0f2f28]/10"></div>
-          <div class="w-px h-full bg-[#0f2f28]/10 hidden md:block"></div>
-          <div class="w-px h-full bg-[#0f2f28]/10"></div>
+          <div class="w-px h-full bg-[#161A22]/10"></div>
+          <div class="w-px h-full bg-[#161A22]/10 hidden md:block"></div>
+          <div class="w-px h-full bg-[#161A22]/10"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 w-full">
           <div class="lg:col-span-8">
             <div class="overflow-hidden mb-2">
-              <span class="block text-[#2d6a5d] font-mono text-xs uppercase tracking-widest mb-4 reveal-text" style="animation-delay: 0.1s;">
+              <span class="block text-[#2A4AD1] font-mono text-xs uppercase tracking-widest mb-4 reveal-text" style="animation-delay: 0.1s;">
                 — Since 2024
               </span>
             </div>
-            <h1 class="text-[11vw] md:text-[6.5rem] leading-[0.9] reveal-text text-[#0f2f28] tracking-tight font-serif mb-8" style="animation-delay: 0.2s">
+            <h1 class="text-[11vw] md:text-[6.5rem] leading-[0.9] reveal-text text-[#161A22] tracking-tight font-serif mb-8" style="animation-delay: 0.2s">
               Design avec
               <br class="">
-              <span class="italic text-[#2d6a5d]">intention.</span>
+              <span class="italic text-[#2A4AD1]">intention.</span>
             </h1>
+            <p class="hand text-2xl mt-4">une personne, pas un service commercial</p>
           </div>
 
           <div class="lg:col-span-4 flex flex-col justify-end pb-4 reveal-text" style="animation-delay: 0.4s;">
-            <p class="md:text-xl leading-relaxed text-lg font-light text-[#0f2f28]/80 text-justify">
+            <p class="md:text-xl leading-relaxed text-lg font-light text-[#161A22]/80 text-justify">
               Nous donnons à votre marque l'image qu'elle mérite. Une image
               précise, harmonieuse et porteuse de sens, conçue pour traduire
               votre savoir-faire en une présence digitale forte, crédible et
               inoubliable.
             </p>
             <div class="mt-8 flex gap-4">
-              <div class="h-px w-12 bg-[#0f2f28] self-center"></div>
+              <div class="h-px w-12 bg-[#161A22] self-center"></div>
               <span class="text-lg italic font-serif">
                 Bila Mathieu, Fondateur
               </span>
@@ -198,22 +210,22 @@ to { transform: translateX(calc(-100% - 2rem)); }
             <source media="(min-width: 768px)" srcset="https://orionsecurity.fr/wp-content/uploads/2025/12/Generated-Image-December-22-2025-11_52AM.jpeg">
             <img src="https://orionsecurity.fr/wp-content/uploads/2025/12/Generated-Image-December-22-2025-12_01PM.jpeg" alt="Bila Mathieu Fondateur" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105">
           </picture>
-          <div class="absolute inset-0 bg-[#0f2f28]/10"></div>
+          <div class="absolute inset-0 bg-[#161A22]/10"></div>
         </div>
       </section>
 
       <!-- Section 2: Values - Full Width -->
-      <section class="border-y border-[#0f2f28]/10 bg-[#Fdfcf8] w-full">
-        <div class="w-full grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#0f2f28]/10">
+      <section class="border-y border-[#161A22]/10 bg-[#FAFBFD] w-full">
+        <div class="w-full grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#161A22]/10">
           <!-- Header for this section -->
-          <div class="p-8 md:p-12 flex flex-col justify-between h-full bg-[#Fdfcf8]">
+          <div class="p-8 md:p-12 flex flex-col justify-between h-full bg-[#FAFBFD]">
             <h2 class="font-serif text-3xl md:text-4xl">
               Nos
               <br>
               Piliers
             </h2>
             <div class="mt-8">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2d6a5d" stroke-width="1.5" class="mb-4">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2A4AD1" stroke-width="1.5" class="mb-4">
                 <circle cx="12" cy="12" r="10"></circle>
                 <path d="m9 12 2 2 4-4"></path>
               </svg>
@@ -224,11 +236,11 @@ to { transform: translateX(calc(-100% - 2rem)); }
           </div>
 
           <!-- Value 1 -->
-          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+          <div class="p-8 md:p-12 group hover:bg-[#FAFBFD] transition-colors relative overflow-hidden">
             <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
               01
             </div>
-            <div class="mb-6 text-[#2d6a5d]">
+            <div class="mb-6 text-[#2A4AD1]">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale">
                 <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
                 <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path>
@@ -247,11 +259,11 @@ to { transform: translateX(calc(-100% - 2rem)); }
           </div>
 
           <!-- Value 2 -->
-          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+          <div class="p-8 md:p-12 group hover:bg-[#FAFBFD] transition-colors relative overflow-hidden">
             <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
               02
             </div>
-            <div class="mb-6 text-[#2d6a5d]">
+            <div class="mb-6 text-[#2A4AD1]">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-eye">
                 <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
                 <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
@@ -271,11 +283,11 @@ to { transform: translateX(calc(-100% - 2rem)); }
           </div>
 
           <!-- Value 3 -->
-          <div class="p-8 md:p-12 group hover:bg-[#Fdfcf8] transition-colors relative overflow-hidden">
+          <div class="p-8 md:p-12 group hover:bg-[#FAFBFD] transition-colors relative overflow-hidden">
             <div class="absolute top-4 right-4 text-xs font-mono opacity-30">
               03
             </div>
-            <div class="mb-6 text-[#2d6a5d]">
+            <div class="mb-6 text-[#2A4AD1]">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fingerprint">
                 <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4"></path>
                 <path d="M15.71 15.26a13 13 0 0 1-1.12 3.98"></path>
@@ -297,12 +309,12 @@ to { transform: translateX(calc(-100% - 2rem)); }
       </section>
 
       <!-- Section 3: Methodology - Full Width Wrapper -->
-      <section class="py-32 px-6 md:px-12 w-full bg-[#Fdfcf8]">
+      <section class="py-32 px-6 md:px-12 w-full bg-[#FAFBFD]">
         <div class="text-center max-w-3xl mx-auto mb-24">
-          <h2 class="font-serif text-5xl md:text-7xl text-[#0f2f28] mb-6">
+          <h2 class="font-serif text-5xl md:text-7xl text-[#161A22] mb-6">
             Le Processus
           </h2>
-          <p class="text-[#2d6a5d] font-medium text-lg">
+          <p class="text-[#2A4AD1] font-medium text-lg">
             Une méthodologie linéaire pour des résultats exponentiels.
           </p>
         </div>
@@ -310,18 +322,18 @@ to { transform: translateX(calc(-100% - 2rem)); }
         <!-- Stacking Wrapper -->
         <div class="relative w-full max-w-5xl mx-auto flex flex-col gap-8 pb-20">
           <!-- Background Line -->
-          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#0f2f28]/10 -translate-x-1/2 z-0 hidden md:block"></div>
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#161A22]/10 -translate-x-1/2 z-0 hidden md:block"></div>
 
           <!-- Card 01 -->
           <div class="sticky top-24 md:top-[15vh] z-10">
-            <div class="relative bg-[#0f2f28] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-2xl origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+            <div class="relative bg-[#161A22] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] border border-[#2A4AD1]/30 shadow-2xl origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
               <div class="noise-overlay"></div>
               <div class="md:w-1/3 flex flex-col justify-between relative z-10">
-                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                <span class="text-[12rem] leading-none font-serif text-[#FAFBFD]/10 absolute -top-10 -left-10 select-none">
                   1
                 </span>
                 <div class="mt-auto">
-                  <span class="font-mono text-xs uppercase tracking-widest text-[#2d6a5d] mb-2 block">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#2A4AD1] mb-2 block">
                     Phase 01
                   </span>
                   <h3 class="font-serif text-4xl md:text-5xl">Immersion</h3>
@@ -335,13 +347,13 @@ to { transform: translateX(calc(-100% - 2rem)); }
                   cohérente et efficace.
                 </p>
                 <div class="mt-8 flex gap-3 flex-wrap">
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     Audit UX
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     Analyse de données
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     Stratégie d'entreprise
                   </span>
                 </div>
@@ -351,10 +363,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
 
           <!-- Card 02 -->
           <div class="sticky top-28 md:top-[20vh] z-20">
-            <div class="relative bg-[#173d34] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.2)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+            <div class="relative bg-[#173d34] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] border border-[#2A4AD1]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.2)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
               <div class="noise-overlay"></div>
               <div class="md:w-1/3 flex flex-col justify-between relative z-10">
-                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                <span class="text-[12rem] leading-none font-serif text-[#FAFBFD]/10 absolute -top-10 -left-10 select-none">
                   2
                 </span>
                 <div class="mt-auto">
@@ -371,13 +383,13 @@ to { transform: translateX(calc(-100% - 2rem)); }
                   intentionnelle.
                 </p>
                 <div class="mt-8 flex gap-3 flex-wrap">
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     design ui
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     Motion design
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     Responsive design
                   </span>
                 </div>
@@ -387,10 +399,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
 
           <!-- Card 03 -->
           <div class="sticky top-32 md:top-[25vh] z-30">
-            <div class="relative bg-[#1f4d42] text-[#Fdfcf8] p-8 md:p-12 rounded-[2rem] border border-[#2d6a5d]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.3)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
+            <div class="relative bg-[#1f4d42] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] border border-[#2A4AD1]/30 shadow-[0_-20px_40px_rgba(0,0,0,0.3)] origin-top transition-transform duration-500 hover:-translate-y-2 overflow-hidden group min-h-[400px] flex flex-col md:flex-row gap-8 md:gap-16">
               <div class="noise-overlay"></div>
               <div class="md:w-1/3 flex flex-col justify-between relative z-10">
-                <span class="text-[12rem] leading-none font-serif text-[#Fdfcf8]/10 absolute -top-10 -left-10 select-none">
+                <span class="text-[12rem] leading-none font-serif text-[#FAFBFD]/10 absolute -top-10 -left-10 select-none">
                   3
                 </span>
                 <div class="mt-auto">
@@ -407,13 +419,13 @@ to { transform: translateX(calc(-100% - 2rem)); }
                   croissance.
                 </p>
                 <div class="mt-8 flex gap-3 flex-wrap">
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     dÉVELOPPEMENT
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     CONTRÔLE QUALITÉ
                   </span>
-                  <span class="uppercase text-xs tracking-wide border-[#Fdfcf8]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
+                  <span class="uppercase text-xs tracking-wide border-[#FAFBFD]/20 border rounded-full pt-1 pr-3 pb-1 pl-3">
                     LANCEMENT
                   </span>
                 </div>
@@ -429,9 +441,9 @@ to { transform: translateX(calc(-100% - 2rem)); }
       </section>
 
       <!-- Section 4: La Politique - Full Width -->
-      <section class="border-y border-[#0f2f28]/10 bg-[#Fdfcf8] relative overflow-hidden w-full">
+      <section class="border-y border-[#161A22]/10 bg-[#FAFBFD] relative overflow-hidden w-full">
         <!-- Scrolling Marquee -->
-        <div class="border-b border-[#0f2f28]/10 bg-[#0f2f28] text-[#Fdfcf8] py-3 marquee-container z-20 relative w-full">
+        <div class="border-b border-[#161A22]/10 bg-[#161A22] text-[#FAFBFD] py-3 marquee-container z-20 relative w-full">
           <div class="marquee-content font-mono text-xs uppercase tracking-[0.3em]">
             <span>Disponibilité Limitée</span>
             <span>•</span>
@@ -458,16 +470,16 @@ to { transform: translateX(calc(-100% - 2rem)); }
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-2">
           <!-- Left: Manifesto -->
-          <div class="md:p-20 lg:border-r flex flex-col border-[#0f2f28]/10 pt-8 pr-8 pb-8 pl-8 justify-center">
-            <h2 class="font-serif text-6xl md:text-8xl text-[#0f2f28] tracking-tighter mb-8 leading-[0.9]">
+          <div class="md:p-20 lg:border-r flex flex-col border-[#161A22]/10 pt-8 pr-8 pb-8 pl-8 justify-center">
+            <h2 class="font-serif text-6xl md:text-8xl text-[#161A22] tracking-tighter mb-8 leading-[0.9]">
               La
-              <span class="italic text-[#2d6a5d]">Politique.</span>
+              <span class="italic text-[#2A4AD1]">Politique.</span>
             </h2>
             <div class="max-w-md space-y-6">
-              <p class="text-xl font-medium text-[#0f2f28]">
+              <p class="text-xl font-medium text-[#161A22]">
                 Moins de volume. Plus d'impact.
               </p>
-              <p class="text-[#0f2f28]/70 leading-relaxed text-justify">
+              <p class="text-[#161A22]/70 leading-relaxed text-justify">
                 Nous avons fait le choix radical de limiter notre production à 3 sites web par mois.
                 Ce n'est pas de l'exclusivité pour la forme, c'est une nécessité
                 pour le fond. Cela nous permet de nous dédier corps et âme à
@@ -478,36 +490,36 @@ to { transform: translateX(calc(-100% - 2rem)); }
           </div>
 
           <!-- Right: Availability Grid -->
-          <div class="flex flex-col border-t lg:border-t-0 border-[#0f2f28]/10">
+          <div class="flex flex-col border-t lg:border-t-0 border-[#161A22]/10">
             <!-- Decembre (Sold Out) -->
-            <div class="flex-1 bg-[#1a1a1a] text-[#Fdfcf8] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group border-b border-[#Fdfcf8]/10">
+            <div class="flex-1 bg-[#1a1a1a] text-[#FAFBFD] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group border-b border-[#FAFBFD]/10">
               <div class="noise-overlay"></div>
               <div class="flex justify-between items-start relative z-10 opacity-40 group-hover:opacity-60 transition-opacity">
-                <span class="font-mono text-sm uppercase tracking-widest border border-[#Fdfcf8]/30 rounded-full px-3 py-1">
+                <span class="font-mono text-sm uppercase tracking-widest border border-[#FAFBFD]/30 rounded-full px-3 py-1">
                   Mars 2026
                 </span>
                 <span class="h-2 w-2 rounded-full bg-red-500"></span>
               </div>
               <div class="relative z-10 mt-12 flex items-center justify-between">
                 <div>
-                  <span class="block font-serif text-4xl md:text-5xl text-[#Fdfcf8]/30 line-through decoration-[#2d6a5d] decoration-2">
+                  <span class="block font-serif text-4xl md:text-5xl text-[#FAFBFD]/30 line-through decoration-[#2A4AD1] decoration-2">
                     Complet
                   </span>
-                  <span class="text-xs font-mono uppercase text-[#Fdfcf8]/30 mt-2 block">
+                  <span class="text-xs font-mono uppercase text-[#FAFBFD]/30 mt-2 block">
                     0 places disponibles
                   </span>
                 </div>
-                <svg class="w-12 h-12 text-[#Fdfcf8]/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-12 h-12 text-[#FAFBFD]/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                 </svg>
               </div>
             </div>
 
             <!-- Janvier (Available) -->
-            <a href="/contact" class="flex-1 md:p-12 flex flex-col group hover:bg-[#2d6a5d]/5 transition-colors cursor-pointer text-[#0f2f28] bg-[#Fdfcf8] pt-8 pr-8 pb-8 pl-8 relative justify-between">
+            <a href="/contact" class="flex-1 md:p-12 flex flex-col group hover:bg-[#2A4AD1]/5 transition-colors cursor-pointer text-[#161A22] bg-[#FAFBFD] pt-8 pr-8 pb-8 pl-8 relative justify-between">
               <div class="flex justify-between items-start">
                 <div class="flex items-center gap-3">
-                  <span class="font-mono text-sm uppercase tracking-widest border border-[#0f2f28] rounded-full px-3 py-1 bg-[#0f2f28] text-[#Fdfcf8]">
+                  <span class="font-mono text-sm uppercase tracking-widest border border-[#161A22] rounded-full px-3 py-1 bg-[#161A22] text-[#FAFBFD]">
                     Mai 2026
                   </span>
                   <span class="inline-flex relative h-3 w-3">
@@ -525,17 +537,17 @@ to { transform: translateX(calc(-100% - 2rem)); }
 
               <div class="mt-12">
                 <div class="flex items-baseline gap-4">
-                  <span class="font-serif text-7xl md:text-8xl tracking-tighter text-[#0f2f28]">
+                  <span class="font-serif text-7xl md:text-8xl tracking-tighter text-[#161A22]">
                     2
                   </span>
-                  <span class="font-serif text-3xl italic text-[#2d6a5d]">
+                  <span class="font-serif text-3xl italic text-[#2A4AD1]">
                     places restantes
                   </span>
                 </div>
-                <div class="w-full bg-[#0f2f28]/10 h-1 mt-6 overflow-hidden">
-                  <div class="bg-[#0f2f28] h-full w-[33%]"></div>
+                <div class="w-full bg-[#161A22]/10 h-1 mt-6 overflow-hidden">
+                  <div class="bg-[#161A22] h-full w-[33%]"></div>
                 </div>
-                <p class="mt-4 text-xs font-mono uppercase tracking-widest text-[#0f2f28]/60">
+                <p class="mt-4 text-xs font-mono uppercase tracking-widest text-[#161A22]/60">
                   Réservez maintenant pour livraison fin Mai
                 </p>
               </div>
@@ -545,13 +557,13 @@ to { transform: translateX(calc(-100% - 2rem)); }
       </section>
 
       <!-- Footer - Full Width Block -->
-      <footer class="relative mx-4 md:mx-12 mb-4 md:mb-12 mt-24 md:mt-32 rounded-[2rem] bg-[#0f2f28] text-[#Fdfcf8] overflow-hidden isolate">
+      <footer class="relative mx-4 md:mx-12 mb-4 md:mb-12 mt-24 md:mt-32 rounded-[2rem] bg-[#161A22] text-[#FAFBFD] overflow-hidden isolate">
         <!-- Noise Texture -->
         <div class="noise-overlay opacity-30"></div>
 
         <div class="flex flex-col md:px-12 md:pt-20 text-center z-10 pt-16 pr-6 pb-16 pl-6 relative items-center justify-center">
           <!-- Decoration -->
-          <div class="mb-10 text-[#2d6a5d]/60">
+          <div class="mb-10 text-[#2A4AD1]/60">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" class="opacity-80">
               <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 18.3137 10.3303 21 7.0166 21H5.0166Z" class=""></path>
             </svg>
@@ -562,42 +574,42 @@ to { transform: translateX(calc(-100% - 2rem)); }
             <p class="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-8">
               "Le design est l'intelligence rendue visible."
             </p>
-            <cite class="font-mono text-xs uppercase tracking-[0.2em] text-[#2d6a5d] not-italic">
+            <cite class="font-mono text-xs uppercase tracking-[0.2em] text-[#2A4AD1] not-italic">
               — Alina Wheeler
             </cite>
           </blockquote>
 
           <!-- Footer Bottom -->
-          <div class="w-full mt-16 md:mt-20 pt-8 border-t border-[#Fdfcf8]/10 flex flex-col items-center gap-6">
+          <div class="w-full mt-16 md:mt-20 pt-8 border-t border-[#FAFBFD]/10 flex flex-col items-center gap-6">
             <div class="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#2d6a5d] animate-pulse"></span>
-              <span class="text-[10px] uppercase text-[#Fdfcf8]/40 tracking-widest font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2A4AD1] animate-pulse"></span>
+              <span class="text-[10px] uppercase text-[#FAFBFD]/40 tracking-widest font-mono">
                 Lyon, France
               </span>
             </div>
 
             <nav class="flex flex-wrap gap-8 scale-100 gap-x-8 gap-y-8 justify-center">
-              <a href="/services" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+              <a href="/services" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">
                 services
               </a>
-              <a href="/portfolio" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+              <a href="/portfolio" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">
                 PORTFOLIO
               </a>
-              <a href="/contact" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+              <a href="/contact" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">
                 l'agence
               </a>
-              <a href="/contact" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#Fdfcf8]/60 tracking-widest">
+              <a href="/contact" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">
                 Contact
               </a>
             </nav>
             <div class="flex flex-wrap justify-center gap-6 mt-4">
-              <a href="/mentions-legales" class="text-[9px] uppercase tracking-widest font-normal text-[#Fdfcf8]/30 hover:text-[#Fdfcf8]/50 transition-colors">
+              <a href="/mentions-legales" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">
                 Mentions légales
               </a>
-              <a href="/politique-confidentialite" class="text-[9px] uppercase tracking-widest font-normal text-[#Fdfcf8]/30 hover:text-[#Fdfcf8]/50 transition-colors">
+              <a href="/politique-confidentialite" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">
                 Politique de confidentialité
               </a>
-              <button onclick="cookieManager.openPreferences()" class="text-[9px] uppercase tracking-widest font-normal text-[#Fdfcf8]/30 hover:text-[#Fdfcf8]/50 transition-colors">
+              <button onclick="cookieManager.openPreferences()" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">
                 Gestion des cookies
               </button>
             </div>
@@ -606,7 +618,7 @@ to { transform: translateX(calc(-100% - 2rem)); }
               <a href="/accueil" class="text-xl italic tracking-tight font-serif mr-4">
                 Bila.
               </a>
-              <span class="text-[10px] uppercase tracking-widest font-mono text-[#Fdfcf8]/40">
+              <span class="text-[10px] uppercase tracking-widest font-mono text-[#FAFBFD]/40">
                 © 2025
               </span>
             </div>
@@ -615,7 +627,7 @@ to { transform: translateX(calc(-100% - 2rem)); }
       </footer>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
       <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 6 6 18"></path>
@@ -632,10 +644,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
     </div>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#Fdfcf8] rounded-2xl p-6 shadow-2xl border border-[#0f2f28]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
+    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
       <div class="flex flex-col gap-4">
         <div class="flex items-start gap-3">
-          <div class="bg-[#2d6a5d]/10 p-2 rounded-full text-[#2d6a5d] shrink-0">
+          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
               <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
               <path d="M8.5 8.5v.01"></path>
@@ -646,10 +658,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
             </svg>
           </div>
           <div>
-            <h3 class="font-serif text-lg text-[#0f2f28] mb-1">
+            <h3 class="font-serif text-lg text-[#161A22] mb-1">
               Votre vie privée
             </h3>
-            <p class="text-xs text-[#2d6a5d] leading-relaxed">
+            <p class="text-xs text-[#2A4AD1] leading-relaxed">
               Nous utilisons des cookies pour améliorer votre expérience,
               analyser le trafic et personnaliser le contenu.
             </p>
@@ -657,14 +669,14 @@ to { transform: translateX(calc(-100% - 2rem)); }
         </div>
         <div class="flex flex-col gap-2">
           <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">
+            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
               Refuser
             </button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">
+            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
               Personnaliser
             </button>
           </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#0f2f28] text-[#Fdfcf8] text-xs font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">
+          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">
             Tout Accepter
           </button>
         </div>
@@ -673,19 +685,19 @@ to { transform: translateX(calc(-100% - 2rem)); }
 
     <!-- Cookie Preferences Modal -->
     <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <div class="absolute inset-0 bg-[#0f2f28]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#Fdfcf8] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="p-6 md:p-8">
           <div class="flex items-center justify-between mb-8">
             <div>
-              <h2 class="font-serif text-3xl md:text-4xl text-[#0f2f28] mb-2">
+              <h2 class="font-serif text-3xl md:text-4xl text-[#161A22] mb-2">
                 Préférences Cookies
               </h2>
-              <p class="text-sm text-[#2d6a5d]">
+              <p class="text-sm text-[#2A4AD1]">
                 Gérez vos préférences de consentement pour chaque catégorie.
               </p>
             </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#0f2f28]/5 rounded-full transition-colors">
+            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
                 <path d="M18 6 6 18"></path>
                 <path d="m6 6 12 12"></path>
@@ -693,25 +705,25 @@ to { transform: translateX(calc(-100% - 2rem)); }
             </button>
           </div>
           <div class="space-y-6">
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#0f2f28]/5 border border-[#0f2f28]/5">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
               <div>
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#0f2f28]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#0f2f28] text-white">Requis</span>
+                  <span class="font-bold text-[#161A22]">Essentiels</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
                 </div>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
                   Nécessaires au bon fonctionnement du site (sécurité, chargement des images, préférences de cookies).
                 </p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#0f2f28] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#0f2f28] cursor-not-allowed"></label>
+                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
+                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Analytique</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">
+                <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
                   Nous permettent de comprendre comment vous utilisez le site (pages visitées, temps passé) pour l'améliorer.
                 </p>
               </div>
@@ -720,10 +732,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
                 <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Marketing</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">
+                <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
                   Utilisés pour afficher du contenu tiers comme notre calendrier de réservation Calendly ou des vidéos.
                 </p>
               </div>
@@ -732,10 +744,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
                 <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Performance</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">
+                <span class="font-bold text-[#161A22] block mb-1">Performance</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
                   Optimisent la vitesse de chargement et l'affichage des ressources multimédias.
                 </p>
               </div>
@@ -744,10 +756,10 @@ to { transform: translateX(calc(-100% - 2rem)); }
                 <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Préférences</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">
+                <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
                   Permettent au site de se souvenir de vos choix (langue, région, etc.).
                 </p>
               </div>
@@ -757,11 +769,11 @@ to { transform: translateX(calc(-100% - 2rem)); }
               </div>
             </div>
           </div>
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#0f2f28]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#0f2f28]/20 text-sm font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">
+          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
+            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
               Tout Refuser
             </button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#0f2f28] text-[#Fdfcf8] text-sm font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">
+            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">
               Enregistrer mes choix
             </button>
           </div>
