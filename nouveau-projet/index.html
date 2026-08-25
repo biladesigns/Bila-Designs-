@@ -181,7 +181,7 @@ tailwind.config = {
       width: 48px;
       height: 48px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #2A4AD1 0%, #1a4a42 100%);
+      background: linear-gradient(135deg, #2A4AD1 0%, #1E3AA6 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -822,7 +822,7 @@ tailwind.config = {
         <div class="sticky top-8">
           <div class="bg-[#161A22] rounded-2xl overflow-hidden shadow-2xl">
             <!-- Browser mockup header -->
-            <div class="bg-[#1a3d35] px-4 py-3 flex items-center gap-2">
+            <div class="bg-[#1E3AA6] px-4 py-3 flex items-center gap-2">
               <div class="flex gap-1.5">
                 <span class="w-3 h-3 rounded-full bg-red-400"></span>
                 <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
@@ -834,7 +834,7 @@ tailwind.config = {
             </div>
 
             <!-- Preview content -->
-            <div class="p-4 min-h-[400px] bg-gradient-to-b from-[#161A22] to-[#162f29]">
+            <div class="p-4 min-h-[400px] bg-gradient-to-b from-[#161A22] to-[#161A22]">
               <!-- Header preview -->
               <div class="flex items-center justify-between mb-6 pb-3 border-b border-[#FAFBFD]/10">
                 <span id="preview-business" class="text-sm font-bold text-[#FAFBFD]">Votre entreprise</span>
@@ -877,7 +877,7 @@ tailwind.config = {
             </div>
 
             <!-- Completeness indicator -->
-            <div class="px-4 py-3 bg-[#1a3d35] border-t border-[#FAFBFD]/5">
+            <div class="px-4 py-3 bg-[#1E3AA6] border-t border-[#FAFBFD]/5">
               <div class="flex items-center justify-between mb-1.5">
                 <span class="text-[10px] text-[#FAFBFD]/60">Complétion du brief</span>
                 <span id="preview-completion" class="text-[10px] font-bold text-[#2A4AD1]">0%</span>
@@ -2038,7 +2038,7 @@ tailwind.config = {
                   <!-- Bouton Peaufiner avec l'IA -->
                   <div class="flex items-center gap-3">
                     <button type="button" data-peaufiner-page="${page}" onclick="peaufinerContent('${escapedPage}')"
-                      class="ai-btn flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2A4AD1] to-[#1a4a42] text-white text-sm rounded-full hover:shadow-lg hover:shadow-[#2A4AD1]/20 transition-all duration-300">
+                      class="ai-btn flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2A4AD1] to-[#1E3AA6] text-white text-sm rounded-full hover:shadow-lg hover:shadow-[#2A4AD1]/20 transition-all duration-300">
                       <i data-lucide="wand-2" class="w-4 h-4"></i>
                       Peaufiner avec l'IA
                     </button>
@@ -2501,7 +2501,7 @@ tailwind.config = {
 
       try {
         const notifData = new FormData();
-        notifData.append('_subject', '🔔 Demande de devis - ' + (formData.business || 'Nouveau client'));
+        notifData.append('_subject', 'Demande de devis - ' + (formData.business || 'Nouveau client'));
         notifData.append('email', email);
         notifData.append('entreprise', formData.business || 'Non spécifié');
         notifData.append('secteur', formData.sector || 'Non spécifié');
