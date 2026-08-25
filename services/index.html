@@ -20,10 +20,21 @@
 <link rel="preconnect" href="https://cdn.tailwindcss.com">
 <link rel="preconnect" href="https://unpkg.com">
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: {
+    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
+    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
+            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
+    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
+    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
+  } } }
+}
+</script>
 <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
 <style>
-body { font-family: 'Manrope', sans-serif; }
-h1, h2, h3, h4, .serif { font-family: 'Instrument Serif', serif; }
+body { font-family: 'Poppins', system-ui, sans-serif; }
+h1, h2, h3, h4, .serif { font-family: 'Fraunces', Georgia, serif; }
 html { scroll-behavior: smooth; }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -76,15 +87,15 @@ html { scroll-behavior: smooth; }
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-<style>.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
 <style>
 /* MAGNETIC PULSE BUTTON */
 :root { --noir-profond: #1a1a1a; --emeraude: #0D5C4A; --emeraude-light: #0f7a62; --emeraude-glow: rgba(13, 92, 74, 0.4); }
 .btn-magnetic-wrapper { position: relative; display: inline-block; }
 .btn-magnetic-wrapper::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); background: radial-gradient(ellipse at center, var(--emeraude-glow) 0%, transparent 70%); border-radius: 60px; animation: magneticPulse 2.8s ease-in-out infinite; z-index: 0; pointer-events: none; }
 .btn-magnetic-wrapper::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 35px); height: calc(100% + 35px); background: radial-gradient(ellipse at center, rgba(13, 92, 74, 0.15) 0%, transparent 60%); border-radius: 70px; animation: magneticPulseOuter 2.8s ease-in-out infinite; animation-delay: 0.4s; z-index: 0; pointer-events: none; }
-.btn-magnetic { position: relative; z-index: 1; font-family: 'Manrope', sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-magnetic { position: relative; z-index: 1; font-family: 'Poppins', system-ui, sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
 .btn-magnetic::before { content: ''; position: absolute; inset: 0; border-radius: 50px; padding: 1.5px; background: linear-gradient(135deg, transparent 30%, var(--emeraude) 50%, transparent 70%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.5; transition: opacity 0.4s ease; }
 .btn-magnetic::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(13, 92, 74, 0.2), transparent); transition: left 0.6s ease; }
 .btn-magnetic span { position: relative; z-index: 2; display: flex; align-items: center; gap: 0.5rem; transform: translateX(12px); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -103,7 +114,7 @@ html { scroll-behavior: smooth; }
 @keyframes magneticPulseOuterHover { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
 </style>
 </head>
-<body class="bg-[#Fdfcf8] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+<body class="bg-[#FAFBFD] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
 
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
@@ -165,6 +176,7 @@ html { scroll-behavior: smooth; }
             Notre <span class="italic text-teal-600 font-light serif">Processus</span>
             <br>de Création.
           </h1>
+            <p class="hand text-2xl mt-4">et ce qu'on automatise ensuite</p>
           <p class="text-lg md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed animate-reveal delay-200">
             Une approche en trois temps pour transformer votre vision en une marque digitale pérenne et impactante.
           </p>
@@ -438,7 +450,7 @@ html { scroll-behavior: smooth; }
 
       <!-- CTA Footer Section -->
       <section class="mt-auto bg-stone-900 py-24 px-6 md:px-12 rounded-t-[3rem] text-center">
-        <h2 class="serif text-5xl md:text-8xl text-[#Fdfcf8] mb-8">
+        <h2 class="serif text-5xl md:text-8xl text-[#FAFBFD] mb-8">
           Prêt à commencer ?
         </h2>
         <p class="text-stone-400 text-lg mb-12 max-w-xl mx-auto">
@@ -462,7 +474,7 @@ html { scroll-behavior: smooth; }
       </footer>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#Fdfcf8] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
       <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 6 6 18"></path>
@@ -479,10 +491,10 @@ html { scroll-behavior: smooth; }
     </div>
 
     <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#Fdfcf8] rounded-2xl p-6 shadow-2xl border border-[#0f2f28]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
+    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
       <div class="flex flex-col gap-4">
         <div class="flex items-start gap-3">
-          <div class="bg-[#2d6a5d]/10 p-2 rounded-full text-[#2d6a5d] shrink-0">
+          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
               <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
               <path d="M8.5 8.5v.01"></path>
@@ -493,84 +505,84 @@ html { scroll-behavior: smooth; }
             </svg>
           </div>
           <div>
-            <h3 class="font-serif text-lg text-[#0f2f28] mb-1">Votre vie privée</h3>
-            <p class="text-xs text-[#2d6a5d] leading-relaxed">
+            <h3 class="font-serif text-lg text-[#161A22] mb-1">Votre vie privée</h3>
+            <p class="text-xs text-[#2A4AD1] leading-relaxed">
               Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.
             </p>
           </div>
         </div>
         <div class="flex flex-col gap-2">
           <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Refuser</button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#0f2f28]/10 text-xs font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Personnaliser</button>
+            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Refuser</button>
+            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Personnaliser</button>
           </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#0f2f28] text-[#Fdfcf8] text-xs font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">Tout Accepter</button>
+          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Tout Accepter</button>
         </div>
       </div>
     </div>
 
     <!-- Cookie Preferences Modal -->
     <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <div class="absolute inset-0 bg-[#0f2f28]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#Fdfcf8] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="p-6 md:p-8">
           <div class="flex items-center justify-between mb-8">
             <div>
-              <h2 class="font-serif text-3xl md:text-4xl text-[#0f2f28] mb-2">Préférences Cookies</h2>
-              <p class="text-sm text-[#2d6a5d]">Gérez vos préférences de consentement pour chaque catégorie.</p>
+              <h2 class="font-serif text-3xl md:text-4xl text-[#161A22] mb-2">Préférences Cookies</h2>
+              <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
             </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#0f2f28]/5 rounded-full transition-colors">
+            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
             </button>
           </div>
           <div class="space-y-6">
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#0f2f28]/5 border border-[#0f2f28]/5">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
               <div>
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#0f2f28]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#0f2f28] text-white">Requis</span>
+                  <span class="font-bold text-[#161A22]">Essentiels</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
                 </div>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#0f2f28] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#0f2f28] cursor-not-allowed"></label>
+                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
+                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Analytique</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
+                <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                 <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
                 <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Marketing</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
+                <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                 <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
                 <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Performance</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
+                <span class="font-bold text-[#161A22] block mb-1">Performance</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                 <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
                 <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
               </div>
             </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#0f2f28]/10 hover:border-[#0f2f28]/30 transition-colors">
+            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
               <div>
-                <span class="font-bold text-[#0f2f28] block mb-1">Préférences</span>
-                <p class="text-xs text-[#2d6a5d] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
+                <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
+                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
               </div>
               <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                 <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
@@ -578,9 +590,9 @@ html { scroll-behavior: smooth; }
               </div>
             </div>
           </div>
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#0f2f28]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#0f2f28]/20 text-sm font-bold text-[#0f2f28] hover:bg-[#0f2f28]/5 transition-colors">Tout Refuser</button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#0f2f28] text-[#Fdfcf8] text-sm font-bold hover:bg-[#0f2f28]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
+          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
+            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Tout Refuser</button>
+            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
           </div>
         </div>
       </div>
