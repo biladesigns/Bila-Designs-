@@ -253,27 +253,84 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[#161A22] text-[#FAFBFD] py-12">
-    <div class="max-w-[74rem] mx-auto px-6 md:px-12">
-      <div class="flex flex-col items-center gap-8">
-        <nav class="flex flex-wrap gap-8 justify-center">
-          <a href="/services" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">Services</a>
-          <a href="/portfolio" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">Portfolio</a>
-          <a href="/agence" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">L'agence</a>
-          <a href="/contact" class="text-[10px] uppercase hover:text-white transition-colors font-bold text-[#FAFBFD]/60 tracking-widest">Contact</a>
-        </nav>
-        <div class="flex flex-wrap justify-center gap-6">
-          <a href="/mentions-legales" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">Politique de confidentialité</a>
-          <button onclick="cookieManager.openPreferences()" class="text-[9px] uppercase tracking-widest font-normal text-[#FAFBFD]/30 hover:text-[#FAFBFD]/50 transition-colors">Gestion des cookies</button>
+    <footer id="contact" class="bg-[#FAFBFD] px-4 md:px-6 pb-6 relative z-30">
+      <div class="w-full max-w-[74rem] mx-auto bg-[#161A22] rounded-[2.5rem] md:rounded-[3.5rem] text-[#F2F4F8] pt-20 pb-10 px-6 md:px-16 relative overflow-hidden">
+
+        <!-- Accroche -->
+        <h2 class="text-[2.4rem] sm:text-[3.4rem] md:text-[5rem] leading-[0.98] tracking-tight text-white mb-14">
+          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.06em] mr-3 rounded-full w-[0.82em] h-[0.82em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1] text-white"><span class="text-[0.26em] font-semibold tracking-[0.04em] font-manrope">MB</span></span>Travaillons ensemble
+        </h2>
+
+        <!-- Filet + bouton rond -->
+        <div class="relative border-t border-white/15 mb-10">
+          <a href="/contact"
+             class="absolute right-[2%] md:right-[4%] top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-105 text-white text-sm md:text-base w-[7rem] md:w-[10rem] aspect-square">
+            Discutons
+          </a>
         </div>
-        <div class="flex items-center">
-          <a href="/accueil" class="text-xl italic tracking-tight font-serif mr-4">Bila.</a>
-          <span class="text-[10px] uppercase tracking-widest font-mono text-[#FAFBFD]/40">© 2025</span>
+
+        <!-- Coordonnées -->
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/15 hover:border-white/60 hover:bg-white/5 transition-colors px-6 py-3.5 text-[#F2F4F8]">contact@biladesigns.com</a>
+          <a href="tel:+33659086800" class="rounded-full border border-white/15 hover:border-white/60 hover:bg-white/5 transition-colors px-6 py-3.5 text-[#F2F4F8]">06 59 08 68 00</a>
         </div>
+        <p class="hand text-2xl mb-16" style="color:#FFD98A">réponse sous 24 h</p>
+
+        <!-- Pied : état du studio -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/15 pt-8">
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Version</p>
+            <p class="text-sm font-manrope">2026 © Édition</p>
+          </div>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Heure locale</p>
+            <p class="text-sm font-manrope tabular-nums" data-horloge>—</p>
+          </div>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Basé à</p>
+            <p class="text-sm font-manrope">Lyon, France</p>
+          </div>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Réseaux</p>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm font-manrope">
+              <a href="https://www.instagram.com/biladesigns" class="hover:text-[#FFD98A] transition-colors">Instagram</a>
+              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-[#FFD98A] transition-colors">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pied : navigation -->
+        <div class="flex flex-wrap items-center justify-between gap-6 border-t border-white/15 mt-8 pt-8 text-sm font-manrope">
+          <nav class="flex flex-wrap gap-x-8 gap-y-2 text-[#F2F4F8]">
+            <a href="/accueil" class="hover:text-[#FFD98A] transition-colors">Accueil</a>
+            <a href="/services" class="hover:text-[#FFD98A] transition-colors">Services</a>
+            <a href="/portfolio" class="hover:text-[#FFD98A] transition-colors">Portfolio</a>
+            <a href="/agence" class="hover:text-[#FFD98A] transition-colors">L'agence</a>
+            <a href="/contact" class="hover:text-[#FFD98A] transition-colors">Contact</a>
+          </nav>
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-[#8A93A3]">
+            <a href="/mentions-legales" class="hover:text-[#F2F4F8] transition-colors">Mentions légales</a>
+            <a href="/politique-confidentialite" class="hover:text-[#F2F4F8] transition-colors">Confidentialité</a>
+            <a href="/desabonnement" class="hover:text-[#F2F4F8] transition-colors">Désabonnement</a>
+          </nav>
+        </div>
+
       </div>
-    </div>
-  </footer>
+      <script>
+        (function () {
+          var cibles = document.querySelectorAll('[data-horloge]');
+          if (!cibles.length) return;
+          function tic() {
+            var h = new Date().toLocaleTimeString('fr-FR', {
+              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
+            });
+            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
+          }
+          tic();
+          setInterval(tic, 20000);
+        })();
+      </script>
+    </footer>
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">

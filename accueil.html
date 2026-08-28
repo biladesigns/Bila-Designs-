@@ -821,81 +821,88 @@ pointer-events: none;
         </div>
       </section>
 
-      <!-- Updated Footer Section -->
-      <section id="contact" class="bg-[#FAFBFD] pb-6 px-4 md:px-6 relative z-30">
-        <div class="w-full max-w-[74rem] mx-auto bg-[#161A22] rounded-[2.5rem] md:rounded-[3.5rem] text-[#EEF1F6] py-20 px-6 md:px-20 relative overflow-hidden shadow-2xl flex flex-col items-center text-center">
-          <!-- Decorative Quote Icon -->
-          <div class="flex justify-center mb-8 opacity-10 text-teal-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M10 11h-4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h3v-3zm10 0h-4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h3v-3z"></path>
-            </svg>
+    </main>
+
+      <footer id="contact" class="bg-[#FAFBFD] px-4 md:px-6 pb-6 relative z-30">
+      <div class="w-full max-w-[74rem] mx-auto bg-[#161A22] rounded-[2.5rem] md:rounded-[3.5rem] text-[#F2F4F8] pt-20 pb-10 px-6 md:px-16 relative overflow-hidden">
+
+        <!-- Accroche -->
+        <h2 class="text-[2.4rem] sm:text-[3.4rem] md:text-[5rem] leading-[0.98] tracking-tight text-white mb-14">
+          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.06em] mr-3 rounded-full w-[0.82em] h-[0.82em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1] text-white"><span class="text-[0.26em] font-semibold tracking-[0.04em] font-manrope">MB</span></span>Travaillons ensemble
+        </h2>
+
+        <!-- Filet + bouton rond -->
+        <div class="relative border-t border-white/15 mb-10">
+          <a href="/contact"
+             class="absolute right-[2%] md:right-[4%] top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-105 text-white text-sm md:text-base w-[7rem] md:w-[10rem] aspect-square">
+            Discutons
+          </a>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/15 hover:border-white/60 hover:bg-white/5 transition-colors px-6 py-3.5 text-[#F2F4F8]">contact@biladesigns.com</a>
+          <a href="tel:+33659086800" class="rounded-full border border-white/15 hover:border-white/60 hover:bg-white/5 transition-colors px-6 py-3.5 text-[#F2F4F8]">06 59 08 68 00</a>
+        </div>
+        <p class="hand text-2xl mb-16" style="color:#FFD98A">réponse sous 24 h</p>
+
+        <!-- Pied : état du studio -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/15 pt-8">
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Version</p>
+            <p class="text-sm font-manrope">2026 © Édition</p>
           </div>
-
-          <!-- Main Quote -->
-          <div class="max-w-5xl mx-auto mb-16">
-            <h2 class="md:text-7xl leading-[1.1] text-4xl text-white tracking-tight font-instrument-serif mb-8">
-              "Tout ce qui peut être imaginé est réel"
-            </h2>
-            <p class="md:text-sm uppercase text-xs font-medium text-teal-400/50 tracking-[0.25em] font-manrope">
-              — pablo Picasso
-            </p>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Heure locale</p>
+            <p class="text-sm font-manrope tabular-nums" data-horloge>—</p>
           </div>
-
-          <!-- Divider -->
-          <div class="w-full h-px bg-white/5 mb-16 max-w-6xl mx-auto"></div>
-
-          <!-- Bottom Content Stack -->
-          <div class="flex flex-col gap-10 w-full gap-x-10 gap-y-10 items-center justify-center">
-            <!-- Location -->
-            <div class="flex items-center gap-3 text-teal-400/60 uppercase tracking-[0.15em] text-xs font-bold font-manrope">
-              <div class="w-1.5 h-1.5 rounded-full bg-teal-600/80"></div>
-              <span class="">Lyon, France</span>
-            </div>
-
-            <!-- Main Navigation -->
-            <nav class="flex flex-wrap justify-center gap-8 md:gap-16 text-teal-100/80 uppercase tracking-[0.15em] text-xs font-bold font-manrope">
-              <a href="/services" class="hover:text-white transition-colors">
-                Services
-              </a>
-              <a href="/portfolio" class="hover:text-white transition-colors">
-                Portfolio
-              </a>
-              <a href="/agence" class="hover:text-white transition-colors">
-                L'agence
-              </a>
-              <a href="/contact" class="hover:text-white transition-colors">
-                Contact
-              </a>
-            </nav>
-
-            <!-- Legal Links -->
-            <nav class="flex flex-wrap justify-center gap-6 md:gap-8 text-teal-400/30 uppercase tracking-[0.1em] text-[10px] font-medium font-manrope">
-              <a href="/mentions-legales" class="hover:text-teal-200/50 transition-colors">
-                Mentions Légales
-              </a>
-              <button onclick="cookieManager.openPreferences()" class="hover:text-teal-200/50 transition-colors uppercase tracking-[0.1em] text-[10px] font-medium">
-                Gestion des Cookies
-              </button>
-              <a href="/politique-confidentialite" class="hover:text-teal-200/50 transition-colors">
-                Politique de confidentialité
-              </a>
-            </nav>
-
-            <!-- Brand & Copyright -->
-            <div class="flex items-center gap-3 text-teal-400/40 text-xs mt-4">
-              <span class="font-instrument-serif italic text-2xl text-white opacity-90">
-                Bila.
-              </span>
-              <span class="tracking-widest font-manrope text-[10px] mt-1">
-                © 2025
-              </span>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Basé à</p>
+            <p class="text-sm font-manrope">Lyon, France</p>
+          </div>
+          <div>
+            <p class="text-[0.64rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-2 font-manrope">Réseaux</p>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm font-manrope">
+              <a href="https://www.instagram.com/biladesigns" class="hover:text-[#FFD98A] transition-colors">Instagram</a>
+              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-[#FFD98A] transition-colors">LinkedIn</a>
             </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <!-- Mobile Menu -->
+        <!-- Pied : navigation -->
+        <div class="flex flex-wrap items-center justify-between gap-6 border-t border-white/15 mt-8 pt-8 text-sm font-manrope">
+          <nav class="flex flex-wrap gap-x-8 gap-y-2 text-[#F2F4F8]">
+            <a href="/accueil" class="hover:text-[#FFD98A] transition-colors">Accueil</a>
+            <a href="/services" class="hover:text-[#FFD98A] transition-colors">Services</a>
+            <a href="/portfolio" class="hover:text-[#FFD98A] transition-colors">Portfolio</a>
+            <a href="/agence" class="hover:text-[#FFD98A] transition-colors">L'agence</a>
+            <a href="/contact" class="hover:text-[#FFD98A] transition-colors">Contact</a>
+          </nav>
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-[#8A93A3]">
+            <a href="/mentions-legales" class="hover:text-[#F2F4F8] transition-colors">Mentions légales</a>
+            <a href="/politique-confidentialite" class="hover:text-[#F2F4F8] transition-colors">Confidentialité</a>
+            <a href="/desabonnement" class="hover:text-[#F2F4F8] transition-colors">Désabonnement</a>
+          </nav>
+        </div>
+
+      </div>
+      <script>
+        (function () {
+          var cibles = document.querySelectorAll('[data-horloge]');
+          if (!cibles.length) return;
+          function tic() {
+            var h = new Date().toLocaleTimeString('fr-FR', {
+              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
+            });
+            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
+          }
+          tic();
+          setInterval(tic, 20000);
+        })();
+      </script>
+    </footer>
+
+          <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
       <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
