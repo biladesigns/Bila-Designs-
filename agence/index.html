@@ -26,6 +26,8 @@ tailwind.config = {
     /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
     teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
             600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
+    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
+            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
     green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
     emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
   } } }
@@ -113,7 +115,7 @@ to { transform: translateX(calc(-100% - 2rem)); }
   <body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
         <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
           Bila.
         </a>
@@ -180,7 +182,8 @@ to { transform: translateX(calc(-100% - 2rem)); }
                 — Since 2024
               </span>
             </div>
-            <h1 class="text-[11vw] md:text-[6.5rem] leading-[0.9] reveal-text text-[#161A22] tracking-tight font-serif mb-8" style="animation-delay: 0.2s">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Le studio</p>
+            <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight reveal-text text-[#161A22] tracking-tight font-serif mb-8" style="animation-delay: 0.2s">
               Design avec
               <br class="">
               <span class="italic text-[#2A4AD1]">intention.</span>
