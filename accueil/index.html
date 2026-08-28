@@ -28,7 +28,12 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
-  theme: { extend: { colors: {
+  theme: { extend: {
+    fontFamily: {
+      sans:  ['Poppins','system-ui','sans-serif'],
+      serif: ['Fraunces','Georgia','serif'],
+    },
+ colors: {
     /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
     teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
             600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
