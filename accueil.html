@@ -32,6 +32,8 @@ tailwind.config = {
     /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
     teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
             600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
+    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
+            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
     green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
     emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
   } } }
@@ -291,7 +293,7 @@ pointer-events: none;
   <body class="bg-[#FAFBFD] text-stone-900 antialiased selection:bg-teal-200 selection:text-teal-900 relative w-full overflow-x-hidden">
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[90rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
         <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
           Bila.
         </a>
@@ -400,7 +402,7 @@ pointer-events: none;
 
       <!-- Editorial Content Section -->
       <section id="intro" class="md:pb-32 -mt-1 bg-[#FAFBFD] z-20 pt-12 pb-20 relative">
-        <div class="md:px-12 max-w-[90rem] mx-auto px-6">
+        <div class="md:px-12 max-w-[74rem] mx-auto px-6">
           <!-- Statement -->
           <div id="agence" class="max-w-4xl mx-auto text-center mb-32 scroll-mt-32">
             <p class="md:text-5xl leading-[1.15] text-3xl font-medium text-stone-800 tracking-tight">Nous sommes un studio indépendant créant des <span class="serif md:text-6xl text-4xl italic text-teal-600">
@@ -645,6 +647,161 @@ pointer-events: none;
             </div>
           </div>
 
+<!-- Audit gratuit : deux portes d'entrée -->
+      <section id="audit" class="w-full bg-[#FAFBFD] border-t border-[rgba(22,26,33,0.12)] py-24 md:py-32">
+        <div class="max-w-[74rem] mx-auto px-8">
+
+          <!-- Porte 1 : l'audit de site -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+            <div class="lg:col-span-6">
+              <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Audit gratuit</p>
+              <h2 class="text-[2rem] md:text-[2.9rem] leading-[1.02] tracking-tight max-w-[18ch]">
+                Envoyez-moi le lien de votre site.
+                <span class="italic">Je vous dis ce qui ne va pas.</span>
+              </h2>
+              <p class="mt-7 text-lg leading-relaxed text-[#2A3340] max-w-[46ch]">
+                Je passe votre site au crible et je vous renvoie sous vingt-quatre heures
+                un relevé point par point, accompagné d'un devis. C'est gratuit, sans
+                engagement, et le relevé vous reste acquis même si nous ne travaillons pas
+                ensemble.
+              </p>
+              <p class="mt-6 text-base text-[#5A6473] max-w-[46ch]">
+                Sur le dernier cabinet d'avocats, ce relevé a fait ressortir vingt-six
+                points, du référencement absent à une page « site en construction »
+                restée en ligne.
+              </p>
+              <p class="hand text-2xl mt-6">vous repartez avec, quoi qu'il arrive</p>
+            </div>
+
+            <div class="lg:col-span-6 lg:pl-8 lg:border-l border-[rgba(22,26,33,0.12)]">
+              <form action="https://formsubmit.co/matbila63@gmail.com" method="POST" class="flex flex-col gap-5">
+                <input type="hidden" name="_subject" value="Demande d'audit gratuit">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
+
+                <div>
+                  <label for="audit-site" class="block text-[0.72rem] tracking-[0.16em] uppercase text-[#5A6473] mb-2">
+                    L'adresse de votre site
+                  </label>
+                  <input id="audit-site" name="site" type="url" required placeholder="https://"
+                    class="w-full bg-white border border-[rgba(22,26,33,0.16)] rounded-xl px-5 py-4 text-base text-[#161A22] placeholder:text-[#8A93A3] focus:outline-none focus:border-[#2A4AD1] transition-colors">
+                </div>
+
+                <div>
+                  <label for="audit-mail" class="block text-[0.72rem] tracking-[0.16em] uppercase text-[#5A6473] mb-2">
+                    Où vous envoyer le relevé
+                  </label>
+                  <input id="audit-mail" name="email" type="email" required placeholder="vous@votreentreprise.fr"
+                    class="w-full bg-white border border-[rgba(22,26,33,0.16)] rounded-xl px-5 py-4 text-base text-[#161A22] placeholder:text-[#8A93A3] focus:outline-none focus:border-[#2A4AD1] transition-colors">
+                </div>
+
+                <div>
+                  <label for="audit-mot" class="block text-[0.72rem] tracking-[0.16em] uppercase text-[#5A6473] mb-2">
+                    Un mot sur votre activité <span class="normal-case tracking-normal text-[#8A93A3]">(facultatif)</span>
+                  </label>
+                  <textarea id="audit-mot" name="activite" rows="3" placeholder="Ce que vous faites, et ce qui vous manque aujourd'hui."
+                    class="w-full bg-white border border-[rgba(22,26,33,0.16)] rounded-xl px-5 py-4 text-base text-[#161A22] placeholder:text-[#8A93A3] focus:outline-none focus:border-[#2A4AD1] transition-colors resize-none"></textarea>
+                </div>
+
+                <button type="submit"
+                  class="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-4 mt-1">
+                  Recevoir mon audit sous 24 h
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Porte 2 : quel agent IA pour quel métier -->
+          <div class="mt-24 md:mt-32 pt-16 border-t border-[rgba(22,26,33,0.12)]">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Agents IA</p>
+            <h2 class="text-[2rem] md:text-[2.9rem] leading-[1.02] tracking-tight max-w-[20ch]">
+              Quel agent pour <span class="italic">quel métier.</span>
+            </h2>
+            <p class="mt-7 text-lg leading-relaxed text-[#2A3340] max-w-[52ch]">
+              Un agent n'est utile que s'il retire une tâche précise de vos journées.
+              Voici les six qui reviennent le plus souvent chez les entreprises de
+              services. Dites-moi laquelle vous parle, je vous montre ce qu'elle donne
+              chez vous.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Trier les demandes qui arrivent</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent lit chaque demande, la qualifie, la range, et ne vous alerte que
+                  sur celles qui méritent votre journée.
+                </p>
+              </article>
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Préparer les devis</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent pré-remplit le devis à partir de la demande et de vos tarifs.
+                  Vous relisez, vous corrigez, vous envoyez.
+                </p>
+              </article>
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Relancer au bon moment</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent suit les devis restés sans réponse et relance à votre place,
+                  avec vos mots, sans jamais insister deux fois.
+                </p>
+              </article>
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Répondre aux questions récurrentes</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent répond sur votre site aux questions que l'on vous pose vingt fois
+                  par mois, et passe la main dès que le sujet sort du cadre.
+                </p>
+              </article>
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Tenir le fichier client à jour</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent met à jour la fiche après chaque échange, pour que votre suivi
+                  cesse de vivre dans votre tête et dans vos mails.
+                </p>
+              </article>
+
+              <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
+                <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
+                <h3 class="text-xl mb-4">Surveiller ce que les IA disent de vous</h3>
+                <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-auto">
+                  L'agent vérifie chaque mois si les assistants citent votre entreprise
+                  quand on cherche votre métier, et vous dit ce qui a bougé.
+                </p>
+              </article>
+
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 mt-14">
+              <a href="/nouveau-projet"
+                 class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
+                Cadrer mon premier agent
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <p class="hand text-2xl">vingt minutes au téléphone, pas un rendez-vous commercial</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
           <!-- CTA Contact -->
           <div class="mt-32 text-center">
             <p class="text-2xl md:text-3xl font-medium text-stone-700 mb-8">Un projet en tête ?</p>
@@ -661,7 +818,7 @@ pointer-events: none;
 
       <!-- Updated Footer Section -->
       <section id="contact" class="bg-[#FAFBFD] pb-6 px-4 md:px-6 relative z-30">
-        <div class="w-full max-w-[90rem] mx-auto bg-[#161A22] rounded-[2.5rem] md:rounded-[3.5rem] text-[#EEF1F6] py-20 px-6 md:px-20 relative overflow-hidden shadow-2xl flex flex-col items-center text-center">
+        <div class="w-full max-w-[74rem] mx-auto bg-[#161A22] rounded-[2.5rem] md:rounded-[3.5rem] text-[#EEF1F6] py-20 px-6 md:px-20 relative overflow-hidden shadow-2xl flex flex-col items-center text-center">
           <!-- Decorative Quote Icon -->
           <div class="flex justify-center mb-8 opacity-10 text-teal-400">
             <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="currentColor">
