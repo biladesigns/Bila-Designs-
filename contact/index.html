@@ -164,54 +164,73 @@ background-size: 1em;
     <!-- COMMON HEADER END -->
 
     <!-- Hero Section -->
-    <section class="md:px-12 md:pt-32 w-full max-w-[74rem] mr-auto ml-auto pt-24 pr-6 pb-20 pl-6">
-      <div class="max-w-4xl">
-        <span class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">
-          Démarrer un projet
-        </span>
-        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight font-serif text-[#161A22] tracking-tight mb-8">
-          <span class="block">Parlons de</span>
-          <span class="block italic opacity-90">votre futur.</span>
-        </h1>
-            <p class="hand text-2xl mt-4">réponse sous 24 h</p>
-        <p class="md:text-xl leading-relaxed text-lg font-medium text-[#2A4AD1] max-w-xl">
-          Nous aidons les marques et entreprises ambitieuses à définir leur identité digitale.
-          Écrivez-nous, nous avons hâte de vous lire.
-        </p>
-      </div>
+    <section class="w-full max-w-[74rem] mx-auto px-8 pt-40 pb-16 md:pt-52 md:pb-20">
+      <p class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Contact</p>
+      <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight max-w-[16ch]">
+        Parlons de <span class="italic">votre futur.</span>
+      </h1>
+      <p class="mt-8 max-w-[46ch] text-lg leading-relaxed text-[#2A3340]">
+        Dites-moi ce que vous faites et ce qui vous manque aujourd'hui. Je vous réponds
+        moi-même, et si votre projet ne relève pas de mon métier, je vous le dirai
+        franchement.
+      </p>
+      <p class="hand text-2xl mt-6">réponse sous 24 h, jamais de relance automatique</p>
     </section>
 
     <!-- Split Section: Contact Info & Framed Form -->
     <section class="px-4 md:px-12 max-w-[74rem] mx-auto w-full mb-32 relative z-10" id="contact">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-        <!-- Left Column: Directory / Info -->
-        <div class="lg:col-span-6 flex flex-col gap-16 pt-8">
-          <!-- Row 1: Contacts -->
-          <div class="grid grid-cols-1 gap-12">
-            <div class="">
-              <h3 class="font-serif italic text-2xl mb-6 text-[#161A22]">
-                Direction Artistique
-              </h3>
-              <div class="flex items-start gap-4 mb-2">
-                <img src="https://orionsecurity.fr/wp-content/uploads/2025/12/mathieu-2.jpeg" class="w-12 h-12 rounded-full object-cover object-top grayscale" alt="Photo de Mathieu Bila, Direction Artistique">
-                <div class="">
-                  <p class="leading-none text-lg font-bold mb-1">
-                    Mathieu Bila
-                  </p>
-                  <a href="mailto:mathieu@biladesigns.com" class="group inline-flex items-center gap-1 hover:text-[#161A22] transition-colors text-[#2A4AD1]">
-                    mathieu@biladesigns.com
-                  </a>
-                </div>
-              </div>
-            </div>
+        <!-- Colonne gauche : joindre le studio -->
+        <div class="lg:col-span-5 flex flex-col gap-12">
 
+          <div class="flex flex-col gap-3">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473]">Directement</p>
+            <a href="mailto:contact@biladesigns.com" class="text-xl md:text-2xl text-[#161A22] hover:text-[#2A4AD1] transition-colors">contact@biladesigns.com</a>
+            <a href="tel:+33659086800" class="text-xl md:text-2xl text-[#161A22] hover:text-[#2A4AD1] transition-colors">06 59 08 68 00</a>
           </div>
 
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-5">Ce qui se passe ensuite</p>
+            <ol class="flex flex-col gap-4 text-[0.98rem] leading-relaxed text-[#2A3340]">
+              <li class="flex gap-4">
+                <span class="text-[#8A93A3] tabular-nums shrink-0">01</span>
+                <span>Je vous réponds sous vingt-quatre heures, avec un premier avis sur votre situation.</span>
+              </li>
+              <li class="flex gap-4">
+                <span class="text-[#8A93A3] tabular-nums shrink-0">02</span>
+                <span>Vingt minutes au téléphone pour cadrer. Ce n'est pas un rendez-vous commercial.</span>
+              </li>
+              <li class="flex gap-4">
+                <span class="text-[#8A93A3] tabular-nums shrink-0">03</span>
+                <span>Vous recevez un devis chiffré, avec le périmètre et la date de livraison.</span>
+              </li>
+            </ol>
           </div>
+
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-4">Vous préférez commencer par un diagnostic</p>
+            <p class="text-[0.98rem] leading-relaxed text-[#2A3340] mb-5">
+              Envoyez-moi l'adresse de votre site et je vous renvoie sous vingt-quatre heures
+              un relevé point par point de ce qui ne va pas. C'est gratuit, et il vous reste
+              acquis même sans suite.
+            </p>
+            <a href="/accueil#audit" class="inline-flex items-center gap-2 rounded-full border border-[rgba(22,26,33,0.16)] hover:border-[#161A22] hover:bg-[#EEF1F6] transition-colors text-[0.98rem] text-[#161A22] px-6 py-3">
+              Demander l'audit gratuit
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
+            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-3">Basé à</p>
+            <p class="text-[0.98rem] text-[#2A3340]">Lyon, France. J'interviens partout en France, à distance.</p>
+          </div>
+
         </div>
 
-        <!-- Right Column: Form -->
-        <div class="lg:col-span-6">
+        <!-- Colonne droite : le formulaire -->
+        <div class="lg:col-span-7">
           <div class="bg-[#161A22] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-[#2A4AD1] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
 
@@ -299,6 +318,7 @@ background-size: 1em;
             </form>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- FAQ Section -->
