@@ -371,12 +371,7 @@ transform: scale(1) rotate(2deg);
           <!-- Sticky Left Info -->
           <div class="md:col-span-4 md:sticky md:top-32 md:h-[calc(100vh-8rem)] flex flex-col h-fit justify-between">
             <div class="">
-              <div class="flex gap-3 mb-4 items-center">
-                <div class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></div>
-                <span class="uppercase tracking-widest text-xs font-medium text-stone-400">
-                  À la une
-                </span>
-              </div>
+              <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-4">à la une</p>
               <h2 class="text-5xl md:text-7xl serif leading-none mb-6">
                 Focus
                 <br>
@@ -692,19 +687,13 @@ transform: scale(1) rotate(2deg);
             </div>
           </div>
 
-          <!-- Section: Nos dernières sorties -->
-          <div class="w-full border-b border-stone-200 pb-16 pt-0 order-first">
-            <div class="flex items-center gap-6 justify-center">
-              <div class="h-px w-16 bg-stone-300"></div>
-              <div class="text-center">
-                <span class="inline-flex items-center gap-3 px-6 py-3 bg-stone-100 rounded-full">
-                  <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  <span class="text-sm font-medium uppercase tracking-widest text-stone-500">Nos dernières sorties</span>
-                </span>
-                <h3 class="text-4xl md:text-6xl serif italic text-stone-700 mt-6">Récemment livrés</h3>
-              </div>
-              <div class="h-px w-16 bg-stone-300"></div>
-            </div>
+          <!-- Section : dernières sorties -->
+          <div class="w-full order-first pb-14">
+            <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">dernières sorties</p>
+            <h3 class="text-[1.9rem] md:text-[2.8rem] leading-[1.06] tracking-tight max-w-[22ch]">
+              Ce qu'on a livré <span class="italic">ces derniers mois.</span>
+            </h3>
+            <div class="border-t border-[rgba(22,26,33,0.12)] mt-12"></div>
           </div>
 
           <!-- PROJECT 04: Auravocats -->
@@ -934,32 +923,6 @@ transform: scale(1) rotate(2deg);
       </section>
 
       <!-- Next Page Navigation / Footer -->
-      <section class="md:rounded-t-[5rem] overflow-hidden text-[#FAFBFD] bg-stone-900 rounded-t-[3rem] mt-auto relative">
-        <!-- Decorative Hill Curve (Inverted) -->
-        <div class="absolute top-0 left-0 w-full h-16 bg-[#FAFBFD] z-0" style="border-bottom-left-radius: 50% 100%; border-bottom-right-radius: 50% 100%;"></div>
-
-        <div class="md:px-12 z-10 text-center max-w-[74rem] mr-auto ml-auto pt-40 pr-6 pb-20 pl-6 relative">
-          <span class="text-teal-400 text-sm uppercase tracking-widest mb-4 block">
-            Prochaine Étape
-          </span>
-          <a href="/agence" class="group inline-block">
-            <h2 class="text-[12vw] leading-none serif hover:text-stone-300 transition-colors duration-300 italic">L'Agence</h2>
-            <div class="h-1 w-0 bg-teal-500 mx-auto group-hover:w-full transition-all duration-500 ease-out mt-4"></div>
-          </a>
-
-          <div class="mt-32 flex flex-col md:flex-row justify-between items-center text-stone-500 text-sm">
-            <div class="flex gap-6 mb-4 md:mb-0">
-              <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-              <a href="/politique-confidentialite" class="hover:text-white transition-colors">Politique de confidentialité</a>
-              <button onclick="cookieManager.openPreferences()" class="hover:text-white transition-colors">Gestion des cookies</button>
-            </div>
-            <p class="">© 2025 Bila Designs</p>
-          </div>
-        </div>
-
-        <!-- Animated Background Gradient Bubble -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-teal-900/30 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
-      </section>
     </main>
 
     <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
@@ -1017,6 +980,7 @@ transform: scale(1) rotate(2deg);
           <a href="/contact" class="hover:text-white transition-colors">Contact</a>
           <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
           <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
+          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
         </div>
 
       </div>
