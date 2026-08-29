@@ -290,15 +290,16 @@ tailwind.config = {
   </style>
 </head>
 <body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
-  <!-- HEADER -->
-  <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-    <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-      <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-        Bila.
-      </a>
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex gap-10 text-slate-950 items-center">
-        <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
+    <!-- COMMON HEADER START -->
+    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
+      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
+        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
+          Bila.
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
+          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
               Automatisations
             </a>
             <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
@@ -307,26 +308,42 @@ tailwind.config = {
             <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
               Avocats
             </a>
-      </div>
-      <!-- Desktop CTA -->
-      <a href="/contact" class="hidden hover:bg-white hover:text-black transition-colors md:block text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-        Discutons
-      </a>
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-        <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-          <path d="M4 12h16"></path>
-          <path d="M4 6h16"></path>
-          <path d="M4 18h16"></path>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-    </nav>
-  </header>
+        </div>
 
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-5">
+          <div class="btn-magnetic-wrapper">
+            <a href="/nouveau-projet" class="btn-magnetic">
+              <span>
+                Démarrer un projet
+                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
+            Discutons
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
+          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
+            <path d="M4 12h16"></path>
+            <path d="M4 6h16"></path>
+            <path d="M4 18h16"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+    <!-- COMMON HEADER END -->
+
+  <!-- HEADER -->
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
     <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
@@ -429,7 +446,6 @@ tailwind.config = {
       <!-- FORMULAIRE -->
       <div class="flex-1 bg-[#161A22] text-[#FAFBFD] p-8 md:p-12 rounded-[2rem] shadow-2xl relative overflow-hidden">
         <!-- Decorative blob -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[#2A4AD1] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
 
         <form id="brief-form" class="relative z-10">
 

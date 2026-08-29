@@ -186,108 +186,160 @@ html { scroll-behavior: smooth; }
     <!-- COMMON HEADER END -->
 
       <!-- Services Hero Section -->
-      <section class="w-full bg-[#FAFBFD] pt-40 pb-20 md:pt-52 md:pb-24">
-        <div class="max-w-[74rem] mx-auto px-8">
-          <p class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Site web / Branding</p>
-          <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight max-w-[19ch]">
-            Nous ne créons pas un site web.
-            <span class="italic">Nous créons une identité.</span>
+      <section class="pt-48 pb-20 md:pt-60 md:pb-32 px-6 md:px-12 max-w-[74rem] mx-auto w-full">
+        <div class="max-w-4xl">
+          <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Méthode</p>
+          <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight text-stone-900 mb-8 animate-reveal">
+            Notre <span class="italic text-teal-600 font-normal serif">Processus</span>
+            <br>de Création.
           </h1>
-          <p class="mt-8 max-w-[50ch] text-lg leading-relaxed text-[#2A3340]">
-            Un logo, un site, une signature de courriel et une façon d'écrire qui disent la
-            même chose. C'est cette cohérence qu'on retient d'une marque, pas la page
-            d'accueil prise isolément.
+            <p class="hand text-2xl mt-4">et ce qu'on automatise ensuite</p>
+          <p class="text-lg md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed animate-reveal delay-200">
+            Une approche en trois temps pour transformer votre vision en une marque digitale pérenne et impactante.
           </p>
-          <p class="hand text-2xl mt-6">quatre étapes, six semaines</p>
+        </div>
+      </section>
 
-          <div class="flex flex-wrap items-center gap-4 mt-10">
-            <a href="/portfolio"
-               class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-              Voir un cas d'usage
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
-            <a href="/accueil#audit"
-               class="inline-flex items-center rounded-full border border-[rgba(22,26,33,0.16)] hover:border-[#161A22] hover:bg-[#EEF1F6] transition-colors text-base text-[#161A22] px-7 py-3.5">
-              Auditer mon site actuel
-            </a>
+      <!-- The 3-Step Structure Layout -->
+      <section class="relative w-full px-6 md:px-12 pb-32 max-w-[74rem] mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 md:gap-24">
+          
+          <!-- LEFT SIDEBAR (Sticky Navigation) -->
+          <aside class="hidden md:block w-1/4 min-w-[280px]">
+            <div class="sticky top-40 flex flex-col gap-8 border-l border-stone-200 pl-8">
+              <span class="text-xs font-bold tracking-widest uppercase text-stone-400 mb-2">Étapes Clés</span>
+              <a href="#step-1" class="group flex items-center gap-4 opacity-100 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white group-hover:bg-stone-900 group-hover:text-white group-hover:border-stone-900">1</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Fondation &amp; Stratégie</span>
+              </a>
+              <a href="#step-2" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">2</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Interface Web</span>
+              </a>
+              <a href="#step-3" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">3</div>
+                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Rebranding Global</span>
+              </a>
+            </div>
+          </aside>
+
+          <!-- RIGHT CONTENT -->
+          <div class="flex-1 flex flex-col gap-24 md:gap-40">
+            
+            <!-- STEP 1 -->
+            <div id="step-1" class="group scroll-mt-40">
+              <div class="border-t border-stone-900 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-teal-600 uppercase">Phase 01</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Stratégie &amp; Identité.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Tout commence par une immersion. Avant de dessiner, nous définissons l'âme de votre projet. Cette première phase pose les bases de votre discours et de votre univers visuel initial.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Audit de marque &amp; positionnement
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Direction Artistique (Moodboards)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Logotype &amp; Typographie
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-[#E8E6E1] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <div class="absolute w-40 h-40 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 bottom-10 right-10"></div>
+                  <div class="z-10 bg-white/40 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg">
+                    <div class="serif text-4xl italic text-stone-900">Aa</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div id="step-2" class="group scroll-mt-40">
+              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 02</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Création Digitale.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Nous traduisons votre stratégie en une expérience interactive. Votre site web n'est pas une simple vitrine, c'est un outil de conversion alliant esthétique éditoriale et performance technique.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> UX/UI Design (Maquettes)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Développement (Webflow / Next.js)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Animations &amp; Intéractions
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-stone-900 rounded-2xl overflow-hidden flex items-center justify-center border border-stone-800">
+                  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#8FA4E8 1px, transparent 1px); background-size: 20px 20px;"></div>
+                  <div class="w-2/3 h-40 bg-stone-800 rounded border border-stone-700 shadow-2xl flex flex-col p-3 gap-2 group-hover:scale-105 transition-transform duration-500">
+                     <div class="flex gap-1.5 mb-1">
+                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
+                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
+                     </div>
+                     <div class="w-full h-full bg-stone-700/50 rounded flex items-center justify-center">
+                        <span class="text-teal-500/50 text-xs font-mono">&lt;Code /&gt;</span>
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div id="step-3" class="group scroll-mt-40">
+              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
+                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 03</span>
+              </div>
+              <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-8">
+                Rebranding Complet.
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="text-lg text-stone-600 font-light leading-relaxed">
+                  <p class="mb-6">
+                    Une fois le digital établi, nous étendons votre nouvelle identité à l'ensemble de votre écosystème. C'est l'étape de la maturité : une refonte globale pour assurer une cohérence totale sur tous les supports.
+                  </p>
+                  <ul class="flex flex-col gap-3 mt-8">
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Charte Graphique Étendue
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Supports Marketing (Print &amp; Social)
+                    </li>
+                    <li class="flex items-center gap-3 text-stone-800">
+                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Brand Book &amp; Guidelines
+                    </li>
+                  </ul>
+                </div>
+                <div class="relative h-80 w-full bg-gradient-to-br from-[#2A4AD1] to-[#1E3AA6] rounded-2xl overflow-hidden flex items-center justify-center">
+                  <div class="absolute inset-0 bg-white/10 backdrop-blur-3xl"></div>
+                   <div class="relative z-10 flex flex-col items-center">
+                      <div class="text-white text-5xl serif italic mb-2">Bila.</div>
+                      <span class="text-teal-100 text-xs tracking-[0.3em] uppercase">Collection 2025</span>
+                   </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <!-- Les quatre étapes -->
-      <section class="w-full bg-[#FAFBFD] pb-24 md:pb-32">
-        <div class="max-w-[74rem] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-[clamp(2rem,4vw,72px)] gap-y-16">
-
-          <article class="flex flex-col relative lg:pl-0">
-            <p class="serif italic font-normal text-[clamp(6rem,13vw,11rem)] leading-[0.74] tracking-[-0.05em] text-[#161A22] mb-10 select-none">01</p>
-            <h2 class="text-xl mb-4">Diagnostic</h2>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-4">
-              J'audite le site existant avant d'en écrire une ligne. Sur le dernier cabinet
-              d'avocats, ce relevé a fait ressortir vingt-six points, du référencement
-              absent à une page « site en construction » restée en ligne.
-            </p>
-            <p class="text-[0.95rem] leading-relaxed text-[#5A6473] mt-auto">
-              <b class="text-[#161A22] font-semibold">Ce dont j'ai besoin :</b>
-              l'adresse de votre site, et vos objectifs sur les douze prochains mois.
-            </p>
-          </article>
-
-          <article class="flex flex-col relative lg:pl-[clamp(1rem,2vw,36px)] lg:border-l border-[rgba(22,26,33,0.12)]">
-            <p class="serif italic font-normal text-[clamp(6rem,13vw,11rem)] leading-[0.74] tracking-[-0.05em] text-[#161A22] mb-10 select-none">02</p>
-            <h2 class="text-xl mb-4">Conception</h2>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-4">
-              Structure des pages, rédaction des contenus, maquette. Vous relisez, vous
-              corrigez, vous validez. Je n'attends jamais que vous écriviez à ma place :
-              c'est là que ces projets s'enlisent.
-            </p>
-            <p class="text-[0.95rem] leading-relaxed text-[#5A6473] mt-auto">
-              <b class="text-[#161A22] font-semibold">Ce dont j'ai besoin :</b>
-              vos photographies, vos éléments de marque, et une heure de votre temps.
-            </p>
-          </article>
-
-          <article class="flex flex-col relative lg:pl-[clamp(1rem,2vw,36px)] lg:border-l border-[rgba(22,26,33,0.12)]">
-            <p class="serif italic font-normal text-[clamp(6rem,13vw,11rem)] leading-[0.74] tracking-[-0.05em] text-[#161A22] mb-10 select-none">03</p>
-            <h2 class="text-xl mb-4">Réalisation</h2>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-4">
-              Intégration, référencement, vitesse d'affichage, données structurées. Les
-              points du diagnostic sont repris un par un, et vérifiés devant vous à la
-              livraison.
-            </p>
-            <p class="text-[0.95rem] leading-relaxed text-[#5A6473] mt-auto">
-              <b class="text-[#161A22] font-semibold">Ce dont j'ai besoin :</b>
-              les accès à l'hébergement, au site et au nom de domaine.
-            </p>
-          </article>
-
-          <article class="flex flex-col relative lg:pl-[clamp(1rem,2vw,36px)] lg:border-l border-[rgba(22,26,33,0.12)]">
-            <p class="serif italic font-normal text-[clamp(6rem,13vw,11rem)] leading-[0.74] tracking-[-0.05em] text-[#161A22] mb-10 select-none">04</p>
-            <h2 class="text-xl mb-4">Automatisation</h2>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340] mb-4">
-              Un site en ligne ne travaille pas tout seul. Prise de rendez-vous, relances,
-              suivi des demandes : ce qui vous prend vos soirées peut tourner sans vous.
-            </p>
-            <p class="text-[0.95rem] leading-relaxed text-[#5A6473] mt-auto">
-              <b class="text-[#161A22] font-semibold">Ce dont j'ai besoin :</b>
-              la liste de ce qui vous fait perdre le plus de temps chaque semaine.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="max-w-[74rem] mx-auto px-8 mt-16 flex flex-wrap items-center gap-4">
-          <a href="/accueil#audit"
-             class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-            Commencer par le diagnostic gratuit
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
-            </svg>
-          </a>
-          <p class="hand text-2xl">gratuit, et le relevé vous reste acquis</p>
-        </div>
-      </section>
-
-<!-- Le référencement, tenu par des agents -->
+      <!-- Le référencement, tenu par des agents -->
       <section class="w-full bg-[#FAFBFD] py-20 md:py-28 border-t border-[rgba(22,26,33,0.12)]">
         <div class="max-w-[74rem] mx-auto px-8">
 
