@@ -55,6 +55,9 @@ tailwind.config = {
 .font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
 .font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
+.footer-titre { font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-weight: 400; letter-spacing: -.03em; }
 /* annotation manuscrite */
 .hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
   color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
@@ -312,16 +315,10 @@ tailwind.config = {
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-5">
-          <div class="btn-magnetic-wrapper">
-            <a href="/nouveau-projet" class="btn-magnetic">
-              <span>
-                Démarrer un projet
-                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
-            </a>
-          </div>
+          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
+            Démarrer un projet
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
           <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
             Discutons
           </a>
@@ -451,7 +448,7 @@ tailwind.config = {
 
         <!-- STEP 1: Activité -->
         <div class="step-container active" data-step="1">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Parlez-nous de votre activité</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Parlez-nous de votre activité</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Ces informations nous aident à personnaliser les suggestions.</p>
 
           <div class="space-y-6">
@@ -502,7 +499,7 @@ tailwind.config = {
 
         <!-- STEP 2: Cible -->
         <div class="step-container" data-step="2">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Qui est votre cible ?</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Qui est votre cible ?</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Définissez votre audience principale.</p>
 
           <div class="space-y-6">
@@ -554,7 +551,7 @@ tailwind.config = {
 
         <!-- STEP 3: Pages souhaitées -->
         <div class="step-container" data-step="3">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Structure de votre site</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Structure de votre site</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Définissez les pages et leur hiérarchie. Vous pouvez créer des sous-pages.</p>
 
           <div class="space-y-6">
@@ -659,7 +656,7 @@ tailwind.config = {
 
         <!-- STEP 4: Contenu par page -->
         <div class="step-container" data-step="4">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Contenu des pages</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Contenu des pages</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Décrivez les éléments clés de chaque page. L'IA générera du contenu basé sur vos notes ET votre description d'entreprise.</p>
 
           <div id="pages-content-container" class="space-y-6">
@@ -669,7 +666,7 @@ tailwind.config = {
 
         <!-- STEP 5: SEO -->
         <div class="step-container" data-step="5">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Vos mots-clés</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Vos mots-clés</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Quels mots décrivent le mieux votre activité ? Ces mots aideront vos clients à vous trouver sur Google.</p>
 
           <!-- Suggestions IA -->
@@ -701,7 +698,7 @@ tailwind.config = {
 
         <!-- STEP 6: Design -->
         <div class="step-container" data-step="6">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Préférences design</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Préférences design</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Définissez l'univers visuel de votre site.</p>
 
           <div class="space-y-6">
@@ -772,7 +769,7 @@ tailwind.config = {
 
         <!-- STEP 7: Récapitulatif -->
         <div class="step-container" data-step="7">
-          <h2 class="font-serif text-3xl md:text-4xl mb-2">Récapitulatif de votre brief</h2>
+          <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif mb-2">Récapitulatif de votre brief</h2>
           <p class="text-[#FAFBFD]/60 mb-8">Votre brief a été envoyé automatiquement.</p>
 
           <!-- Message de remerciement -->
@@ -942,7 +939,7 @@ tailwind.config = {
       <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
 
         <!-- Accroche -->
-        <h2 class="font-manrope font-medium text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
+        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
           <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
         </h2>
 
@@ -1017,7 +1014,7 @@ tailwind.config = {
   <div id="content-modal" class="modal-overlay">
     <div class="modal-content p-6 md:p-8">
       <div class="flex items-center justify-between mb-6">
-        <h3 class="font-serif text-2xl text-[#FAFBFD]">Contenu peaufiné</h3>
+        <h3 class="text-xl font-serif text-[#FAFBFD]">Contenu peaufiné</h3>
         <button onclick="closeModal()" class="text-[#FAFBFD]/60 hover:text-[#FAFBFD] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
@@ -2115,7 +2112,7 @@ tailwind.config = {
                 <div class="flex items-center justify-between mb-3">
                   <div>
                     ${parent ? `<span class="text-xs text-[#2A4AD1] font-medium">${parent} ›</span>` : ''}
-                    <h3 class="font-serif text-xl text-[#FAFBFD]">${page}</h3>
+                    <h3 class="text-xl font-serif text-[#FAFBFD]">${page}</h3>
                   </div>
                   ${hasContent ? `
                     <span class="flex items-center gap-1 text-xs text-[#2A4AD1] bg-[#2A4AD1]/20 px-2 py-1 rounded-full">

@@ -52,6 +52,9 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 .font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
 .font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
+.footer-titre { font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  font-weight: 400; letter-spacing: -.03em; }
 /* annotation manuscrite */
 .hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
   color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
@@ -65,12 +68,7 @@ html { scroll-behavior: smooth; }
 from { transform: translateY(100px); opacity: 0; }
 to { transform: translateY(0); opacity: 1; }
 }
-@keyframes marquee {
-0% { transform: translateX(0); }
-100% { transform: translateX(-50%); }
-}
 .animate-slide-up { animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.animate-marquee { animation: marquee 25s linear infinite; }
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
@@ -83,185 +81,9 @@ transform: scale(1) rotate(2deg);
 .hidden-force { display: none !important; }
 .fade-in { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-/* ===== BOUTON 1: Nos Réalisations ===== */
-.btn-container-focus { position: relative; display: inline-block; }
-.btn-glow-focus {
-  position: absolute; inset: -4px;
-  background: linear-gradient(90deg, #3b5bdb, #e64980, #fd7e14, #3b5bdb);
-  background-size: 300% 100%; border-radius: 60px; filter: blur(20px);
-  opacity: 0.6; animation: glowMoveFocus 4s ease-in-out infinite; z-index: 0;
-}
-@keyframes glowMoveFocus {
-  0%, 100% { background-position: 0% 50%; opacity: 0.5; }
-  50% { background-position: 100% 50%; opacity: 0.8; }
-}
-.btn-realisations-focus {
-  position: relative; z-index: 1; padding: 20px 52px; font-size: 17px;
-  font-weight: 600; font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;
-  color: #fff; background: #12121f; border: none; border-radius: 56px;
-  cursor: pointer; overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.btn-realisations-focus:hover { transform: scale(1.02); }
-.btn-realisations-focus::before {
-  content: ''; position: absolute; inset: 0; border-radius: 56px; padding: 2px;
-  background: linear-gradient(90deg, #3b5bdb, #7048e8, #e64980, #fd7e14, #fab005, #3b5bdb);
-  background-size: 200% 100%; animation: borderMoveFocus 3s linear infinite;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
-}
-@keyframes borderMoveFocus { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
-.particles-focus { position: absolute; inset: 0; border-radius: 56px; overflow: hidden; pointer-events: none; }
-.particle-focus {
-  position: absolute; width: 4px; height: 4px; border-radius: 50%; opacity: 0; transition: opacity 0.3s ease;
-}
-.btn-realisations-focus:hover .particle-focus { opacity: 1; animation: particleFloatFocus 2s ease-in-out infinite; }
-.particle-focus:nth-child(1) { background: #3b5bdb; left: 10%; top: 30%; animation-delay: 0s; }
-.particle-focus:nth-child(2) { background: #e64980; left: 25%; top: 60%; animation-delay: 0.4s; }
-.particle-focus:nth-child(3) { background: #fd7e14; left: 50%; top: 20%; animation-delay: 0.8s; }
-.particle-focus:nth-child(4) { background: #7048e8; left: 75%; top: 70%; animation-delay: 1.2s; }
-.particle-focus:nth-child(5) { background: #fab005; left: 90%; top: 40%; animation-delay: 1.6s; }
-@keyframes particleFloatFocus {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-  50% { transform: translateY(-10px) scale(1.5); opacity: 1; }
-}
-.focus-ring-focus {
-  position: absolute; inset: -8px; border-radius: 64px;
-  border: 2px solid rgba(230, 73, 128, 0.6); opacity: 0; pointer-events: none;
-}
-.btn-realisations-focus:hover .focus-ring-focus { animation: focusExpandFocus 1.5s ease-out infinite; }
-@keyframes focusExpandFocus {
-  0% { transform: scale(0.95); opacity: 0; }
-  30% { opacity: 0.6; }
-  100% { transform: scale(1.15); opacity: 0; }
-}
-.inner-light-focus {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 60%; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  pointer-events: none;
-}
-.btn-text-focus { position: relative; z-index: 2; color: #fff; }
-
-/* ===== BOUTON 2: Nous Contacter ===== */
-.button-wrapper-focus { position: relative; padding: 30px; }
-.button-aura-focus {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 120%; height: 120%; border-radius: 60px;
-  background: radial-gradient(circle, rgba(255, 20, 147, 0.3) 0%, rgba(0, 102, 255, 0.2) 50%, transparent 70%);
-  animation: auraPulseFocus 2s ease-in-out infinite; filter: blur(15px);
-}
-@keyframes auraPulseFocus {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.9; }
-}
-.focus-button-contact {
-  position: relative; padding: 0; background: transparent; border: none; cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 10px 30px rgba(255, 20, 147, 0.4));
-}
-.focus-button-contact:hover {
-  transform: translateY(-5px);
-  filter: drop-shadow(0 15px 40px rgba(255, 20, 147, 0.6));
-}
-.button-body-focus {
-  position: relative; padding: 22px 55px;
-  background: linear-gradient(135deg, #FF1493 0%, #0066FF 50%, #FF1493 100%);
-  background-size: 200% 200%; border-radius: 50px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.3), inset 0 2px 10px rgba(255, 255, 255, 0.2),
-    inset 0 -2px 10px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.4);
-  overflow: hidden; animation: gradientShiftFocus 4s ease infinite;
-}
-@keyframes gradientShiftFocus { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-.button-flows-focus {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  overflow: hidden; border-radius: 50px; pointer-events: none;
-}
-.inner-flow-focus {
-  position: absolute; border: 1.5px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%; animation: innerFlowMoveFocus 6s ease-in-out infinite;
-}
-.inner-flow-focus:nth-child(1) { width: 80px; height: 80px; top: -20px; left: -20px; animation-delay: 0s; }
-.inner-flow-focus:nth-child(2) { width: 60px; height: 60px; top: 50%; right: -15px; animation-delay: 1s; }
-.inner-flow-focus:nth-child(3) { width: 70px; height: 70px; bottom: -25px; left: 30%; animation-delay: 2s; }
-@keyframes innerFlowMoveFocus {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-  50% { transform: translate(15px, -15px) scale(1.2); opacity: 0.7; }
-}
-.button-text-contact {
-  font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; color: #FFFFFF;
-  position: relative; z-index: 2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.4);
-  transition: all 0.3s ease;
-}
-.focus-button-contact:hover .button-text-contact {
-  letter-spacing: 2px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.6);
-}
-.contact-icon-focus {
-  display: inline-block; margin-left: 12px; width: 24px; height: 24px;
-  position: relative; vertical-align: middle;
-}
-.icon-circle-focus {
-  position: absolute; border: 2px solid #FFFFFF; border-radius: 50%;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-.icon-circle-focus:nth-child(1) { width: 8px; height: 8px; background: #FFFFFF; animation: targetPulseFocus 1.5s ease-in-out infinite; }
-.icon-circle-focus:nth-child(2) { width: 16px; height: 16px; animation: targetPulseFocus 1.5s ease-in-out infinite 0.2s; }
-.icon-circle-focus:nth-child(3) { width: 24px; height: 24px; animation: targetPulseFocus 1.5s ease-in-out infinite 0.4s; }
-@keyframes targetPulseFocus {
-  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
-}
-.shine-effect-focus {
-  position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  transform: skewX(-25deg); animation: shineFocus 3s ease-in-out infinite;
-}
-@keyframes shineFocus { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
-
-/* 3D portfolio card */
-.pf-3d-wrapper { perspective: 1100px; }
-.pf-3d {
-  transform: rotateX(6deg) scale(0.97);
-  box-shadow: 0 50px 120px rgba(0,0,0,0.38), 0 10px 30px rgba(0,0,0,0.18);
-  transition: transform 0.9s cubic-bezier(0.4,0,0.2,1), box-shadow 0.9s ease;
-  will-change: transform;
-}
-.group:hover .pf-3d {
-  transform: rotateX(0deg) scale(1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.14);
-}
 </style>
-<script src="https://www.aura.build/FxFilter.js"></script>
 <link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style>
 <style>
-/* MAGNETIC PULSE BUTTON */
-:root { --noir-profond: #1a1a1a; --emeraude: #2A4AD1; --emeraude-light: #2A4AD1; --emeraude-glow: rgba(13, 92, 74, 0.4); }
-.btn-magnetic-wrapper { position: relative; display: inline-block; }
-.btn-magnetic-wrapper::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); background: radial-gradient(ellipse at center, var(--emeraude-glow) 0%, transparent 70%); border-radius: 60px; animation: magneticPulse 2.8s ease-in-out infinite; z-index: 0; pointer-events: none; }
-.btn-magnetic-wrapper::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 35px); height: calc(100% + 35px); background: radial-gradient(ellipse at center, rgba(13, 92, 74, 0.15) 0%, transparent 60%); border-radius: 70px; animation: magneticPulseOuter 2.8s ease-in-out infinite; animation-delay: 0.4s; z-index: 0; pointer-events: none; }
-.btn-magnetic { position: relative; z-index: 1; font-family: 'Poppins', system-ui, sans-serif; font-size: 0.9rem; font-weight: 500; color: #ffffff; background: var(--noir-profond); border: none; padding: 0.85rem 2rem; border-radius: 50px; cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); overflow: hidden; text-decoration: none; display: inline-flex; align-items: center; }
-.btn-magnetic::before { content: ''; position: absolute; inset: 0; border-radius: 50px; padding: 1.5px; background: linear-gradient(135deg, transparent 30%, var(--emeraude) 50%, transparent 70%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.5; transition: opacity 0.4s ease; }
-.btn-magnetic::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(13, 92, 74, 0.2), transparent); transition: left 0.6s ease; }
-.btn-magnetic span { position: relative; z-index: 2; display: flex; align-items: center; gap: 0.5rem; transform: translateX(12px); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-.btn-magnetic .arrow { opacity: 0; transform: translateX(-8px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); flex-shrink: 0; }
-.btn-magnetic:hover span { transform: translateX(0); }
-.btn-magnetic-wrapper:hover::before { animation: magneticPulseHover 1.8s ease-in-out infinite; width: calc(100% + 30px); height: calc(100% + 30px); }
-.btn-magnetic-wrapper:hover::after { animation: magneticPulseOuterHover 1.8s ease-in-out infinite; width: calc(100% + 50px); height: calc(100% + 50px); }
-.btn-magnetic:hover { transform: scale(1.03); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 40px var(--emeraude-glow); background: linear-gradient(135deg, var(--noir-profond) 0%, #252525 100%); }
-.btn-magnetic:hover::before { opacity: 1; background: linear-gradient(135deg, var(--emeraude) 0%, var(--emeraude-light) 50%, var(--emeraude) 100%); }
-.btn-magnetic:hover::after { left: 100%; }
-.btn-magnetic:hover .arrow { opacity: 1; transform: translateX(0); }
-.btn-magnetic:active { transform: scale(0.98); box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15), 0 0 20px var(--emeraude-glow); }
-@keyframes magneticPulse { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
-@keyframes magneticPulseOuter { 0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); } }
-@keyframes magneticPulseHover { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); } }
-@keyframes magneticPulseOuterHover { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.08); } }
 </style>
 </head>
   <body class="bg-[#FAFBFD] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
@@ -288,16 +110,10 @@ transform: scale(1) rotate(2deg);
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-5">
-          <div class="btn-magnetic-wrapper">
-            <a href="/nouveau-projet" class="btn-magnetic">
-              <span>
-                Démarrer un projet
-                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
-            </a>
-          </div>
+          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
+            Démarrer un projet
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
           <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
             Discutons
           </a>
@@ -354,7 +170,7 @@ transform: scale(1) rotate(2deg);
           <div class="w-16 h-16 rounded-full bg-stone-100 flex items-center justify-center mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="loader-2" class="lucide lucide-loader-2 w-8 h-8 text-stone-400 animate-spin"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
           </div>
-          <h2 class="text-5xl md:text-7xl serif text-stone-900 mb-6">
+          <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 mb-6">
             En cours de réalisation
           </h2>
           <p class="text-lg md:text-xl text-stone-500 max-w-lg leading-relaxed">
@@ -372,7 +188,7 @@ transform: scale(1) rotate(2deg);
           <div class="md:col-span-4 md:sticky md:top-32 md:h-[calc(100vh-8rem)] flex flex-col h-fit justify-between">
             <div class="">
               <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-4">à la une</p>
-              <h2 class="text-5xl md:text-7xl serif leading-none mb-6">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif leading-none mb-6">
                 Focus
                 <br>
                 <i class="text-teal-600">emlyon</i>
@@ -398,53 +214,6 @@ transform: scale(1) rotate(2deg);
           <!-- Scrolling Right Images -->
           <div class="md:col-span-8 flex flex-col md:gap-16">
             <!-- Boutons Focus -->
-            <div class="my-12 md:my-0">
-              <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-6">boutons designés pour Focus</p>
-              <div class="flex flex-col md:flex-row gap-8 items-center justify-center py-16 bg-[#0a0a1a] rounded-2xl">
-
-                <!-- Bouton 1: Nos Réalisations -->
-                <div class="btn-container-focus">
-                  <div class="btn-glow-focus"></div>
-                  <button class="btn-realisations-focus">
-                    <div class="particles-focus">
-                      <div class="particle-focus"></div>
-                      <div class="particle-focus"></div>
-                      <div class="particle-focus"></div>
-                      <div class="particle-focus"></div>
-                      <div class="particle-focus"></div>
-                    </div>
-                    <div class="focus-ring-focus"></div>
-                    <div class="inner-light-focus"></div>
-                    <span class="btn-text-focus">Nos Réalisations</span>
-                  </button>
-                </div>
-
-                <!-- Bouton 2: Nous Contacter -->
-                <div class="button-wrapper-focus">
-                  <div class="button-aura-focus"></div>
-                  <button class="focus-button-contact">
-                    <div class="button-body-focus">
-                      <div class="button-flows-focus">
-                        <div class="inner-flow-focus"></div>
-                        <div class="inner-flow-focus"></div>
-                        <div class="inner-flow-focus"></div>
-                      </div>
-                      <div class="shine-effect-focus"></div>
-                      <span class="button-text-contact">
-                        Nous Contacter
-                        <span class="contact-icon-focus">
-                          <span class="icon-circle-focus"></span>
-                          <span class="icon-circle-focus"></span>
-                          <span class="icon-circle-focus"></span>
-                        </span>
-                      </span>
-                    </div>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
             <!-- Image 3 -->
             <div class="group relative w-full aspect-[16/9] overflow-hidden rounded-2xl cursor-pointer">
               <img src="/public/images/focus-preview.webp" alt="Focus emlyon" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
@@ -477,7 +246,7 @@ transform: scale(1) rotate(2deg);
                   01 / Sécurité
                 </span>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Orion
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -521,8 +290,8 @@ transform: scale(1) rotate(2deg);
             </div>
 
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7 order-1 md:order-2">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <video class="w-full h-full object-cover" autoplay="" loop="" muted="" playsinline="" preload="metadata" src="https://orionsecurity.fr/wp-content/uploads/2025/12/Motion-Design.mp4"></video>
                 <div class="absolute inset-0 bg-stone-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div class="flex group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 opacity-0 absolute inset-0 translate-y-4 items-center justify-center">
@@ -541,8 +310,8 @@ transform: scale(1) rotate(2deg);
           <!-- PROJECT 02: Marthuret -->
           <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <!-- Image Column -->
-            <div class="md:col-span-7 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <div class="relative w-full h-full">
                   <img src="/public/images/marthuret-preview.webp" alt="Scierie du Marthuret" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
                   <div class="absolute inset-0 bg-[#232F42]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -568,7 +337,7 @@ transform: scale(1) rotate(2deg);
                 </span>
                 <div class="h-px w-12 bg-stone-300"></div>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Scierie
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -623,7 +392,7 @@ transform: scale(1) rotate(2deg);
                   03 / Forestier
                 </span>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Neptune
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -667,8 +436,8 @@ transform: scale(1) rotate(2deg);
 
             </div>
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7 order-1 md:order-2">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <div class="relative w-full h-full">
                   <img src="/public/images/neptune-preview.webp" alt="Neptune Forêts" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
                   <div class="absolute inset-0 bg-[#2e3243]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -690,7 +459,7 @@ transform: scale(1) rotate(2deg);
           <!-- Section : dernières sorties -->
           <div class="w-full order-first pb-14">
             <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">dernières sorties</p>
-            <h3 class="text-[1.9rem] md:text-[2.8rem] leading-[1.06] tracking-tight max-w-[22ch]">
+            <h3 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
               Ce qu'on a livré <span class="italic">ces derniers mois.</span>
             </h3>
             <div class="border-t border-[rgba(22,26,33,0.12)] mt-12"></div>
@@ -699,8 +468,8 @@ transform: scale(1) rotate(2deg);
           <!-- PROJECT 04: Auravocats -->
           <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start order-first">
             <!-- Image Column -->
-            <div class="md:col-span-7 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <div class="relative w-full h-full">
                   <img src="/public/images/auravocats-preview.webp" alt="Auravocats" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
                   <div class="absolute inset-0 bg-[#333333]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -726,7 +495,7 @@ transform: scale(1) rotate(2deg);
                 </span>
                 <div class="h-px w-12 bg-stone-300"></div>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Auravocats
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -781,7 +550,7 @@ transform: scale(1) rotate(2deg);
                   05 / Juridique
                 </span>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Fremont
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -825,8 +594,8 @@ transform: scale(1) rotate(2deg);
 
             </div>
             <!-- Image Column -->
-            <div class="md:col-span-7 order-1 md:order-2 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7 order-1 md:order-2">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <div class="relative w-full h-full">
                   <img src="/public/images/fremont-preview.webp" alt="Fremont-Bousso" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
                   <div class="absolute inset-0 bg-[#334058]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -848,8 +617,8 @@ transform: scale(1) rotate(2deg);
           <!-- PROJECT 06: Pierre Hamoumou -->
           <div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-start order-first">
             <!-- Image Column -->
-            <div class="md:col-span-7 pf-3d-wrapper">
-              <div class="pf-3d relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
+            <div class="md:col-span-7">
+              <div class="relative h-[50vh] md:h-[80vh] rounded-2xl overflow-hidden">
                 <div class="relative w-full h-full">
                   <img src="/public/images/hamoumou-preview.webp" alt="Pierre Hamoumou" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out">
                   <div class="absolute inset-0 bg-[#1E3AA6]/30 opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -875,7 +644,7 @@ transform: scale(1) rotate(2deg);
                 </span>
                 <div class="h-px w-12 bg-stone-300"></div>
               </div>
-              <h2 class="text-6xl md:text-8xl serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
+              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 leading-[0.9] mb-8 group-hover:text-teal-600 transition-colors duration-300">
                 Pierre
                 <br>
                 <span class="italic text-stone-300 group-hover:text-teal-400 transition-colors">
@@ -929,7 +698,7 @@ transform: scale(1) rotate(2deg);
       <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
 
         <!-- Accroche -->
-        <h2 class="font-manrope font-medium text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
+        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
           <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
         </h2>
 
@@ -1062,7 +831,7 @@ transform: scale(1) rotate(2deg);
         <div class="p-6 md:p-8">
           <div class="flex items-center justify-between mb-8">
             <div>
-              <h2 class="font-serif text-3xl md:text-4xl text-[#161A22] mb-2">Préférences Cookies</h2>
+              <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">Préférences Cookies</h2>
               <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
             </div>
             <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
