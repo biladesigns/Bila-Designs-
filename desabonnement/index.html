@@ -62,16 +62,10 @@ tailwind.config = {
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-5">
-          <div class="btn-magnetic-wrapper">
-            <a href="/nouveau-projet" class="btn-magnetic">
-              <span>
-                Démarrer un projet
-                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
-            </a>
-          </div>
+          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
+            Démarrer un projet
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
           <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
             Discutons
           </a>
@@ -145,7 +139,7 @@ tailwind.config = {
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h2 class="text-3xl serif italic mb-4">Désabonnement confirmé</h2>
+        <h2 class="text-[1.35rem] md:text-[1.6rem] serif italic mb-4">Désabonnement confirmé</h2>
         <p class="text-[#2A4AD1] mb-8">
           Vous avez été retiré de notre liste de diffusion. Vous ne recevrez plus d'emails de notre part.
         </p>
@@ -163,7 +157,7 @@ tailwind.config = {
             <line x1="9" y1="9" x2="15" y2="15"></line>
           </svg>
         </div>
-        <h2 class="text-3xl serif italic mb-4">Une erreur est survenue</h2>
+        <h2 class="text-[1.35rem] md:text-[1.6rem] serif italic mb-4">Une erreur est survenue</h2>
         <p class="text-[#2A4AD1] mb-8" id="error-message">
           Impossible de traiter votre demande. Veuillez réessayer.
         </p>
@@ -180,7 +174,7 @@ tailwind.config = {
       <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
 
         <!-- Accroche -->
-        <h2 class="font-manrope font-medium text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
+        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
           <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
         </h2>
 
