@@ -50,6 +50,18 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 .footer-titre { font-family: 'Fraunces', Georgia, serif;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
   font-weight: 400; letter-spacing: -.03em; }
+.etape { flex:1; display:flex; flex-direction:column; align-items:center; gap:.85rem;
+  background:none; border:0; cursor:pointer; padding:0 .2rem;
+  font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; line-height:1.3;
+  color:#8A93A3; text-align:center; transition:color .2s ease; }
+.etape .point { width:15px; height:15px; border-radius:50%; background:#FAFBFD;
+  border:1.5px solid rgba(22,26,33,.20); transition:background .2s ease, border-color .2s ease; }
+.etape:hover { color:#2A3340; }
+.etape.est-actif { color:#2A4AD1; }
+.etape.est-actif .point { background:#2A4AD1; border-color:#2A4AD1; }
+.etape:focus-visible { outline:2px solid #2A4AD1; outline-offset:3px; border-radius:.4rem; }
+.outil { display:inline-block; border:1px solid rgba(22,26,33,.16); border-radius:999px;
+  padding:.35rem .9rem; font-size:.86rem; color:#5A6473; }
 /* annotation manuscrite */
 .hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
   color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
@@ -225,6 +237,77 @@ html { scroll-behavior: smooth; }
         </p>
         <p class="hand text-2xl mt-6">c'est un mot qui se mérite</p>
       </section>
+
+      <!-- La chaine du cabinet -->
+      <section class="w-full max-w-[74rem] mx-auto px-8 py-16 md:py-24 border-t border-[rgba(22,26,33,0.12)]">
+
+        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">la chaîne du cabinet</p>
+        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[24ch]">
+          Cinq moments où un agent <span class="italic">peut vous enlever du travail.</span>
+        </h2>
+        <p class="mt-6 max-w-[54ch] text-lg leading-relaxed text-[#2A3340]">
+          De l'arrivée d'un client à la facture, voici où le temps se perd dans un cabinet,
+          et ce qu'on peut y brancher. Choisissez une étape.
+        </p>
+
+        <!-- Les cinq etapes -->
+        <nav class="mt-12" aria-label="Étapes du dossier">
+          <div class="flex items-start justify-between gap-2 relative" id="etapes-nav">
+            <div class="absolute left-0 right-0 top-[7px] h-px bg-[rgba(22,26,33,0.14)]" aria-hidden="true"></div>
+            <button type="button" class="etape est-actif" data-cas="0"><span class="point"></span>Acquisition</button>
+            <button type="button" class="etape" data-cas="1"><span class="point"></span>Ouverture du dossier</button>
+            <button type="button" class="etape" data-cas="2"><span class="point"></span>Recherche</button>
+            <button type="button" class="etape" data-cas="3"><span class="point"></span>Audience</button>
+            <button type="button" class="etape" data-cas="4"><span class="point"></span>Facturation</button>
+          </div>
+        </nav>
+
+        <!-- La fiche -->
+        <article class="mt-10 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
+
+          <div class="flex items-baseline gap-4 mb-2">
+            <span class="serif italic text-[2.2rem] leading-none text-[#8FA4E8]" id="fiche-num">1</span>
+            <h3 class="text-[1.35rem] md:text-[1.6rem] tracking-tight" id="fiche-titre"></h3>
+          </div>
+          <p class="text-[0.95rem] text-[#5A6473] mb-8" id="fiche-contexte"></p>
+
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6 mb-6">
+            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Le problème</p>
+            <p class="text-[1.02rem] leading-relaxed text-[#161A22] font-medium max-w-[62ch]" id="fiche-probleme"></p>
+          </div>
+
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6 mb-6">
+            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Ce qu'on branche</p>
+            <p class="text-[1.02rem] leading-relaxed text-[#2A3340] max-w-[62ch] mb-5" id="fiche-branche"></p>
+            <div class="flex flex-wrap gap-2" id="fiche-outils"></div>
+          </div>
+
+          <div class="bg-[#EEF1F6] rounded-xl p-6 mb-6">
+            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Ce que ça change</p>
+            <p class="text-[1.02rem] leading-relaxed text-[#161A22] max-w-[62ch]" id="fiche-change"></p>
+          </div>
+
+          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
+            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Qui décide</p>
+            <p class="text-[0.98rem] leading-relaxed text-[#2A3340] italic max-w-[62ch]" id="fiche-valide"></p>
+          </div>
+        </article>
+
+        <!-- La regle commune -->
+        <div class="mt-16 pt-12 border-t border-[rgba(22,26,33,0.12)]">
+          <h3 class="text-[1.35rem] md:text-[1.6rem] tracking-tight mb-8 max-w-[24ch]">
+            Cinq étapes, <span class="italic">une seule règle.</span>
+          </h3>
+          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">1.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">L'agent prépare. Il ne décide jamais.</span></li>
+            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">2.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">Chaque citation est vérifiée contre les bases, ou marquée « à vérifier ».</span></li>
+            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">3.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">L'avocat valide, signe, et reste seul signataire.</span></li>
+            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">4.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">Tout est journalisé et horodaté, pour que la décision reste traçable.</span></li>
+          </ol>
+          <p class="hand text-2xl mt-8">rien ne part sans votre clic</p>
+        </div>
+      </section>
+
 
       <!-- Références -->
       <section class="w-full max-w-[74rem] mx-auto px-8 py-16 md:py-24 border-t border-[rgba(22,26,33,0.12)]">
@@ -621,4 +704,90 @@ html { scroll-behavior: smooth; }
       document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
     </script>
 
+
+<script>
+(function () {
+  var CAS = [
+    { titre:"Développer la clientèle",
+      contexte:"Acquisition · le bouche-à-oreille ne suffit plus",
+      probleme:"L'essentiel des nouveaux dossiers vient de la recommandation. Chacun publie quand il a le temps, c'est-à-dire rarement, et les quelques heures passées sur les réseaux ne se transforment presque jamais en rendez-vous.",
+      branche:"Un agent de veille suit les évolutions de vos domaines et alimente un agent qui rédige des propositions de publications. Un troisième trie les messages entrants et vous signale ceux qui méritent votre attention. Chaque texte passe un contrôle déontologique avant de vous être soumis.",
+      outils:["Veille juridique","Rédaction assistée","Tri des messages","Contrôle déontologique"],
+      change:"Vous publiez régulièrement sans y penser, et vous ne lisez que les messages qui valent votre temps. Le temps passé sur les réseaux se compte en minutes, plus en heures.",
+      valide:"Zéro publication automatique. Aucun texte, aucun message ne part sans votre clic. Les règles de communication sont posées avec vous, et vérifiables." },
+
+    { titre:"Conflits d'intérêts et déontologie",
+      contexte:"Ouverture du dossier · la vérification qui prend une matinée",
+      probleme:"Chaque nouveau dossier demande une vérification manuelle, souvent sur un tableur tenu à la main. C'est long, c'est fastidieux, et un conflit manqué expose le cabinet bien au-delà du désagrément.",
+      branche:"Vos dossiers passés sont mis en base, anonymisés. À chaque nouveau dossier, l'agent croise les parties, les adverses et les bénéficiaires effectifs, puis produit une note d'analyse assortie d'un degré de certitude.",
+      outils:["Base de dossiers","Croisement des parties","Note d'analyse","Journalisation"],
+      change:"La vérification passe de plusieurs dizaines de minutes à quelques-unes, et la décision d'ouvrir ou non se prend le jour même plutôt qu'en fin de semaine.",
+      valide:"L'agent ne tranche aucune question déontologique. Chaque vérification donne lieu à une décision d'associé, horodatée et journalisée." },
+
+    { titre:"La recherche jurisprudentielle",
+      contexte:"Recherche · le poste le plus lourd des collaborateurs",
+      probleme:"Un dossier complexe demande plusieurs heures de recherche, et cette recherche est souvent refaite ailleurs dans le cabinet sans que personne ne le sache. La jurisprudence la plus récente passe régulièrement à côté.",
+      branche:"Un agent interroge vos bases documentaires, hiérarchise les décisions par autorité et rédige une synthèse. Un second vérifie chaque citation contre la base avant qu'elle n'entre dans la note.",
+      outils:["Bases documentaires","Hiérarchisation","Synthèse","Vérification des citations"],
+      change:"La recherche se fait en une fraction du temps, elle n'est plus dupliquée entre équipes, et la jurisprudence récente cesse d'être oubliée.",
+      valide:"Chaque citation est vérifiée contre la base, ou explicitement marquée « à vérifier ». L'associé relit chaque synthèse avant usage." },
+
+    { titre:"Le mémo de plaidoirie",
+      contexte:"Audience · la chronologie reconstruite à la main",
+      probleme:"Préparer une audience importante demande une journée, dont une bonne part passée à reconstruire la chronologie à partir de dizaines, parfois de centaines de pièces. Le mémo se termine souvent la veille.",
+      branche:"L'agent lit les pièces du dossier, reconstruit la chronologie des faits, va chercher la jurisprudence utile et propose une première version du mémo, que vous reprenez et affinez.",
+      outils:["Lecture des pièces","Chronologie","Jurisprudence","Pré-rédaction"],
+      change:"La préparation se concentre sur le raisonnement plutôt que sur la mise en ordre, et le mémo cesse de se boucler dans les dernières heures.",
+      valide:"L'agent ne signe rien, ne dépose rien au greffe, ne parle jamais à un tiers. Vous restez seul signataire." },
+
+    { titre:"Les honoraires jamais saisis",
+      contexte:"Facturation · le temps travaillé qui n'arrive pas sur la facture",
+      probleme:"Des heures réellement travaillées ne sont jamais saisies, parce que la fiche se remplit des jours après. Et une part des factures dépasse largement l'échéance sans qu'aucune relance ne parte.",
+      branche:"L'agent lit vos échanges et votre agenda, pré-remplit chaque fiche de temps avec le dossier et son justificatif, et déclenche les relances d'impayés selon le rythme que vous fixez.",
+      outils:["Agenda et messagerie","Fiches de temps","Justificatifs","Relances échelonnées"],
+      change:"Le temps travaillé se retrouve sur la facture, et les impayés cessent de vieillir en silence.",
+      valide:"Aucune fiche de temps n'est validée automatiquement. Passé un certain retard, aucune relance ne part sans revue de l'associé." }
+  ];
+
+  var nav = document.getElementById('etapes-nav');
+  if (!nav) return;
+  var boutons = nav.querySelectorAll('.etape');
+  var champs = {
+    num: document.getElementById('fiche-num'),
+    titre: document.getElementById('fiche-titre'),
+    contexte: document.getElementById('fiche-contexte'),
+    probleme: document.getElementById('fiche-probleme'),
+    branche: document.getElementById('fiche-branche'),
+    outils: document.getElementById('fiche-outils'),
+    change: document.getElementById('fiche-change'),
+    valide: document.getElementById('fiche-valide')
+  };
+
+  function montre(i) {
+    var c = CAS[i];
+    champs.num.textContent = i + 1;
+    champs.titre.textContent = c.titre;
+    champs.contexte.textContent = c.contexte;
+    champs.probleme.textContent = c.probleme;
+    champs.branche.textContent = c.branche;
+    champs.change.textContent = c.change;
+    champs.valide.textContent = c.valide;
+    champs.outils.innerHTML = '';
+    c.outils.forEach(function (o) {
+      var s = document.createElement('span');
+      s.className = 'outil';
+      s.textContent = o;
+      champs.outils.appendChild(s);
+    });
+    boutons.forEach(function (b, k) {
+      b.classList.toggle('est-actif', k === i);
+      b.setAttribute('aria-current', k === i ? 'true' : 'false');
+    });
+  }
+  boutons.forEach(function (b) {
+    b.addEventListener('click', function () { montre(parseInt(b.dataset.cas, 10)); });
+  });
+  montre(0);
+})();
+</script>
 </body></html>
