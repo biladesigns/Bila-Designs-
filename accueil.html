@@ -205,7 +205,8 @@ pointer-events: none;
     <!-- Main Wrapper: No height constraints, allowing native body scroll -->
     <main class="relative w-full flex flex-col">
       <!-- Hero Section : fond clair, typographique, sans dégradé ni colline -->
-      <section class="bg-[#FAFBFD] w-full pt-40 pb-24 md:pt-52 md:pb-32 relative">
+      <section class="bg-[#FAFBFD] relative w-full">
+        <div class="pt-40 pb-24 md:pt-52 md:pb-32">
         <div class="max-w-[74rem] mx-auto px-8">
 
           <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-8">
@@ -255,10 +256,12 @@ pointer-events: none;
           </a>
 
         </div>
+      </div>
       </section>
 
       <!-- Editorial Content Section -->
-      <section id="intro" class="bg-[#FFFFFF] md:pb-32 -mt-1 z-20 pt-12 pb-20 relative">
+      <section id="intro" class="bg-[#FFFFFF] -mt-1 z-20 relative w-full">
+        <div class="md:pb-32 pt-12 pb-20">
         <div class="md:px-12 max-w-[74rem] mx-auto px-6">
           <!-- Statement -->
           <div id="agence" class="max-w-4xl mx-auto text-center mb-32 scroll-mt-32">
@@ -505,7 +508,8 @@ pointer-events: none;
           </div>
 
 <!-- Audit gratuit : deux portes d'entrée -->
-      <section id="audit" class="bg-[#FFF7E8] w-full border-t border-[rgba(22,26,33,0.12)] py-24 md:py-32">
+      <section id="audit" class="bg-[#FFF7E8] border-t border-[rgba(22,26,33,0.12)] w-full">
+        <div class="py-24 md:py-32">
         <div class="max-w-[74rem] mx-auto px-8">
 
           <!-- Porte 1 : l'audit de site -->
@@ -615,6 +619,7 @@ pointer-events: none;
           </div>
 
         </div>
+      </div>
       </section>
 
           <!-- CTA Contact -->
@@ -629,6 +634,7 @@ pointer-events: none;
             </a>
           </div>
         </div>
+      </div>
       </section>
 
     </main>
