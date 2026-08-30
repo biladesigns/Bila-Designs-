@@ -50,6 +50,20 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 .footer-titre { font-family: 'Fraunces', Georgia, serif;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
   font-weight: 400; letter-spacing: -.03em; }
+.reponse span { display:inline-block; border:1px solid rgba(22,26,33,.16); border-radius:999px;
+  padding:.5rem 1.05rem; font-size:.92rem; color:#2A3340; cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, color .2s ease; }
+.reponse:hover span { border-color:#161A22; }
+.reponse input:checked + span { border-color:#2A4AD1; background:#E5EAF9; color:#1E3AA6; }
+.reponse input:focus-visible + span { outline:2px solid #2A4AD1; outline-offset:2px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.scenario { border:1px solid rgba(22,26,33,.16); border-radius:999px; padding:.7rem 1.3rem;
+  font-size:.98rem; color:#2A3340; background:#fff; cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, color .2s ease; }
+.scenario:hover { border-color:#161A22; }
+.scenario.est-actif { border-color:#2A4AD1; background:#E5EAF9; color:#1E3AA6; }
+.scenario:focus-visible { outline:2px solid #2A4AD1; outline-offset:2px; }
 /* annotation manuscrite */
 .hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
   color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
@@ -320,7 +334,169 @@ html { scroll-behavior: smooth; }
         </div>
       </section>
 
-      <!-- Appel final -->
+      <!-- La chaine : une demande portee jusqu'au bout -->
+      <section class="w-full max-w-[74rem] mx-auto px-8 py-16 md:py-24 border-t border-[rgba(22,26,33,0.12)]">
+
+        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">la chaîne</p>
+        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
+          Une demande, <span class="italic">portée jusqu'au bout.</span>
+        </h2>
+        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
+          Ce qui change, ce n'est pas une tâche isolée, c'est la chaîne. Choisissez ce qui
+          arrive chez vous, et regardez ce qui se passe ensuite.
+        </p>
+
+        <!-- Choix du scenario -->
+        <div class="mt-12 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-8">
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-5">Quand ceci arrive…</p>
+          <div class="flex flex-wrap gap-3" id="scenarios">
+            <button type="button" class="scenario est-actif" data-cas="0">Un nouveau client vous écrit</button>
+            <button type="button" class="scenario" data-cas="1">Une facture reste impayée</button>
+            <button type="button" class="scenario" data-cas="2">Un dossier se termine</button>
+          </div>
+        </div>
+
+        <!-- Deroule -->
+        <div class="mt-6 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
+          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-8">…alors, sans vous</p>
+          <ol class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10" id="etapes">
+            <li class="relative">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
+                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
+              </div>
+              <h3 class="text-xl mb-3" data-titre></h3>
+              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
+            </li>
+            <li class="relative">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
+                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
+              </div>
+              <h3 class="text-xl mb-3" data-titre></h3>
+              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
+            </li>
+            <li class="relative">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
+                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
+              </div>
+              <h3 class="text-xl mb-3" data-titre></h3>
+              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
+            </li>
+            <li class="relative">
+              <div class="flex items-center gap-3 mb-5">
+                <span class="w-3 h-3 rounded-full bg-[#4F8268] shrink-0"></span>
+              </div>
+              <h3 class="text-xl mb-3" data-titre></h3>
+              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
+            </li>
+          </ol>
+          <p class="font-mono text-[0.78rem] text-[#5A6473] mt-10 pt-6 border-t border-[rgba(22,26,33,0.10)]" id="legende"></p>
+        </div>
+      </section>
+
+
+      <!-- Le test : combien d'heures perdez-vous chaque semaine -->
+      <section id="test" class="w-full max-w-[74rem] mx-auto px-8 py-16 md:py-24 border-t border-[rgba(22,26,33,0.12)]">
+
+        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">le test · gratuit</p>
+        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
+          Combien d'heures <span class="italic">votre semaine perd-elle ?</span>
+        </h2>
+        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
+          Cinq questions honnêtes, trente secondes. Le résultat s'affiche tout de suite, sans
+          laisser d'adresse.
+        </p>
+
+        <form id="test-fuites" action="https://formsubmit.co/matbila63@gmail.com" method="POST" class="mt-12 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
+
+          <div class="flex flex-col divide-y divide-[rgba(22,26,33,0.10)]">
+
+            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5 first:pt-0">
+              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Recopiez-vous les informations d'un client d'un outil vers un autre ?</legend>
+              <div class="flex gap-2 shrink-0" role="radiogroup">
+                <label class="reponse"><input type="radio" name="q1" value="3" class="sr-only"><span>Souvent</span></label>
+                <label class="reponse"><input type="radio" name="q1" value="1.5" class="sr-only"><span>Parfois</span></label>
+                <label class="reponse"><input type="radio" name="q1" value="0" class="sr-only" checked><span>Jamais</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
+              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Vos devis et vos relances de paiement partent-ils à la main ?</legend>
+              <div class="flex gap-2 shrink-0" role="radiogroup">
+                <label class="reponse"><input type="radio" name="q2" value="3" class="sr-only"><span>Souvent</span></label>
+                <label class="reponse"><input type="radio" name="q2" value="1.5" class="sr-only"><span>Parfois</span></label>
+                <label class="reponse"><input type="radio" name="q2" value="0" class="sr-only" checked><span>Jamais</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
+              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">L'accueil d'un nouveau client est-il une suite de messages écrits un par un ?</legend>
+              <div class="flex gap-2 shrink-0" role="radiogroup">
+                <label class="reponse"><input type="radio" name="q3" value="3" class="sr-only"><span>Souvent</span></label>
+                <label class="reponse"><input type="radio" name="q3" value="1.5" class="sr-only"><span>Parfois</span></label>
+                <label class="reponse"><input type="radio" name="q3" value="0" class="sr-only" checked><span>Jamais</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
+              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Vous arrive-t-il de laisser une demande sans réponse plus d'une journée ?</legend>
+              <div class="flex gap-2 shrink-0" role="radiogroup">
+                <label class="reponse"><input type="radio" name="q4" value="3" class="sr-only"><span>Souvent</span></label>
+                <label class="reponse"><input type="radio" name="q4" value="1.5" class="sr-only"><span>Parfois</span></label>
+                <label class="reponse"><input type="radio" name="q4" value="0" class="sr-only" checked><span>Jamais</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
+              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Écrivez-vous le même message plus d'une fois par semaine ?</legend>
+              <div class="flex gap-2 shrink-0" role="radiogroup">
+                <label class="reponse"><input type="radio" name="q5" value="3" class="sr-only"><span>Souvent</span></label>
+                <label class="reponse"><input type="radio" name="q5" value="1.5" class="sr-only"><span>Parfois</span></label>
+                <label class="reponse"><input type="radio" name="q5" value="0" class="sr-only" checked><span>Jamais</span></label>
+              </div>
+            </fieldset>
+
+          </div>
+
+          <!-- Résultat -->
+          <div class="mt-8 bg-[#EEF1F6] rounded-xl p-6 md:p-8">
+            <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+              <p class="serif text-[2.4rem] md:text-[3rem] leading-none text-[#2A4AD1]" id="score">0 h</p>
+              <p class="text-[1.02rem] text-[#2A3340]" id="score-mot">par semaine, d'après vos réponses.</p>
+            </div>
+            <p class="mt-4 text-[0.95rem] text-[#5A6473] max-w-[54ch]">
+              C'est votre résultat, vous ne devez rien laisser pour le voir. Si vous voulez la
+              liste des trois choses à régler en premier chez vous, je vous l'envoie par écrit.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 mt-6">
+              <input type="email" name="email" placeholder="votre adresse, facultative"
+                class="flex-1 min-w-[16rem] bg-white border border-[rgba(22,26,33,0.16)] rounded-full px-5 py-3.5 text-[0.98rem] text-[#161A22] placeholder:text-[#8A93A3] focus:outline-none focus:border-[#2A4AD1] transition-colors">
+              <button type="submit"
+                class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.98rem] font-medium px-6 py-3.5">
+                Recevoir mes trois priorités
+              </button>
+              <a href="/contact"
+                class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-[0.98rem] font-medium px-6 py-3.5">
+                En parler vingt minutes
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+            </div>
+            <p class="hand text-2xl mt-6">pas de lettre d'information cachée là-dedans</p>
+          </div>
+
+          <input type="hidden" name="_subject" value="Résultat du test des heures perdues">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="resultat" id="champ-resultat" value="0">
+          <input type="text" name="_honey" style="display:none">
+        </form>
+      </section>
+
+
+            <!-- Appel final -->
       <section class="w-full max-w-[74rem] mx-auto px-8 pb-24 md:pb-32">
         <div class="border-t border-[rgba(22,26,33,0.12)] pt-14 flex flex-wrap items-center gap-5">
           <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
@@ -689,4 +865,76 @@ html { scroll-behavior: smooth; }
       document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
     </script>
 
+
+<script>
+(function () {
+  var f = document.getElementById('test-fuites');
+  if (!f) return;
+  var sortie = document.getElementById('score');
+  var mot    = document.getElementById('score-mot');
+  var champ  = document.getElementById('champ-resultat');
+  function calcule() {
+    var total = 0;
+    ['q1','q2','q3','q4','q5'].forEach(function (n) {
+      var c = f.querySelector('input[name="' + n + '"]:checked');
+      if (c) total += parseFloat(c.value);
+    });
+    var heures = Math.round(total * 0.9 * 2) / 2;   // 0 a 13,5 h
+    sortie.textContent = (heures ? '~ ' : '') + heures.toString().replace('.', ',') + ' h';
+    champ.value = heures + ' h par semaine';
+    if (heures === 0)      mot.textContent = "par semaine. Tout est déjà en place chez vous.";
+    else if (heures < 4)   mot.textContent = "par semaine. Quelques automatismes suffiraient.";
+    else if (heures < 9)   mot.textContent = "par semaine. Il y a de quoi faire, et ça se règle vite.";
+    else                   mot.textContent = "par semaine. C'est plus d'une journée de travail par mois.";
+  }
+  f.addEventListener('change', calcule);
+  calcule();
+})();
+</script>
+
+<script>
+(function () {
+  var CAS = [
+    { legende: "> formulaire, fiche client, devis, agenda",
+      etapes: [
+        ["La demande arrive",       "Le message tombe dans votre boîte, et dans le système en même temps."],
+        ["La fiche se crée",        "Nom, activité, origine du contact : rien à ressaisir nulle part."],
+        ["Le devis part pré-rempli","Vous relisez, vous corrigez si besoin, vous envoyez."],
+        ["Le rendez-vous est calé", "Le créneau se réserve, la confirmation part, vous n'avez qu'à venir."]
+      ] },
+    { legende: "> échéancier, relances, suivi client",
+      etapes: [
+        ["L'échéance passe",   "Le système la voit le jour même, pas trois semaines plus tard."],
+        ["Une relance part",   "Polie, écrite avec vos mots, avec la facture jointe."],
+        ["Vous êtes prévenu",  "Seulement si le silence dure. Sinon, vous n'entendez parler de rien."],
+        ["Le suivi se met à jour","Payé ou non, l'information est au bon endroit pour tout le monde."]
+      ] },
+    { legende: "> clôture, facturation, avis, archivage",
+      etapes: [
+        ["Le dossier se clôt",     "Vous le marquez terminé, une seule fois, à un seul endroit."],
+        ["La facture finale part", "Montants et mentions déjà remplis à partir du dossier."],
+        ["Un avis est demandé",    "Au bon moment, quand le client est encore content de vous."],
+        ["Le client reçoit tout",  "Documents rassemblés, envoyés, archivés. Le dossier est vraiment fini."]
+      ] }
+  ];
+  var boutons = document.querySelectorAll('.scenario');
+  var lignes  = document.querySelectorAll('#etapes li');
+  var legende = document.getElementById('legende');
+  if (!boutons.length || !lignes.length) return;
+
+  function montre(i) {
+    var cas = CAS[i];
+    lignes.forEach(function (li, k) {
+      li.querySelector('[data-titre]').textContent = cas.etapes[k][0];
+      li.querySelector('[data-texte]').textContent = cas.etapes[k][1];
+    });
+    legende.textContent = cas.legende;
+    boutons.forEach(function (b, k) { b.classList.toggle('est-actif', k === i); });
+  }
+  boutons.forEach(function (b) {
+    b.addEventListener('click', function () { montre(parseInt(b.dataset.cas, 10)); });
+  });
+  montre(0);
+})();
+</script>
 </body></html>
