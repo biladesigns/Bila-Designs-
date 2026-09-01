@@ -231,7 +231,14 @@
           }).then(function (rep) {
             if (!rep.ok) throw new Error(rep.status);
             return rep.json();
-          }).then(function () {
+          }).then(function (data) {
+            // FormSubmit repond 200 meme quand il refuse l'envoi (formulaire
+            // non active, adresse bloquee). Le seul signal fiable est le
+            // champ success du corps de reponse : sans ce controle, la page
+            // annonce un envoi qui n'a jamais eu lieu.
+            if (data && String(data.success) === 'false') {
+              throw new Error(data.message || 'refus');
+            }
             form.reset();
             dire(form.getAttribute('data-merci') ||
                  'Bien recu. Je vous reponds sous vingt-quatre heures.', 'ok');

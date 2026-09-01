@@ -41,6 +41,11 @@ body {
   overflow-x: hidden;
 }
 
+/* L'attribut hidden doit l'emporter : les maquettes posent display en
+   ligne, et une declaration inline bat la feuille de style du navigateur.
+   Sans ce !important, un bloc masque resterait visible. */
+[hidden] { display: none !important; }
+
 a { color: var(--bleu); text-decoration: none; }
 a:hover { color: var(--encre); }
 

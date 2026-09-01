@@ -13,20 +13,20 @@ PAGES = [
          title='Bila Designs — sites web, IA et automatisations',
          desc="Studio independant a Lyon. Sites web sur mesure, identite de marque, "
               "automatisations et agents IA, conçus avec exigence et accompagnes humainement.",
-         preload_hero='/assets/img/hero-arche-crop.png'),
+         preload_hero='/assets/img/hero-arche-crop.webp'),
     dict(src=M + '17727c2e-Sites_web_et_branding.dc.html', out=R + 'services/index.html',
          nav_active='services', canonical='/services',
          title='Sites web & branding — Bila Designs',
          desc="Notre processus de creation : strategie et identite, interface web, "
               "rebranding global. Referencement traite des le cadrage, pas en option.",
-         preload_hero='/assets/img/hero-atelier.png'),
+         preload_hero='/assets/img/hero-atelier.webp'),
     dict(src=M + '26ee78d5-Avocats.dc.html', out=R + 'avocats/index.html',
          nav_active='avocats', canonical='/avocats',
          title="Sites web et agents IA pour cabinets d'avocats — Bila Designs",
          desc="Audit gratuit de votre site, refonte et referencement pour cabinets "
               "d'avocats. Cinq sujets ou un agent vous enleve du travail, dans le "
               "respect de la deontologie.",
-         preload_hero='/assets/img/hero-avocats.png'),
+         preload_hero='/assets/img/hero-avocats.webp'),
     dict(src=M + 'c4270276-Contact.dc.html', out=R + 'contact/index.html',
          nav_active='contact', canonical='/contact',
          title='Contact — Bila Designs',

@@ -200,6 +200,9 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
     body = variabilise(body)
     body = clamp_sizes(body)
     body = tag_grids(body)
+    # Les images de DA sont servies en WebP ; les PNG restent au depot
+    # comme sources. Voir tools/optimiser_images.py.
+    body = re.sub(r'src="assets/([^"]+)\.png"', r'src="/assets/img/\1.webp"', body)
     body = body.replace('src="assets/', 'src="/assets/img/')
     kf = helmet_styles(helmet)
 
