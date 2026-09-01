@@ -84,8 +84,8 @@ PIED = [
      '<a href="/mentions-legales/" style="font-size: 12px; color: #8A8F9C;">Mentions légales</a>'),
     ('<a href="#" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>',
      '<a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>'),
-    ('<a href="#" style="font-size: 12px; color: #8A8F9C;">Gestion des cookies</a>',
-     '<a href="/politique-confidentialite/#cookies" style="font-size: 12px; color: #8A8F9C;">Gestion des cookies</a>'),
+    # Le site ne depose aucun cookie : ce lien ne menait a rien a gerer.
+    ('<a href="#" style="font-size: 12px; color: #8A8F9C;">Gestion des cookies</a>', ''),
 ]
 
 # Les liens externes s'ouvrent dans un nouvel onglet, sans fuite de referent.
