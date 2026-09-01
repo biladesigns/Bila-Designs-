@@ -10,16 +10,14 @@ NAV = [
 ]
 
 
-def marque(h=30, l=26):
-    """Le portail : deux murs pleine hauteur, la lumiere comme seule forme."""
-    demi = l // 2
-    return (
-        '<div style="position: relative; width: %dpx; height: %dpx; overflow: hidden; background: #2743E3;">'
-        '<div style="position: absolute; left: 0; top: 0; width: %dpx; height: %dpx; background: #101B33; '
-        'border-top-right-radius: %dpx %dpx;"></div>'
-        '<div style="position: absolute; right: 0; top: 0; width: %dpx; height: %dpx; background: #101B33; '
-        'border-top-left-radius: %dpx %dpx;"></div></div>'
-        % (l, h, demi, h, demi, h, demi, h, demi, h))
+def marque(h=30, l=27):
+    """La marque livree par le designer, dans sa version cadree.
+
+    Le fond des pages est clair : sans son cadre navy, les jambes blanches
+    se fondent dans le fond et il ne reste qu'un entonnoir bleu."""
+    return ('<img src="/assets/marque/logo-mark-framed.svg" alt="" '
+            'width="%d" height="%d" style="display: block; width: %dpx; '
+            'height: %dpx; flex: 0 0 auto;">' % (l, h, l, h))
 
 
 def entete(actif=None):
@@ -81,7 +79,7 @@ PIED = """  <footer style="position: relative; z-index: 2; padding: 44px var(--g
         <a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>
       </div>
     </div>
-  </footer>""" % marque(26, 22)
+  </footer>""" % marque(26, 24)
 
 FILETS = """  <div style="position: absolute; inset: 0; overflow: hidden;">
     <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>

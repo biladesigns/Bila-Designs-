@@ -19,6 +19,7 @@ RESSOURCES = [
     'assets/css/bila.css',
     'assets/js/bila-motion.js',
     'assets/js/bila-ui.js',
+    'assets/marque/logo-mark-framed.svg',
 ]
 
 
