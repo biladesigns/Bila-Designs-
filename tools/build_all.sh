@@ -4,6 +4,7 @@ set -e
 cd "$(dirname "$0")/.."
 python3 tools/optimiser_images.py
 python3 tools/optimiser_captures.py
+python3 tools/faire_og.py
 python3 tools/build.py
 python3 tools/patch_contact.py
 python3 tools/patch_avocats.py
@@ -17,6 +18,7 @@ python3 tools/patch_nav.py
 python3 tools/patch_images.py
 python3 tools/patch_3d.py
 python3 tools/patch_logo.py
+python3 tools/patch_donnees_structurees.py
 python3 tools/patch_annexes.py
 python3 tools/build_annexes.py
 python3 tools/audit.py

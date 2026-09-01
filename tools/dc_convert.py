@@ -241,7 +241,8 @@ def tag_petits(s):
     return re.sub(r'<[a-zA-Z][a-zA-Z0-9]*\b[^>]*style="[^"]*font-size:\s*(13|14)px[^"]*"[^>]*>',
                   repl_corps, s)
 
-def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js='', noindex=False, preload_hero=None):
+def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js='',
+         noindex=False, preload_hero=None, og='og.png'):
     raw = open(src, encoding='utf-8').read()
     body, helmet, logic = strip_runtime(raw)
     body = route_links(body)
@@ -275,7 +276,11 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
-%(robots)s<link rel="canonical" href="https://www.biladesigns.com%(canonical)s">
+%(robots)s<!-- Validation Search Console. Elle etait sur l'ancien index.html et a
+     disparu a la refonte : sans elle, la propriete se devalide et les
+     donnees de recherche deviennent inaccessibles. Ne pas retirer. -->
+<meta name="google-site-verification" content="Oj3liP5Lr66iUeKpmd0JBHDn18SN1DfZQ09xbNRVG1g">
+<link rel="canonical" href="https://www.biladesigns.com%(canonical)s">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon/favicon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/favicon/favicon-180.png">
@@ -287,8 +292,12 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
 <meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s">
 <meta property="og:url" content="https://www.biladesigns.com%(canonical)s">
-<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/%(og)s">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="%(title)s">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.biladesigns.com/assets/img/%(og)s">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
 %(preload)s<link rel="stylesheet" href="/assets/css/fonts.css">
@@ -307,7 +316,7 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
 </html>
 """ % dict(title=html.escape(title), desc=html.escape(desc), canonical=canonical,
            robots='<meta name="robots" content="noindex, follow">\n' if noindex else '',
-           preload=preload, head_css=head_css, nav=nav_active, body=body,
+           preload=preload, head_css=head_css, nav=nav_active, body=body, og=og,
            extra_js=(extra_js + '\n') if extra_js else '')
 
     os.makedirs(os.path.dirname(out), exist_ok=True)
