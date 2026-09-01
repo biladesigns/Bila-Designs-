@@ -1,586 +1,154 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth"><head><meta charset="UTF-8">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Bila Designs</title>
+<meta name="description" content="Quelles données sont collectées sur biladesigns.com, pourquoi, combien de temps, et comment exercer vos droits.">
+<link rel="canonical" href="https://www.biladesigns.com/politique-confidentialite">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politique de Confidentialité - Bila Designs</title>
-<meta name="description" content="Politique de confidentialité de Bila Designs - Protection de vos données personnelles et vie privée.">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    fontFamily: {
-      sans:  ['Archivo','system-ui','sans-serif'],
-      serif: ['Fraunces','Georgia','serif'],
-    },
- colors: {
-    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#EDF0FB',200:'#EDF0FB',300:'#8FA4E8',400:'#6B7280',500:'#2743E3',
-            600:'#2743E3',700:'#1B31A8',800:'#4A5163',900:'#101B33' },
-    stone:{ 50:'#FBFBFA',100:'#F6F6F3',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#6B7280',600:'#6B7280',700:'#4A5163',800:'#4A5163',900:'#101B33' },
-    green:{ 400:'#4A5163',500:'#4A5163',600:'#38614C' },
-    emerald:{ 400:'#4A5163',500:'#4A5163',600:'#38614C' }
-  } } }
-}
-</script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-body { font-family: 'Archivo', system-ui, sans-serif; }
-h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
-  font-weight: 700; letter-spacing: -.02em; }
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Archivo', system-ui, sans-serif !important; }
-.footer-titre { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  font-weight: 400; letter-spacing: -.03em; }
-/* annotation manuscrite */
-.hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4A5163; transform: rotate(-2.5deg); display: inline-block;
-  font-variation-settings: normal; letter-spacing: normal; }
-::-webkit-scrollbar { width: 0px; background: transparent; }
-</style>
-<!-- Fonts -->
-<style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bila Designs">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Politique de confidentialité — Bila Designs">
+<meta property="og:description" content="Quelles données sont collectées sur biladesigns.com, pourquoi, combien de temps, et comment exercer vos droits.">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/bila.css">
+<style>
+  .hv-cta:hover, .hv-cta:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .prose a { color: #2743E3; border-bottom: 1px solid rgba(39,67,227,0.35); }
+  .prose a:hover { color: #101B33; border-bottom-color: #101B33; }
+</style>
 </head>
-<body class="bg-[#FBFBFA] text-[#101B33] antialiased overflow-x-hidden selection:bg-[#2743E3] selection:text-[#FBFBFA]">
-    <!-- COMMON HEADER START -->
-    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-          Bila.
-        </a>
+<body>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<section style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 34px 0 0; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Avocats
-            </a>
-        </div>
-
-        <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#101B33] hover:bg-[#2743E3] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
-            Démarrer un projet
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-            <path d="M4 12h16"></path>
-            <path d="M4 6h16"></path>
-            <path d="M4 18h16"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- COMMON HEADER END -->
-
-
-  <!-- HEADER -->
-  <!-- MAIN CONTENT -->
-  <main class="pt-32 pb-20 px-6 md:px-12">
-    <div class="max-w-4xl mx-auto">
-
-      <!-- Title -->
-      <div class="mb-16">
-        <span class="text-[#2743E3] text-sm uppercase tracking-widest mb-4 block font-medium">Protection des données</span>
-        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight font-instrument-serif italic text-[#101B33] mb-6">Politique de Confidentialité</h1>
-        <p class="text-lg text-[#101B33]/60">Dernière mise à jour : Décembre 2025</p>
-      </div>
-
-      <!-- Content -->
-      <div class="space-y-12 text-[#101B33]/80 leading-relaxed">
-
-        <!-- Introduction -->
-        <section>
-          <p class="text-lg">
-            Chez Bila Designs, nous accordons une importance primordiale à la protection de vos données personnelles. Cette politique de confidentialité vous informe sur la manière dont nous collectons, utilisons et protégeons vos informations lorsque vous visitez notre site web.
-          </p>
-        </section>
-
-        <!-- Section 1 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">1. Responsable du traitement</h2>
-          <div class="space-y-2">
-            <p>Le responsable du traitement des données personnelles est :</p>
-            <p><strong>Bila Designs</strong></p>
-            <p>Email : <a href="mailto:mathieu@biladesigns.com" class="text-[#2743E3] hover:underline">mathieu@biladesigns.com</a></p>
-          </div>
-        </section>
-
-        <!-- Section 2 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">2. Données collectées</h2>
-          <p class="mb-4">Nous pouvons collecter les types de données suivants :</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li><strong>Données d'identification :</strong> nom, prénom, adresse email</li>
-            <li><strong>Données de connexion :</strong> adresse IP, type de navigateur, pages visitées</li>
-            <li><strong>Données de communication :</strong> messages envoyés via le formulaire de contact</li>
-            <li><strong>Cookies :</strong> préférences de navigation et consentement</li>
-          </ul>
-        </section>
-
-        <!-- Section 3 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">3. Finalités du traitement</h2>
-          <p class="mb-4">Vos données sont collectées pour les finalités suivantes :</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>Répondre à vos demandes de contact</li>
-            <li>Améliorer notre site web et nos services</li>
-            <li>Analyser le trafic et le comportement des utilisateurs</li>
-            <li>Respecter nos obligations légales</li>
-          </ul>
-        </section>
-
-        <!-- Section 4 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">4. Base légale du traitement</h2>
-          <p class="mb-4">Le traitement de vos données personnelles repose sur :</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li><strong>Votre consentement :</strong> pour l'utilisation de cookies non essentiels</li>
-            <li><strong>L'exécution d'un contrat :</strong> pour répondre à vos demandes</li>
-            <li><strong>Notre intérêt légitime :</strong> pour améliorer nos services</li>
-          </ul>
-        </section>
-
-        <!-- Section 5 -->
-        <section>
-          <h2 id="cookies" class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">5. Cookies</h2>
-          <p class="mb-4">Notre site utilise différents types de cookies :</p>
-
-          <div class="space-y-4">
-            <div class="p-4 bg-[#101B33]/5 rounded-xl">
-              <h3 class="font-bold text-[#101B33] mb-2">Cookies essentiels</h3>
-              <p class="text-sm">Nécessaires au fonctionnement du site. Ils ne peuvent pas être désactivés.</p>
-            </div>
-
-            <div class="p-4 bg-[#101B33]/5 rounded-xl">
-              <h3 class="font-bold text-[#101B33] mb-2">Cookies analytiques</h3>
-              <p class="text-sm mb-2">Nous utilisons <strong>Google Analytics 4</strong> pour comprendre comment vous utilisez le site et l'améliorer.</p>
-              <p class="text-sm text-[#2743E3]">Données collectées : pages visitées, durée de session, appareil utilisé, localisation approximative. Ces données sont anonymisées et transférées vers les serveurs de Google (États-Unis) conformément aux clauses contractuelles types de l'UE.</p>
-            </div>
-
-            <div class="p-4 bg-[#101B33]/5 rounded-xl">
-              <h3 class="font-bold text-[#101B33] mb-2">Cookies marketing</h3>
-              <p class="text-sm">Utilisés pour afficher du contenu tiers comme notre calendrier de réservation.</p>
-            </div>
-          </div>
-
-          <p class="mt-4">
-            Vous pouvez gérer vos préférences de cookies à tout moment en cliquant sur
-            <button onclick="cookieManager.openPreferences()" class="text-[#2743E3] hover:underline font-medium">Gestion des cookies</button>.
-          </p>
-        </section>
-
-        <!-- Section 6 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">6. Durée de conservation</h2>
-          <p>
-            Vos données personnelles sont conservées pendant une durée n'excédant pas celle nécessaire aux finalités pour lesquelles elles ont été collectées. Les données de contact sont conservées pendant 3 ans à compter de votre dernière interaction avec nous.
-          </p>
-        </section>
-
-        <!-- Section 7 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">7. Vos droits</h2>
-          <p class="mb-4">Conformément au RGPD, vous disposez des droits suivants :</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li><strong>Droit d'accès :</strong> obtenir la confirmation que vos données sont traitées</li>
-            <li><strong>Droit de rectification :</strong> corriger vos données inexactes</li>
-            <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
-            <li><strong>Droit à la limitation :</strong> limiter le traitement de vos données</li>
-            <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
-            <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
-          </ul>
-          <p class="mt-4">
-            Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@biladesigns.com" class="text-[#2743E3] hover:underline">contact@biladesigns.com</a>
-          </p>
-        </section>
-
-        <!-- Section 8 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">8. Sécurité des données</h2>
-          <p>
-            Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction.
-          </p>
-        </section>
-
-        <!-- Section 9 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">9. Transfert de données</h2>
-          <p>
-            Vos données peuvent être transférées vers des prestataires situés en dehors de l'Union européenne. Dans ce cas, nous nous assurons que ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types, décision d'adéquation).
-          </p>
-        </section>
-
-        <!-- Section 10 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">10. Réclamation</h2>
-          <p>
-            Si vous estimez que le traitement de vos données personnelles constitue une violation du RGPD, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-[#2743E3] hover:underline">www.cnil.fr</a>
-          </p>
-        </section>
-
-        <!-- Section 11 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">11. Modifications</h2>
-          <p>
-            Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications prendront effet dès leur publication sur cette page. Nous vous encourageons à consulter régulièrement cette page.
-          </p>
-        </section>
-
-        <!-- Section 12 -->
-        <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">12. Contact</h2>
-          <p>
-            Pour toute question concernant cette politique de confidentialité ou vos données personnelles, contactez-nous à :
-            <a href="mailto:mathieu@biladesigns.com" class="text-[#2743E3] hover:underline">mathieu@biladesigns.com</a>
-          </p>
-        </section>
-
-      </div>
-
-      <!-- Back Link -->
-      <div class="mt-16 pt-8 border-t border-[#101B33]/10">
-        <a href="/accueil" class="inline-flex items-center gap-2 text-[#2743E3] hover:text-[#101B33] transition-colors font-medium">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m12 19-7-7 7-7"></path>
-            <path d="M19 12H5"></path>
-          </svg>
-          Retour à l'accueil
-        </a>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-    <footer id="contact" class="bg-[#101B33] text-[#F2F4F8] w-full relative z-30">
-      <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
-
-        <!-- Accroche -->
-        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4A5163] to-[#2743E3]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
-        </h2>
-
-        <!-- Filet traversé par le bouton -->
-        <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
-          <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
-          <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2743E3] hover:bg-[#1B31A8] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Coordonnées -->
-        <div class="flex flex-wrap items-center gap-3 font-manrope mb-16 md:mb-20">
-          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">contact@biladesigns.com</a>
-          <a href="tel:+33659086800" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">06 59 08 68 00</a>
-        </div>
-
-        <!-- Ligne du bas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#A0A5B0]">2026 © Édition</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#A0A5B0] tabular-nums" data-horloge>—</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#A0A5B0]">Lyon, France</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#A0A5B0]">
-              <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#A0A5B0] font-manrope border-t border-white/12 mt-8 pt-8">
-          <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
-          <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
-          <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
-          <a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a>
-          <a href="/agence" class="hover:text-white transition-colors">L'agence</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-          <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
-          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
-        </div>
-
-      </div>
-      <script>
-        (function () {
-          var cibles = document.querySelectorAll('[data-horloge]');
-          if (!cibles.length) return;
-          function tic() {
-            var h = new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-            });
-            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
-          }
-          tic();
-          setInterval(tic, 20000);
-        })();
-      </script>
-    </footer>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FBFBFA] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-    <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 6 6 18"></path>
-        <path d="m6 6 12 12"></path>
-      </svg>
-    </button>
-    <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-      <a href="/automatisations" class="hover:opacity-70 transition-opacity">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity">
-              Avocats
-            </a>
-      <a href="/contact" class="mobile-link mt-4 px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);" class="fx-row">
+    <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;" class="fx-row">
+      <div style="position: relative; width: 26px; height: 30px; overflow: hidden; background: #2743E3;"><div style="position: absolute; left: 0; top: 0; width: 13px; height: 30px; background: #101B33; border-top-right-radius: 13px 30px;"></div><div style="position: absolute; right: 0; top: 0; width: 13px; height: 30px; background: #101B33; border-top-left-radius: 13px 30px;"></div></div>
+      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
+    </a>
+    <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 26px;" class="fx-row">
+      <a href="/services/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;" class="t14">Sites web &amp; branding</a>
+      <a href="/automatisations/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;" class="t14">Automatisations</a>
+      <a href="/avocats/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;" class="t14">Avocats</a>
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.2s infinite; pointer-events: none;"></span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-cta t14">Démarrer un projet</a>
+      </span>
     </nav>
+  </header>
+
+  <div style="position: relative; z-index: 2; margin-top: 88px; padding: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 20px;">
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;" class="t11">Vos données</span>
+    <h1 style="margin: 0; max-width: 820px; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(33px, 20.7px + 3.14vw, 66px); line-height: 1.06; letter-spacing: -0.02em;">Politique de Confidentialité</h1>
   </div>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FBFBFA] rounded-2xl p-6 shadow-2xl border border-[#101B33]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
-    <div class="flex flex-col gap-4">
-      <div class="flex items-start gap-3">
-        <div class="bg-[#2743E3]/10 p-2 rounded-full text-[#2743E3] shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
-            <path d="M8.5 8.5v.01"></path>
-            <path d="M16 15.5v.01"></path>
-            <path d="M12 12v.01"></path>
-            <path d="M11 17v.01"></path>
-            <path d="M7 14v.01"></path>
-          </svg>
-        </div>
-        <div>
-          <h3 class="font-serif text-lg text-[#101B33] mb-1">Votre vie privée</h3>
-          <p class="text-xs text-[#2743E3] leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.</p>
-        </div>
-      </div>
-      <div class="flex flex-col gap-2">
-        <div class="grid grid-cols-2 gap-2">
-          <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#101B33]/10 text-xs font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Refuser</button>
-          <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#101B33]/10 text-xs font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Personnaliser</button>
-        </div>
-        <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#101B33] text-[#FBFBFA] text-xs font-bold hover:bg-[#101B33]/90 transition-colors shadow-lg">Tout Accepter</button>
-      </div>
-    </div>
+  <div class="prose" style="position: relative; z-index: 2; margin-top: 48px; padding: 0 var(--gut) 104px;">
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Dernière mise à jour : Décembre 2025</p>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Chez Bila Designs, nous accordons une importance primordiale à la protection de vos données personnelles. Cette politique de confidentialité vous informe sur la manière dont nous collectons, utilisons et protégeons vos informations lorsque vous visitez notre site web.</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">1. Responsable du traitement</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Le responsable du traitement des données personnelles est :</p>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Bila Designs</p>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Email : <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a></p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">2. Données collectées</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Nous pouvons collecter les types de données suivants :</p>
+      <ul style="margin: 0 0 18px; padding-left: 22px; list-style: none;">
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Données d'identification : nom, prénom, adresse email</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Données de connexion : adresse IP, type de navigateur, pages visitées</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Données de communication : messages envoyés via le formulaire de contact</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Cookies : préférences de navigation et consentement</li>
+      </ul>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">3. Finalités du traitement</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Vos données sont collectées pour les finalités suivantes :</p>
+      <ul style="margin: 0 0 18px; padding-left: 22px; list-style: none;">
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Répondre à vos demandes de contact</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Améliorer notre site web et nos services</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Analyser le trafic et le comportement des utilisateurs</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Respecter nos obligations légales</li>
+      </ul>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">4. Base légale du traitement</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Le traitement de vos données personnelles repose sur :</p>
+      <ul style="margin: 0 0 18px; padding-left: 22px; list-style: none;">
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Votre consentement : pour l'utilisation de cookies non essentiels</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>L'exécution d'un contrat : pour répondre à vos demandes</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Notre intérêt légitime : pour améliorer nos services</li>
+      </ul>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">5. Cookies</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Ce site ne dépose aucun cookie de mesure d'audience ni de publicite. Il n'utilise ni Google Analytics, ni outil de suivi comportemental, ni service tiers embarqué. Aucun consentement n'a donc a vous etre demandé, et il n'y a pas de bannière a accepter.</p>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Les seules données qui nous parviennent sont celles que vous nous transmettez vous-même, par le formulaire de contact ou la demandé d'audit gratuit.</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">6. Durée de conservation</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Vos données personnelles sont conservées pendant une durée n'excédant pas celle nécessaire aux finalités pour lesquelles elles ont été collectées. Les données de contact sont conservées pendant 3 ans à compter de votre dernière interaction avec nous.</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">7. Vos droits</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Conformément au RGPD, vous disposez des droits suivants :</p>
+      <ul style="margin: 0 0 18px; padding-left: 22px; list-style: none;">
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit d'accès : obtenir la confirmation que vos données sont traitées</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit de rectification : corriger vos données inexactes</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit à l'effacement : demander la suppression de vos données</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit à la limitation : limiter le traitement de vos données</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit à la portabilité : recevoir vos données dans un format structuré</li>
+        <li style="margin: 0 0 10px; max-width: 62ch; font-size: 16px; line-height: 1.7; color: #4A5163; position: relative;"><span style="position: absolute; left: -22px; top: 9px; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Droit d'opposition : vous opposer au traitement de vos données</li>
+      </ul>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Pour exercer ces droits, contactez-nous à : <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a></p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">8. Sécurité des données</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction.</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">9. Transfert de données</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Vos données peuvent être transférées vers des prestataires situés en dehors de l'Union européenne. Dans ce cas, nous nous assurons que ces transferts sont encadrés par des garanties appropriées (clauses contractuelles types, décision d'adéquation).</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">10. Réclamation</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Si vous estimez que le traitement de vos données personnelles constitue une violation du RGPD, vous avez le droit d'introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr">www.cnil.fr</a></p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">11. Modifications</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications prendront effet dès leur publication sur cette page. Nous vous encourageons à consulter régulièrement cette page.</p>
+      <h2 style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(21px, 13.2px + 2vw, 30px); line-height: 1.2; letter-spacing: -0.02em; color: #101B33; margin: 56px 0 18px;">12. Contact</h2>
+      <p style="margin: 0 0 14px; max-width: 62ch; font-size: 16px; line-height: 1.75; color: #4A5163; text-wrap: pretty;">Pour toute question concernant cette politique de confidentialité ou vos données personnelles, contactez-nous à : <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a></p>
   </div>
 
-  <!-- Cookie Preferences Modal -->
-  <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-    <div class="absolute inset-0 bg-[#101B33]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FBFBFA] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-      <div class="p-6 md:p-8">
-        <div class="flex items-center justify-between mb-8">
-          <div>
-            <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#101B33] mb-2">Préférences Cookies</h2>
-            <p class="text-sm text-[#2743E3]">Gérez vos préférences de consentement pour chaque catégorie.</p>
-          </div>
-          <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#101B33]/5 rounded-full transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-          </button>
+  <footer style="position: relative; z-index: 2; padding: 44px var(--gut) 40px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 220px; background: #FBFBFA; padding-right: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;" class="fx-row">
+          <div style="position: relative; width: 22px; height: 26px; overflow: hidden; background: #2743E3;"><div style="position: absolute; left: 0; top: 0; width: 11px; height: 26px; background: #101B33; border-top-right-radius: 11px 26px;"></div><div style="position: absolute; right: 0; top: 0; width: 11px; height: 26px; background: #101B33; border-top-left-radius: 11px 26px;"></div></div>
+          <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
         </div>
-        <div class="space-y-6">
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#101B33]/5 border border-[#101B33]/5">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="font-bold text-[#101B33]">Essentiels</span>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#101B33] text-white">Requis</span>
-              </div>
-              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
-            </div>
-            <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-              <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#101B33] appearance-none cursor-not-allowed right-0">
-              <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#101B33] cursor-not-allowed"></label>
-            </div>
-          </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
-            <div>
-              <span class="font-bold text-[#101B33] block mb-1">Analytique</span>
-              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
-            </div>
-            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
-            </div>
-          </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
-            <div>
-              <span class="font-bold text-[#101B33] block mb-1">Marketing</span>
-              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
-            </div>
-            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
-            </div>
-          </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
-            <div>
-              <span class="font-bold text-[#101B33] block mb-1">Performance</span>
-              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
-            </div>
-            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
-            </div>
-          </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
-            <div>
-              <span class="font-bold text-[#101B33] block mb-1">Préférences</span>
-              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
-            </div>
-            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#101B33]/10 justify-end">
-          <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#101B33]/20 text-sm font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Tout Refuser</button>
-          <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#101B33] text-[#FBFBFA] text-sm font-bold hover:bg-[#101B33]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
-        </div>
+        <span style="font-size: 13px; line-height: 1.7; color: #6B7280;" class="t13">Studio indépendant de design et d'automatisation.<br>Basé à Lyon, France.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;" class="t10">Prestations</span>
+        <a href="/services/" style="font-size: 14px; color: #2C3348;" class="t14">Sites web &amp; référencement</a>
+        <a href="/services/" style="font-size: 14px; color: #2C3348;" class="t14">Rebranding</a>
+        <a href="/automatisations/" style="font-size: 14px; color: #2C3348;" class="t14">Automatisations</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;" class="t10">Studio</span>
+        <a href="/accueil/#realisations" style="font-size: 14px; color: #2C3348;" class="t14">Portfolio</a>
+        <a href="/accueil/#audit" style="font-size: 14px; color: #2C3348;" class="t14">Audit gratuit</a>
+        <a href="/contact/" style="font-size: 14px; color: #2C3348;" class="t14">Contact</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;" class="t10">Réseaux</span>
+        <a href="https://www.instagram.com/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;" class="t14">Instagram</a>
+        <a href="https://www.linkedin.com/company/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;" class="t14">LinkedIn</a>
       </div>
     </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof lucide !== 'undefined') lucide.createIcons();
-    });
-
-    // Navigation Mobile
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const menuIcon = document.getElementById('menu-icon');
-    const closeIcon = document.getElementById('close-icon');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    function openMenu() {
-      if (mobileMenu) {
-        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = 'hidden';
-        if (menuIcon) menuIcon.classList.add('opacity-0');
-        if (closeIcon) closeIcon.classList.remove('opacity-0');
-      }
-    }
-
-    function closeMenu() {
-      if (mobileMenu) {
-        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = '';
-        if (menuIcon) menuIcon.classList.remove('opacity-0');
-        if (closeIcon) closeIcon.classList.add('opacity-0');
-      }
-    }
-
-    if (menuBtn) menuBtn.addEventListener('click', () => {
-      if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
-    });
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-    // GDPR Cookie Manager Logic
-    const cookieManager = {
-      consent: { essential: true, analytics: false, marketing: false, performance: false, preferences: false },
-      gaLoaded: false,
-      init() {
-        const storedConsent = localStorage.getItem('bila_cookie_consent');
-        if (storedConsent) {
-          this.consent = JSON.parse(storedConsent);
-          if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-        }
-        else { this.showBanner(); }
-      },
-      loadGoogleAnalytics() {
-        if (this.gaLoaded) return;
-        this.gaLoaded = true;
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
-        document.head.appendChild(script);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-8CXZ6K9C2R');
-      },
-      showBanner() {
-        const banner = document.getElementById('cookie-banner');
-        banner.classList.remove('hidden');
-        setTimeout(() => { banner.classList.remove('translate-y-20', 'opacity-0'); }, 100);
-      },
-      hideBanner() {
-        const banner = document.getElementById('cookie-banner');
-        banner.classList.add('translate-y-20', 'opacity-0');
-        setTimeout(() => { banner.classList.add('hidden'); }, 500);
-      },
-      openPreferences() {
-        document.getElementById('cookie_analytics').checked = this.consent.analytics;
-        document.getElementById('cookie_marketing').checked = this.consent.marketing;
-        document.getElementById('cookie_performance').checked = this.consent.performance;
-        document.getElementById('cookie_preferences').checked = this.consent.preferences;
-        document.getElementById('cookie-preferences').classList.remove('hidden');
-      },
-      closePreferences() { document.getElementById('cookie-preferences').classList.add('hidden'); },
-      acceptAll() {
-        this.consent = { essential: true, analytics: true, marketing: true, performance: true, preferences: true };
-        this.saveAndRun();
-      },
-      refuseAll() {
-        this.consent = { essential: true, analytics: false, marketing: false, performance: false, preferences: false };
-        this.saveAndRun();
-      },
-      savePreferences() {
-        this.consent.analytics = document.getElementById('cookie_analytics').checked;
-        this.consent.marketing = document.getElementById('cookie_marketing').checked;
-        this.consent.performance = document.getElementById('cookie_performance').checked;
-        this.consent.preferences = document.getElementById('cookie_preferences').checked;
-        this.closePreferences();
-        this.saveAndRun();
-      },
-      saveAndRun() {
-        localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
-        this.hideBanner();
-        if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-      }
-    };
-    document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
-  </script>
-
-</body></html>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid rgba(16,27,51,0.1); padding-top: 22px;">
+      <span style="background: #FBFBFA; padding: 0 14px 0 0; font-size: 12px; color: #8A8F9C;" class="t12">2026 © Bila Designs — Édition</span>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; background: #FBFBFA; padding: 0 14px;">
+        <a href="/mentions-legales/" style="font-size: 12px; color: #8A8F9C;" class="t12">Mentions légales</a>
+        <a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;" class="t12">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+</section>
+</main>
+<script src="/assets/js/bila-motion.js" defer></script>
+<script src="/assets/js/bila-ui.js" defer></script>
+</body>
+</html>

@@ -10,10 +10,10 @@ import re
 
 R = '/root/bila-site/'
 REGLES = {
-    'accueil/index.html':  [('hero-arche-crop.png', 'eager', None)],
-    'services/index.html': [('hero-atelier.png', 'eager', None),
-                            ('section-arche.png', 'lazy', (1680, 720))],
-    'avocats/index.html':  [('hero-avocats.png', 'eager', None)],
+    'accueil/index.html':  [('hero-arche-crop.webp', 'eager', None)],
+    'services/index.html': [('hero-atelier.webp', 'eager', None),
+                            ('section-arche.webp', 'lazy', (1680, 720))],
+    'avocats/index.html':  [('hero-avocats.webp', 'eager', None)],
 }
 
 for page, images in REGLES.items():

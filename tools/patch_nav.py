@@ -50,3 +50,47 @@ for page in PAGES:
         n += k
     open(chemin, 'w', encoding='utf-8').write(s)
     print('%-28s  bouton « Démarrer un projet » : %d' % (page, n))
+
+# ── Normalisation de la barre de navigation sur toutes les pages ──────────
+# Les maquettes de l'accueil et de la page « Sites web & branding » portaient
+# encore l'ancienne barre : « Automatisations » y menait a une ancre de
+# l'accueil, et la troisieme entree etait « Portfolio ». Le brief demande la
+# meme barre partout, avec Avocats en troisieme entree et « Automatisations »
+# qui mene toujours a la page dediee.
+ENTREES = [
+    (r'href="/accueil/#agents"(?=[^>]*>Automatisations<)', 'href="/automatisations/"'),
+    (r'href="#agents"(?=[^>]*>Automatisations<)', 'href="/automatisations/"'),
+]
+
+for page in PAGES:
+    chemin = R + page
+    s = open(chemin, encoding='utf-8').read()
+    n = 0
+    for motif, cible in ENTREES:
+        s, k = re.subn(motif, cible, s)
+        n += k
+    # « Portfolio » en nav devient « Avocats » ; le portfolio reste accessible
+    # depuis le pied de page et depuis l'accueil.
+    m = re.search(r'<nav\b.*?</nav>', s, re.S)
+    if m:
+        nav = m.group(0)
+        neuf = re.sub(r'href="/accueil/#realisations"([^>]*)>Portfolio<',
+                      r'href="/avocats/"\1>Avocats<', nav)
+        if neuf != nav:
+            s = s.replace(nav, neuf, 1)
+            n += 1
+    open(chemin, 'w', encoding='utf-8').write(s)
+    if n:
+        print('%-28s  navigation corrigee : %d entree(s)' % (page, n))
+
+# ── « Discutons » ─────────────────────────────────────────────────────────
+# Le bouton ouvrait le logiciel de messagerie du visiteur. Il mene desormais
+# au formulaire, comme « Demarrer un projet ».
+for page in PAGES:
+    chemin = R + page
+    s = open(chemin, encoding='utf-8').read()
+    s, k = re.subn(r'href="mailto:mathieu@biladesigns\.com"(?=[^>]*background: #2743E3[^>]*>Discutons)',
+                   'href="%s"' % CIBLE, s)
+    if k:
+        print('%-28s  bouton « Discutons » -> %s' % (page, CIBLE))
+    open(chemin, 'w', encoding='utf-8').write(s)

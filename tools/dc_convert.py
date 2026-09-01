@@ -191,6 +191,56 @@ def convert_borderglow(s):
     return re.sub(r'<x-import\s+component="BorderGlow"([^>]*)>(.*?)</x-import>', repl, s, flags=re.S)
 
 
+
+# --- rangees en flex : autoriser le retour a la ligne en mobile ------------
+def tag_flex(s):
+    """Marque les rangees horizontales qui ne savent pas encore passer a la
+    ligne. En dessous de 768px elles debordent : la regle .fx-row de
+    bila.css leur rend le retour a la ligne, sans toucher au desktop."""
+    def repl(m):
+        tag, style = m.group(0), m.group(1)
+        if 'display: flex' not in style:
+            return tag
+        for exclu in ('flex-direction: column', 'flex-wrap', 'width: max-content',
+                      'position: absolute', 'position: fixed'):
+            if exclu in style:
+                return tag
+        if re.search(r'\sclass="', tag):
+            return re.sub(r'class="([^"]*)"', lambda x: 'class="%s fx-row"' % x.group(1), tag, count=1)
+        return tag[:-1].rstrip() + ' class="fx-row">'
+    return re.sub(r'<(?:div|span|header|nav|footer|form|article|section|label|a|ul)\b[^>]*style="([^"]*)"[^>]*>',
+                  repl, s)
+
+
+# --- plancher de lisibilite pour les tres petits corps ---------------------
+def tag_petits(s):
+    """Les etiquettes de 9 a 12px sont lisibles sur un ecran d'ordinateur,
+    plus du tout sur un telephone. Une classe par taille permet de leur
+    donner un plancher en media query, sans toucher au dessin desktop."""
+    def repl(m):
+        tag = m.group(0)
+        n = int(m.group(1))
+        cls = 't%d' % n
+        if re.search(r'\sclass="', tag):
+            return re.sub(r'class="([^"]*)"', lambda x: 'class="%s %s"' % (x.group(1), cls), tag, count=1)
+        return tag[:-1].rstrip() + ' class="%s">' % cls
+    def repl_corps(m):
+        # Le texte courant en 13 ou 14px passe a 15px sur telephone. Les
+        # etiquettes en capitales gardent leur taille : leur petitesse est
+        # voulue, et elles restent lisibles grace a l'interlettrage.
+        tag = m.group(0)
+        if 'text-transform: uppercase' in tag:
+            return tag
+        cls = 't%d' % int(m.group(1))
+        if re.search(r'\sclass="', tag):
+            return re.sub(r'class="([^"]*)"', lambda x: 'class="%s %s"' % (x.group(1), cls), tag, count=1)
+        return tag[:-1].rstrip() + ' class="%s">' % cls
+
+    s = re.sub(r'<[a-zA-Z][a-zA-Z0-9]*\b[^>]*style="[^"]*font-size:\s*(9|10|11|12)px[^"]*"[^>]*>',
+               repl, s)
+    return re.sub(r'<[a-zA-Z][a-zA-Z0-9]*\b[^>]*style="[^"]*font-size:\s*(13|14)px[^"]*"[^>]*>',
+                  repl_corps, s)
+
 def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js='', noindex=False, preload_hero=None):
     raw = open(src, encoding='utf-8').read()
     body, helmet, logic = strip_runtime(raw)
@@ -200,6 +250,9 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
     body = variabilise(body)
     body = clamp_sizes(body)
     body = tag_grids(body)
+    # Les images de DA sont servies en WebP ; les PNG restent au depot
+    # comme sources. Voir tools/optimiser_images.py.
+    body = re.sub(r'src="assets/([^"]+)\.png"', r'src="/assets/img/\1.webp"', body)
     body = body.replace('src="assets/', 'src="/assets/img/')
     kf = helmet_styles(helmet)
 

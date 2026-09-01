@@ -197,7 +197,8 @@ bloc = re.compile(
     r'</sc-for>', re.S)
 m = bloc.search(s)
 assert m, 'etiquettes de la carte navy introuvables'
-s = bloc.sub('<span data-liste="steps.chips" data-style-item="%s"></span>' % e(m.group(1)), s)
+s = bloc.sub('<span data-liste="steps.chips" data-style-item="%s"></span>'
+             % e(m.group(1).replace('font-size: 12px', 'font-size: 13px')), s)
 
 # ── Les emplacements de texte pilotes par la selection ────────────────────
 for cle in ('num', 'title', 'tag', 'body', 'fix'):
