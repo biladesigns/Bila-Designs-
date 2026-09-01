@@ -9,46 +9,43 @@
 tailwind.config = {
   theme: { extend: {
     fontFamily: {
-      sans:  ['Poppins','system-ui','sans-serif'],
+      sans:  ['Archivo','system-ui','sans-serif'],
       serif: ['Fraunces','Georgia','serif'],
     },
  colors: {
     /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
-            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
-    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
-    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
-    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
+    teal: { 100:'#EDF0FB',200:'#EDF0FB',300:'#8FA4E8',400:'#6B7280',500:'#2743E3',
+            600:'#2743E3',700:'#1B31A8',800:'#4A5163',900:'#101B33' },
+    stone:{ 50:'#FBFBFA',100:'#F6F6F3',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
+            500:'#6B7280',600:'#6B7280',700:'#4A5163',800:'#4A5163',900:'#101B33' },
+    green:{ 400:'#4A5163',500:'#4A5163',600:'#38614C' },
+    emerald:{ 400:'#4A5163',500:'#4A5163',600:'#38614C' }
   } } }
 }
 </script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <style>
-body { font-family: 'Poppins', system-ui, sans-serif; }
+body { font-family: 'Archivo', system-ui, sans-serif; }
 h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
   font-weight: 700; letter-spacing: -.02em; }
 .font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
+.font-manrope { font-family: 'Archivo', system-ui, sans-serif !important; }
 .footer-titre { font-family: 'Fraunces', Georgia, serif;
   font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
   font-weight: 400; letter-spacing: -.03em; }
 /* annotation manuscrite */
 .hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
+  color: #4A5163; transform: rotate(-2.5deg); display: inline-block;
   font-variation-settings: normal; letter-spacing: normal; }
 ::-webkit-scrollbar { width: 0px; background: transparent; }
 </style>
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap">
 <style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
+<link rel="stylesheet" href="/assets/css/fonts.css">
 </head>
-<body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
+<body class="bg-[#FBFBFA] text-[#101B33] antialiased overflow-x-hidden selection:bg-[#2743E3] selection:text-[#FBFBFA]">
     <!-- COMMON HEADER START -->
     <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
       <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
@@ -71,7 +68,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Desktop CTA -->
         <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
+          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#101B33] hover:bg-[#2743E3] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
             Démarrer un projet
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
           </a>
@@ -104,17 +101,17 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
       <!-- Title -->
       <div class="mb-16">
-        <span class="text-[#2A4AD1] text-sm uppercase tracking-widest mb-4 block font-medium">Informations légales</span>
-        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight font-instrument-serif italic text-[#161A22] mb-6">Mentions Légales</h1>
-        <p class="text-lg text-[#161A22]/60">Dernière mise à jour : Décembre 2025</p>
+        <span class="text-[#2743E3] text-sm uppercase tracking-widest mb-4 block font-medium">Informations légales</span>
+        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight font-instrument-serif italic text-[#101B33] mb-6">Mentions Légales</h1>
+        <p class="text-lg text-[#101B33]/60">Dernière mise à jour : Décembre 2025</p>
       </div>
 
       <!-- Content -->
-      <div class="space-y-12 text-[#161A22]/80 leading-relaxed">
+      <div class="space-y-12 text-[#101B33]/80 leading-relaxed">
 
         <!-- Section 1 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">1. Éditeur du site</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">1. Éditeur du site</h2>
           <div class="space-y-2">
             <p><strong>Raison sociale :</strong> Bila Designs</p>
             <p><strong>Forme juridique :</strong> Micro entreprise</p>
@@ -127,7 +124,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 2 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">2. Hébergement</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">2. Hébergement</h2>
           <div class="space-y-2">
             <p><strong>Hébergeur :</strong> Hostinger</p>
             <p><strong>Adresse :</strong>Švitrigailos str. 34, Vilnius 03230, Lituanie</p>
@@ -137,7 +134,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 3 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">3. Propriété intellectuelle</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">3. Propriété intellectuelle</h2>
           <p class="mb-4">
             L'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, sons, logiciels, etc.) est la propriété exclusive de Bila Designs ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.
           </p>
@@ -148,7 +145,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 4 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">4. Limitation de responsabilité</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">4. Limitation de responsabilité</h2>
           <p class="mb-4">
             Bila Designs s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, Bila Designs ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
           </p>
@@ -159,7 +156,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 5 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">5. Liens hypertextes</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">5. Liens hypertextes</h2>
           <p class="mb-4">
             Le site peut contenir des liens hypertextes vers d'autres sites. Bila Designs n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
           </p>
@@ -170,7 +167,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 6 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">6. Droit applicable</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">6. Droit applicable</h2>
           <p>
             Les présentes mentions légales sont régies par le droit français. En cas de litige, et après échec de toute tentative de recherche d'une solution amiable, les tribunaux français seront seuls compétents.
           </p>
@@ -178,18 +175,18 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
 
         <!-- Section 7 -->
         <section>
-          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#161A22] mb-4">7. Contact</h2>
+          <h2 class="text-[1.35rem] md:text-[1.6rem] font-instrument-serif italic text-[#101B33] mb-4">7. Contact</h2>
           <p>
             Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter à l'adresse suivante :
-            <a href="mailto:mathieu@biladesigns.com" class="text-[#2A4AD1] hover:underline">mathieu@biladesigns.com</a>
+            <a href="mailto:mathieu@biladesigns.com" class="text-[#2743E3] hover:underline">mathieu@biladesigns.com</a>
           </p>
         </section>
 
       </div>
 
       <!-- Back Link -->
-      <div class="mt-16 pt-8 border-t border-[#161A22]/10">
-        <a href="/accueil" class="inline-flex items-center gap-2 text-[#2A4AD1] hover:text-[#161A22] transition-colors font-medium">
+      <div class="mt-16 pt-8 border-t border-[#101B33]/10">
+        <a href="/accueil" class="inline-flex items-center gap-2 text-[#2743E3] hover:text-[#101B33] transition-colors font-medium">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m12 19-7-7 7-7"></path>
             <path d="M19 12H5"></path>
@@ -202,19 +199,19 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
   </main>
 
   <!-- FOOTER -->
-    <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
+    <footer id="contact" class="bg-[#101B33] text-[#F2F4F8] w-full relative z-30">
       <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
 
         <!-- Accroche -->
         <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
+          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4A5163] to-[#2743E3]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
         </h2>
 
         <!-- Filet traversé par le bouton -->
         <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
           <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
           <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
+             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2743E3] hover:bg-[#1B31A8] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
             Discutons
           </a>
         </div>
@@ -228,27 +225,27 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
         <!-- Ligne du bas -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
           <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">2026 © Édition</p>
+            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Version</p>
+            <p class="text-[0.86rem] text-[#A0A5B0]">2026 © Édition</p>
           </div>
           <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#B9C0CB] tabular-nums" data-horloge>—</p>
+            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Heure locale</p>
+            <p class="text-[0.86rem] text-[#A0A5B0] tabular-nums" data-horloge>—</p>
           </div>
           <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">Lyon, France</p>
+            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Basé à</p>
+            <p class="text-[0.86rem] text-[#A0A5B0]">Lyon, France</p>
           </div>
           <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#B9C0CB]">
+            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6B7280] mb-2.5">Réseaux</p>
+            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#A0A5B0]">
               <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
               <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
             </div>
           </div>
         </div>
 
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#B9C0CB] font-manrope border-t border-white/12 mt-8 pt-8">
+        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#A0A5B0] font-manrope border-t border-white/12 mt-8 pt-8">
           <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
           <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
           <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
@@ -278,7 +275,7 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
     </footer>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FBFBFA] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
     <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 6 6 18"></path>
@@ -300,10 +297,10 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
   </div>
 
   <!-- Cookie Consent Banner -->
-  <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
+  <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FBFBFA] rounded-2xl p-6 shadow-2xl border border-[#101B33]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
     <div class="flex flex-col gap-4">
       <div class="flex items-start gap-3">
-        <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
+        <div class="bg-[#2743E3]/10 p-2 rounded-full text-[#2743E3] shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
             <path d="M8.5 8.5v.01"></path>
@@ -314,92 +311,92 @@ h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
           </svg>
         </div>
         <div>
-          <h3 class="font-serif text-lg text-[#161A22] mb-1">Votre vie privée</h3>
-          <p class="text-xs text-[#2A4AD1] leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.</p>
+          <h3 class="font-serif text-lg text-[#101B33] mb-1">Votre vie privée</h3>
+          <p class="text-xs text-[#2743E3] leading-relaxed">Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.</p>
         </div>
       </div>
       <div class="flex flex-col gap-2">
         <div class="grid grid-cols-2 gap-2">
-          <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Refuser</button>
-          <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Personnaliser</button>
+          <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#101B33]/10 text-xs font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Refuser</button>
+          <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#101B33]/10 text-xs font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Personnaliser</button>
         </div>
-        <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Tout Accepter</button>
+        <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#101B33] text-[#FBFBFA] text-xs font-bold hover:bg-[#101B33]/90 transition-colors shadow-lg">Tout Accepter</button>
       </div>
     </div>
   </div>
 
   <!-- Cookie Preferences Modal -->
   <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-    <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div class="absolute inset-0 bg-[#101B33]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FBFBFA] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
       <div class="p-6 md:p-8">
         <div class="flex items-center justify-between mb-8">
           <div>
-            <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">Préférences Cookies</h2>
-            <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
+            <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#101B33] mb-2">Préférences Cookies</h2>
+            <p class="text-sm text-[#2743E3]">Gérez vos préférences de consentement pour chaque catégorie.</p>
           </div>
-          <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
+          <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#101B33]/5 rounded-full transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
           </button>
         </div>
         <div class="space-y-6">
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
+          <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#101B33]/5 border border-[#101B33]/5">
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="font-bold text-[#161A22]">Essentiels</span>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
+                <span class="font-bold text-[#101B33]">Essentiels</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#101B33] text-white">Requis</span>
               </div>
-              <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
+              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
             </div>
             <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-              <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
-              <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
+              <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#101B33] appearance-none cursor-not-allowed right-0">
+              <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#101B33] cursor-not-allowed"></label>
             </div>
           </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
+          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
             <div>
-              <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
-              <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
+              <span class="font-bold text-[#101B33] block mb-1">Analytique</span>
+              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
             </div>
             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
+              <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
             </div>
           </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
+          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
             <div>
-              <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
-              <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
+              <span class="font-bold text-[#101B33] block mb-1">Marketing</span>
+              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
             </div>
             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
+              <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
             </div>
           </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
+          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
             <div>
-              <span class="font-bold text-[#161A22] block mb-1">Performance</span>
-              <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
+              <span class="font-bold text-[#101B33] block mb-1">Performance</span>
+              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
             </div>
             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
+              <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
             </div>
           </div>
-          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
+          <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#101B33]/10 hover:border-[#101B33]/30 transition-colors">
             <div>
-              <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
-              <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
+              <span class="font-bold text-[#101B33] block mb-1">Préférences</span>
+              <p class="text-xs text-[#2743E3] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
             </div>
             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-              <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-              <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
+              <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#E3E5EA] appearance-none cursor-pointer transition-all duration-300 left-0">
+              <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#E3E5EA] cursor-pointer transition-colors duration-300"></label>
             </div>
           </div>
         </div>
-        <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
-          <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Tout Refuser</button>
-          <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
+        <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#101B33]/10 justify-end">
+          <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#101B33]/20 text-sm font-bold text-[#101B33] hover:bg-[#101B33]/5 transition-colors">Tout Refuser</button>
+          <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#101B33] text-[#FBFBFA] text-sm font-bold hover:bg-[#101B33]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
         </div>
       </div>
     </div>

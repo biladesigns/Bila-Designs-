@@ -1,881 +1,344 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sites web pour cabinets d'avocats | Bila Designs</title>
-<meta name="description" content="Sites web, référencement et visibilité dans les IA pour les cabinets d'avocats. Audit gratuit de votre site existant.">
-<meta name="keywords" content="site web avocat, référencement cabinet d'avocats, visibilité IA, barreau">
-<!-- Open Graph -->
-<meta property="og:title" content="Services | Bila Designs">
-<meta property="og:description" content="Création de sites web, identité de marque, stratégie digitale et audit UX. Solutions sur-mesure.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://biladesigns.com/services">
-<meta property="og:locale" content="fr_FR">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Services | Bila Designs">
-<meta name="twitter:description" content="Création de sites web, identité de marque et stratégie digitale.">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sites web et agents IA pour cabinets d&#x27;avocats — Bila Designs</title>
+<meta name="description" content="Audit gratuit de votre site, refonte et referencement pour cabinets d&#x27;avocats. Cinq sujets ou un agent vous enleve du travail, dans le respect de la deontologie.">
 <link rel="canonical" href="https://www.biladesigns.com/avocats">
-<!-- Preconnect pour optimiser le chargement -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://unpkg.com">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    fontFamily: {
-      sans:  ['Poppins','system-ui','sans-serif'],
-      serif: ['Fraunces','Georgia','serif'],
-    },
- colors: {
-    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
-            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
-    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
-    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
-    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
-  } } }
-}
-</script>
-<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bila Designs">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Sites web et agents IA pour cabinets d&#x27;avocats — Bila Designs">
+<meta property="og:description" content="Audit gratuit de votre site, refonte et referencement pour cabinets d&#x27;avocats. Cinq sujets ou un agent vous enleve du travail, dans le respect de la deontologie.">
+<meta property="og:url" content="https://www.biladesigns.com/avocats">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/img/hero-avocats.png" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/bila.css">
 <style>
-body { font-family: 'Poppins', system-ui, sans-serif; }
-h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
-  font-weight: 700; letter-spacing: -.02em; }
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
-.footer-titre { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  font-weight: 400; letter-spacing: -.03em; }
-.etape { flex:1; display:flex; flex-direction:column; align-items:center; gap:.85rem;
-  background:none; border:0; cursor:pointer; padding:0 .2rem;
-  font-size:.72rem; letter-spacing:.09em; text-transform:uppercase; line-height:1.3;
-  color:#8A93A3; text-align:center; transition:color .2s ease; }
-.etape .point { width:15px; height:15px; border-radius:50%; background:#FAFBFD;
-  border:1.5px solid rgba(22,26,33,.20); transition:background .2s ease, border-color .2s ease; }
-.etape:hover { color:#2A3340; }
-.etape.est-actif { color:#2A4AD1; }
-.etape.est-actif .point { background:#2A4AD1; border-color:#2A4AD1; }
-.etape:focus-visible { outline:2px solid #2A4AD1; outline-offset:3px; border-radius:.4rem; }
-.outil { display:inline-block; border:1px solid rgba(22,26,33,.16); border-radius:999px;
-  padding:.35rem .9rem; font-size:.86rem; color:#5A6473; }
-.ligne-ref { display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
-  padding:1.5rem 0; border-bottom:1px solid rgba(22,26,33,.12);
-  text-decoration:none; color:inherit; }
-.ligne-ref .nom { font-size:clamp(1.7rem,4.6vw,3.2rem); font-weight:400;
-  letter-spacing:-.03em; line-height:1.04; transition:color .35s ease; }
-.ligne-ref .quoi { font-size:.95rem; color:#2A3340; white-space:nowrap; transition:color .35s ease; }
-.ligne-ref:focus-visible { outline:2px solid #2A4AD1; outline-offset:4px; }
-@media (hover:hover) and (pointer:fine) {
-  .refs:hover .ligne-ref .nom, .refs:hover .ligne-ref .quoi { color:#C4C9D2; }
-  .refs:hover .ligne-ref:hover .nom { color:#161A22; }
-  .refs:hover .ligne-ref:hover .quoi { color:#2A3340; }
-}
-#apercu { position:fixed; top:0; left:0; z-index:60; width:330px; height:240px; border-radius:6px;
-  pointer-events:none; opacity:0; transform:translate(-50%,-50%) scale(.94);
-  transition:opacity .28s ease, transform .28s cubic-bezier(.2,.7,.3,1);
-  display:grid; place-items:center; overflow:hidden;
-  box-shadow:0 24px 60px rgba(22,26,33,.22); }
-#apercu.on { opacity:1; transform:translate(-50%,-50%) scale(1); }
-#apercu .nom-apercu { font-size:1.5rem; font-weight:500; letter-spacing:-.02em;
-  color:#fff; opacity:.9; padding:0 1.5rem; text-align:center; }
-#apercu .voir { position:absolute; width:104px; height:104px; border-radius:50%;
-  background:#2A4AD1; color:#fff; display:grid; place-items:center; font-size:.95rem; }
-@media (hover:none),(pointer:coarse) { #apercu { display:none; } }
-/* annotation manuscrite */
-.hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
-  font-variation-settings: normal; letter-spacing: normal; }
-html { scroll-behavior: smooth; }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar { -ms-overflow-style: none;  scrollbar-width: none; }
-/* Animation for the hero text reveal */
-@keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.animate-reveal { animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-/* Sticky Sidebar Logic: Active state marker */
-.step-marker { transition: all 0.5s ease; }
-.group:hover .step-marker { background-color: #2A4AD1; border-color: #2A4AD1; color: white; }
-/* Mobile Card Tilt Animation (Scroll Hint) */
-@keyframes cardHint {
-0%, 100% { transform: rotate(0deg) translateX(0); }
-50% { transform: rotate(1.5deg) translateX(4px); }
-}
-/* Apply only on mobile, specific duration and easing */
-.mobile-scroll-hint { animation: cardHint 4s ease-in-out infinite; }
-/* Reset on desktop */
-@media (min-width: 768px) {
-.mobile-scroll-hint { animation: none; transform: none; }
-}
-/* SEO Cards Animation */
-.seo-card {
-  opacity: 0;
-  transform: translateY(60px);
-  -webkit-transform: translateY(60px);
-}
-.seo-card.animate {
-  -webkit-animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-.seo-card:nth-child(1).animate { -webkit-animation-delay: 0s; animation-delay: 0s; }
-.seo-card:nth-child(2).animate { -webkit-animation-delay: 0.15s; animation-delay: 0.15s; }
-.seo-card:nth-child(3).animate { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
-@-webkit-keyframes seoCardReveal {
-  from { opacity: 0; -webkit-transform: translateY(60px) scale(0.95); transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; -webkit-transform: translateY(0) scale(1); transform: translateY(0) scale(1); }
-}
-@keyframes seoCardReveal {
-  from { opacity: 0; transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-/* Fallback: si pas de JS ou animation échoue */
-.no-js .seo-card, .seo-card.visible { opacity: 1; transform: translateY(0); }
-</style>
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
-<style>
+  @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
+  @keyframes bila-sweep { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
+  .hv-1:hover, .hv-1:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-2:hover, .hv-2:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-3:hover, .hv-3:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
+  .hv-4:hover, .hv-4:focus-visible { background: #2743E3 !important; }
+  .hv-5:hover, .hv-5:focus-visible { color: #101B33 !important; }
+  .hv-6:hover, .hv-6:focus-visible { color: #101B33 !important; }
+  .hv-7:hover, .hv-7:focus-visible { color: #101B33 !important; }
+  .hv-8:hover, .hv-8:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-9:hover, .hv-9:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
+  .hv-10:hover, .hv-10:focus-visible { color: #2743E3 !important; }
 </style>
 </head>
-<body class="bg-[#FAFBFD] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+<body data-nav="avocats">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<section style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 34px 0 104px; overflow: hidden;">
+  <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 66%; overflow: hidden;">
+    <img src="/assets/img/hero-avocats.png" alt="Dessin au trait : rangée d'avocats en perspective, faisceau bleu convergeant vers un point de fuite" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 55%;" loading="eager" fetchpriority="high" decoding="async">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, #FBFBFA 0%, rgba(251,251,250,0.88) 18%, rgba(251,251,250,0.28) 38%, rgba(251,251,250,0) 56%);"></div>
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(to top, #FBFBFA 0%, rgba(251,251,250,0) 100%);"></div>
+  </div>
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
 
-    <!-- COMMON HEADER START -->
-    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-          Bila.
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Avocats
-            </a>
-        </div>
-
-        <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
-            Démarrer un projet
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-            <path d="M4 12h16"></path>
-            <path d="M4 6h16"></path>
-            <path d="M4 18h16"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- COMMON HEADER END -->
-<main class="relative w-full flex flex-col">
-
-      <!-- Hero -->
-      <section class="w-full max-w-[74rem] mx-auto px-8 pt-40 pb-16 md:pt-52 md:pb-20">
-        <p class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Cabinets d'avocats</p>
-        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight max-w-[19ch]">
-          Ce que répond ChatGPT <span class="italic">quand on cherche un avocat.</span>
-        </h1>
-        <p class="mt-8 max-w-[50ch] text-lg leading-relaxed text-[#2A3340]">
-          Vos futurs clients ne tapent plus seulement sur Google. Ils posent la question à un
-          assistant, qui cite trois ou quatre cabinets. Rarement ceux que l'on attend.
-        </p>
-        <p class="hand text-2xl mt-6">faites le test sur votre propre cabinet</p>
-
-        <div class="flex flex-wrap items-center gap-4 mt-10">
-          <a href="/accueil#audit" class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-            Recevoir l'audit gratuit de mon site
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="inline-flex items-center rounded-full border border-[rgba(22,26,33,0.16)] hover:border-[#161A22] hover:bg-[#EEF1F6] transition-colors text-base text-[#161A22] px-7 py-3.5">
-            En parler dix minutes
-          </a>
-        </div>
-      </section>
-
-      <!-- Chapitre 1 -->
-      <section class="bg-[#FFF7E8] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 pt-20 md:pt-28">
-        <div>
-          <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-4">partie 1 sur 2</p>
-          <h2 class="text-[2.4rem] md:text-[3.4rem] leading-[1.0] tracking-tight">Votre site.</h2>
-          <p class="mt-5 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">Ce que vos futurs clients voient, et ce que les moteurs en font. On commence toujours par regarder l'existant.</p>
-        </div>
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);">
+    <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;">
+      <div style="position: relative; width: 26px; height: 30px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-right-radius: 12px 30px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-left-radius: 12px 30px;"></div>
       </div>
-        </div>
-      </section>
+      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
+    </a>
+    <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 26px;">
+      <a href="/services/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Sites web &amp; branding</a>
+      <a href="/automatisations/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Automatisations</a>
+      <a href="#" aria-current="page" style="white-space: nowrap; font-size: 14px; font-weight: 600; color: #2743E3;">Avocats</a>
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.2s infinite; pointer-events: none;"></span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1">Démarrer un projet</a>
+      </span>
+    </nav>
+  </header>
 
-      <!-- L'audit -->
-      <section class="bg-[#FFFFFF] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[24ch]">
-          Je commence toujours <span class="italic">par regarder.</span>
-        </h2>
-        <p class="mt-6 max-w-[54ch] text-lg leading-relaxed text-[#2A3340]">
-          J'audite le site avant de proposer quoi que ce soit. Sur le dernier cabinet,
-          vingt-six constats sont ressortis. En voici trois, qui reviennent presque partout.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7">
-            <h3 class="text-lg mb-3">Aucune page par domaine</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Le site annonce douze domaines d'intervention, mais aucun n'a sa propre page. Quand on cherche « avocat droit du travail », il n'y a rien à proposer.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7">
-            <h3 class="text-lg mb-3">La fiche d'identité est vide</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Ni adresse, ni téléphone, ni horaires déclarés sous forme exploitable. C'est pourtant ce sur quoi Google et les assistants s'appuient pour situer un cabinet.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7">
-            <h3 class="text-lg mb-3">Les articles sont invisibles</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Des années de publications, des passages en télévision, des colloques du Barreau, et pas un lien du site qui y mène.</p>
-          </article>
-        </div>
-
-        <p class="mt-10 text-[0.98rem] text-[#5A6473] max-w-[54ch]">
-          L'audit est gratuit et il vous reste acquis, que nous travaillions ensemble ou non.
-        </p>
-      </div>
-        </div>
-      </section>
-
-      <!-- Références -->
-      <section class="bg-[#FAFBFD] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[24ch]">
-          Je connais <span class="italic">les règles de votre profession.</span>
-        </h2>
-        <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-[#2A3340]">
-          On n'écrit pas « spécialité » à un avocat qui n'a pas le certificat, et les mentions
-          légales d'un cabinet ne ressemblent à celles de personne d'autre. Voici les confrères
-          qui me l'ont déjà confié.
-        </p>
-
-        <div class="refs mt-14 border-t border-[rgba(22,26,33,0.12)]">
-          <a class="ligne-ref" href="https://pierrehamoumou-avocat.fr" data-teinte="linear-gradient(140deg,#1E3AA6,#2A4AD1)">
-            <span class="nom">Pierre Hamoumou</span>
-            <span class="quoi">Refonte &amp; Référencement</span>
-          </a>
-          <a class="ligne-ref" href="https://auravocats.com" data-teinte="linear-gradient(140deg,#38614c,#4F8268)">
-            <span class="nom">Auravocats</span>
-            <span class="quoi">Refonte &amp; Référencement</span>
-          </a>
-          <a class="ligne-ref" href="https://fremont-avocat.fr" data-teinte="linear-gradient(140deg,#2A3340,#5A6473)">
-            <span class="nom">Fremont-Bousso</span>
-            <span class="quoi">Référencement</span>
-          </a>
-        </div>
-        <p class="hand text-2xl mt-8">des vrais cabinets, des vrais dossiers</p>
-      </div>
-        </div>
-      </section>
-
-      <!-- Chapitre 2 -->
-      <section class="bg-[#FFF7E8] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 pt-20 md:pt-28">
-        <div>
-          <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-4">partie 2 sur 2</p>
-          <h2 class="text-[2.4rem] md:text-[3.4rem] leading-[1.0] tracking-tight">Vos automatisations.</h2>
-          <p class="mt-5 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">Une fois le site en place, ce qui peut tourner derrière : les tâches qui prennent vos soirées et n'appellent aucune décision d'avocat.</p>
-        </div>
-      </div>
-        </div>
-      </section>
-
-      <!-- La chaine du cabinet -->
-      <section class="bg-[#EEF1F6] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-
-        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">la chaîne du cabinet</p>
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[24ch]">
-          Cinq moments où un agent <span class="italic">peut vous enlever du travail.</span>
-        </h2>
-        <p class="mt-6 max-w-[54ch] text-lg leading-relaxed text-[#2A3340]">
-          De l'arrivée d'un client à la facture, voici où le temps se perd dans un cabinet,
-          et ce qu'on peut y brancher. Choisissez une étape.
-        </p>
-
-        <!-- Les cinq etapes -->
-        <nav class="mt-12" aria-label="Étapes du dossier">
-          <div class="flex items-start justify-between gap-2 relative" id="etapes-nav">
-            <div class="absolute left-0 right-0 top-[7px] h-px bg-[rgba(22,26,33,0.14)]" aria-hidden="true"></div>
-            <button type="button" class="etape est-actif" data-cas="0"><span class="point"></span>Acquisition</button>
-            <button type="button" class="etape" data-cas="1"><span class="point"></span>Ouverture du dossier</button>
-            <button type="button" class="etape" data-cas="2"><span class="point"></span>Recherche</button>
-            <button type="button" class="etape" data-cas="3"><span class="point"></span>Audience</button>
-            <button type="button" class="etape" data-cas="4"><span class="point"></span>Facturation</button>
-          </div>
-        </nav>
-
-        <!-- La fiche -->
-        <article class="mt-10 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
-
-          <div class="flex items-baseline gap-4 mb-2">
-            <span class="serif italic text-[2.2rem] leading-none text-[#8FA4E8]" id="fiche-num">1</span>
-            <h3 class="text-[1.35rem] md:text-[1.6rem] tracking-tight" id="fiche-titre"></h3>
-          </div>
-          <p class="text-[0.95rem] text-[#5A6473] mb-8" id="fiche-contexte"></p>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6 mb-6">
-            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Le problème</p>
-            <p class="text-[1.02rem] leading-relaxed text-[#161A22] font-medium max-w-[62ch]" id="fiche-probleme"></p>
-          </div>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6 mb-6">
-            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Ce qu'on branche</p>
-            <p class="text-[1.02rem] leading-relaxed text-[#2A3340] max-w-[62ch] mb-5" id="fiche-branche"></p>
-            <div class="flex flex-wrap gap-2" id="fiche-outils"></div>
-          </div>
-
-          <div class="bg-[#DCEBE2] rounded-xl p-6 mb-6">
-            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Ce que ça change</p>
-            <p class="text-[1.02rem] leading-relaxed text-[#161A22] max-w-[62ch]" id="fiche-change"></p>
-          </div>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
-            <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-3">Qui décide</p>
-            <p class="text-[0.98rem] leading-relaxed text-[#2A3340] italic max-w-[62ch]" id="fiche-valide"></p>
-          </div>
-        </article>
-
-        <!-- La regle commune -->
-        <div class="mt-16 pt-12 border-t border-[rgba(22,26,33,0.12)]">
-          <h3 class="text-[1.35rem] md:text-[1.6rem] tracking-tight mb-8 max-w-[24ch]">
-            Cinq étapes, <span class="italic">une seule règle.</span>
-          </h3>
-          <ol class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">1.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">L'agent prépare. Il ne décide jamais.</span></li>
-            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">2.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">Chaque citation est vérifiée contre les bases, ou marquée « à vérifier ».</span></li>
-            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">3.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">L'avocat valide, signe, et reste seul signataire.</span></li>
-            <li class="flex gap-4"><span class="serif italic text-[1.5rem] leading-none text-[#8FA4E8] shrink-0 w-8">4.</span><span class="text-[1.02rem] leading-relaxed text-[#2A3340]">Tout est journalisé et horodaté, pour que la décision reste traçable.</span></li>
-          </ol>
-          <p class="hand text-2xl mt-8">rien ne part sans votre clic</p>
-        </div>
-      </div>
-        </div>
-      </section>
+  <div style="position: relative; z-index: 2; margin-top: 92px; padding: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
+    <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Cabinets d'avocats</span>
+    <h1 style="margin: 0; max-width: 640px; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(33px, 20.7px + 3.142vw, 66px); line-height: 1.06; letter-spacing: -0.02em; text-wrap: balance;">Une IA choisit trois cabinets.<br><span style="color: #2743E3;">Pas le vôtre.</span></h1>
+    <p style="margin: 0; max-width: 480px; font-size: 17px; line-height: 1.65; color: #4A5163; text-wrap: pretty;">Vos futurs clients ne tapent plus seulement sur Google : ils posent la question à un assistant, qui tranche à partir de ce qu'il trouve — ou ne trouve pas — sur votre cabinet.</p>
+    <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1deg);">faites le test sur votre propre cabinet</span>
+    <div style="display: flex; align-items: center; gap: 28px; margin-top: 10px; flex-wrap: wrap;">
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.5s infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.7s infinite; pointer-events: none;"></span>
+        <a href="#audit" style="display: inline-flex; align-items: center; padding: 18px 34px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Recevoir l'audit gratuit de mon site</a>
+      </span>
+      <a href="#contact" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-3">En parler dix minutes <span style="font-size: 13px;">↗</span></a>
+    </div>
+  </div>
+</section>
 
 
-      <!-- Appel final -->
-      <section class="bg-[#E5EAF9] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 pb-24 md:pb-32">
-        <div class="border-t border-[rgba(22,26,33,0.12)] pt-14 flex flex-wrap items-center gap-5">
-          <a href="/contact" class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-            Cadrer mon premier agent
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <p class="hand text-2xl">vingt minutes au téléphone, pas un rendez-vous commercial</p>
-        </div>
-      </div>
-        </div>
-      </section>
 
-    </main>
+<section id="site" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 96px 0 126px; border-top: 1px solid rgba(16,27,51,0.1); overflow: hidden;">
+  <div style="position: relative;">
+    <div style="position: absolute; left: var(--rail); top: -52px; bottom: -84px; width: 1px; background: rgba(16,27,51,0.1); pointer-events: none;"></div>
+    <div style="position: absolute; right: var(--rail); top: -52px; bottom: -84px; width: 1px; background: rgba(16,27,51,0.1); pointer-events: none;"></div>
 
-    <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
-      <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
+  <div style="position: relative; z-index: 2; padding: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 20px;">
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">L'existant d'abord</span>
+    <h2 style="margin: 0; max-width: 760px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.08; letter-spacing: -0.02em;">Je commence toujours par regarder.</h2>
+    <p style="margin: 0; max-width: 620px; font-size: 16px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">J'audite le site avant de proposer quoi que ce soit. Sur le dernier cabinet, vingt-six constats sont ressortis. En voici trois, qui reviennent presque partout.</p>
+  </div>
 
-        <!-- Accroche -->
-        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
-        </h2>
-
-        <!-- Filet traversé par le bouton -->
-        <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
-          <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
-          <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Coordonnées -->
-        <div class="flex flex-wrap items-center gap-3 font-manrope mb-16 md:mb-20">
-          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">contact@biladesigns.com</a>
-          <a href="tel:+33659086800" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">06 59 08 68 00</a>
-        </div>
-
-        <!-- Ligne du bas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">2026 © Édition</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#B9C0CB] tabular-nums" data-horloge>—</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">Lyon, France</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#B9C0CB]">
-              <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#B9C0CB] font-manrope border-t border-white/12 mt-8 pt-8">
-          <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
-          <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
-          <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
-          <a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a>
-          <a href="/agence" class="hover:text-white transition-colors">L'agence</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-          <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
-          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
-        </div>
-
-      </div>
-      <script>
-        (function () {
-          var cibles = document.querySelectorAll('[data-horloge]');
-          if (!cibles.length) return;
-          function tic() {
-            var h = new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-            });
-            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
-          }
-          tic();
-          setInterval(tic, 20000);
-        })();
-      </script>
-    </footer>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-      <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-        <a href="/automatisations" class="hover:opacity-70 transition-opacity">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity">
-              Avocats
-            </a>
-        <a href="/nouveau-projet" class="mobile-link mt-4 px-8 py-3 bg-teal-700 text-white rounded-full font-manrope not-italic text-lg hover:bg-teal-800 transition-all">Démarrer un projet</a>
-        <a href="/contact" class="mobile-link px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
-      </nav>
+  <div data-groupe="constats" data-actif="0" style="position: relative; z-index: 2; margin: 60px var(--gut) 0;">
+    <div role="tablist" aria-label="Constats de l’audit" style="display: flex; align-items: center; gap: 0;">
+      <div style="display: flex; align-items: center; flex: 1 1 0; min-width: 0;"><button type="button" data-choix="0" role="tab" aria-selected="true" tabindex="0" aria-controls="constat-panneau" data-s-actif="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: #2743E3; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-avant="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-apres="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(16,27,51,0.22); background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: #2743E3; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;"><span data-choix-enfant="0" data-s-actif="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #FFFFFF;" data-s-avant="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #2743E3;" data-s-apres="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #8A8F9C;" style="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #FFFFFF;">01</span><span class="piege">Domaines</span></button><span data-lien="0" data-s-actif="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);" data-s-avant="flex: 1 1 auto; height: 1px; margin: 0 10px; background: #2743E3;" data-s-apres="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);" style="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);"></span></div>
+        <div style="display: flex; align-items: center; flex: 1 1 0; min-width: 0;"><button type="button" data-choix="1" role="tab" aria-selected="false" tabindex="-1" aria-controls="constat-panneau" data-s-actif="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: #2743E3; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-avant="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-apres="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(16,27,51,0.22); background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(16,27,51,0.22); background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;"><span data-choix-enfant="1" data-s-actif="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #FFFFFF;" data-s-avant="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #2743E3;" data-s-apres="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #8A8F9C;" style="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #8A8F9C;">02</span><span class="piege">Fiche</span></button><span data-lien="1" data-s-actif="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);" data-s-avant="flex: 1 1 auto; height: 1px; margin: 0 10px; background: #2743E3;" data-s-apres="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);" style="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18);"></span></div>
+        <div style="display: flex; align-items: center; flex: 1 1 0; min-width: 0;"><button type="button" data-choix="2" role="tab" aria-selected="false" tabindex="-1" aria-controls="constat-panneau" data-s-actif="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: #2743E3; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-avant="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid #2743E3; background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" data-s-apres="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(16,27,51,0.22); background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(16,27,51,0.22); background: transparent; transform: rotate(45deg); cursor: pointer; transition: background 0.3s ease, border-color 0.3s ease;"><span data-choix-enfant="2" data-s-actif="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #FFFFFF;" data-s-avant="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #2743E3;" data-s-apres="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #8A8F9C;" style="transform: rotate(-45deg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #8A8F9C;">03</span><span class="piege">Publications</span></button><span data-lien="2" data-s-actif="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18); display: none;" data-s-avant="flex: 1 1 auto; height: 1px; margin: 0 10px; background: #2743E3; display: none;" data-s-apres="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18); display: none;" style="flex: 1 1 auto; height: 1px; margin: 0 10px; background: rgba(16,27,51,0.18); display: none;"></span></div>
+    </div>
+    <div style="display: flex; align-items: baseline; gap: 0; margin-top: 18px;">
+      <span data-choix-enfant="0" data-s-actif="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #101B33;" data-s-avant="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" data-s-apres="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" style="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #101B33;" aria-hidden="true">Domaines</span>
+        <span data-choix-enfant="1" data-s-actif="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #101B33;" data-s-avant="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" data-s-apres="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" style="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" aria-hidden="true">Fiche</span>
+        <span data-choix-enfant="2" data-s-actif="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #101B33;" data-s-avant="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" data-s-apres="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" style="flex: 1 1 0; min-width: 0; min-height: 20px; padding-right: 14px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; color: #8A8F9C;" aria-hidden="true">Publications</span>
     </div>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
-              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
-              <path d="M8.5 8.5v.01"></path>
-              <path d="M16 15.5v.01"></path>
-              <path d="M12 12v.01"></path>
-              <path d="M11 17v.01"></path>
-              <path d="M7 14v.01"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg text-[#161A22] mb-1">Votre vie privée</h3>
-            <p class="text-xs text-[#2A4AD1] leading-relaxed">
-              Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.
-            </p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-2">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Refuser</button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Personnaliser</button>
-          </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Tout Accepter</button>
-        </div>
+    <div id="constat-panneau" role="tabpanel" aria-live="polite" style="margin-top: 40px; border-top: 1px solid rgba(16,27,51,0.22); display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 0;" class="g-2">
+      <div style="box-sizing: border-box; border-right: 1px solid rgba(16,27,51,0.14); padding: 30px 26px 34px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px;">
+        <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;"><span data-champ="constats.num"></span></span>
+        <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(15px, 9.4px + 1.428vw, 30px); line-height: 1.15; letter-spacing: -0.01em; color: #101B33;"><span data-champ="constats.title"></span></h3>
+        <span style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8F9C;"><span data-champ="constats.tag"></span></span>
+      </div>
+      <div style="padding: 30px 26px 34px; display: flex; flex-direction: column; gap: 22px;">
+        <p style="margin: 0; max-width: 620px; font-size: 17px; line-height: 1.7; color: #4A5163; text-wrap: pretty;"><span data-champ="constats.body"></span></p>
+        <span style="display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(39,67,227,0.2); padding-top: 18px; font-size: 14px; color: #101B33;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span><span data-champ="constats.fix"></span></span>
       </div>
     </div>
+  </div>
+  </div>
 
-    <!-- Cookie Preferences Modal -->
-    <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div class="p-6 md:p-8">
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">Préférences Cookies</h2>
-              <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
-            </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-            </button>
-          </div>
-          <div class="space-y-6">
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#161A22]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
-                </div>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Performance</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Tout Refuser</button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
+  <div id="audit" style="position: relative; z-index: 2; margin: 84px 0 -126px; background: #F6F6F3; border-top: 1px solid rgba(16,27,51,0.12); border-bottom: 1px solid rgba(16,27,51,0.12);">
+    <div style="position: relative; z-index: 2; padding: 42px var(--rail); display: flex; align-items: center; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap;">
+        <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #2743E3; white-space: nowrap;">Audit gratuit</span>
+        <span style="width: 1px; height: 22px; background: rgba(16,27,51,0.18);"></span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 25px; font-weight: 400; letter-spacing: -0.015em; color: #101B33;">Envoyez le lien de votre site, je vous dis ce qui ne va pas.</span>
+      </div>
+      <form style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap;" data-form data-sujet="Audit gratuit — demande depuis le site" data-merci="Bien reçu. Vous recevez l’audit sous vingt-quatre heures." method="post" action="https://formsubmit.co/matbila63@gmail.com" novalidate>
+        <input type="url" placeholder="votre-cabinet.fr" style="width: 168px; border: none; border-bottom: 1px solid rgba(16,27,51,0.2); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 14px; color: #101B33; outline: none;" name="site" required aria-label="Adresse de votre site" data-libelle="l’adresse de votre site" autocomplete="url">
+        <input type="email" placeholder="vous@cabinet.fr" style="width: 186px; border: none; border-bottom: 1px solid rgba(16,27,51,0.2); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 14px; color: #101B33; outline: none;" name="email" required aria-label="Votre adresse electronique" data-libelle="votre adresse electronique" autocomplete="email">
+        <button type="submit" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 27px; border: none; border-radius: 999px; background: #101B33; color: #FFFFFF; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap;" class="hv-4">Recevoir l'audit <span style="font-size: 12px; letter-spacing: 0;">→</span></button>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="piege" aria-hidden="true">
+      <span style="flex: 1 0 100%; margin-top: 4px; font-size: 12px; line-height: 1.6; color: #8A8F9C;">Votre adresse ne sert qu’a vous envoyer cet audit. <a href="/politique-confidentialite/" style="color: #8A8F9C; text-decoration: underline;">En savoir plus</a>.</span>
+      <span class="form-retour" role="status" aria-live="polite" style="flex: 1 0 100%; "></span>
+    </form>
+    </div>
+  </div>
+
+</section>
+
+<section id="regles" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 112px 0 124px; border-top: 1px solid rgba(16,27,51,0.08); overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; padding: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
+    <h2 style="margin: 0; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.08; letter-spacing: -0.02em;">Je connais <em style="font-style: italic;">les règles de votre profession.</em></h2>
+    <p style="margin: 0; max-width: 640px; font-size: 16px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">On n'écrit pas « spécialité » à un avocat qui n'a pas le certificat, et les mentions légales d'un cabinet ne ressemblent à celles de personne d'autre. Voici les confrères qui me l'ont déjà confié.</p>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 62px var(--gut) 0;">
+    <a href="https://pierrehamoumou-avocat.fr" target="_blank" rel="noopener" data-firm style="position: relative; overflow: hidden; display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-top: 1px solid rgba(16,27,51,0.14); padding: 26px 14px 28px; color: rgba(16,27,51,0.28);" class="hv-5">
+      <span style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(23px, 14.5px + 2.19vw, 46px); line-height: 1.05; letter-spacing: -0.02em; color: inherit;">Pierre Hamoumou</span>
+      <span style="flex: 0 0 auto; font-size: 15px; color: inherit;">Refonte &amp; référencement</span>
+      <span data-firm-card style="position: absolute; right: 210px; top: 10px; bottom: 10px; width: 148px; background: #101B33; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; transition: opacity 0.25s ease;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-size: 12px; font-weight: 600;">Voir</span>
+      </span>
+    </a>
+    <a href="https://auravocats.com" target="_blank" rel="noopener" data-firm style="position: relative; overflow: hidden; display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-top: 1px solid rgba(16,27,51,0.14); padding: 26px 14px 28px; color: rgba(16,27,51,0.28);" class="hv-6">
+      <span style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(23px, 14.5px + 2.19vw, 46px); line-height: 1.05; letter-spacing: -0.02em; color: inherit;">Auravocats</span>
+      <span style="flex: 0 0 auto; font-size: 15px; color: inherit;">Refonte &amp; référencement</span>
+      <span data-firm-card style="position: absolute; right: 210px; top: 10px; bottom: 10px; width: 148px; background: #101B33; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; transition: opacity 0.25s ease;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-size: 12px; font-weight: 600;">Voir</span>
+      </span>
+    </a>
+    <a href="https://fremont-avocat.fr" target="_blank" rel="noopener" data-firm style="position: relative; overflow: hidden; display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-top: 1px solid rgba(16,27,51,0.14); border-bottom: 1px solid rgba(16,27,51,0.14); padding: 26px 14px 28px; color: rgba(16,27,51,0.28);" class="hv-7">
+      <span style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(23px, 14.5px + 2.19vw, 46px); line-height: 1.05; letter-spacing: -0.02em; color: inherit;">Fremont-Bousso</span>
+      <span style="flex: 0 0 auto; font-size: 15px; color: inherit;">Référencement</span>
+      <span data-firm-card style="position: absolute; right: 210px; top: 10px; bottom: 10px; width: 148px; background: #101B33; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; transition: opacity 0.25s ease;">
+        <span style="display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-size: 12px; font-weight: 600;">Voir</span>
+      </span>
+    </a>
+    <span style="display: inline-block; margin-top: 26px; padding-left: 14px; font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-0.8deg);">des vrais cabinets, des vrais dossiers</span>
+  </div>
+</section>
+
+<section id="agents" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 0 0 126px; overflow: hidden;">
+  <div style="position: relative; z-index: 3; background: #101B33; padding: 26px var(--gut); display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 22px;">
+      <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.2em; color: #7C93FF;">PARTIE 02</span>
+      <span style="width: 34px; height: 1px; background: rgba(124,147,255,0.5);"></span>
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #FFFFFF;">Agents &amp; automatisations</span>
+    </div>
+    <span style="font-size: 13px; color: rgba(255,255,255,0.6);">Après le site, la mécanique du cabinet</span>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; top: 76px; bottom: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; padding: 92px var(--gut) 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+    <h2 style="margin: 0; max-width: 700px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(27px, 17px + 2.57vw, 54px); line-height: 1.06; letter-spacing: -0.025em;">Cinq sujets où un agent vous enlève du travail.</h2>
+    <p style="margin: 0; max-width: 340px; padding-bottom: 8px; border-left: 1px solid rgba(39,67,227,0.35); padding-left: 22px; font-size: 15px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">De l'arrivée d'un client à la facture. Choisissez un sujet : vous voyez ce qui se passe aujourd'hui, et ce qui tourne à votre place demain.</p>
+  </div>
+
+  <div data-groupe="steps" data-actif="0" style="position: relative; z-index: 2; margin: 64px var(--gut) 0;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 16px;">
+      <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; color: #8A8F9C;">CHAÎNE DU DOSSIER</span>
+      <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; color: #2743E3;"><span data-champ="steps.num"></span> / 05</span>
+    </div>
+    <div role="tablist" aria-label="Chaîne du dossier" style="display: flex; align-items: stretch; border-top: 1px solid rgba(16,27,51,0.22); border-bottom: 1px solid rgba(16,27,51,0.14);">
+      <button type="button" data-choix="0" role="tab" aria-selected="true" tabindex="0" aria-controls="chaine-panneau" data-s-actif="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; box-shadow: inset 0 3px 0 0 #2743E3;" data-s-avant="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent;" data-s-apres="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent;" style="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; box-shadow: inset 0 3px 0 0 #2743E3;"><span data-choix-enfant="0" data-s-actif="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;" data-s-avant="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" data-s-apres="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">01</span><span data-choix-enfant="0" data-s-actif="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;" data-s-avant="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" data-s-apres="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" style="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;">Acquisition</span></button>
+        <button type="button" data-choix="1" role="tab" aria-selected="false" tabindex="-1" aria-controls="chaine-panneau" data-s-actif="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14); box-shadow: inset 0 3px 0 0 #2743E3;" data-s-avant="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" data-s-apres="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" style="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);"><span data-choix-enfant="1" data-s-actif="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;" data-s-avant="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" data-s-apres="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);">02</span><span data-choix-enfant="1" data-s-actif="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;" data-s-avant="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" data-s-apres="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" style="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);">Ouverture du dossier</span></button>
+        <button type="button" data-choix="2" role="tab" aria-selected="false" tabindex="-1" aria-controls="chaine-panneau" data-s-actif="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14); box-shadow: inset 0 3px 0 0 #2743E3;" data-s-avant="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" data-s-apres="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" style="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);"><span data-choix-enfant="2" data-s-actif="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;" data-s-avant="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" data-s-apres="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);">03</span><span data-choix-enfant="2" data-s-actif="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;" data-s-avant="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" data-s-apres="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" style="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);">Recherche</span></button>
+        <button type="button" data-choix="3" role="tab" aria-selected="false" tabindex="-1" aria-controls="chaine-panneau" data-s-actif="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14); box-shadow: inset 0 3px 0 0 #2743E3;" data-s-avant="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" data-s-apres="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" style="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);"><span data-choix-enfant="3" data-s-actif="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;" data-s-avant="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" data-s-apres="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);">04</span><span data-choix-enfant="3" data-s-actif="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;" data-s-avant="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" data-s-apres="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" style="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);">Audience</span></button>
+        <button type="button" data-choix="4" role="tab" aria-selected="false" tabindex="-1" aria-controls="chaine-panneau" data-s-actif="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14); box-shadow: inset 0 3px 0 0 #2743E3;" data-s-avant="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" data-s-apres="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);" style="position: relative; flex: 1 1 0; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 22px 18px 24px; cursor: pointer; background: transparent; border-left: 1px solid rgba(16,27,51,0.14);"><span data-choix-enfant="4" data-s-actif="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;" data-s-avant="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" data-s-apres="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: rgba(16,27,51,0.35);">05</span><span data-choix-enfant="4" data-s-actif="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: #101B33;" data-s-avant="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" data-s-apres="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);" style="font-family: Fraunces, Georgia, serif; font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; color: rgba(16,27,51,0.42);">Facturation</span></button>
+    </div>
+
+    <div id="chaine-panneau" role="tabpanel" aria-live="polite" style="margin-top: 48px; display: flex; flex-direction: column; gap: 8px;">
+      <h3 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(19px, 11.9px + 1.809vw, 38px); line-height: 1.1; letter-spacing: -0.02em; color: #101B33;"><span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(16px, 10.1px + 1.523vw, 32px); color: #5D7EFF;"><span data-champ="steps.num"></span></span><span data-champ="steps.title"></span></h3>
+      <span style="font-size: 15px; color: #6B7280;"><span data-champ="steps.sub"></span></span>
+    </div>
+
+    <div style="margin-top: 34px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px;" class="g-2">
+      <div style="position: relative; box-sizing: border-box; overflow: hidden; display: flex; padding: 1px; background: rgba(16,27,51,0.2);">
+        <span style="position: absolute; left: 50%; top: 50%; width: 150%; height: 300%; transform: translate(-50%, -50%); background: conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(39,67,227,0.35) 300deg, #2743E3 340deg, rgba(39,67,227,0.35) 20deg, transparent 70deg, transparent 360deg); animation: bila-sweep 7s linear infinite; pointer-events: none;"></span>
+        <div style="position: relative; z-index: 1; flex: 1 1 auto; box-sizing: border-box; background: #FBFBFA; padding: 36px 28px 32px; display: flex; flex-direction: column; gap: 16px;">
+          <span style="display: inline-flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #4A5163;"><span style="width: 6px; height: 6px; border: 1px solid #4A5163; transform: rotate(45deg);"></span>Aujourd'hui</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #4A5163; text-wrap: pretty;"><span data-champ="steps.probleme"></span></p>
+        </div>
+      </div>
+      <div style="position: relative; box-sizing: border-box; overflow: hidden; display: flex; padding: 1px; background: rgba(124,147,255,0.22);">
+        <span style="position: absolute; left: 50%; top: 50%; width: 150%; height: 300%; transform: translate(-50%, -50%); background: conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(255,255,255,0.4) 305deg, #FFFFFF 340deg, rgba(255,255,255,0.4) 15deg, transparent 70deg, transparent 360deg); animation: bila-sweep 7s linear 3.5s infinite; pointer-events: none;"></span>
+        <div style="position: relative; z-index: 1; flex: 1 1 auto; box-sizing: border-box; background: #101B33; padding: 36px 28px 32px; display: flex; flex-direction: column; gap: 16px;">
+          <span style="display: inline-flex; align-items: center; gap: 9px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #7C93FF;"><span style="width: 6px; height: 6px; background: #5D7EFF; transform: rotate(45deg);"></span>Ce qu'on branche</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #FFFFFF; text-wrap: pretty;"><span data-champ="steps.branche"></span></p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px;">
+            <span data-liste="steps.chips" data-style-item="display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.3); padding: 7px 14px; font-size: 12px; color: rgba(255,255,255,0.8); white-space: nowrap;"></span>
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      // Safe Lucide init
-      try {
-        if (typeof lucide !== 'undefined' && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      } catch (e) {
-        console.warn('Lucide icons non disponible:', e);
-      }
-
-      // SEO Cards Animation on Scroll
-      const seoCards = document.querySelectorAll('.seo-card');
-
-      // Fallback: rendre les cartes visibles après 2s si IntersectionObserver échoue
-      const seoFallbackTimeout = setTimeout(() => {
-        seoCards.forEach(card => card.classList.add('visible'));
-      }, 2000);
-
-      // Fonction pour réinitialiser les icônes Lucide
-      function refreshLucideIcons() {
-        try {
-          if (typeof lucide !== 'undefined' && lucide.createIcons) {
-            lucide.createIcons();
-          }
-        } catch (e) {}
-      }
-
-      try {
-        const seoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              clearTimeout(seoFallbackTimeout);
-              entry.target.classList.add('animate');
-              seoObserver.unobserve(entry.target);
-              refreshLucideIcons(); // Re-render icônes après animation
-            }
-          });
-        }, { threshold: 0.1, rootMargin: '50px' });
-        seoCards.forEach(card => seoObserver.observe(card));
-      } catch (e) {
-        // Fallback si IntersectionObserver non supporté
-        seoCards.forEach(card => card.classList.add('visible'));
-        refreshLucideIcons();
-      }
-
-      // Re-render icônes après chargement complet
-      window.addEventListener('load', refreshLucideIcons);
-
-      // Navigation Mobile
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const closeBtn = document.getElementById('mobile-menu-close');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      function openMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = 'hidden';
-          if (menuIcon) menuIcon.classList.add('opacity-0');
-          if (closeIcon) closeIcon.classList.remove('opacity-0');
-        }
-      }
-
-      function closeMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = '';
-          if (menuIcon) menuIcon.classList.remove('opacity-0');
-          if (closeIcon) closeIcon.classList.add('opacity-0');
-        }
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
-      });
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // GDPR Cookie Manager Logic
-      const cookieManager = {
-        consent: { essential: true, analytics: false, marketing: false, performance: false, preferences: false },
-        gaLoaded: false,
-        init() {
-          const storedConsent = localStorage.getItem('bila_cookie_consent');
-          if (storedConsent) {
-            this.consent = JSON.parse(storedConsent);
-            if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-          }
-          else { this.showBanner(); }
-        },
-        loadGoogleAnalytics() {
-          if (this.gaLoaded) return;
-          this.gaLoaded = true;
-          const script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-8CXZ6K9C2R');
-        },
-        showBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.remove('hidden');
-          setTimeout(() => { banner.classList.remove('translate-y-20', 'opacity-0'); }, 100);
-        },
-        hideBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.add('translate-y-20', 'opacity-0');
-          setTimeout(() => { banner.classList.add('hidden'); }, 500);
-        },
-        openPreferences() {
-          document.getElementById('cookie_analytics').checked = this.consent.analytics;
-          document.getElementById('cookie_marketing').checked = this.consent.marketing;
-          document.getElementById('cookie_performance').checked = this.consent.performance;
-          document.getElementById('cookie_preferences').checked = this.consent.preferences;
-          document.getElementById('cookie-preferences').classList.remove('hidden');
-        },
-        closePreferences() { document.getElementById('cookie-preferences').classList.add('hidden'); },
-        acceptAll() {
-          this.consent = { essential: true, analytics: true, marketing: true, performance: true, preferences: true };
-          this.saveAndRun();
-        },
-        refuseAll() {
-          this.consent = { essential: true, analytics: false, marketing: false, performance: false, preferences: false };
-          this.saveAndRun();
-        },
-        savePreferences() {
-          this.consent.analytics = document.getElementById('cookie_analytics').checked;
-          this.consent.marketing = document.getElementById('cookie_marketing').checked;
-          this.consent.performance = document.getElementById('cookie_performance').checked;
-          this.consent.preferences = document.getElementById('cookie_preferences').checked;
-          this.closePreferences();
-          this.saveAndRun();
-        },
-        saveAndRun() {
-          localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
-          this.hideBanner();
-          if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-        }
-      };
-      document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
-    </script>
-
-
-<script>
-(function () {
-  var CAS = [
-    { titre:"Développer la clientèle",
-      contexte:"Acquisition · le bouche-à-oreille ne suffit plus",
-      probleme:"L'essentiel des nouveaux dossiers vient de la recommandation. Chacun publie quand il a le temps, c'est-à-dire rarement, et les quelques heures passées sur les réseaux ne se transforment presque jamais en rendez-vous.",
-      branche:"Un agent de veille suit les évolutions de vos domaines et alimente un agent qui rédige des propositions de publications. Un troisième trie les messages entrants et vous signale ceux qui méritent votre attention. Chaque texte passe un contrôle déontologique avant de vous être soumis.",
-      outils:["Veille juridique","Rédaction assistée","Tri des messages","Contrôle déontologique"],
-      change:"Vous publiez régulièrement sans y penser, et vous ne lisez que les messages qui valent votre temps. Le temps passé sur les réseaux se compte en minutes, plus en heures.",
-      valide:"Zéro publication automatique. Aucun texte, aucun message ne part sans votre clic. Les règles de communication sont posées avec vous, et vérifiables." },
-
-    { titre:"Conflits d'intérêts et déontologie",
-      contexte:"Ouverture du dossier · la vérification qui prend une matinée",
-      probleme:"Chaque nouveau dossier demande une vérification manuelle, souvent sur un tableur tenu à la main. C'est long, c'est fastidieux, et un conflit manqué expose le cabinet bien au-delà du désagrément.",
-      branche:"Vos dossiers passés sont mis en base, anonymisés. À chaque nouveau dossier, l'agent croise les parties, les adverses et les bénéficiaires effectifs, puis produit une note d'analyse assortie d'un degré de certitude.",
-      outils:["Base de dossiers","Croisement des parties","Note d'analyse","Journalisation"],
-      change:"La vérification passe de plusieurs dizaines de minutes à quelques-unes, et la décision d'ouvrir ou non se prend le jour même plutôt qu'en fin de semaine.",
-      valide:"L'agent ne tranche aucune question déontologique. Chaque vérification donne lieu à une décision d'associé, horodatée et journalisée." },
-
-    { titre:"La recherche jurisprudentielle",
-      contexte:"Recherche · le poste le plus lourd des collaborateurs",
-      probleme:"Un dossier complexe demande plusieurs heures de recherche, et cette recherche est souvent refaite ailleurs dans le cabinet sans que personne ne le sache. La jurisprudence la plus récente passe régulièrement à côté.",
-      branche:"Un agent interroge vos bases documentaires, hiérarchise les décisions par autorité et rédige une synthèse. Un second vérifie chaque citation contre la base avant qu'elle n'entre dans la note.",
-      outils:["Bases documentaires","Hiérarchisation","Synthèse","Vérification des citations"],
-      change:"La recherche se fait en une fraction du temps, elle n'est plus dupliquée entre équipes, et la jurisprudence récente cesse d'être oubliée.",
-      valide:"Chaque citation est vérifiée contre la base, ou explicitement marquée « à vérifier ». L'associé relit chaque synthèse avant usage." },
-
-    { titre:"Le mémo de plaidoirie",
-      contexte:"Audience · la chronologie reconstruite à la main",
-      probleme:"Préparer une audience importante demande une journée, dont une bonne part passée à reconstruire la chronologie à partir de dizaines, parfois de centaines de pièces. Le mémo se termine souvent la veille.",
-      branche:"L'agent lit les pièces du dossier, reconstruit la chronologie des faits, va chercher la jurisprudence utile et propose une première version du mémo, que vous reprenez et affinez.",
-      outils:["Lecture des pièces","Chronologie","Jurisprudence","Pré-rédaction"],
-      change:"La préparation se concentre sur le raisonnement plutôt que sur la mise en ordre, et le mémo cesse de se boucler dans les dernières heures.",
-      valide:"L'agent ne signe rien, ne dépose rien au greffe, ne parle jamais à un tiers. Vous restez seul signataire." },
-
-    { titre:"Les honoraires jamais saisis",
-      contexte:"Facturation · le temps travaillé qui n'arrive pas sur la facture",
-      probleme:"Des heures réellement travaillées ne sont jamais saisies, parce que la fiche se remplit des jours après. Et une part des factures dépasse largement l'échéance sans qu'aucune relance ne parte.",
-      branche:"L'agent lit vos échanges et votre agenda, pré-remplit chaque fiche de temps avec le dossier et son justificatif, et déclenche les relances d'impayés selon le rythme que vous fixez.",
-      outils:["Agenda et messagerie","Fiches de temps","Justificatifs","Relances échelonnées"],
-      change:"Le temps travaillé se retrouve sur la facture, et les impayés cessent de vieillir en silence.",
-      valide:"Aucune fiche de temps n'est validée automatiquement. Passé un certain retard, aucune relance ne part sans revue de l'associé." }
-  ];
-
-  var nav = document.getElementById('etapes-nav');
-  if (!nav) return;
-  var boutons = nav.querySelectorAll('.etape');
-  var champs = {
-    num: document.getElementById('fiche-num'),
-    titre: document.getElementById('fiche-titre'),
-    contexte: document.getElementById('fiche-contexte'),
-    probleme: document.getElementById('fiche-probleme'),
-    branche: document.getElementById('fiche-branche'),
-    outils: document.getElementById('fiche-outils'),
-    change: document.getElementById('fiche-change'),
-    valide: document.getElementById('fiche-valide')
-  };
-
-  function montre(i) {
-    var c = CAS[i];
-    champs.num.textContent = i + 1;
-    champs.titre.textContent = c.titre;
-    champs.contexte.textContent = c.contexte;
-    champs.probleme.textContent = c.probleme;
-    champs.branche.textContent = c.branche;
-    champs.change.textContent = c.change;
-    champs.valide.textContent = c.valide;
-    champs.outils.innerHTML = '';
-    c.outils.forEach(function (o) {
-      var s = document.createElement('span');
-      s.className = 'outil';
-      s.textContent = o;
-      champs.outils.appendChild(s);
-    });
-    boutons.forEach(function (b, k) {
-      b.classList.toggle('est-actif', k === i);
-      b.setAttribute('aria-current', k === i ? 'true' : 'false');
-    });
-  }
-  boutons.forEach(function (b) {
-    b.addEventListener('click', function () { montre(parseInt(b.dataset.cas, 10)); });
-  });
-  montre(0);
-})();
-</script>
-
-    <div id="apercu" aria-hidden="true">
-      <span class="nom-apercu"></span>
-      <span class="voir">Voir</span>
+    <div style="margin-top: 34px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px;" class="g-2">
+      <div style="position: relative; box-sizing: border-box; border-top: 1px solid rgba(39,67,227,0.35); padding: 26px 2px 2px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="position: absolute; left: 0; top: -7px; background: #FBFBFA; padding-right: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #2743E3;">Ce que ça change</span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; color: #101B33;"><span data-champ="steps.change"></span></span>
+      </div>
+      <div style="position: relative; box-sizing: border-box; border-top: 1px solid rgba(16,27,51,0.2); padding: 26px 2px 2px; display: flex; flex-direction: column; gap: 10px;">
+        <span style="position: absolute; left: 0; top: -7px; background: #FBFBFA; padding-right: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Qui décide</span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 20px; line-height: 1.35; letter-spacing: -0.01em; color: #101B33;"><span data-champ="steps.decide"></span></span>
+      </div>
     </div>
+  </div>
 
-<script>
-(function () {
-  var apercu = document.querySelector('#apercu');
-  var refs = document.querySelector('.refs');
-  if (!apercu || !refs) return;
-  var nom = apercu.querySelector('.nom-apercu');
-  var x = 0, y = 0, cx = 0, cy = 0, actif = false;
-  function boucle() {
-    cx += (x - cx) * 0.14; cy += (y - cy) * 0.14;
-    apercu.style.left = cx + 'px'; apercu.style.top = cy + 'px';
-    if (actif) requestAnimationFrame(boucle);
-  }
-  refs.addEventListener('pointerover', function (e) {
-    var l = e.target.closest('.ligne-ref');
-    if (!l) return;
-    apercu.style.background = l.dataset.teinte;
-    nom.textContent = l.querySelector('.nom').textContent;
-    apercu.classList.add('on');
-    if (!actif) { actif = true; requestAnimationFrame(boucle); }
-  });
-  refs.addEventListener('pointerleave', function () { apercu.classList.remove('on'); actif = false; });
-  window.addEventListener('pointermove', function (e) {
-    x = e.clientX; y = e.clientY;
-    if (cx === 0 && cy === 0) { cx = x; cy = y; }
-  });
-})();
-</script>
-</body></html>
+</section>
+
+<section id="cadre" style="position: relative; background: #F6F6F3; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 104px 0 116px; border-top: 1px solid rgba(16,27,51,0.14); overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 0 var(--gut);">
+    <span style="display: block; margin-bottom: 18px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Le cadre déontologique</span>
+    <h2 style="margin: 0 0 34px; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(23px, 14.5px + 2.19vw, 46px); line-height: 1.1; letter-spacing: -0.025em;">Cinq sujets, une seule règle.</h2>
+    <div style="display: flex; flex-direction: column;">
+      <span data-rise style="display: flex; align-items: baseline; gap: 16px; border-top: 1px solid rgba(39,67,227,0.2); padding: 16px 14px; font-size: 15px; line-height: 1.6; color: #101B33;"><span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">01</span>L'agent prépare. Il ne décide jamais.</span>
+      <span data-rise style="display: flex; align-items: baseline; gap: 16px; border-top: 1px solid rgba(39,67,227,0.2); padding: 16px 14px; font-size: 15px; line-height: 1.6; color: #101B33;"><span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">02</span>Chaque citation est vérifiée contre les bases, ou marquée « à vérifier ».</span>
+      <span data-rise style="display: flex; align-items: baseline; gap: 16px; border-top: 1px solid rgba(39,67,227,0.2); padding: 16px 14px; font-size: 15px; line-height: 1.6; color: #101B33;"><span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">03</span>L'avocat valide, signe, et reste seul signataire.</span>
+      <span data-rise style="display: flex; align-items: baseline; gap: 16px; border-top: 1px solid rgba(39,67,227,0.2); border-bottom: 1px solid rgba(39,67,227,0.2); padding: 16px 14px; font-size: 15px; line-height: 1.6; color: #101B33;"><span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">04</span>Tout est journalisé et horodaté, pour que la décision reste traçable.</span>
+    </div>
+    <div style="margin-top: 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.3s infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.5s infinite; pointer-events: none;"></span>
+        <a href="#contact" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-8">Cadrer mon premier agent <span style="font-size: 14px;">→</span></a>
+      </span>
+      <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1deg);">rien ne part sans votre clic</span>
+    </div>
+  </div>
+</section>
+
+<section id="fin" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 0; border-top: 1px solid rgba(16,27,51,0.14); overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div id="contact" style="position: relative; z-index: 2; padding: 108px var(--gut) 120px; display: flex; flex-direction: column; align-items: flex-start; gap: 32px;">
+    <h2 style="margin: 0; max-width: 900px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(39px, 24.5px + 3.713vw, 78px); line-height: 1.02; letter-spacing: -0.03em;">Commençons par votre <em style="font-style: italic; font-weight: 600; color: #2743E3;">site actuel.</em></h2>
+    <p style="margin: 0; max-width: 540px; font-size: 16px; line-height: 1.65; color: #4A5163;">Envoyez le lien : vous recevez sous vingt-quatre heures le relevé de ce qui vous coûte des dossiers, y compris ce que les assistants IA répondent aujourd'hui sur votre cabinet.</p>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+      <a href="mailto:mathieu@biladesigns.com" style="font-size: 17px; font-weight: 500; color: #101B33; border-bottom: 1px solid rgba(16,27,51,0.25); padding-bottom: 4px;" class="hv-9">mathieu@biladesigns.com</a>
+      <a href="tel:+33659086800" style="font-size: 17px; font-weight: 500; color: #4A5163;" class="hv-10">06 59 08 68 00</a>
+    </div>
+    <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1deg);">vingt minutes au téléphone, pas un rendez-vous commercial</span>
+  </div>
+
+  <footer style="position: relative; z-index: 2; padding: 44px var(--gut) 40px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 220px; background: #FBFBFA; padding-right: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="position: relative; width: 22px; height: 26px; overflow: hidden; background: #2743E3;">
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-right-radius: 10px 26px;"></div>
+            <div style="position: absolute; right: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-left-radius: 10px 26px;"></div>
+          </div>
+          <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
+        </div>
+        <span style="font-size: 13px; line-height: 1.7; color: #6B7280;">Studio indépendant de design et d'automatisation.<br>Basé à Lyon, France.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Prestations</span>
+        <a href="/accueil/#expertises" style="font-size: 14px; color: #2C3348;">Sites web &amp; référencement</a>
+        <a href="/accueil/#expertises" style="font-size: 14px; color: #2C3348;">Rebranding</a>
+        <a href="/automatisations/" style="font-size: 14px; color: #2C3348;">Automatisations</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Studio</span>
+        <a href="/accueil/#realisations" style="font-size: 14px; color: #2C3348;">Portfolio</a>
+        <a href="#audit" style="font-size: 14px; color: #2C3348;">Audit gratuit</a>
+        <a href="#contact" style="font-size: 14px; color: #2C3348;">Contact</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Réseaux</span>
+        <a href="https://www.instagram.com/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;">Instagram</a>
+        <a href="https://www.linkedin.com/company/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;">LinkedIn</a>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid rgba(16,27,51,0.1); padding-top: 22px;">
+      <span style="background: #FBFBFA; padding: 0 14px 0 0; font-size: 12px; color: #8A8F9C;">2026 © Bila Designs — Édition</span>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; background: #FBFBFA; padding: 0 14px;">
+        <a href="/mentions-legales/" style="font-size: 12px; color: #8A8F9C;">Mentions légales</a>
+        <a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>
+        <a href="/politique-confidentialite/#cookies" style="font-size: 12px; color: #8A8F9C;">Gestion des cookies</a>
+      </div>
+    </div>
+  </footer>
+</section>
+<script type="application/json" id="donnees-avocats">{"constats": [{"num": "01", "label": "Domaines", "title": "Aucune page par domaine", "tag": "Structure", "body": "Le site annonce douze domaines d'intervention, mais aucun n'a sa propre page. Quand on cherche « avocat droit du travail », il n'y a rien à proposer.", "fix": "Une page par domaine, écrite avec vous, et un maillage qui les relie."}, {"num": "02", "label": "Fiche", "title": "La fiche d'identité est vide", "tag": "Données locales", "body": "Ni adresse, ni téléphone, ni horaires déclarés sous forme exploitable. C'est pourtant ce sur quoi Google et les assistants s'appuient pour situer un cabinet.", "fix": "Données structurées, fiche Google et annuaires alignés sur le même NAP."}, {"num": "03", "label": "Publications", "title": "Les articles sont invisibles", "tag": "Autorité", "body": "Des années de publications, des passages en télévision, des colloques du Barreau, et pas un lien du site qui y mène.", "fix": "Une page presse et publications, reliée depuis chaque domaine concerné."}], "steps": [{"label": "Acquisition", "title": "Développer la clientèle", "sub": "Acquisition · le bouche-à-oreille ne suffit plus", "probleme": "L'essentiel des nouveaux dossiers vient de la recommandation. Chacun publie quand il a le temps, c'est-à-dire rarement, et les quelques heures passées sur les réseaux ne se transforment presque jamais en rendez-vous.", "branche": "Un agent de veille suit les évolutions de vos domaines et alimente un agent qui rédige des propositions de publications. Un troisième trie les messages entrants et vous signale ceux qui méritent votre attention. Chaque texte passe un contrôle déontologique avant de vous être soumis.", "chips": ["Veille juridique", "Rédaction assistée", "Tri des messages", "Contrôle déontologique"], "change": "Vous publiez régulièrement sans y penser, et vous ne lisez que les messages qui valent votre temps. Le temps passé sur les réseaux se compte en minutes, plus en heures.", "decide": "Zéro publication automatique. Aucun texte, aucun message ne part sans votre clic. Les règles de communication sont posées avec vous, et vérifiables."}, {"label": "Ouverture du dossier", "title": "Conflits d'intérêts et déontologie", "sub": "Ouverture du dossier · la vérification qui prend une matinée", "probleme": "Chaque nouveau dossier demande une vérification manuelle, souvent sur un tableur tenu à la main. C'est long, c'est fastidieux, et un conflit manqué expose le cabinet bien au-delà du désagrément.", "branche": "Vos dossiers passés sont mis en base, anonymisés. À chaque nouveau dossier, l'agent croise les parties, les adverses et les bénéficiaires effectifs, puis produit une note d'analyse assortie d'un degré de certitude.", "chips": ["Base de dossiers", "Croisement des parties", "Note d'analyse", "Journalisation"], "change": "La vérification passe de plusieurs dizaines de minutes à quelques-unes, et la décision d'ouvrir ou non se prend le jour même plutôt qu'en fin de semaine.", "decide": "L'agent ne tranche aucune question déontologique. Chaque vérification donne lieu à une décision d'associé, horodatée et journalisée."}, {"label": "Recherche", "title": "La recherche jurisprudentielle", "sub": "Recherche · le poste le plus lourd des collaborateurs", "probleme": "Un dossier complexe demande plusieurs heures de recherche, et cette recherche est souvent refaite ailleurs dans le cabinet sans que personne ne le sache. La jurisprudence la plus récente passe régulièrement à côté.", "branche": "Un agent interroge vos bases documentaires, hiérarchise les décisions par autorité et rédige une synthèse. Un second vérifie chaque citation contre la base avant qu'elle n'entre dans la note.", "chips": ["Bases documentaires", "Hiérarchisation", "Synthèse", "Vérification des citations"], "change": "La recherche se fait en une fraction du temps, elle n'est plus dupliquée entre équipes, et la jurisprudence récente cesse d'être oubliée.", "decide": "Chaque citation est vérifiée contre la base, ou explicitement marquée « à vérifier ». L'associé relit chaque synthèse avant usage."}, {"label": "Audience", "title": "Le mémo de plaidoirie", "sub": "Audience · la chronologie reconstruite à la main", "probleme": "Préparer une audience importante demande une journée, dont une bonne part passée à reconstruire la chronologie à partir de dizaines, parfois de centaines de pièces. Le mémo se termine souvent la veille.", "branche": "L'agent lit les pièces du dossier, reconstruit la chronologie des faits, va chercher la jurisprudence utile et propose une première version du mémo, que vous reprenez et affinez.", "chips": ["Lecture des pièces", "Chronologie", "Jurisprudence", "Pré-rédaction"], "change": "La préparation se concentre sur le raisonnement plutôt que sur la mise en ordre, et le mémo cesse de se boucler dans les dernières heures.", "decide": "L'agent ne signe rien, ne dépose rien au greffe, ne parle jamais à un tiers. Vous restez seul signataire."}, {"label": "Facturation", "title": "Les honoraires jamais saisis", "sub": "Facturation · le temps travaillé qui n'arrive pas sur la facture", "probleme": "Des heures réellement travaillées ne sont jamais saisies, parce que la fiche se remplit des jours après. Et une part des factures dépasse largement l'échéance sans qu'aucune relance ne parte.", "branche": "L'agent lit vos échanges et votre agenda, pré-remplit chaque fiche de temps avec le dossier et son justificatif, et déclenche les relances d'impayés selon le rythme que vous fixez.", "chips": ["Agenda et messagerie", "Fiches de temps", "Justificatifs", "Relances échelonnées"], "change": "Le temps travaillé se retrouve sur la facture, et les impayés cessent de vieillir en silence.", "decide": "Aucune fiche de temps n'est validée automatiquement. Passé un certain retard, aucune relance ne part sans revue de l'associé."}]}</script>
+</main>
+<script src="/assets/js/bila-motion.js" defer></script>
+<script src="/assets/js/bila-ui.js" defer></script>
+</body>
+</html>

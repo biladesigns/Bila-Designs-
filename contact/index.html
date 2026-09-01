@@ -1,866 +1,251 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Bila Designs</title>
+<meta name="description" content="Parlons de votre projet. Un seul interlocuteur, celui qui fera le travail. Reponse sous vingt-quatre heures.">
+<link rel="canonical" href="https://www.biladesigns.com/contact">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Bila Designs - Parlons de votre projet</title>
-<meta name="description" content="Contactez Bila Designs pour discuter de votre projet web. Réservez un appel découverte ou envoyez-nous un message.">
-<meta name="keywords" content="contact agence web, devis site web, projet digital, appel découverte, bila design">
-<!-- Open Graph -->
-<meta property="og:title" content="Contact | Bila Designs">
-<meta property="og:description" content="Discutons de votre projet web. Réservez un appel découverte.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://biladesigns.com/contact">
+<meta property="og:site_name" content="Bila Designs">
 <meta property="og:locale" content="fr_FR">
-<!-- Twitter Card -->
+<meta property="og:title" content="Contact — Bila Designs">
+<meta property="og:description" content="Parlons de votre projet. Un seul interlocuteur, celui qui fera le travail. Reponse sous vingt-quatre heures.">
+<meta property="og:url" content="https://www.biladesigns.com/contact">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact | Bila Designs">
-<meta name="twitter:description" content="Discutons de votre projet web.">
-<link rel="canonical" href="https://biladesigns.com/contact">
-<!-- Preconnect pour optimiser le chargement -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://unpkg.com">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    fontFamily: {
-      sans:  ['Poppins','system-ui','sans-serif'],
-      serif: ['Fraunces','Georgia','serif'],
-    },
- colors: {
-    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
-            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
-    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
-    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
-    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
-  } } }
-}
-</script>
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<!-- Google reCAPTCHA Script -->
-<script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/bila.css">
 <style>
-body { font-family: 'Poppins', system-ui, sans-serif; }
-h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
-  font-weight: 700; letter-spacing: -.02em; }
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
-.footer-titre { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  font-weight: 400; letter-spacing: -.03em; }
-.champ { width:100%; background:#fff; border:1px solid rgba(22,26,33,.16); border-radius:.85rem;
-  padding:.95rem 1.15rem; font-size:1rem; color:#161A22; transition:border-color .2s ease; }
-.champ::placeholder { color:#8A93A3; }
-.champ:focus { outline:none; border-color:#2A4AD1; }
-.puce span { display:inline-block; border:1px solid rgba(22,26,33,.16); border-radius:999px;
-  padding:.6rem 1.15rem; font-size:.95rem; color:#2A3340; cursor:pointer;
-  transition:border-color .2s ease, background .2s ease, color .2s ease; }
-.puce:hover span { border-color:#161A22; }
-.puce input:checked + span { border-color:#2A4AD1; background:#E5EAF9; color:#1E3AA6; }
-.puce input:focus-visible + span { outline:2px solid #2A4AD1; outline-offset:2px; }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-  clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-/* annotation manuscrite */
-.hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
-  font-variation-settings: normal; letter-spacing: normal; }
-html { scroll-behavior: smooth; }
-::-webkit-scrollbar { width: 0px; background: transparent; }
-/* Smooth summary animation */
-details > summary { list-style: none; }
-details > summary::-webkit-details-marker { display: none; }
-details[open] summary ~ * { animation: sweep .3s ease-in-out; }
-@keyframes sweep {
-0%    { opacity: 0; transform: translateY(-10px); }
-100%  { opacity: 1; transform: translateY(0); }
-}
-select {
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none;
-background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(253, 252, 248, 0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-background-repeat: no-repeat;
-background-position: right 1rem center;
-background-size: 1em;
-}
-.toggle-checkbox:checked { right: 0; border-color: #2A4AD1; }
-.toggle-checkbox:checked + .toggle-label { background-color: #2A4AD1; }
-.modal-enter { opacity: 0; transform: scale(0.95); }
-.modal-enter-active { opacity: 1; transform: scale(1); transition: opacity 0.3s, transform 0.3s; }
-.modal-exit { opacity: 1; transform: scale(1); }
-.modal-exit-active { opacity: 0; transform: scale(0.95); transition: opacity 0.2s, transform 0.2s; }
+  @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
+  @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
+  @keyframes bila-sweep { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  .hv-1:hover, .hv-1:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-2:hover, .hv-2:focus-visible { background: #101B33 !important; }
+  .hv-3:hover, .hv-3:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
+  .hv-4:hover, .hv-4:focus-visible { color: #2743E3 !important; }
+  .hv-5:hover, .hv-5:focus-visible { background: #2743E3 !important; }
+  .hv-6:hover, .hv-6:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
+  .hv-7:hover, .hv-7:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
 </style>
-<!-- Fonts optimisées -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<style>
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
-</style></head>
-  <body class="bg-[#FAFBFD] text-[#161A22] antialiased overflow-x-hidden selection:bg-[#2A4AD1] selection:text-[#FAFBFD]">
-    <!-- COMMON HEADER START -->
-    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-          Bila.
-        </a>
+</head>
+<body data-nav="contact">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<section style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 34px 0 0; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Avocats
-            </a>
-        </div>
-
-        <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
-            Démarrer un projet
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-            <path d="M4 12h16"></path>
-            <path d="M4 6h16"></path>
-            <path d="M4 18h16"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- COMMON HEADER END -->
-
-    <!-- Hero Section -->
-    <section class="w-full max-w-[74rem] mx-auto px-8 pt-40 pb-16 md:pt-52 md:pb-20">
-      <p class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Contact</p>
-      <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight max-w-[16ch]">
-        Parlons de <span class="italic">votre futur.</span>
-      </h1>
-      <p class="mt-8 max-w-[46ch] text-lg leading-relaxed text-[#2A3340]">
-        Dites-moi ce que vous faites et ce qui vous manque aujourd'hui. Je vous réponds
-        moi-même, et si votre projet ne relève pas de mon métier, je vous le dirai
-        franchement.
-      </p>
-      <p class="hand text-2xl mt-6">réponse sous 24 h, jamais de relance automatique</p>
-    </section>
-
-    <!-- Split Section: Contact Info & Framed Form -->
-    <section class="px-4 md:px-12 max-w-[74rem] mx-auto w-full mb-32 relative z-10" id="contact">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-        <!-- Colonne gauche : joindre le studio -->
-        <div class="lg:col-span-5 flex flex-col gap-12 bg-[#FFF7E8] rounded-[1.75rem] p-6 md:p-8 self-start">
-
-          <div class="flex flex-col gap-3">
-            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473]">Directement</p>
-            <a href="mailto:contact@biladesigns.com" class="text-xl md:text-2xl text-[#161A22] hover:text-[#2A4AD1] transition-colors">contact@biladesigns.com</a>
-            <a href="tel:+33659086800" class="text-xl md:text-2xl text-[#161A22] hover:text-[#2A4AD1] transition-colors">06 59 08 68 00</a>
-          </div>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
-            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-5">Ce qui se passe ensuite</p>
-            <ol class="flex flex-col gap-4 text-[0.98rem] leading-relaxed text-[#2A3340]">
-              <li class="flex gap-4">
-                <span class="text-[#8A93A3] tabular-nums shrink-0">01</span>
-                <span>Je vous réponds sous vingt-quatre heures, avec un premier avis sur votre situation.</span>
-              </li>
-              <li class="flex gap-4">
-                <span class="text-[#8A93A3] tabular-nums shrink-0">02</span>
-                <span>Vingt minutes au téléphone pour cadrer. Ce n'est pas un rendez-vous commercial.</span>
-              </li>
-              <li class="flex gap-4">
-                <span class="text-[#8A93A3] tabular-nums shrink-0">03</span>
-                <span>Vous recevez un devis chiffré, avec le périmètre et la date de livraison.</span>
-              </li>
-            </ol>
-          </div>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
-            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-4">Vous préférez commencer par un diagnostic</p>
-            <p class="text-[0.98rem] leading-relaxed text-[#2A3340] mb-5">
-              Envoyez-moi l'adresse de votre site et je vous renvoie sous vingt-quatre heures
-              un relevé point par point de ce qui ne va pas. C'est gratuit, et il vous reste
-              acquis même sans suite.
-            </p>
-            <a href="/accueil#audit" class="inline-flex items-center gap-2 rounded-full border border-[rgba(22,26,33,0.16)] hover:border-[#161A22] hover:bg-[#EEF1F6] transition-colors text-[0.98rem] text-[#161A22] px-6 py-3">
-              Demander l'audit gratuit
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-8">
-            <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-3">Basé à</p>
-            <p class="text-[0.98rem] text-[#2A3340]">Lyon, France. J'interviens partout en France, à distance.</p>
-          </div>
-
-        </div>
-
-        <!-- Colonne droite : le formulaire -->
-        <div class="lg:col-span-7">
-          <div class="bg-white border border-[rgba(22,26,33,0.12)] rounded-[1.75rem] p-6 md:p-10">
-
-            <p class="hand text-2xl mb-8">Bonjour Mathieu,</p>
-
-            <form action="https://formsubmit.co/matbila63@gmail.com" method="POST" class="flex flex-col gap-8">
-              <input type="hidden" name="_subject" value="Nouveau contact depuis le site">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_honey" style="display:none">
-
-              <!-- Qui vous êtes -->
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" name="nom" required placeholder="Votre nom"
-                  class="champ">
-                <input type="email" name="email" required placeholder="Votre adresse électronique"
-                  class="champ">
-                <input type="text" name="entreprise" placeholder="Votre entreprise"
-                  class="champ">
-                <input type="url" name="site" placeholder="Votre site actuel, s'il existe"
-                  class="champ">
-              </div>
-
-              <!-- Le sujet -->
-              <fieldset>
-                <legend class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-4">C'est à propos de quoi ?</legend>
-                <div class="flex flex-wrap gap-2.5">
-                  <label class="puce"><input type="radio" name="sujet" value="Un site web" class="sr-only" checked><span>Un site web</span></label>
-                  <label class="puce"><input type="radio" name="sujet" value="Une identité, un logo" class="sr-only"><span>Une identité, un logo</span></label>
-                  <label class="puce"><input type="radio" name="sujet" value="De l'automatisation" class="sr-only"><span>De l'automatisation</span></label>
-                  <label class="puce"><input type="radio" name="sujet" value="Le tout" class="sr-only"><span>Le tout</span></label>
-                  <label class="puce"><input type="radio" name="sujet" value="Je ne sais pas encore" class="sr-only"><span>Je ne sais pas encore</span></label>
-                </div>
-              </fieldset>
-
-              <!-- Le budget -->
-              <fieldset>
-                <legend class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-4">
-                  Votre budget, en gros <span class="hand normal-case tracking-normal text-lg ml-1">une estimation suffit</span>
-                </legend>
-                <div class="flex flex-wrap gap-2.5">
-                  <label class="puce"><input type="radio" name="budget" value="moins de 1 500 €" class="sr-only"><span>moins de 1 500 €</span></label>
-                  <label class="puce"><input type="radio" name="budget" value="1 500 à 3 000 €" class="sr-only"><span>1 500 à 3 000 €</span></label>
-                  <label class="puce"><input type="radio" name="budget" value="3 000 à 6 000 €" class="sr-only"><span>3 000 à 6 000 €</span></label>
-                  <label class="puce"><input type="radio" name="budget" value="plus de 6 000 €" class="sr-only"><span>plus de 6 000 €</span></label>
-                  <label class="puce"><input type="radio" name="budget" value="je ne sais pas" class="sr-only" checked><span>je ne sais pas</span></label>
-                </div>
-              </fieldset>
-
-              <!-- L'échéance -->
-              <fieldset>
-                <legend class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-4">Pour quand ?</legend>
-                <div class="flex flex-wrap gap-2.5">
-                  <label class="puce"><input type="radio" name="echeance" value="dès que possible" class="sr-only"><span>dès que possible</span></label>
-                  <label class="puce"><input type="radio" name="echeance" value="ce mois-ci" class="sr-only"><span>ce mois-ci</span></label>
-                  <label class="puce"><input type="radio" name="echeance" value="dans un à trois mois" class="sr-only"><span>dans un à trois mois</span></label>
-                  <label class="puce"><input type="radio" name="echeance" value="je me renseigne" class="sr-only" checked><span>je me renseigne</span></label>
-                </div>
-              </fieldset>
-
-              <!-- Le message -->
-              <div>
-                <label for="message" class="block text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-4">Dites-moi tout</label>
-                <textarea id="message" name="message" rows="5"
-                  placeholder="Ce que vous faites, ce qui vous manque aujourd'hui, ce qui vous prend le plus de temps. Même « je ne sais pas trop » est un bon début."
-                  class="champ resize-none"></textarea>
-              </div>
-
-              <div class="flex flex-wrap items-center gap-4">
-                <button type="submit"
-                  class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-4">
-                  Envoyer
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </button>
-                <p class="hand text-2xl">aucune lettre d'information ne se cache là-dedans</p>
-              </div>
-            </form>
-          </div>
-        </div>
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);">
+    <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;">
+      <div style="position: relative; width: 26px; height: 30px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-right-radius: 12px 30px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-left-radius: 12px 30px;"></div>
       </div>
-    </section>
+      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
+    </a>
+    <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 26px;">
+      <a href="/services/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Sites web &amp; branding</a>
+      <a href="/automatisations/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Automatisations</a>
+      <a href="/avocats/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Avocats</a>
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.2s infinite; pointer-events: none;"></span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1">Démarrer un projet</a>
+      </span>
+    </nav>
+  </header>
 
-    <!-- FAQ Section -->
-    <section class="bg-[#FAFBFD] border-t border-[#161A22]/10 mb-12 w-full">
-        <div class="py-24">
-      <div class="max-w-[74rem] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 md:py-24">
-        <!-- FAQ Title -->
-        <div class="lg:col-span-4">
-          <span class="text-[#2A4AD1] font-bold tracking-widest uppercase text-xs mb-4 block">
-            F.A.Q
+  <div style="position: relative; z-index: 2; margin-top: 96px; padding: 0 var(--gut); display: flex; align-items: flex-end; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Contact</span>
+      <h1 style="margin: 0; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(36px, 22.6px + 3.427vw, 72px); line-height: 1.03; letter-spacing: -0.03em;">Parlons de votre projet.</h1>
+    </div>
+    <p style="margin: 0; max-width: 340px; padding-bottom: 12px; border-left: 1px solid rgba(39,67,227,0.35); padding-left: 22px; font-size: 15px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">Un seul interlocuteur, celui qui fera le travail. Dites-moi où vous en êtes, je vous réponds sous vingt-quatre heures.</p>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin-top: 76px; padding: 0 var(--gut) 108px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 64px; align-items: start;" class="g-2">
+    <div id="formulaire" style="position: relative; box-sizing: border-box; overflow: hidden; display: flex; padding: 1px; background: rgba(16,27,51,0.2);">
+      <span style="position: absolute; left: 50%; top: 50%; width: 150%; height: 300%; transform: translate(-50%, -50%); background: conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(39,67,227,0.35) 300deg, #2743E3 340deg, rgba(39,67,227,0.35) 20deg, transparent 70deg, transparent 360deg); animation: bila-sweep 7s linear infinite; pointer-events: none;"></span>
+      <form data-form method="post" action="https://formsubmit.co/matbila63@gmail.com" novalidate data-sujet="Nouveau projet — message depuis biladesigns.com" data-merci="Bien reçu. Je vous reponds sous vingt-quatre heures."  style="position: relative; z-index: 1; flex: 1 1 auto; box-sizing: border-box; background: #FBFBFA; padding: 44px 40px 40px; display: flex; flex-direction: column; gap: 36px;">
+        <span style="font-family: 'Caveat', cursive; font-size: clamp(16px, 10.1px + 1.523vw, 32px); line-height: 1; color: #2743E3; transform: rotate(-1.2deg);">Bonjour Mathieu,</span>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px;" class="g-2">
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: flex-start; min-height: 26px; font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8F9C;">Votre nom</span>
+            <input type="text" placeholder="Prénom Nom" style="border: none; border-bottom: 1px solid rgba(16,27,51,0.24); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; color: #101B33; outline: none;" name="nom" required data-libelle="votre nom" autocomplete="name">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: flex-start; min-height: 26px; font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8F9C;">Votre adresse électronique</span>
+            <input type="email" placeholder="vous@exemple.fr" style="border: none; border-bottom: 1px solid rgba(16,27,51,0.24); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; color: #101B33; outline: none;" name="email" required data-libelle="votre adresse electronique" autocomplete="email">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: flex-start; min-height: 26px; font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8F9C;">Votre entreprise</span>
+            <input type="text" placeholder="Cabinet, société…" style="border: none; border-bottom: 1px solid rgba(16,27,51,0.24); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; color: #101B33; outline: none;" name="entreprise" autocomplete="organization">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: flex-start; min-height: 26px; font-size: 10px; line-height: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #8A8F9C;">Votre site actuel, s'il existe</span>
+            <input type="url" placeholder="votre-site.fr" style="border: none; border-bottom: 1px solid rgba(16,27,51,0.24); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; color: #101B33; outline: none;" name="site" autocomplete="url">
+          </label>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">C'est à propos de quoi ?</span>
+          <div data-pastilles role="radiogroup" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid #2743E3; background: #2743E3; color: #FFFFFF;"><input type="radio" name="sujet" value="Un site web" checked>Un site web</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="sujet" value="Une identite, un logo">Une identite, un logo</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="sujet" value="De l&#x27;automatisation">De l&#x27;automatisation</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="sujet" value="Le tout">Le tout</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="sujet" value="Je ne sais pas encore">Je ne sais pas encore</label>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+            <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Votre budget, en gros</span>
+            <span style="font-family: 'Caveat', cursive; font-size: 20px; color: #2743E3; transform: rotate(-1deg);">une estimation suffit</span>
+          </div>
+          <div data-pastilles role="radiogroup" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="budget" value="moins de 1 500 €">moins de 1 500 €</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="budget" value="1 500 a 3 000 €">1 500 a 3 000 €</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="budget" value="3 000 a 6 000 €">3 000 a 6 000 €</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="budget" value="plus de 6 000 €">plus de 6 000 €</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid #2743E3; background: #2743E3; color: #FFFFFF;"><input type="radio" name="budget" value="je ne sais pas" checked>je ne sais pas</label>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Pour quand ?</span>
+          <div data-pastilles role="radiogroup" style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="delai" value="des que possible">des que possible</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="delai" value="ce mois-ci">ce mois-ci</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid rgba(16,27,51,0.2); background: transparent; color: #4A5163;"><input type="radio" name="delai" value="dans un a trois mois">dans un a trois mois</label>
+              <label class="pastille" style="display: inline-flex; align-items: center; padding: 10px 17px; cursor: pointer; white-space: nowrap; font-size: 14px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; border: 1px solid #2743E3; background: #2743E3; color: #FFFFFF;"><input type="radio" name="delai" value="je me renseigne" checked>je me renseigne</label>
+          </div>
+        </div>
+
+        <label style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Dites-moi tout</span>
+          <textarea rows="5" name="message" required data-libelle="votre message" placeholder="Ce que vous faites, ce qui vous manque aujourd'hui, ce qui vous prend le plus de temps. Même « je ne sais pas trop » est un bon début." style="box-sizing: border-box; border: 1px solid rgba(16,27,51,0.2); background: transparent; padding: 16px 18px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.6; color: #101B33; outline: none; resize: vertical;"></textarea>
+        </label>
+
+        <div style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap;">
+          <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+            <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.4s infinite; pointer-events: none;"></span>
+            <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.6s infinite; pointer-events: none;"></span>
+            <button type="submit" style="display: inline-flex; align-items: center; gap: 10px; padding: 17px 32px; border: none; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Envoyer <span style="font-size: 14px;">→</span></button>
           </span>
-          <h2 class="text-[2.4rem] md:text-[3.4rem] font-serif text-[#161A22]">
-            Questions
-            <br>
-            Fréquentes
-          </h2>
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="piege" aria-hidden="true"><span style="font-size: 13px; line-height: 1.6; color: #8A8F9C;">Vos informations ne servent qu'à vous répondre. <a href="/politique-confidentialite/" style="color: #8A8F9C; text-decoration: underline;">En savoir plus</a>.</span><span class="form-retour" role="status" aria-live="polite" style="flex: 1 0 100%; margin-top: 6px;"></span>
         </div>
-
-        <!-- FAQ Accordion -->
-        <div class="lg:col-span-8 flex flex-col">
-          <details class="group border-b border-[#161A22]/20">
-            <summary class="flex items-center justify-between cursor-pointer py-8 pr-4">
-              <span class="text-xl md:text-2xl font-serif italic text-[#161A22] group-hover:text-[#2A4AD1] transition-colors">
-                Quels sont vos délais ?
-              </span>
-              <span class="relative flex items-center justify-center w-6 h-6 text-[#161A22]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-6 h-6 transition-transform duration-300 group-open:rotate-45">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="pb-8 text-[#2A4AD1] text-lg leading-relaxed max-w-2xl font-light">
-              <p>
-                Nos délais varient selon l'envergure du projet. Un site vitrine
-                prend généralement entre 3 et 5 semaines, tandis qu'une refonte
-                complète de branding peut prendre 6 à 8 semaines.
-              </p>
-            </div>
-          </details>
-
-          <details class="group border-b border-[#161A22]/20">
-            <summary class="flex items-center justify-between cursor-pointer py-8 pr-4">
-              <span class="text-xl md:text-2xl font-serif italic text-[#161A22] group-hover:text-[#2A4AD1] transition-colors">
-                Proposez-vous la maintenance après la mise en ligne ?
-              </span>
-              <span class="relative flex items-center justify-center w-6 h-6 text-[#161A22]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus w-6 h-6 transition-transform duration-300 group-open:rotate-45">
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="pb-8 text-[#2A4AD1] text-lg leading-relaxed max-w-2xl font-light">
-              <p>
-                Oui, en effet ! Nous assurons la maintenance et le suivi de votre site après sa mise en ligne, pour garantir que tout fonctionne parfaitement, effectuer les mises à jour nécessaires et vous accompagner en cas de besoin.
-              </p>
-            </div>
-          </details>
-
-          <details class="group border-b border-[#161A22]/20">
-            <summary class="flex cursor-pointer pt-8 pr-4 pb-8 items-center justify-between">
-              <span class="md:text-2xl group-hover:text-[#2A4AD1] transition-colors text-xl italic text-[#161A22] font-serif">
-                Comment se passe la communication pendant le projet ?
-              </span>
-              <span class="relative flex items-center justify-center w-6 h-6 text-[#161A22]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus transition-transform duration-300 group-open:rotate-45 w-[24px] h-[24px]" data-icon-replaced="true" style="color: rgb(15, 47, 40); width: 24px; height: 24px;">
-                  <path d="M5 12h14" class=""></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="pb-8 text-[#2A4AD1] text-lg leading-relaxed max-w-2xl font-light">
-              <p>
-                La communication commence par la présentation d’une direction artistique, suivie d’un premier appel de présentation pour échanger sur vos attentes. Ensuite, je fournis un lien direct où vous pouvez suivre en temps réel l’évolution de la création de votre site. Ce suivi transparent et régulier garantit un résultat conforme à vos objectifs et facilite les ajustements tout au long du projet.
-              </p>
-            </div>
-          </details>
-
-          <details class="group border-b border-[#161A22]/20">
-            <summary class="flex cursor-pointer pt-8 pr-4 pb-8 items-center justify-between">
-              <span class="md:text-2xl group-hover:text-[#2A4AD1] transition-colors text-xl italic text-[#161A22] font-serif">
-                Comment établissez-vous vos devis ?
-              </span>
-              <span class="relative flex items-center justify-center w-6 h-6 text-[#161A22]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus transition-transform duration-300 group-open:rotate-45 w-[24px] h-[24px]" data-icon-replaced="true" style="color: rgb(15, 47, 40); width: 24px; height: 24px;">
-                  <path d="M5 12h14" class=""></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="pb-8 text-[#2A4AD1] text-lg leading-relaxed max-w-2xl font-light">
-              <p>
-                Nos devis sont personnalisés et dépendent de plusieurs facteurs : le nombre de pages du site, les intégrations spécifiques (comme la prise de rendez-vous en ligne) et le contenu fourni. Nous prenons en compte si le contenu doit être créé ou simplement intégré, afin de proposer un tarif juste et adapté à chaque projet.
-              </p>
-            </div>
-          </details>
-
-          <details class="group border-b border-[#161A22]/20">
-            <summary class="flex cursor-pointer pt-8 pr-4 pb-8 items-center justify-between">
-              <span class="md:text-2xl group-hover:text-[#2A4AD1] transition-colors text-xl italic text-[#161A22] font-serif">
-                Quelles technologies utilisez-vous ?
-              </span>
-              <span class="relative flex items-center justify-center w-6 h-6 text-[#161A22]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus transition-transform duration-300 group-open:rotate-45 w-[24px] h-[24px]" data-icon-replaced="true" style="color: rgb(15, 47, 40); width: 24px; height: 24px;">
-                  <path d="M5 12h14" class=""></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </summary>
-            <div class="pb-8 text-[#2A4AD1] text-lg leading-relaxed max-w-2xl font-light">
-              <p>
-                Initialement, nous développions principalement sur WordPress. Aujourd’hui, nous avons révolutionné notre approche en utilisant des outils de nouvelle génération comme Lovable et Aura.build, qui nous permettent de concevoir des sites web plus rapides, flexibles et sur-mesure, tout en conservant un haut niveau de design et de performance.
-              </p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </div>
-      </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
-      <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
-
-        <!-- Accroche -->
-        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
-        </h2>
-
-        <!-- Filet traversé par le bouton -->
-        <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
-          <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
-          <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Coordonnées -->
-        <div class="flex flex-wrap items-center gap-3 font-manrope mb-16 md:mb-20">
-          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">contact@biladesigns.com</a>
-          <a href="tel:+33659086800" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">06 59 08 68 00</a>
-        </div>
-
-        <!-- Ligne du bas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">2026 © Édition</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#B9C0CB] tabular-nums" data-horloge>—</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">Lyon, France</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#B9C0CB]">
-              <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#B9C0CB] font-manrope border-t border-white/12 mt-8 pt-8">
-          <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
-          <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
-          <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
-          <a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a>
-          <a href="/agence" class="hover:text-white transition-colors">L'agence</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-          <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
-          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
-        </div>
-
-      </div>
-      <script>
-        (function () {
-          var cibles = document.querySelectorAll('[data-horloge]');
-          if (!cibles.length) return;
-          function tic() {
-            var h = new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-            });
-            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
-          }
-          tic();
-          setInterval(tic, 20000);
-        })();
-      </script>
-    </footer>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-      <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-        <a href="/automatisations" class="hover:opacity-70 transition-opacity">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity">
-              Avocats
-            </a>
-        <a href="/nouveau-projet" class="mobile-link mt-4 px-8 py-3 bg-teal-700 text-white rounded-full font-manrope not-italic text-lg hover:bg-teal-800 transition-all">Démarrer un projet</a>
-        <a href="/contact" class="mobile-link px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
-      </nav>
+      </form>
     </div>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
-              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
-              <path d="M8.5 8.5v.01"></path>
-              <path d="M16 15.5v.01"></path>
-              <path d="M12 12v.01"></path>
-              <path d="M11 17v.01"></path>
-              <path d="M7 14v.01"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg text-[#161A22] mb-1">
-              Votre vie privée
-            </h3>
-            <p class="text-xs text-[#2A4AD1] leading-relaxed">
-              Nous utilisons des cookies pour améliorer votre expérience,
-              analyser le trafic et personnaliser le contenu.
-            </p>
-          </div>
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Direct</span>
+        <a href="mailto:mathieu@biladesigns.com" style="font-family: 'Fraunces', Georgia, serif; font-size: 26px; letter-spacing: -0.015em; color: #101B33; border-bottom: 1px solid rgba(16,27,51,0.2); padding-bottom: 6px;" class="hv-3">mathieu@biladesigns.com</a>
+        <a href="tel:+33659086800" style="font-size: 17px; font-weight: 500; color: #4A5163;" class="hv-4">06 59 08 68 00</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(16,27,51,0.14);">
+        <div style="display: flex; align-items: baseline; gap: 16px; padding: 18px 0 16px; border-bottom: 1px solid rgba(16,27,51,0.1);">
+          <span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">01</span>
+          <span style="font-size: 14px; line-height: 1.6; color: #101B33;">Je vous réponds sous vingt-quatre heures.</span>
         </div>
-        <div class="flex flex-col gap-2">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
-              Refuser
-            </button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
-              Personnaliser
-            </button>
-          </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">
-            Tout Accepter
-          </button>
+        <div style="display: flex; align-items: baseline; gap: 16px; padding: 18px 0 16px; border-bottom: 1px solid rgba(16,27,51,0.1);">
+          <span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">02</span>
+          <span style="font-size: 14px; line-height: 1.6; color: #101B33;">Vingt minutes au téléphone pour comprendre votre situation.</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 16px; padding: 18px 0 16px; border-bottom: 1px solid rgba(16,27,51,0.1);">
+          <span style="flex: 0 0 auto; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; color: #2743E3;">03</span>
+          <span style="font-size: 14px; line-height: 1.6; color: #101B33;">Une proposition écrite, chiffrée, avec un calendrier.</span>
         </div>
       </div>
+
+      <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1deg);">pas de rendez-vous commercial, pas de relance insistante</span>
     </div>
+  </div>
+</section>
 
-    <!-- Cookie Preferences Modal (Acts as the "Cookie Policy Page") -->
-    <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <!-- Backdrop -->
-      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
+<section style="position: relative; background: #F6F6F3; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; border-top: 1px solid rgba(16,27,51,0.12); border-bottom: 1px solid rgba(16,27,51,0.12);">
+  <div style="position: relative; z-index: 2; padding: 42px var(--rail); display: flex; align-items: center; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap;">
+      <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #2743E3; white-space: nowrap;">Audit gratuit</span>
+      <span style="width: 1px; height: 22px; background: rgba(16,27,51,0.18);"></span>
+      <span style="font-family: 'Fraunces', Georgia, serif; font-size: 25px; font-weight: 400; letter-spacing: -0.015em; color: #101B33;">Envoyez le lien de votre site, je vous dis ce qui ne va pas.</span>
+    </div>
+    <form style="display: flex; align-items: center; gap: 26px; flex-wrap: wrap;" data-form data-sujet="Audit gratuit — demande depuis le site" data-merci="Bien reçu. Vous recevez l’audit sous vingt-quatre heures." method="post" action="https://formsubmit.co/matbila63@gmail.com" novalidate>
+      <input type="url" placeholder="votre-site.fr" style="width: 168px; border: none; border-bottom: 1px solid rgba(16,27,51,0.2); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 14px; color: #101B33; outline: none;" name="site" required aria-label="Adresse de votre site" data-libelle="l’adresse de votre site" autocomplete="url">
+      <input type="email" placeholder="vous@exemple.fr" style="width: 186px; border: none; border-bottom: 1px solid rgba(16,27,51,0.2); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 14px; color: #101B33; outline: none;" name="email" required aria-label="Votre adresse electronique" data-libelle="votre adresse electronique" autocomplete="email">
+      <button type="submit" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 27px; border: none; border-radius: 999px; background: #101B33; color: #FFFFFF; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap;" class="hv-5">Recevoir l'audit <span style="font-size: 12px; letter-spacing: 0;">→</span></button>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="piege" aria-hidden="true">
+      <span style="flex: 1 0 100%; margin-top: 4px; font-size: 12px; line-height: 1.6; color: #8A8F9C;">Votre adresse ne sert qu’a vous envoyer cet audit. <a href="/politique-confidentialite/" style="color: #8A8F9C; text-decoration: underline;">En savoir plus</a>.</span>
+      <span class="form-retour" role="status" aria-live="polite" style="flex: 1 0 100%; "></span>
+    </form>
+  </div>
+</section>
 
-      <!-- Modal Content -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div class="p-6 md:p-8">
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">
-                Préférences Cookies
-              </h2>
-              <p class="text-sm text-[#2A4AD1]">
-                Gérez vos préférences de consentement pour chaque catégorie.
-              </p>
-            </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-                <path d="M18 6 6 18"></path>
-                <path d="m6 6 12 12"></path>
-              </svg>
-            </button>
+<section style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 0; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; padding: 96px var(--gut) 96px; display: flex; flex-direction: column; align-items: flex-start; gap: 26px;">
+    <h2 style="margin: 0; max-width: 820px; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(23px, 14.5px + 2.19vw, 46px); line-height: 1.08; letter-spacing: -0.025em;">Vous hésitez encore ? Regardez le travail.</h2>
+    <div style="display: flex; align-items: center; gap: 30px; flex-wrap: wrap;">
+      <a href="/services/" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-6">Sites web &amp; branding <span style="font-size: 13px;">↗</span></a>
+      <a href="/avocats/" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-7">Cabinets d'avocats <span style="font-size: 13px;">↗</span></a>
+    </div>
+  </div>
+
+  <footer style="position: relative; z-index: 2; padding: 44px var(--gut) 40px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 220px; background: #FBFBFA; padding-right: 18px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="position: relative; width: 22px; height: 26px; overflow: hidden; background: #2743E3;">
+            <div style="position: absolute; left: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-right-radius: 10px 26px;"></div>
+            <div style="position: absolute; right: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-left-radius: 10px 26px;"></div>
           </div>
-
-          <div class="space-y-6">
-            <!-- Essential -->
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#161A22]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">
-                    Requis
-                  </span>
-                </div>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
-                  Nécessaires au bon fonctionnement du site (sécurité,
-                  chargement des images, préférences de cookies).
-                </p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
-              </div>
-            </div>
-
-            <!-- Analytics -->
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">
-                  Analytique
-                </span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
-                  Nous permettent de comprendre comment vous utilisez le site
-                  (pages visitées, temps passé) pour l'améliorer.
-                </p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-
-            <!-- Marketing -->
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">
-                  Marketing
-                </span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
-                  Utilisés pour afficher du contenu tiers comme notre calendrier
-                  de réservation Calendly ou des vidéos.
-                </p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-
-            <!-- Performance -->
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">
-                  Performance
-                </span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
-                  Optimisent la vitesse de chargement et l'affichage des
-                  ressources multimédias.
-                </p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-
-            <!-- Preferences -->
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">
-                  Préférences
-                </span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">
-                  Permettent au site de se souvenir de vos choix (langue,
-                  région, etc.).
-                </p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-          </div>
-
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">
-              Tout Refuser
-            </button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">
-              Enregistrer mes choix
-            </button>
-          </div>
+          <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
         </div>
+        <span style="font-size: 13px; line-height: 1.7; color: #6B7280;">Studio indépendant de design et d'automatisation.<br>Basé à Lyon, France.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Prestations</span>
+        <a href="/services/" style="font-size: 14px; color: #2C3348;">Sites web &amp; référencement</a>
+        <a href="/services/" style="font-size: 14px; color: #2C3348;">Rebranding</a>
+        <a href="/automatisations/" style="font-size: 14px; color: #2C3348;">Automatisations</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Studio</span>
+        <a href="/accueil/#realisations" style="font-size: 14px; color: #2C3348;">Portfolio</a>
+        <a href="/accueil/#audit" style="font-size: 14px; color: #2C3348;">Audit gratuit</a>
+        <a href="#formulaire" style="font-size: 14px; color: #2C3348;">Contact</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Réseaux</span>
+        <a href="https://www.instagram.com/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;">Instagram</a>
+        <a href="https://www.linkedin.com/company/biladesigns" target="_blank" rel="noopener" style="font-size: 14px; color: #2C3348;">LinkedIn</a>
       </div>
     </div>
-
-    <script>
-      // Lucide icons - attendre le chargement
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-        }
-      });
-
-      // Navigation Mobile
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const closeBtn = document.getElementById('mobile-menu-close');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      function openMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = 'hidden';
-          if (menuIcon) menuIcon.classList.add('opacity-0');
-          if (closeIcon) closeIcon.classList.remove('opacity-0');
-        }
-      }
-
-      function closeMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = '';
-          if (menuIcon) menuIcon.classList.remove('opacity-0');
-          if (closeIcon) closeIcon.classList.add('opacity-0');
-        }
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
-      });
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // GDPR Cookie Manager Logic
-      const cookieManager = {
-        consent: {
-            essential: true,
-            analytics: false,
-            marketing: false,
-            performance: false,
-            preferences: false
-        },
-        gaLoaded: false,
-
-        init() {
-            const storedConsent = localStorage.getItem('bila_cookie_consent');
-            if (storedConsent) {
-                this.consent = JSON.parse(storedConsent);
-                this.runScripts();
-            } else {
-                this.showBanner();
-            }
-        },
-
-        loadGoogleAnalytics() {
-            if (this.gaLoaded) return;
-            this.gaLoaded = true;
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
-            document.head.appendChild(script);
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-8CXZ6K9C2R');
-        },
-
-        showBanner() {
-            const banner = document.getElementById('cookie-banner');
-            banner.classList.remove('hidden');
-            // Small delay for animation
-            setTimeout(() => {
-                banner.classList.remove('translate-y-20', 'opacity-0');
-            }, 100);
-        },
-
-        hideBanner() {
-            const banner = document.getElementById('cookie-banner');
-            banner.classList.add('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                banner.classList.add('hidden');
-            }, 500);
-        },
-
-        openPreferences() {
-            // Load current state into checkboxes
-            document.getElementById('cookie_analytics').checked = this.consent.analytics;
-            document.getElementById('cookie_marketing').checked = this.consent.marketing;
-            document.getElementById('cookie_performance').checked = this.consent.performance;
-            document.getElementById('cookie_preferences').checked = this.consent.preferences;
-
-            document.getElementById('cookie-preferences').classList.remove('hidden');
-        },
-
-        closePreferences() {
-            document.getElementById('cookie-preferences').classList.add('hidden');
-        },
-
-        acceptAll() {
-            this.consent = {
-                essential: true,
-                analytics: true,
-                marketing: true,
-                performance: true,
-                preferences: true
-            };
-            this.saveAndRun();
-        },
-
-        refuseAll() {
-            this.consent = {
-                essential: true,
-                analytics: false,
-                marketing: false,
-                performance: false,
-                preferences: false
-            };
-            this.saveAndRun();
-        },
-
-        savePreferences() {
-            this.consent.analytics = document.getElementById('cookie_analytics').checked;
-            this.consent.marketing = document.getElementById('cookie_marketing').checked;
-            this.consent.performance = document.getElementById('cookie_performance').checked;
-            this.consent.preferences = document.getElementById('cookie_preferences').checked;
-
-            this.closePreferences();
-            this.saveAndRun();
-        },
-
-        saveAndRun() {
-            localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
-            this.hideBanner();
-            this.runScripts();
-        },
-
-        runScripts() {
-            // Handle Analytics Scripts (Google Analytics)
-            if (this.consent.analytics) {
-                this.loadGoogleAnalytics();
-            }
-
-            // Handle Marketing Scripts (e.g., Calendly)
-            if (this.consent.marketing) {
-                const calendlyScript = document.getElementById('calendly-script');
-                if (calendlyScript && calendlyScript.getAttribute('data-src')) {
-                    // Create a new script element to trigger execution
-                    const newScript = document.createElement('script');
-                    newScript.src = calendlyScript.getAttribute('data-src');
-                    newScript.async = true;
-                    document.body.appendChild(newScript);
-
-                    // Cleanup attributes to prevent re-running
-                    calendlyScript.removeAttribute('data-src');
-
-                    // Show Calendly Container, Hide Warning
-                    document.getElementById('calendly-blocked-message').classList.add('hidden');
-                    document.getElementById('calendly-container').classList.remove('hidden');
-                }
-            }
-        }
-      };
-
-      // Initialize on load
-      document.addEventListener('DOMContentLoaded', () => {
-          cookieManager.init();
-      });
-    </script>
-
-</body></html>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid rgba(16,27,51,0.1); padding-top: 22px;">
+      <span style="background: #FBFBFA; padding: 0 14px 0 0; font-size: 12px; color: #8A8F9C;">2026 © Bila Designs — Édition</span>
+      <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; background: #FBFBFA; padding: 0 14px;">
+        <a href="/mentions-legales/" style="font-size: 12px; color: #8A8F9C;">Mentions légales</a>
+        <a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>
+        <a href="/politique-confidentialite/#cookies" style="font-size: 12px; color: #8A8F9C;">Gestion des cookies</a>
+      </div>
+    </div>
+  </footer>
+</section>
+</main>
+<script src="/assets/js/bila-motion.js" defer></script>
+<script src="/assets/js/bila-ui.js" defer></script>
+</body>
+</html>
