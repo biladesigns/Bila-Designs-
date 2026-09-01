@@ -1,768 +1,554 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sites web &amp; branding — Bila Designs</title>
+<meta name="description" content="Notre processus de creation : strategie et identite, interface web, rebranding global. Referencement traite des le cadrage, pas en option.">
+<link rel="canonical" href="https://www.biladesigns.com/services">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sites web et branding | Bila Designs</title>
-<meta name="description" content="Conception de sites web et d'identités visuelles pour les entreprises de services. Méthode en quatre étapes, livraison en six semaines.">
-<meta name="keywords" content="services web design, création site web, branding, identité visuelle, audit UX, stratégie digitale">
-<!-- Open Graph -->
-<meta property="og:title" content="Services | Bila Designs">
-<meta property="og:description" content="Création de sites web, identité de marque, stratégie digitale et audit UX. Solutions sur-mesure.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://biladesigns.com/services">
+<meta property="og:site_name" content="Bila Designs">
 <meta property="og:locale" content="fr_FR">
-<!-- Twitter Card -->
+<meta property="og:title" content="Sites web &amp; branding — Bila Designs">
+<meta property="og:description" content="Notre processus de creation : strategie et identite, interface web, rebranding global. Referencement traite des le cadrage, pas en option.">
+<meta property="og:url" content="https://www.biladesigns.com/services">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Services | Bila Designs">
-<meta name="twitter:description" content="Création de sites web, identité de marque et stratégie digitale.">
-<link rel="canonical" href="https://biladesigns.com/services">
-<!-- Preconnect pour optimiser le chargement -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://unpkg.com">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    fontFamily: {
-      sans:  ['Poppins','system-ui','sans-serif'],
-      serif: ['Fraunces','Georgia','serif'],
-    },
- colors: {
-    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
-            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
-    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
-    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
-    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
-  } } }
-}
-</script>
-<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/img/hero-atelier.png" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/bila.css">
 <style>
-body { font-family: 'Poppins', system-ui, sans-serif; }
-h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
-  font-weight: 700; letter-spacing: -.02em; }
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
-.footer-titre { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  font-weight: 400; letter-spacing: -.03em; }
-/* annotation manuscrite */
-.hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
-  font-variation-settings: normal; letter-spacing: normal; }
-html { scroll-behavior: smooth; }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar { -ms-overflow-style: none;  scrollbar-width: none; }
-/* Animation for the hero text reveal */
-@keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.animate-reveal { animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-/* Sticky Sidebar Logic: Active state marker */
-.step-marker { transition: all 0.5s ease; }
-.group:hover .step-marker { background-color: #2A4AD1; border-color: #2A4AD1; color: white; }
-/* Mobile Card Tilt Animation (Scroll Hint) */
-@keyframes cardHint {
-0%, 100% { transform: rotate(0deg) translateX(0); }
-50% { transform: rotate(1.5deg) translateX(4px); }
-}
-/* Apply only on mobile, specific duration and easing */
-.mobile-scroll-hint { animation: cardHint 4s ease-in-out infinite; }
-/* Reset on desktop */
-@media (min-width: 768px) {
-.mobile-scroll-hint { animation: none; transform: none; }
-}
-/* SEO Cards Animation */
-.seo-card {
-  opacity: 0;
-  transform: translateY(60px);
-  -webkit-transform: translateY(60px);
-}
-.seo-card.animate {
-  -webkit-animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-.seo-card:nth-child(1).animate { -webkit-animation-delay: 0s; animation-delay: 0s; }
-.seo-card:nth-child(2).animate { -webkit-animation-delay: 0.15s; animation-delay: 0.15s; }
-.seo-card:nth-child(3).animate { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
-@-webkit-keyframes seoCardReveal {
-  from { opacity: 0; -webkit-transform: translateY(60px) scale(0.95); transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; -webkit-transform: translateY(0) scale(1); transform: translateY(0) scale(1); }
-}
-@keyframes seoCardReveal {
-  from { opacity: 0; transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-/* Fallback: si pas de JS ou animation échoue */
-.no-js .seo-card, .seo-card.visible { opacity: 1; transform: translateY(0); }
-</style>
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
-<style>
+  @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
+  @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
+  .hv-1:hover, .hv-1:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-2:hover, .hv-2:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-3:hover, .hv-3:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
+  .hv-4:hover, .hv-4:focus-visible { background: rgba(39,67,227,0.05) !important; }
+  .hv-5:hover, .hv-5:focus-visible { background: rgba(39,67,227,0.05) !important; }
+  .hv-6:hover, .hv-6:focus-visible { background: rgba(39,67,227,0.05) !important; }
+  .hv-7:hover, .hv-7:focus-visible { opacity: 1 !important; }
+  .hv-8:hover, .hv-8:focus-visible { opacity: 1 !important; }
+  .hv-9:hover, .hv-9:focus-visible { opacity: 1 !important; }
+  .hv-10:hover, .hv-10:focus-visible { opacity: 1 !important; }
+  .hv-11:hover, .hv-11:focus-visible { opacity: 1 !important; }
+  .hv-12:hover, .hv-12:focus-visible { opacity: 1 !important; }
+  .hv-13:hover, .hv-13:focus-visible { opacity: 1 !important; }
+  .hv-14:hover, .hv-14:focus-visible { opacity: 1 !important; }
+  .hv-15:hover, .hv-15:focus-visible { background: #101B33 !important; }
 </style>
 </head>
-<body class="bg-[#FAFBFD] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+<body data-nav="services">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<section style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 34px 0 118px; overflow: hidden;">
+  <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 68%; overflow: hidden;">
+    <img src="/assets/img/hero-atelier.png" alt="Atelier au trait : panneaux de charte, spécimens typographiques et gammes de bleus suspendus dans un espace en perspective" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 58%;" loading="eager" fetchpriority="high" decoding="async">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, #FBFBFA 0%, rgba(251,251,250,0.9) 16%, rgba(251,251,250,0.3) 34%, rgba(251,251,250,0) 52%);"></div>
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 130px; background: linear-gradient(to top, #FBFBFA 0%, rgba(251,251,250,0) 100%);"></div>
+  </div>
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; left: 0; width: 63%; top: 74%; height: 1px; background: rgba(16,27,51,0.13); transform: rotate(-8deg); transform-origin: right center;"></div>
+    <div style="position: absolute; left: 0; width: 63%; top: 74%; height: 1px; background: rgba(39,67,227,0.2); transform: rotate(6deg); transform-origin: right center;"></div>
+    <div style="position: absolute; left: 63%; top: 74%; width: 8px; height: 8px; margin: -4px 0 0 -4px; background: #2743E3; transform: rotate(45deg);"></div>
+  </div>
 
-    <!-- COMMON HEADER START -->
-    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-          Bila.
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Avocats
-            </a>
-        </div>
-
-        <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
-            Démarrer un projet
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-            <path d="M4 12h16"></path>
-            <path d="M4 6h16"></path>
-            <path d="M4 18h16"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- COMMON HEADER END -->
-
-      <!-- Services Hero Section -->
-      <section class="bg-[#FAFBFD] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="pt-48 pb-20 md:pt-60 md:pb-32 px-6 md:px-12 mx-auto">
-        <div class="max-w-4xl">
-          <p class="text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Méthode</p>
-          <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight text-stone-900 mb-8 animate-reveal">
-            Notre <span class="italic text-teal-600 font-normal serif">Processus</span>
-            <br>de Création.
-          </h1>
-            <p class="hand text-2xl mt-4">et ce qu'on automatise ensuite</p>
-          <p class="text-lg md:text-2xl text-stone-500 font-light max-w-xl leading-relaxed animate-reveal delay-200">
-            Une approche en trois temps pour transformer votre vision en une marque qui tient dans le temps.
-          </p>
-        </div>
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);">
+    <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;">
+      <div style="position: relative; width: 26px; height: 30px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-right-radius: 12px 30px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-left-radius: 12px 30px;"></div>
       </div>
-        </div>
-      </section>
+      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
+    </a>
+    <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 28px;">
+      <a href="#" aria-current="page" style="white-space: nowrap; font-size: 14px; font-weight: 600; color: #2743E3;">Sites web &amp; branding</a>
+      <a href="/accueil/#agents" style="font-size: 14px; font-weight: 500; color: #2C3348;">Automatisations</a>
+      <a href="/accueil/#realisations" style="font-size: 14px; font-weight: 500; color: #2C3348;">Portfolio</a>
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.2s infinite; pointer-events: none;"></span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1">Démarrer un projet</a>
+      </span>
+    </nav>
+  </header>
 
-      <!-- The 3-Step Structure Layout -->
-      <section class="relative w-full px-6 md:px-12 pb-32 max-w-[74rem] mx-auto">
-        <div class="flex flex-col md:flex-row gap-12 md:gap-24">
-          
-          <!-- LEFT SIDEBAR (Sticky Navigation) -->
-          <aside class="hidden md:block w-1/4 min-w-[280px]">
-            <div class="sticky top-40 flex flex-col gap-8 border-l border-stone-200 pl-8">
-              <span class="text-xs font-bold tracking-widest uppercase text-stone-400 mb-2">Étapes Clés</span>
-              <a href="#step-1" class="group flex items-center gap-4 opacity-100 hover:opacity-100 transition-opacity">
-                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white group-hover:bg-stone-900 group-hover:text-white group-hover:border-stone-900">1</div>
-                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Fondation &amp; Stratégie</span>
-              </a>
-              <a href="#step-2" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
-                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">2</div>
-                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Interface Web</span>
-              </a>
-              <a href="#step-3" class="group flex items-center gap-4 opacity-60 hover:opacity-100 transition-opacity">
-                <div class="step-marker w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-xs font-medium text-stone-500 bg-white">3</div>
-                <span class="serif text-xl italic text-stone-900 group-hover:translate-x-1 transition-transform">Rebranding Global</span>
-              </a>
-            </div>
-          </aside>
-
-          <!-- RIGHT CONTENT -->
-          <div class="flex-1 flex flex-col gap-24 md:gap-40">
-            
-            <!-- STEP 1 -->
-            <div id="step-1" class="group scroll-mt-40">
-              <div class="border-t border-stone-900 mb-6 w-12 pt-4">
-                 <span class="text-sm font-bold tracking-widest text-teal-600 uppercase">Phase 01</span>
-              </div>
-              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 mb-8">
-                Stratégie &amp; Identité.
-              </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="text-lg text-stone-600 font-light leading-relaxed">
-                  <p class="mb-6">
-                    Tout commence par une immersion. Avant de dessiner, nous définissons l'âme de votre projet. Cette première phase pose les bases de votre discours et de votre univers visuel initial.
-                  </p>
-                  <ul class="flex flex-col gap-3 mt-8">
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Audit de marque &amp; positionnement
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Direction Artistique (Moodboards)
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Logotype &amp; Typographie
-                    </li>
-                  </ul>
-                </div>
-                <div class="relative h-80 w-full bg-[#E8E6E1] rounded-2xl overflow-hidden flex items-center justify-center">
-                  <div class="absolute w-40 h-40 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 bottom-10 right-10"></div>
-                  <div class="z-10 bg-white/40 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-lg">
-                    <div class="serif text-4xl italic text-stone-900">Aa</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- STEP 2 -->
-            <div id="step-2" class="group scroll-mt-40">
-              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
-                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 02</span>
-              </div>
-              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 mb-8">
-                Création Digitale.
-              </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="text-lg text-stone-600 font-light leading-relaxed">
-                  <p class="mb-6">
-                    Nous traduisons votre stratégie en une expérience interactive. Votre site web n'est pas une simple vitrine, c'est un outil de conversion alliant esthétique éditoriale et performance technique.
-                  </p>
-                  <ul class="flex flex-col gap-3 mt-8">
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Maquettes et ergonomie
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Développement (Webflow / Next.js)
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Animations &amp; Intéractions
-                    </li>
-                  </ul>
-                </div>
-                <div class="relative h-80 w-full bg-stone-900 rounded-2xl overflow-hidden flex items-center justify-center border border-stone-800">
-                  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#8FA4E8 1px, transparent 1px); background-size: 20px 20px;"></div>
-                  <div class="w-2/3 h-40 bg-stone-800 rounded border border-stone-700 shadow-2xl flex flex-col p-3 gap-2 group-hover:scale-105 transition-transform duration-500">
-                     <div class="flex gap-1.5 mb-1">
-                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
-                        <div class="w-2 h-2 rounded-full bg-stone-600"></div>
-                     </div>
-                     <div class="w-full h-full bg-stone-700/50 rounded flex items-center justify-center">
-                        <span class="text-teal-500/50 text-xs font-mono">&lt;Code /&gt;</span>
-                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- STEP 3 -->
-            <div id="step-3" class="group scroll-mt-40">
-              <div class="border-t border-stone-200 mb-6 w-12 pt-4">
-                 <span class="text-sm font-bold tracking-widest text-stone-400 group-hover:text-teal-600 transition-colors uppercase">Phase 03</span>
-              </div>
-              <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-stone-900 mb-8">
-                Rebranding Complet.
-              </h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="text-lg text-stone-600 font-light leading-relaxed">
-                  <p class="mb-6">
-                    Une fois le site en place, nous étendons votre nouvelle identité à l'ensemble de votre écosystème. C'est l'étape de la maturité : une refonte globale pour assurer une cohérence totale sur tous les supports.
-                  </p>
-                  <ul class="flex flex-col gap-3 mt-8">
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Charte Graphique Étendue
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Supports Marketing (Print &amp; Social)
-                    </li>
-                    <li class="flex items-center gap-3 text-stone-800">
-                      <i data-lucide="check" class="w-5 h-5 text-teal-500"></i> Brand Book &amp; Guidelines
-                    </li>
-                  </ul>
-                </div>
-                <div class="relative h-80 w-full bg-gradient-to-br from-[#2A4AD1] to-[#1E3AA6] rounded-2xl overflow-hidden flex items-center justify-center">
-                  <div class="absolute inset-0 bg-white/10 backdrop-blur-3xl"></div>
-                   <div class="relative z-10 flex flex-col items-center">
-                      <div class="text-white text-5xl serif italic mb-2">Bila.</div>
-                      <span class="text-teal-100 text-xs tracking-[0.3em] uppercase">Collection 2025</span>
-                   </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Le référencement, tenu par des agents -->
-      <section class="bg-[#FFF7E8] border-t border-[rgba(22,26,33,0.12)] w-full">
-        <div class="py-20 md:py-28">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-
-          <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
-            Un site sans référencement <span class="italic">est une coquille vide.</span>
-          </h2>
-          <p class="mt-7 max-w-[54ch] text-lg leading-relaxed text-[#2A3340]">
-            Le référencement ne se constate pas le jour de la livraison, il se construit sur
-            des mois. Je ne vous laisse donc pas un site et un rapport : je vous laisse un
-            système d'agents qui contrôlent, mesurent et signalent, à intervalle fixe.
-          </p>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 mt-16">
-
-            <div class="border-t border-[rgba(22,26,33,0.12)] pt-7">
-              <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-5">Chaque jour</p>
-              <ul class="flex flex-col gap-3 text-[0.95rem] leading-relaxed text-[#2A3340]">
-                <li>Erreurs d'exploration et pages tombées en 404</li>
-                <li>Temps de réponse du serveur et chute de vitesse</li>
-                <li>Certificat, redirections et disponibilité</li>
-              </ul>
-            </div>
-
-            <div class="border-t border-[rgba(22,26,33,0.12)] pt-7">
-              <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-5">Chaque semaine</p>
-              <ul class="flex flex-col gap-3 text-[0.95rem] leading-relaxed text-[#2A3340]">
-                <li>Positions sur vos requêtes, et ce qui a bougé</li>
-                <li>Titres trop longs, descriptions manquantes, doublons</li>
-                <li>Pages nouvellement indexées, ou désindexées</li>
-                <li>Validité des données structurées</li>
-              </ul>
-            </div>
-
-            <div class="border-t border-[rgba(22,26,33,0.12)] pt-7">
-              <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-5">Chaque mois</p>
-              <ul class="flex flex-col gap-3 text-[0.95rem] leading-relaxed text-[#2A3340]">
-                <li>Ce que répondent les assistants IA sur votre métier</li>
-                <li>Cohérence entre le site, la fiche Google et les annuaires</li>
-                <li>Un article publié, écrit puis relu par vous</li>
-                <li>Un point écrit, sans jargon, de ce qui a changé</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="mt-20 border-t border-[rgba(22,26,33,0.12)] pt-12">
-            <h3 class="text-[1.35rem] md:text-[1.7rem] tracking-tight mb-8">Comment c'est branché</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-              <div>
-                <h4 class="text-[1.02rem] mb-2">Exploration du site</h4>
-                <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Un robot parcourt vos pages comme le ferait Google, relève chaque titre, chaque description, chaque lien interne, et compare au relevé de la veille.</p>
-              </div>
-              <div>
-                <h4 class="text-[1.02rem] mb-2">Search Console et données de position</h4>
-                <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Les données de Google sont récupérées automatiquement, ce qui évite d'aller les lire à la main dans une interface que personne n'ouvre.</p>
-              </div>
-              <div>
-                <h4 class="text-[1.02rem] mb-2">Contrôle des données structurées</h4>
-                <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">La fiche d'identité déclarée aux moteurs est validée à chaque passage : type d'activité, adresse, téléphone, horaires, personnes.</p>
-              </div>
-              <div>
-                <h4 class="text-[1.02rem] mb-2">Interrogation des assistants</h4>
-                <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Les mêmes questions sont posées chaque mois aux assistants IA, sur votre métier et votre ville, et les réponses sont archivées pour voir l'évolution.</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="hand text-2xl mt-12">vous recevez un point écrit, pas un tableau de bord de plus</p>
-
-        </div>
-      </div>
-      </section>
-
-          <!-- CTA Footer Section -->
-      <section class="bg-[#E5EAF9] mt-auto bg-stone-900 rounded-t-[3rem] text-center w-full">
-        <div class="py-24 px-6 md:px-12">
-        <h2 class="text-[2.4rem] md:text-[3.4rem] serif text-[#FAFBFD] mb-8">
-          Prêt à commencer ?
-        </h2>
-        <p class="text-stone-400 text-lg mb-12 max-w-xl mx-auto">
-          Discutons de vos objectifs et définissons ensemble la première étape de votre transformation.
-        </p>
-        <button class="hover:bg-teal-400 transition-colors duration-300 text-lg font-medium text-stone-900 bg-teal-500 rounded-full pt-4 pr-8 pb-4 pl-8" onclick="window.location.href='/contact'" role="button">
-          Réserver un appel découverte
-        </button>
-      </div>
-      </section>
-
-      <!-- Footer -->
-    <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
-      <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
-
-        <!-- Accroche -->
-        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
-        </h2>
-
-        <!-- Filet traversé par le bouton -->
-        <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
-          <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
-          <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Coordonnées -->
-        <div class="flex flex-wrap items-center gap-3 font-manrope mb-16 md:mb-20">
-          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">contact@biladesigns.com</a>
-          <a href="tel:+33659086800" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">06 59 08 68 00</a>
-        </div>
-
-        <!-- Ligne du bas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">2026 © Édition</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#B9C0CB] tabular-nums" data-horloge>—</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">Lyon, France</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#B9C0CB]">
-              <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#B9C0CB] font-manrope border-t border-white/12 mt-8 pt-8">
-          <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
-          <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
-          <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
-          <a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a>
-          <a href="/agence" class="hover:text-white transition-colors">L'agence</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-          <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
-          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
-        </div>
-
-      </div>
-      <script>
-        (function () {
-          var cibles = document.querySelectorAll('[data-horloge]');
-          if (!cibles.length) return;
-          function tic() {
-            var h = new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-            });
-            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
-          }
-          tic();
-          setInterval(tic, 20000);
-        })();
-      </script>
-    </footer>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-      <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
-        </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-        <a href="/automatisations" class="hover:opacity-70 transition-opacity">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity">
-              Avocats
-            </a>
-        <a href="/nouveau-projet" class="mobile-link mt-4 px-8 py-3 bg-teal-700 text-white rounded-full font-manrope not-italic text-lg hover:bg-teal-800 transition-all">Démarrer un projet</a>
-        <a href="/contact" class="mobile-link px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
-      </nav>
+  <div style="position: relative; z-index: 2; margin: 104px var(--gut) 0; padding: 4px 70px 8px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 26px; width: fit-content; max-width: 900px;">
+    <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Méthode</span>
+    <h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(37px, 23.3px + 3.522vw, 74px); line-height: 1.05; letter-spacing: -0.02em;">Notre Processus<br>de Création.</h1>
+    <p style="margin: 0; max-width: 470px; font-size: 17px; line-height: 1.65; color: #4A5163; text-wrap: pretty;">Logo, gamme de bleus, spécimens, maquettes, pages : chaque pièce est dessinée, accrochée, discutée. Trois temps pour une marque qui tient dans la durée.</p>
+    <div style="display: flex; align-items: center; gap: 28px; margin-top: 12px; flex-wrap: wrap;">
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.5s infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.7s infinite; pointer-events: none;"></span>
+        <a href="#audit" style="display: inline-flex; align-items: center; padding: 18px 34px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Recevoir mon audit gratuit</a>
+      </span>
+      <a href="#inclus" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-3">Voir ce qui est inclus <span style="font-size: 13px;">↗</span></a>
     </div>
+    <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1.2deg); margin-top: 4px;">tout se voit avant d'être mis en ligne</span>
+  </div>
+</section>
 
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
-              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
-              <path d="M8.5 8.5v.01"></path>
-              <path d="M16 15.5v.01"></path>
-              <path d="M12 12v.01"></path>
-              <path d="M11 17v.01"></path>
-              <path d="M7 14v.01"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg text-[#161A22] mb-1">Votre vie privée</h3>
-            <p class="text-xs text-[#2A4AD1] leading-relaxed">
-              Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.
-            </p>
-          </div>
+<section id="process" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 118px 0 40px; border-top: 1px solid rgba(16,27,51,0.08); overflow: clip visible;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 0 var(--gut);">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 0 26px 14px;">
+      <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #8A8F9C;">Étapes clés</span>
+      <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8F9C;">03 phases · 4 à 6 semaines</span>
+    </div>
+    <div style="border-top: 1px solid rgba(16,27,51,0.22); border-bottom: 1px solid rgba(16,27,51,0.14); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));" class="g-3">
+      <a href="#step-1" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; min-height: 168px; padding: 26px 26px 28px;" class="hv-4">
+        <span style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">01</span>
+          <span style="flex: 1 1 auto; height: 1px; background: rgba(16,27,51,0.16);"></span>
+          <span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>
+        </span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 27px; line-height: 1.15; letter-spacing: -0.01em; color: #101B33; min-height: 62px; margin-top: 16px;">Fondation &amp; Stratégie</span>
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8F9C; margin-top: auto;">Immersion &amp; identité</span>
+      </a>
+      <a href="#step-2" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; min-height: 168px; padding: 26px 26px 28px; border-left: 1px solid rgba(16,27,51,0.14);" class="hv-5">
+        <span style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">02</span>
+          <span style="flex: 1 1 auto; height: 1px; background: rgba(16,27,51,0.16);"></span>
+          <span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>
+        </span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 27px; line-height: 1.15; letter-spacing: -0.01em; color: #101B33; min-height: 62px; margin-top: 16px;">Interface Web</span>
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8F9C; margin-top: auto;">Maquettes &amp; développement</span>
+      </a>
+      <a href="#step-3" style="display: flex; flex-direction: column; justify-content: flex-start; gap: 12px; min-height: 168px; padding: 26px 26px 28px; border-left: 1px solid rgba(16,27,51,0.14);" class="hv-6">
+        <span style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">03</span>
+          <span style="flex: 1 1 auto; height: 1px; background: rgba(16,27,51,0.16);"></span>
+          <span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>
+        </span>
+        <span style="font-family: 'Fraunces', Georgia, serif; font-size: 27px; line-height: 1.15; letter-spacing: -0.01em; color: #101B33; min-height: 62px; margin-top: 16px;">Rebranding Global</span>
+        <span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A8F9C; margin-top: auto;">Déclinaisons &amp; guidelines</span>
+      </a>
+    </div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin-top: 88px; padding: 0 var(--gut) 90px; display: flex; flex-direction: column;">
+    <div id="step-1" style="position: sticky; top: 104px; background: #FBFBFA; border-top: 1px solid rgba(16,27,51,0.22); padding: 30px 0 34px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start;" class="g-2">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #2743E3; color: #FFFFFF; padding: 7px 14px; white-space: nowrap; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">Phase 01 · Fondation &amp; Stratégie</span>
+        <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(20px, 12.6px + 1.904vw, 40px); line-height: 1.08; letter-spacing: -0.02em;">Stratégie &amp; Identité.</h2>
+        <p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">Tout commence par une immersion. Avant de dessiner, nous définissons l'âme de votre projet. Cette première phase pose les bases de votre discours et de votre univers visuel initial.</p>
+        <div style="display: flex; flex-direction: column; gap: 0; margin-top: 10px; max-width: 460px;">
+          <span style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Audit de marque &amp; positionnement</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Direction artistique (moodboards)</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Logotype &amp; typographie</span>
         </div>
-        <div class="flex flex-col gap-2">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Refuser</button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Personnaliser</button>
-          </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Tout Accepter</button>
+      </div>
+      <div data-rise style="position: relative; aspect-ratio: 1 / 1; background: rgba(39,67,227,0.05);">
+        <div class="border-glow-card border-glow-card--light" style="position: absolute; inset: 0;; --card-bg: #FBFBFA; --glow-color: hsl(229deg 78% 52% / 100%); --glow-color-60: hsl(229deg 78% 52% / 60%); --glow-color-50: hsl(229deg 78% 52% / 50%); --glow-color-40: hsl(229deg 78% 52% / 40%); --glow-color-30: hsl(229deg 78% 52% / 30%); --glow-color-20: hsl(229deg 78% 52% / 20%); --glow-color-10: hsl(229deg 78% 52% / 10%); --gradient-one: radial-gradient(at 80% 55%, #2743E3 0px, transparent 50%); --gradient-two: radial-gradient(at 69% 34%, #5D7EFF 0px, transparent 50%); --gradient-three: radial-gradient(at 8% 6%, #101B33 0px, transparent 50%); --gradient-four: radial-gradient(at 41% 38%, #2743E3 0px, transparent 50%); --gradient-five: radial-gradient(at 86% 85%, #5D7EFF 0px, transparent 50%); --gradient-six: radial-gradient(at 82% 18%, #101B33 0px, transparent 50%); --gradient-seven: radial-gradient(at 51% 4%, #5D7EFF 0px, transparent 50%); --gradient-base: linear-gradient(#2743E3 0 100%)"><span class="edge-light"></span><div class="border-glow-inner">
+        <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 144 144" width="52%" style="display: block; overflow: visible;"><g fill="none" stroke="rgba(16,27,51,0.55)" stroke-width="1">
+            <rect x="16" y="16" width="52" height="52"></rect><rect x="76" y="16" width="52" height="52"></rect>
+            <rect x="16" y="76" width="52" height="52"></rect><rect x="76" y="76" width="52" height="52"></rect>
+            <path d="M 28 118 L 42 84 L 56 118 M 33 106 H 51"></path>
+          </g>
+          <rect x="76" y="76" width="52" height="52" fill="#2743E3" opacity="0.12"></rect>
+          <circle cx="102" cy="42" r="15" fill="none" stroke="#2743E3" stroke-width="1.2"></circle></svg>
+          <span style="position: absolute; left: 20px; bottom: 18px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Univers visuel</span>
+        <div style="position: absolute; right: 18px; bottom: 18px; width: 8px; height: 8px; background: #2743E3; transform: rotate(45deg);"></div>
+        </div>
+        </div></div>
+      </div>
+    </div>
+    <div style="height: 30vh;"></div>
+
+    <div id="step-2" style="position: sticky; top: 128px; background: #FBFBFA; border-top: 1px solid rgba(16,27,51,0.22); padding: 30px 0 34px; display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 56px; align-items: start;" class="g-2">
+      <div data-rise style="position: relative; aspect-ratio: 1 / 1; background: #101B33;">
+        <div class="border-glow-card" style="position: absolute; inset: 0;; --card-bg: #101B33; --glow-color: hsl(229deg 90% 66% / 100%); --glow-color-60: hsl(229deg 90% 66% / 60%); --glow-color-50: hsl(229deg 90% 66% / 50%); --glow-color-40: hsl(229deg 90% 66% / 40%); --glow-color-30: hsl(229deg 90% 66% / 30%); --glow-color-20: hsl(229deg 90% 66% / 20%); --glow-color-10: hsl(229deg 90% 66% / 10%); --gradient-one: radial-gradient(at 80% 55%, #2743E3 0px, transparent 50%); --gradient-two: radial-gradient(at 69% 34%, #5D7EFF 0px, transparent 50%); --gradient-three: radial-gradient(at 8% 6%, #101B33 0px, transparent 50%); --gradient-four: radial-gradient(at 41% 38%, #2743E3 0px, transparent 50%); --gradient-five: radial-gradient(at 86% 85%, #5D7EFF 0px, transparent 50%); --gradient-six: radial-gradient(at 82% 18%, #101B33 0px, transparent 50%); --gradient-seven: radial-gradient(at 51% 4%, #5D7EFF 0px, transparent 50%); --gradient-base: linear-gradient(#2743E3 0 100%)"><span class="edge-light"></span><div class="border-glow-inner">
+        <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 144 144" width="52%" style="display: block; overflow: visible;"><g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1">
+            <rect x="14" y="18" width="116" height="108"></rect>
+            <line x1="14" y1="38" x2="130" y2="38"></line>
+            <rect x="26" y="50" width="44" height="32"></rect>
+            <line x1="80" y1="54" x2="120" y2="54"></line><line x1="80" y1="64" x2="112" y2="64"></line><line x1="80" y1="74" x2="120" y2="74"></line>
+            <line x1="26" y1="96" x2="118" y2="96"></line><line x1="26" y1="108" x2="90" y2="108"></line>
+          </g>
+          <rect x="22" y="26" width="8" height="6" fill="#2743E3"></rect>
+          <line x1="26" y1="96" x2="70" y2="96" stroke="#2743E3" stroke-width="1.6"></line></svg>
+          <span style="position: absolute; left: 20px; bottom: 18px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5);">Interface &amp; code</span>
+        <div style="position: absolute; right: 18px; bottom: 18px; width: 8px; height: 8px; background: #2743E3; transform: rotate(45deg);"></div>
+        </div>
+        </div></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #2743E3; color: #FFFFFF; padding: 7px 14px; white-space: nowrap; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">Phase 02 · Interface Web</span>
+        <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(20px, 12.6px + 1.904vw, 40px); line-height: 1.08; letter-spacing: -0.02em;">Création Digitale.</h2>
+        <p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">Nous traduisons votre stratégie en une expérience interactive. Votre site n'est pas une simple vitrine, c'est un outil de conversion alliant esthétique éditoriale et performance technique.</p>
+        <div style="display: flex; flex-direction: column; gap: 0; margin-top: 10px; max-width: 460px;">
+          <span style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Maquettes et ergonomie</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Développement (Webflow / Next.js)</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Animations &amp; interactions</span>
         </div>
       </div>
     </div>
+    <div style="height: 30vh;"></div>
 
-    <!-- Cookie Preferences Modal -->
-    <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div class="p-6 md:p-8">
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">Préférences Cookies</h2>
-              <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
-            </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-            </button>
-          </div>
-          <div class="space-y-6">
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#161A22]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
-                </div>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Performance</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Tout Refuser</button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
-          </div>
+    <div id="step-3" style="position: sticky; top: 152px; background: #FBFBFA; border-top: 1px solid rgba(16,27,51,0.22); padding: 30px 0 34px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 56px; align-items: start;" class="g-2">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span style="display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; background: #2743E3; color: #FFFFFF; padding: 7px 14px; white-space: nowrap; font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">Phase 03 · Rebranding Global</span>
+        <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(20px, 12.6px + 1.904vw, 40px); line-height: 1.08; letter-spacing: -0.02em;">Rebranding Complet.</h2>
+        <p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">Une fois le site en place, nous étendons votre nouvelle identité à l'ensemble de votre écosystème. C'est l'étape de la maturité : une refonte globale pour assurer une cohérence totale sur tous les supports.</p>
+        <div style="display: flex; flex-direction: column; gap: 0; margin-top: 10px; max-width: 460px;">
+          <span style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Charte graphique étendue</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Supports marketing (print &amp; social)</span>
+          <span style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 14px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 13px 14px;"><span style="flex: 0 0 auto; width: 6px; height: 6px; background: #2743E3; transform: rotate(45deg);"></span>Brand book &amp; guidelines</span>
+        </div>
+      </div>
+      <div data-rise style="position: relative; aspect-ratio: 1 / 1; background: rgba(39,67,227,0.05);">
+        <div class="border-glow-card border-glow-card--light" style="position: absolute; inset: 0;; --card-bg: #FBFBFA; --glow-color: hsl(229deg 78% 52% / 100%); --glow-color-60: hsl(229deg 78% 52% / 60%); --glow-color-50: hsl(229deg 78% 52% / 50%); --glow-color-40: hsl(229deg 78% 52% / 40%); --glow-color-30: hsl(229deg 78% 52% / 30%); --glow-color-20: hsl(229deg 78% 52% / 20%); --glow-color-10: hsl(229deg 78% 52% / 10%); --gradient-one: radial-gradient(at 80% 55%, #2743E3 0px, transparent 50%); --gradient-two: radial-gradient(at 69% 34%, #5D7EFF 0px, transparent 50%); --gradient-three: radial-gradient(at 8% 6%, #101B33 0px, transparent 50%); --gradient-four: radial-gradient(at 41% 38%, #2743E3 0px, transparent 50%); --gradient-five: radial-gradient(at 86% 85%, #5D7EFF 0px, transparent 50%); --gradient-six: radial-gradient(at 82% 18%, #101B33 0px, transparent 50%); --gradient-seven: radial-gradient(at 51% 4%, #5D7EFF 0px, transparent 50%); --gradient-base: linear-gradient(#2743E3 0 100%)"><span class="edge-light"></span><div class="border-glow-inner">
+        <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+          <svg viewBox="0 0 144 144" width="52%" style="display: block; overflow: visible;"><g fill="none" stroke="rgba(16,27,51,0.55)" stroke-width="1">
+            <rect x="14" y="30" width="72" height="96"></rect>
+            <rect x="34" y="20" width="72" height="96"></rect>
+            <rect x="54" y="10" width="72" height="96"></rect>
+            <line x1="66" y1="46" x2="114" y2="46"></line><line x1="66" y1="58" x2="102" y2="58"></line>
+          </g>
+          <path d="M 78 96 V 74 A 12 16 0 0 1 102 74 V 96" fill="none" stroke="#2743E3" stroke-width="1.4"></path></svg>
+          <span style="position: absolute; left: 20px; bottom: 18px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;">Collection 2026</span>
+        <div style="position: absolute; right: 18px; bottom: 18px; width: 8px; height: 8px; background: #2743E3; transform: rotate(45deg);"></div>
+        </div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="seo" style="position: relative; background: #101B33; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #FFFFFF; padding: 128px 0 140px; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(255,255,255,0.12);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(255,255,255,0.12);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 20px; width: fit-content; max-width: 780px;">
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #7C93FF;">Référencement</span>
+    <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.1; letter-spacing: -0.02em; color: #FFFFFF;">Être trouvé n'est pas un levier. C'en est huit.</h2>
+    <p style="margin: 0; max-width: 560px; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.68); text-wrap: pretty;">Un site bien référencé tient par le centre : chaque branche renforce les autres. En traiter une seule ne déplace rien.</p>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 76px var(--gut) 0;">
+    <svg viewBox="0 -30 1240 606" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Schéma d'intégrations : votre site au centre, huit leviers de référencement branchés autour" style="display: block; overflow: visible;">
+      <g id="families">
+        <line x1="115" y1="0" x2="306" y2="0" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <line x1="115" y1="0" x2="115" y2="8" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <line x1="306" y1="0" x2="306" y2="8" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <text x="115" y="-12" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="2">SUR VOTRE SITE</text>
+        <line x1="934" y1="0" x2="1127" y2="0" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <line x1="934" y1="0" x2="934" y2="8" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <line x1="1127" y1="0" x2="1127" y2="8" stroke="rgba(255,255,255,0.24)" stroke-width="1"></line>
+        <text x="1127" y="-12" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="2">AUTOUR DE VOTRE SITE</text>
+      </g>
+      <g id="hub">
+        <g stroke="rgba(255,255,255,0.34)" stroke-width="1" fill="none">
+          <path d="M 520 208 H 548 M 520 208 V 236"></path>
+          <path d="M 720 208 H 692 M 720 208 V 236"></path>
+          <path d="M 520 330 H 548 M 520 330 V 302"></path>
+          <path d="M 720 330 H 692 M 720 330 V 302"></path>
+        </g>
+        <path d="M 588 330 V 282 A 32 44 0 0 1 652 282 V 330" fill="none" stroke="#5D7EFF" stroke-width="1.5"></path>
+        <line x1="620" y1="330" x2="620" y2="288" stroke="#5D7EFF" stroke-width="1" stroke-dasharray="3 4"></line>
+        <line x1="582" y1="330" x2="658" y2="330" stroke="rgba(255,255,255,0.7)" stroke-width="1"></line>
+        <text x="620" y="368" text-anchor="middle" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="19" font-weight="600">Votre site</text>
+        <text x="620" y="390" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="2">LE CENTRE</text>
+      </g>
+      <g id="branch-1" style="opacity: 0.7;" class="hv-7">
+        <path d="M 472 280 C 404 280, 372 64, 306 64" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-1">
+          <text x="306" y="58" text-anchor="end" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Structure &amp; maillage</text>
+          <line x1="138" y1="70" x2="306" y2="70" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="306" y="88" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">CE QUE GOOGLE COMPREND</text>
+          <text x="126" y="58" text-anchor="end" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">01</text>
+        </g>
+      </g>
+      <g id="branch-2" style="opacity: 0.7;" class="hv-8">
+        <path d="M 472 280 C 404 280, 372 196, 306 196" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-2">
+          <text x="306" y="190" text-anchor="end" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Contenu éditorial</text>
+          <line x1="115" y1="202" x2="306" y2="202" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="306" y="220" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">VOS RÉPONSES, PAS DU VOLUME</text>
+          <text x="103" y="190" text-anchor="end" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">02</text>
+        </g>
+      </g>
+      <g id="branch-3" style="opacity: 0.7;" class="hv-9">
+        <path d="M 472 280 C 404 280, 372 364, 306 364" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-3">
+          <text x="306" y="358" text-anchor="end" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Mots-clés &amp; intention</text>
+          <line x1="131" y1="370" x2="306" y2="370" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="306" y="388" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">CE QUE VOS CLIENTS TAPENT</text>
+          <text x="119" y="358" text-anchor="end" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">03</text>
+        </g>
+      </g>
+      <g id="branch-4" style="opacity: 0.7;" class="hv-10">
+        <path d="M 472 280 C 404 280, 372 496, 306 496" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-4">
+          <text x="306" y="490" text-anchor="end" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Balises &amp; données</text>
+          <line x1="147" y1="502" x2="306" y2="502" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="306" y="520" text-anchor="end" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">LISIBLE PAR LES MACHINES</text>
+          <text x="135" y="490" text-anchor="end" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">04</text>
+        </g>
+      </g>
+      <g id="branch-5" style="opacity: 0.7;" class="hv-11">
+        <path d="M 768 280 C 836 280, 868 64, 934 64" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-5">
+          <text x="934" y="58" text-anchor="start" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Vitesse de chargement</text>
+          <line x1="934" y1="70" x2="1113" y2="70" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="934" y="88" text-anchor="start" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">SOUS DEUX SECONDES</text>
+          <text x="1125" y="58" text-anchor="start" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">05</text>
+        </g>
+      </g>
+      <g id="branch-6" style="opacity: 0.7;" class="hv-12">
+        <path d="M 768 280 C 836 280, 868 196, 934 196" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-6">
+          <text x="934" y="190" text-anchor="start" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Expérience mobile</text>
+          <line x1="934" y1="202" x2="1079" y2="202" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="934" y="220" text-anchor="start" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">LA MOITIÉ DU TRAFIC</text>
+          <text x="1091" y="190" text-anchor="start" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">06</text>
+        </g>
+      </g>
+      <g id="branch-7" style="opacity: 0.7;" class="hv-13">
+        <path d="M 768 280 C 836 280, 868 364, 934 364" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-7">
+          <text x="934" y="358" text-anchor="start" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Fiche Google Business</text>
+          <line x1="934" y1="370" x2="1115" y2="370" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="934" y="388" text-anchor="start" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">LE LOCAL SE JOUE LÀ</text>
+          <text x="1127" y="358" text-anchor="start" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">07</text>
+        </g>
+      </g>
+      <g id="branch-8" style="opacity: 0.7;" class="hv-14">
+        <path d="M 768 280 C 836 280, 868 496, 934 496" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="1"></path>
+        <g id="node-8">
+          <text x="934" y="490" text-anchor="start" fill="#FFFFFF" font-family="Archivo, Helvetica, sans-serif" font-size="17" font-weight="600">Autorité &amp; citations</text>
+          <line x1="934" y1="502" x2="1096" y2="502" stroke="rgba(255,255,255,0.22)" stroke-width="1"></line>
+          <text x="934" y="520" text-anchor="start" fill="rgba(255,255,255,0.5)" font-family="Archivo, Helvetica, sans-serif" font-size="10" letter-spacing="1">ANNUAIRES, PRESSE, LIENS</text>
+          <text x="1108" y="490" text-anchor="start" fill="#5D7EFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1">08</text>
+        </g>
+      </g>
+    </svg>
+    <span style="display: block; margin-top: 30px; text-align: center; font-family: 'Caveat', cursive; font-size: 22px; color: rgba(255,255,255,0.75); transform: rotate(-0.6deg);">chaque branche renvoie au centre, et le centre renvoie à chacune</span>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 76px var(--gut) 0;">
+    <div style="border-top: 1px solid rgba(255,255,255,0.24); padding: 0 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;" class="g-4">
+      <div data-rise data-stat="1" style="display: flex; flex-direction: column; gap: 10px; padding: 30px 26px;">
+        <span style="white-space: nowrap; font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1; letter-spacing: -0.03em; color: #FFFFFF;">68,7 %</span>
+        <span style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.68); text-wrap: pretty;">des clics vont aux trois premiers résultats organiques</span>
+        <span style="margin-top: 2px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Backlinko</span>
+      </div>
+      <div data-rise data-stat="2" style="display: flex; flex-direction: column; gap: 10px; padding: 30px 26px 30px 26px; border-left: 1px solid rgba(255,255,255,0.14);">
+        <span style="white-space: nowrap; font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1; letter-spacing: -0.03em; color: #FFFFFF;">0,78 %</span>
+        <span style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.68); text-wrap: pretty;">des internautes ouvrent la deuxième page de résultats</span>
+        <span style="margin-top: 2px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Backlinko</span>
+      </div>
+      <div data-rise data-stat="3" style="display: flex; flex-direction: column; gap: 10px; padding: 30px 26px 30px 26px; border-left: 1px solid rgba(255,255,255,0.14);">
+        <span style="white-space: nowrap; font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1; letter-spacing: -0.03em; color: #FFFFFF;">46 %</span>
+        <span style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.68); text-wrap: pretty;">des recherches Google portent une intention locale</span>
+        <span style="margin-top: 2px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4);">Google</span>
+      </div>
+      <div data-rise data-stat="4" style="display: flex; flex-direction: column; gap: 10px; padding: 30px 26px 30px 26px; border-left: 1px solid rgba(255,255,255,0.14);">
+        <span style="white-space: nowrap; font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1; letter-spacing: -0.03em; color: #FFFFFF;">97 %</span>
+        <span style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.68); text-wrap: pretty;">vérifient votre présence en ligne avant de vous contacter</span>
+        <span style="margin-top: 2px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4);">BrightLocal</span>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.14); padding: 18px 26px 0;">
+      <span style="font-size: 12px; line-height: 1.7; color: rgba(255,255,255,0.42);">Données publiques 2026 — Backlinko, Google, BrightLocal. Aucun chiffre client n'est affiché sans son accord.</span>
+    </div>
+  </div>
+</section>
+
+<section id="inclus" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 128px 0 132px; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 0 var(--gut); display: flex; flex-direction: column; gap: 18px; width: fit-content; max-width: 700px;">
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Ce qui est inclus</span>
+    <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.1; letter-spacing: -0.02em;">Livré, pas promis.</h2>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin-top: 76px; padding: 0 var(--gut); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px;" class="g-2">
+    <div style="position: absolute; left: calc(50% - 0.5px); top: -18px; bottom: -18px; width: 1px; background: rgba(39,67,227,0.14); pointer-events: none;"></div>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+      <span style="align-self: flex-start; background: #101B33; color: #FFFFFF; padding: 7px 14px; margin-bottom: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;">Marque</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Logo principal et déclinaisons</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Palette, typographies, règles d'usage</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Signature de mail et papeterie</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Fichiers sources, à vous définitivement</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0;">
+      <span style="align-self: flex-start; background: #101B33; color: #FFFFFF; padding: 7px 14px; margin-bottom: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;">Site</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Maquettes desktop et mobile</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Rédaction des pages avec vous</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: rgba(39,67,227,0.04); font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Développement, hébergement, nom de domaine</span>
+      <span data-rise style="display: flex; align-items: center; gap: 12px; background: transparent; font-size: 15px; color: #101B33; border-top: 1px solid rgba(39,67,227,0.18); padding: 15px 14px;"><span style="flex: 0 0 auto; width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Référencement initial et suivi trois mois</span>
+    </div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin-top: 104px; padding: 0 var(--gut);">
+    <div style="position: relative; box-sizing: border-box; width: 100%; aspect-ratio: 21 / 9; border: 1px solid rgba(16,27,51,0.14); overflow: hidden;">
+      <img src="/assets/img/section-arche.png" alt="Dessin d'architecte : silhouette marchant vers le seuil de lumière sous une grande arche" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%;" loading="lazy" decoding="async" width="1680" height="720">
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 24px 0 132px; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin: 0 var(--gut); display: flex; flex-direction: column; gap: 18px; width: fit-content; max-width: 700px;">
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Questions fréquentes</span>
+    <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.1; letter-spacing: -0.02em;">Ce qu'on me demande avant de signer.</h2>
+  </div>
+
+  <div style="position: relative; z-index: 2; margin-top: 72px; padding: 0 var(--gut); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;" class="g-3">
+    <div data-flip="1" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">01</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Combien de temps pour un site complet ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">01</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Quatre à six semaines selon le nombre de pages et votre disponibilité pour les retours. Le cadrage tient en une semaine.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
         </div>
       </div>
     </div>
+    <div data-flip="2" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">02</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Je garde la main sur mon site ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">02</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Oui. Domaine, hébergement et fichiers sont à votre nom, et vous repartez avec la prise en main pour modifier vos textes seul.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
+        </div>
+      </div>
+    </div>
+    <div data-flip="3" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">03</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Faut-il refaire l'identité pour refaire le site ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">03</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Non. On part de ce qui existe, on garde ce qui tient et on ne touche au reste que si ça vous coûte des clients.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
+        </div>
+      </div>
+    </div>
+    <div data-flip="4" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">04</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Et le référencement, c'est en plus ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">04</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Non. Structure, contenus et technique sont traités dès le cadrage : un site qu'on ne trouve pas n'est pas un site livré.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
+        </div>
+      </div>
+    </div>
+    <div data-flip="5" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">05</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Qui écrit les textes ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">05</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Moi, à partir d'un entretien avec vous. Vous relisez et corrigez : ce sont vos mots, remis en ordre.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
+        </div>
+      </div>
+    </div>
+    <div data-flip="6" style="position: relative; min-height: 232px; cursor: pointer; perspective: 1400px;">
+      <div data-flip-inner style="position: relative; width: 100%; height: 100%; min-height: 232px; transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.22,0.61,0.36,1);">
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid rgba(16,27,51,0.18); background: #FBFBFA; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #2743E3;">06</span>
+          <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.25; color: #101B33;">Que se passe-t-il après la mise en ligne ?</h3>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8F9C;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>La réponse</span>
+        </div>
+        <div style="position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(180deg); border: 1px solid #101B33; background: #101B33; padding: 26px 26px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #7C93FF;">06</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); text-wrap: pretty;">Trois mois de suivi inclus : corrections, mesure des positions et ajustements. Ensuite, libre à vous de continuer ou non.</p>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45);"><span style="width: 7px; height: 7px; background: #FFFFFF; transform: rotate(45deg);"></span>Retourner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position: relative; z-index: 2; margin-top: 26px; padding: 0 var(--gut);">
+    <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-0.8deg); display: inline-block;">cliquez une carte pour la retourner</span>
+  </div>
+</section>
 
-    <script>
-      // Safe Lucide init
-      try {
-        if (typeof lucide !== 'undefined' && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      } catch (e) {
-        console.warn('Lucide icons non disponible:', e);
-      }
+<section id="audit" style="position: relative; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 0 0 0; border-top: 1px solid rgba(16,27,51,0.14); overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
 
-      // SEO Cards Animation on Scroll
-      const seoCards = document.querySelectorAll('.seo-card');
+  <div style="position: relative; z-index: 2; padding: 116px var(--gut) 128px; display: flex; flex-direction: column; align-items: flex-start; gap: 34px;">
+    <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(42px, 26.4px + 3.998vw, 84px); line-height: 1.02; letter-spacing: -0.03em; max-width: 900px;">Commençons par un <em style="font-style: italic; font-weight: 600; color: #2743E3;">regard neuf.</em></h2>
+    <p style="margin: 0; max-width: 520px; font-size: 16px; line-height: 1.65; color: #4A5163;">Envoyez le lien de votre site : vous recevez sous vingt-quatre heures le relevé de ce qui vous fait perdre des clients.</p>
+    <form style="display: flex; align-items: center; gap: 22px; flex-wrap: wrap; max-width: 620px;" data-form data-sujet="Audit gratuit — demande depuis le site" data-merci="Bien reçu. Vous recevez l’audit sous vingt-quatre heures." method="post" action="https://formsubmit.co/matbila63@gmail.com" novalidate>
+      <input type="url" placeholder="votre-site.fr" style="width: 200px; border: none; border-bottom: 1px solid rgba(16,27,51,0.28); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; color: #101B33; outline: none;" name="site" required aria-label="Adresse de votre site" data-libelle="l’adresse de votre site" autocomplete="url">
+      <input type="email" placeholder="vous@exemple.fr" style="width: 220px; border: none; border-bottom: 1px solid rgba(16,27,51,0.28); background: transparent; padding: 4px 0 9px; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; color: #101B33; outline: none;" name="email" required aria-label="Votre adresse electronique" data-libelle="votre adresse electronique" autocomplete="email">
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.2s infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.4s infinite; pointer-events: none;"></span>
+        <button type="submit" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 32px; border: none; border-radius: 999px; background: #2743E3; color: #FFFFFF; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-15">Recevoir mon audit <span style="font-size: 14px;">→</span></button>
+      </span>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="piege" aria-hidden="true">
+      <span style="flex: 1 0 100%; margin-top: 4px; font-size: 12px; line-height: 1.6; color: #8A8F9C;">Votre adresse ne sert qu’a vous envoyer cet audit. <a href="/politique-confidentialite/" style="color: #8A8F9C; text-decoration: underline;">En savoir plus</a>.</span>
+      <span class="form-retour" role="status" aria-live="polite" style="flex: 1 0 100%; "></span>
+    </form>
+    <span style=" font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1.2deg);">réponse sous vingt-quatre heures, par un humain</span>
+  </div>
 
-      // Fallback: rendre les cartes visibles après 2s si IntersectionObserver échoue
-      const seoFallbackTimeout = setTimeout(() => {
-        seoCards.forEach(card => card.classList.add('visible'));
-      }, 2000);
-
-      // Fonction pour réinitialiser les icônes Lucide
-      function refreshLucideIcons() {
-        try {
-          if (typeof lucide !== 'undefined' && lucide.createIcons) {
-            lucide.createIcons();
-          }
-        } catch (e) {}
-      }
-
-      try {
-        const seoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              clearTimeout(seoFallbackTimeout);
-              entry.target.classList.add('animate');
-              seoObserver.unobserve(entry.target);
-              refreshLucideIcons(); // Re-render icônes après animation
-            }
-          });
-        }, { threshold: 0.1, rootMargin: '50px' });
-        seoCards.forEach(card => seoObserver.observe(card));
-      } catch (e) {
-        // Fallback si IntersectionObserver non supporté
-        seoCards.forEach(card => card.classList.add('visible'));
-        refreshLucideIcons();
-      }
-
-      // Re-render icônes après chargement complet
-      window.addEventListener('load', refreshLucideIcons);
-
-      // Navigation Mobile
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const closeBtn = document.getElementById('mobile-menu-close');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      function openMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = 'hidden';
-          if (menuIcon) menuIcon.classList.add('opacity-0');
-          if (closeIcon) closeIcon.classList.remove('opacity-0');
-        }
-      }
-
-      function closeMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = '';
-          if (menuIcon) menuIcon.classList.remove('opacity-0');
-          if (closeIcon) closeIcon.classList.add('opacity-0');
-        }
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
-      });
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // GDPR Cookie Manager Logic
-      const cookieManager = {
-        consent: { essential: true, analytics: false, marketing: false, performance: false, preferences: false },
-        gaLoaded: false,
-        init() {
-          const storedConsent = localStorage.getItem('bila_cookie_consent');
-          if (storedConsent) {
-            this.consent = JSON.parse(storedConsent);
-            if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-          }
-          else { this.showBanner(); }
-        },
-        loadGoogleAnalytics() {
-          if (this.gaLoaded) return;
-          this.gaLoaded = true;
-          const script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-8CXZ6K9C2R');
-        },
-        showBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.remove('hidden');
-          setTimeout(() => { banner.classList.remove('translate-y-20', 'opacity-0'); }, 100);
-        },
-        hideBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.add('translate-y-20', 'opacity-0');
-          setTimeout(() => { banner.classList.add('hidden'); }, 500);
-        },
-        openPreferences() {
-          document.getElementById('cookie_analytics').checked = this.consent.analytics;
-          document.getElementById('cookie_marketing').checked = this.consent.marketing;
-          document.getElementById('cookie_performance').checked = this.consent.performance;
-          document.getElementById('cookie_preferences').checked = this.consent.preferences;
-          document.getElementById('cookie-preferences').classList.remove('hidden');
-        },
-        closePreferences() { document.getElementById('cookie-preferences').classList.add('hidden'); },
-        acceptAll() {
-          this.consent = { essential: true, analytics: true, marketing: true, performance: true, preferences: true };
-          this.saveAndRun();
-        },
-        refuseAll() {
-          this.consent = { essential: true, analytics: false, marketing: false, performance: false, preferences: false };
-          this.saveAndRun();
-        },
-        savePreferences() {
-          this.consent.analytics = document.getElementById('cookie_analytics').checked;
-          this.consent.marketing = document.getElementById('cookie_marketing').checked;
-          this.consent.performance = document.getElementById('cookie_performance').checked;
-          this.consent.preferences = document.getElementById('cookie_preferences').checked;
-          this.closePreferences();
-          this.saveAndRun();
-        },
-        saveAndRun() {
-          localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
-          this.hideBanner();
-          if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-        }
-      };
-      document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
-    </script>
-
-</body></html>
+  <footer style="position: relative; z-index: 2; padding: 44px var(--gut) 40px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 12px; ">
+      <div style="position: relative; width: 22px; height: 26px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-right-radius: 10px 26px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-left-radius: 10px 26px;"></div>
+      </div>
+      <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; ">
+      <a href="/accueil/" style="font-size: 14px; color: #2C3348;">Accueil</a>
+      <a href="/automatisations/" style="font-size: 14px; color: #2C3348;">Automatisations</a>
+      <a href="mailto:mathieu@biladesigns.com" style="font-size: 14px; color: #2C3348;">mathieu@biladesigns.com</a>
+      <span style="font-size: 12px; color: #8A8F9C;">2026 © Bila Designs</span>
+    </div>
+  </footer>
+</section>
+</main>
+<script src="/assets/js/bila-motion.js" defer></script>
+<script src="/assets/js/bila-ui.js" defer></script>
+</body>
+</html>

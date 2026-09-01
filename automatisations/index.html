@@ -1,972 +1,136 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automatisations et agents IA | Bila Designs</title>
-<meta name="description" content="Agents IA et automatisations pour les entreprises de services : tri des demandes, devis, relances, suivi client. Studio indépendant à Lyon.">
-<meta name="keywords" content="automatisation, agent IA, n8n, workflow, entreprise de services, Lyon">
-<!-- Open Graph -->
-<meta property="og:title" content="Services | Bila Designs">
-<meta property="og:description" content="Création de sites web, identité de marque, stratégie digitale et audit UX. Solutions sur-mesure.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://biladesigns.com/services">
-<meta property="og:locale" content="fr_FR">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Services | Bila Designs">
-<meta name="twitter:description" content="Création de sites web, identité de marque et stratégie digitale.">
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automatisations — Bila Designs</title>
+<meta name="description" content="Page en cours de redesign. Les automatisations et les agents sont presentes sur la page d&#x27;accueil.">
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.biladesigns.com/automatisations">
-<!-- Preconnect pour optimiser le chargement -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<link rel="preconnect" href="https://unpkg.com">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: { extend: {
-    fontFamily: {
-      sans:  ['Poppins','system-ui','sans-serif'],
-      serif: ['Fraunces','Georgia','serif'],
-    },
- colors: {
-    /* palette reprise de flowbuiltstudio.com : le teal historique devient le bleu */
-    teal: { 100:'#E5EAF9',200:'#E5EAF9',300:'#8FA4E8',400:'#5A6473',500:'#2A4AD1',
-            600:'#2A4AD1',700:'#1E3AA6',800:'#2A3340',900:'#161A22' },
-    stone:{ 50:'#FAFBFD',100:'#EEF1F6',200:'#E3E5EC',300:'#C8CCD6',400:'#8A93A3',
-            500:'#5A6473',600:'#5A6473',700:'#2A3340',800:'#2A3340',900:'#161A22' },
-    green:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' },
-    emerald:{ 400:'#4F8268',500:'#4F8268',600:'#38614C' }
-  } } }
-}
-</script>
-<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bila Designs">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Automatisations — Bila Designs">
+<meta property="og:description" content="Page en cours de redesign. Les automatisations et les agents sont presentes sur la page d&#x27;accueil.">
+<meta property="og:url" content="https://www.biladesigns.com/automatisations">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
+<link rel="stylesheet" href="/assets/css/bila.css">
 <style>
-body { font-family: 'Poppins', system-ui, sans-serif; }
-h1, h2, h3, h4, .serif, .font-serif { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120;
-  font-weight: 700; letter-spacing: -.02em; }
-.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 120; }
-.font-manrope { font-family: 'Poppins', system-ui, sans-serif !important; }
-.footer-titre { font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
-  font-weight: 400; letter-spacing: -.03em; }
-.reponse span { display:inline-block; border:1px solid rgba(22,26,33,.16); border-radius:999px;
-  padding:.5rem 1.05rem; font-size:.92rem; color:#2A3340; cursor:pointer;
-  transition:border-color .2s ease, background .2s ease, color .2s ease; }
-.reponse:hover span { border-color:#161A22; }
-.reponse input:checked + span { border-color:#2A4AD1; background:#E5EAF9; color:#1E3AA6; }
-.reponse input:focus-visible + span { outline:2px solid #2A4AD1; outline-offset:2px; }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-  clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-.scenario { border:1px solid rgba(22,26,33,.16); border-radius:999px; padding:.7rem 1.3rem;
-  font-size:.98rem; color:#2A3340; background:#fff; cursor:pointer;
-  transition:border-color .2s ease, background .2s ease, color .2s ease; }
-.scenario:hover { border-color:#161A22; }
-.scenario.est-actif { border-color:#2A4AD1; background:#E5EAF9; color:#1E3AA6; }
-.scenario:focus-visible { outline:2px solid #2A4AD1; outline-offset:2px; }
-/* annotation manuscrite */
-.hand { font-family: 'Caveat', cursive; font-weight: 600; line-height: 1;
-  color: #4F8268; transform: rotate(-2.5deg); display: inline-block;
-  font-variation-settings: normal; letter-spacing: normal; }
-html { scroll-behavior: smooth; }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar { -ms-overflow-style: none;  scrollbar-width: none; }
-/* Animation for the hero text reveal */
-@keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.animate-reveal { animation: revealUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-/* Sticky Sidebar Logic: Active state marker */
-.step-marker { transition: all 0.5s ease; }
-.group:hover .step-marker { background-color: #2A4AD1; border-color: #2A4AD1; color: white; }
-/* Mobile Card Tilt Animation (Scroll Hint) */
-@keyframes cardHint {
-0%, 100% { transform: rotate(0deg) translateX(0); }
-50% { transform: rotate(1.5deg) translateX(4px); }
-}
-/* Apply only on mobile, specific duration and easing */
-.mobile-scroll-hint { animation: cardHint 4s ease-in-out infinite; }
-/* Reset on desktop */
-@media (min-width: 768px) {
-.mobile-scroll-hint { animation: none; transform: none; }
-}
-/* SEO Cards Animation */
-.seo-card {
-  opacity: 0;
-  transform: translateY(60px);
-  -webkit-transform: translateY(60px);
-}
-.seo-card.animate {
-  -webkit-animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation: seoCardReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-.seo-card:nth-child(1).animate { -webkit-animation-delay: 0s; animation-delay: 0s; }
-.seo-card:nth-child(2).animate { -webkit-animation-delay: 0.15s; animation-delay: 0.15s; }
-.seo-card:nth-child(3).animate { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
-@-webkit-keyframes seoCardReveal {
-  from { opacity: 0; -webkit-transform: translateY(60px) scale(0.95); transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; -webkit-transform: translateY(0) scale(1); transform: translateY(0) scale(1); }
-}
-@keyframes seoCardReveal {
-  from { opacity: 0; transform: translateY(60px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-/* Fallback: si pas de JS ou animation échoue */
-.no-js .seo-card, .seo-card.visible { opacity: 1; transform: translateY(0); }
-</style>
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,100,1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
-<style>.font-instrument-serif { font-family: 'Fraunces', Georgia, serif !important; }</style>
-<style>
+  @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
+  @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
+  @keyframes bila-sweep { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  @keyframes bila-trace-a { 0%, 6% { stroke-dashoffset: 56px; } 46%, 88% { stroke-dashoffset: 0px; } 100% { stroke-dashoffset: -56px; } }
+  @keyframes bila-trace-b { 0%, 6% { stroke-dashoffset: 104px; } 46%, 88% { stroke-dashoffset: 0px; } 100% { stroke-dashoffset: -104px; } }
+  @keyframes bila-trace-c { 0%, 6% { stroke-dashoffset: 32px; } 46%, 88% { stroke-dashoffset: 0px; } 100% { stroke-dashoffset: -32px; } }
+  @keyframes bila-trace-d { 0%, 6% { stroke-dashoffset: 65px; } 46%, 88% { stroke-dashoffset: 0px; } 100% { stroke-dashoffset: -65px; } }
+  .hv-1:hover, .hv-1:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-2:hover, .hv-2:focus-visible { background: #101B33 !important; color: #FFFFFF !important; }
+  .hv-3:hover, .hv-3:focus-visible { color: #2743E3 !important; border-bottom: 1px solid #2743E3 !important; }
 </style>
 </head>
-<body class="bg-[#FAFBFD] text-stone-900 antialiased overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+<body data-nav="automatisations">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<main id="contenu">
+<section style="position: relative; min-height: 100vh; box-sizing: border-box; background: #FBFBFA; font-family: 'Archivo', Helvetica, Arial, sans-serif; color: #101B33; padding: 34px 0 0; display: flex; flex-direction: column; overflow: hidden;">
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <div style="position: absolute; left: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+    <div style="position: absolute; right: var(--rail); top: 44px; bottom: 44px; width: 1px; background: rgba(16,27,51,0.1);"></div>
+  </div>
 
-    <!-- COMMON HEADER START -->
-    <header class="absolute top-0 left-0 w-full z-50 pointer-events-none">
-      <nav class="flex adaptive-text w-full max-w-[74rem] mx-auto px-8 py-8 items-center justify-between pointer-events-auto">
-        <a href="/accueil" class="hover:opacity-80 transition-opacity z-50 text-2xl italic text-zinc-950 font-instrument-serif relative">
-          Bila.
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex gap-10 text-slate-950 gap-x-10 gap-y-10 items-center">
-          <a href="/automatisations" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity text-lg font-medium">
-              Avocats
-            </a>
-        </div>
-
-        <!-- Desktop CTA -->
-        <div class="hidden md:flex items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.95rem] font-medium px-6 py-3">
-            Démarrer un projet
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="hover:bg-white hover:text-black transition-colors text-lg font-medium text-zinc-950 border-slate-950 border rounded-full pt-2 pr-6 pb-2 pl-6">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-1" aria-label="Menu">
-          <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300">
-            <path d="M4 12h16"></path>
-            <path d="M4 6h16"></path>
-            <path d="M4 18h16"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="transition-opacity duration-300 opacity-0 absolute top-1 left-1" id="close-icon">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-      </nav>
-    </header>
-    <!-- COMMON HEADER END -->
-<main class="relative w-full flex flex-col">
-
-      <!-- Hero -->
-      <section class="w-full max-w-[74rem] mx-auto px-8 pt-40 pb-16 md:pt-52 md:pb-20">
-        <p class="block text-[0.72rem] tracking-[0.18em] uppercase text-[#5A6473] mb-6">Automatisations</p>
-        <h1 class="text-[2.6rem] sm:text-[3.6rem] md:text-[4.6rem] leading-[1.0] tracking-tight max-w-[20ch]">
-          Des systèmes conçus pour <span class="italic">le travail réel.</span>
-        </h1>
-        <p class="mt-8 max-w-[50ch] text-lg leading-relaxed text-[#2A3340]">
-          Un agent n'a d'intérêt que s'il retire une tâche précise de vos journées. Je pars
-          de ce qui vous prend du temps, et je vous montre comment le système fonctionne.
-        </p>
-        <p class="hand text-2xl mt-6">on commence toujours par une seule tâche</p>
-
-        <div class="flex flex-wrap items-center gap-4 mt-10">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-            Cadrer mon premier agent
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <a href="/contact" class="inline-flex items-center rounded-full border border-[rgba(22,26,33,0.16)] hover:border-[#161A22] hover:bg-[#EEF1F6] transition-colors text-base text-[#161A22] px-7 py-3.5">
-            En parler vingt minutes
-          </a>
-        </div>
-      </section>
-
-      <!-- Le constat -->
-      <section class="bg-[#FFF7E8] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <p class="text-[1.35rem] md:text-[1.6rem] leading-[1.5] text-[#161A22] max-w-[58ch]">
-          La plupart des entreprises de services ne manquent pas d'outils. Elles manquent de
-          liaisons entre eux. Les demandes arrivent par mail, les devis se font à la main, les
-          relances se perdent, et le suivi vit dans la tête du dirigeant. C'est là que se
-          joue le temps perdu, pas dans le choix du logiciel.
-        </p>
+  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);">
+    <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;">
+      <div style="position: relative; width: 26px; height: 30px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-right-radius: 12px 30px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 12px; height: 30px; background: #101B33; border-top-left-radius: 12px 30px;"></div>
       </div>
-        </div>
-      </section>
+      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
+    </a>
+    <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 26px;">
+      <a href="/services/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Sites web &amp; branding</a>
+      <a href="#" aria-current="page" style="white-space: nowrap; font-size: 14px; font-weight: 600; color: #2743E3;">Automatisations</a>
+      <a href="/avocats/" style="white-space: nowrap; font-size: 14px; font-weight: 500; color: #2C3348;">Avocats</a>
+      <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) infinite; pointer-events: none;"></span>
+        <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.2s infinite; pointer-events: none;"></span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1">Démarrer un projet</a>
+      </span>
+    </nav>
+  </header>
 
-      <!-- Les six cas d'usage -->
-      <section class="bg-[#FFFFFF] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[24ch]">
-          Où un agent peut <span class="italic">déjà</span> vous enlever du travail.
-        </h2>
-        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
-          Voici les six qui reviennent le plus souvent. Dites-moi laquelle vous parle, je vous
-          montre ce qu'elle donne chez vous avant qu'on parle d'argent.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Trier les demandes qui arrivent</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent lit chaque demande, la qualifie, la range, et ne vous alerte que sur celles qui méritent votre journée.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Préparer les devis</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent pré-remplit le devis à partir de la demande et de vos tarifs. Vous relisez, vous corrigez, vous envoyez.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Relancer au bon moment</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent suit les devis restés sans réponse et relance à votre place, avec vos mots, sans jamais insister deux fois.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Répondre aux questions récurrentes</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent répond sur votre site aux questions qu'on vous pose vingt fois par mois, et passe la main dès que le sujet sort du cadre.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Tenir le fichier client à jour</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent met à jour la fiche après chaque échange, pour que votre suivi cesse de vivre dans votre tête et dans vos mails.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-7 flex flex-col hover:border-[#2A4AD1] transition-colors">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">Ce qui vous prend du temps</p>
-            <h3 class="text-xl mb-4">Surveiller ce que les IA disent de vous</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">L'agent vérifie chaque mois si les assistants citent votre entreprise quand on cherche votre métier, et vous dit ce qui a bougé.</p>
-          </article>
-        </div>
+  <div style="position: relative; z-index: 2; flex: 1 1 auto; padding: 96px var(--gut) 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 72px; align-items: center;" class="g-2">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 26px;">
+      <span style="display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;"><span style="width: 7px; height: 7px; background: #2743E3; transform: rotate(45deg);"></span>Automatisations</span>
+      <h1 style="margin: 0; max-width: 620px; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: clamp(34px, 21.4px + 3.237vw, 68px); line-height: 1.03; letter-spacing: -0.03em; text-wrap: balance;">Page en cours de redesign par notre studio.</h1>
+      <p style="margin: 0; max-width: 480px; font-size: 17px; line-height: 1.7; color: #4A5163; text-wrap: pretty;">Les plans sont sur la table. En attendant, les automatisations et les agents sont déjà présentés sur la page d'accueil, et je réponds volontiers de vive voix.</p>
+      <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 8px;">
+        <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
+          <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.5s infinite; pointer-events: none;"></span>
+          <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.7s infinite; pointer-events: none;"></span>
+          <a href="/accueil/#agents" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 34px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Voir les agents sur l'accueil <span style="font-size: 14px;">→</span></a>
+        </span>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-3">En parler dix minutes <span style="font-size: 13px;">↗</span></a>
       </div>
+      <span style="font-family: 'Caveat', cursive; font-size: 22px; color: #4A5163; transform: rotate(-1deg);">de retour très bientôt</span>
+    </div>
+
+    <div style="position: relative; box-sizing: border-box; overflow: hidden; display: flex; padding: 1px; background: rgba(16,27,51,0.18);">
+      <span style="position: absolute; left: 50%; top: 50%; width: 150%; height: 300%; transform: translate(-50%, -50%); background: conic-gradient(from 0deg, transparent 0deg, transparent 250deg, rgba(39,67,227,0.35) 300deg, #2743E3 340deg, rgba(39,67,227,0.35) 20deg, transparent 70deg, transparent 360deg); animation: bila-sweep 7s linear infinite; pointer-events: none;"></span>
+      <div style="position: relative; z-index: 1; flex: 1 1 auto; box-sizing: border-box; background: #FBFBFA; padding: 34px 32px 30px; display: flex; flex-direction: column; gap: 26px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px;">
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; color: #8A8F9C;">PLAN — RÉV. 02</span>
+          <span style="font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; color: #2743E3;">EN COURS</span>
         </div>
-      </section>
-
-      <!-- Compatibilité -->
-      <section class="bg-[#FAFBFD] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[20ch]">
-          Vos outils, <span class="italic">déjà compatibles.</span>
-        </h2>
-        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
-          Il n'y a rien à remplacer. Un agent se branche sur ce que vous utilisez déjà, par
-          l'une de ces quatre voies.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mt-12">
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
-            <h3 class="text-lg mb-2">Connecteurs prêts à l'emploi</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Des connecteurs standards permettent à un agent de dialoguer avec un outil sans qu'on ait à développer quoi que ce soit.</p>
-          </div>
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
-            <h3 class="text-lg mb-2">Connexions directes</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">La voie classique, pour tout logiciel qui sait recevoir des instructions : logiciel de suivi client, facturation, agenda, messagerie.</p>
-          </div>
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
-            <h3 class="text-lg mb-2">Navigateur piloté</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Quand un outil n'ouvre rien, l'agent s'en sert comme vous : il ouvre la page et fait la manipulation.</p>
-          </div>
-          <div class="border-t border-[rgba(22,26,33,0.12)] pt-6">
-            <h3 class="text-lg mb-2">Outils sur mesure</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Pour vos règles métier, celles qui n'existent nulle part ailleurs que chez vous.</p>
-          </div>
-        </div>
-      </div>
-        </div>
-      </section>
-
-      <!-- Les offres -->
-      <section class="bg-[#E5EAF9] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
-          Quatre façons concrètes <span class="italic">d'avancer.</span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-8">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">01</p>
-            <h3 class="text-xl mb-3">Un premier agent</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">On prend la tâche qui vous coûte le plus, et on la retire. Périmètre serré, résultat mesurable, mise en service rapide.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-8">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">02</p>
-            <h3 class="text-xl mb-3">Audit d'automatisation</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Une demi-journée à observer comment le travail circule chez vous, et un plan de ce qui peut être retiré, par ordre de rentabilité.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-8">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">03</p>
-            <h3 class="text-xl mb-3">Formation de votre équipe</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Pour que vos collaborateurs se servent de ces outils sérieusement, au-delà de la question posée à un assistant.</p>
-          </article>
-          <article class="bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-8">
-            <p class="text-[0.68rem] tracking-[0.16em] uppercase text-[#8A93A3] mb-3">04</p>
-            <h3 class="text-xl mb-3">Suivi mensuel</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Un agent vit avec votre activité. Le suivi le corrige, l'étend, et vous rend compte de ce qu'il a traité.</p>
-          </article>
-        </div>
-      </div>
-        </div>
-      </section>
-
-      <!-- Méthode -->
-      <section class="bg-[#FFFFFF] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[26ch]">
-          Passer du besoin <span class="italic">à la production.</span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10 mt-12">
-          <div>
-            <p class="serif italic text-[3.5rem] leading-none text-[#161A22] mb-5 select-none">01</p>
-            <h3 class="text-lg mb-3">Partir du travail réel</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Pas de la technologie. On regarde ce que vous faites vraiment de vos semaines avant de parler d'outil.</p>
-          </div>
-          <div>
-            <p class="serif italic text-[3.5rem] leading-none text-[#161A22] mb-5 select-none">02</p>
-            <h3 class="text-lg mb-3">Livrer de bout en bout</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Cadrage, construction, branchement sur vos outils, mise en service. Vous n'avez personne d'autre à coordonner.</p>
-          </div>
-          <div>
-            <p class="serif italic text-[3.5rem] leading-none text-[#161A22] mb-5 select-none">03</p>
-            <h3 class="text-lg mb-3">Vous rendre le système</h3>
-            <p class="text-[0.95rem] leading-relaxed text-[#2A3340]">Vous savez ce qu'il fait, où il tourne et comment le modifier. Un agent que vous ne comprenez pas est un agent que vous abandonnerez.</p>
-          </div>
-        </div>
-      </div>
-        </div>
-      </section>
-
-      <!-- La chaine : une demande portee jusqu'au bout -->
-      <section class="bg-[#EEF1F6] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-
-        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">la chaîne</p>
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
-          Une demande, <span class="italic">portée jusqu'au bout.</span>
-        </h2>
-        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
-          Ce qui change, ce n'est pas une tâche isolée, c'est la chaîne. Choisissez ce qui
-          arrive chez vous, et regardez ce qui se passe ensuite.
-        </p>
-
-        <!-- Choix du scenario -->
-        <div class="mt-12 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-8">
-          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-5">Quand ceci arrive…</p>
-          <div class="flex flex-wrap gap-3" id="scenarios">
-            <button type="button" class="scenario est-actif" data-cas="0">Un nouveau client vous écrit</button>
-            <button type="button" class="scenario" data-cas="1">Une facture reste impayée</button>
-            <button type="button" class="scenario" data-cas="2">Un dossier se termine</button>
-          </div>
-        </div>
-
-        <!-- Deroule -->
-        <div class="mt-6 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
-          <p class="text-[0.68rem] tracking-[0.18em] uppercase text-[#8A93A3] mb-8">…alors, sans vous</p>
-          <ol class="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-10" id="etapes">
-            <li class="relative">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
-                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
-              </div>
-              <h3 class="text-xl mb-3" data-titre></h3>
-              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
-            </li>
-            <li class="relative">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
-                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
-              </div>
-              <h3 class="text-xl mb-3" data-titre></h3>
-              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
-            </li>
-            <li class="relative">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="w-3 h-3 rounded-full bg-[#2A4AD1] shrink-0"></span>
-                <span class="hidden md:block h-px flex-1 bg-[rgba(22,26,33,0.14)]"></span>
-              </div>
-              <h3 class="text-xl mb-3" data-titre></h3>
-              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
-            </li>
-            <li class="relative">
-              <div class="flex items-center gap-3 mb-5">
-                <span class="w-3 h-3 rounded-full bg-[#4F8268] shrink-0"></span>
-              </div>
-              <h3 class="text-xl mb-3" data-titre></h3>
-              <p class="text-[0.95rem] leading-relaxed text-[#2A3340]" data-texte></p>
-            </li>
-          </ol>
-          <p class="font-mono text-[0.78rem] text-[#5A6473] mt-10 pt-6 border-t border-[rgba(22,26,33,0.10)]" id="legende"></p>
-        </div>
-      </div>
-        </div>
-      </section>
-
-
-      <!-- Le test : combien d'heures perdez-vous chaque semaine -->
-      <section id="test" class="bg-[#FFFFFF] border-t border-[rgba(22,26,33,0.12)] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 py-16 md:py-24">
-
-        <p class="font-mono text-[0.78rem] lowercase tracking-[0.02em] text-[#5A6473] mb-5">le test · gratuit</p>
-        <h2 class="text-[1.9rem] md:text-[2.6rem] leading-[1.06] tracking-tight max-w-[22ch]">
-          Combien d'heures <span class="italic">votre semaine perd-elle ?</span>
-        </h2>
-        <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#2A3340]">
-          Cinq questions honnêtes, trente secondes. Le résultat s'affiche tout de suite, sans
-          laisser d'adresse.
-        </p>
-
-        <form id="test-fuites" action="https://formsubmit.co/matbila63@gmail.com" method="POST" class="mt-12 bg-white border border-[rgba(22,26,33,0.12)] rounded-2xl p-6 md:p-10">
-
-          <div class="flex flex-col divide-y divide-[rgba(22,26,33,0.10)]">
-
-            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5 first:pt-0">
-              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Recopiez-vous les informations d'un client d'un outil vers un autre ?</legend>
-              <div class="flex gap-2 shrink-0" role="radiogroup">
-                <label class="reponse"><input type="radio" name="q1" value="3" class="sr-only"><span>Souvent</span></label>
-                <label class="reponse"><input type="radio" name="q1" value="1.5" class="sr-only"><span>Parfois</span></label>
-                <label class="reponse"><input type="radio" name="q1" value="0" class="sr-only" checked><span>Jamais</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
-              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Vos devis et vos relances de paiement partent-ils à la main ?</legend>
-              <div class="flex gap-2 shrink-0" role="radiogroup">
-                <label class="reponse"><input type="radio" name="q2" value="3" class="sr-only"><span>Souvent</span></label>
-                <label class="reponse"><input type="radio" name="q2" value="1.5" class="sr-only"><span>Parfois</span></label>
-                <label class="reponse"><input type="radio" name="q2" value="0" class="sr-only" checked><span>Jamais</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
-              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">L'accueil d'un nouveau client est-il une suite de messages écrits un par un ?</legend>
-              <div class="flex gap-2 shrink-0" role="radiogroup">
-                <label class="reponse"><input type="radio" name="q3" value="3" class="sr-only"><span>Souvent</span></label>
-                <label class="reponse"><input type="radio" name="q3" value="1.5" class="sr-only"><span>Parfois</span></label>
-                <label class="reponse"><input type="radio" name="q3" value="0" class="sr-only" checked><span>Jamais</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
-              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Vous arrive-t-il de laisser une demande sans réponse plus d'une journée ?</legend>
-              <div class="flex gap-2 shrink-0" role="radiogroup">
-                <label class="reponse"><input type="radio" name="q4" value="3" class="sr-only"><span>Souvent</span></label>
-                <label class="reponse"><input type="radio" name="q4" value="1.5" class="sr-only"><span>Parfois</span></label>
-                <label class="reponse"><input type="radio" name="q4" value="0" class="sr-only" checked><span>Jamais</span></label>
-              </div>
-            </fieldset>
-
-            <fieldset class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-5">
-              <legend class="text-[1.02rem] leading-snug text-[#161A22] md:max-w-[34ch]">Écrivez-vous le même message plus d'une fois par semaine ?</legend>
-              <div class="flex gap-2 shrink-0" role="radiogroup">
-                <label class="reponse"><input type="radio" name="q5" value="3" class="sr-only"><span>Souvent</span></label>
-                <label class="reponse"><input type="radio" name="q5" value="1.5" class="sr-only"><span>Parfois</span></label>
-                <label class="reponse"><input type="radio" name="q5" value="0" class="sr-only" checked><span>Jamais</span></label>
-              </div>
-            </fieldset>
-
-          </div>
-
-          <!-- Résultat -->
-          <div class="mt-8 bg-[#EEF1F6] rounded-xl p-6 md:p-8">
-            <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <p class="serif text-[2.4rem] md:text-[3rem] leading-none text-[#2A4AD1]" id="score">0 h</p>
-              <p class="text-[1.02rem] text-[#2A3340]" id="score-mot">par semaine, d'après vos réponses.</p>
-            </div>
-            <p class="mt-4 text-[0.95rem] text-[#5A6473] max-w-[54ch]">
-              C'est votre résultat, vous ne devez rien laisser pour le voir. Si vous voulez la
-              liste des trois choses à régler en premier chez vous, je vous l'envoie par écrit.
-            </p>
-
-            <div class="flex flex-wrap items-center gap-3 mt-6">
-              <input type="email" name="email" placeholder="votre adresse, facultative"
-                class="flex-1 min-w-[16rem] bg-white border border-[rgba(22,26,33,0.16)] rounded-full px-5 py-3.5 text-[0.98rem] text-[#161A22] placeholder:text-[#8A93A3] focus:outline-none focus:border-[#2A4AD1] transition-colors">
-              <button type="submit"
-                class="inline-flex items-center gap-2 rounded-full bg-[#161A22] hover:bg-[#2A4AD1] transition-colors text-white text-[0.98rem] font-medium px-6 py-3.5">
-                Recevoir mes trois priorités
-              </button>
-              <a href="/contact"
-                class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-[0.98rem] font-medium px-6 py-3.5">
-                En parler vingt minutes
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </a>
-            </div>
-            <p class="hand text-2xl mt-6">pas de lettre d'information cachée là-dedans</p>
-          </div>
-
-          <input type="hidden" name="_subject" value="Résultat du test des heures perdues">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="resultat" id="champ-resultat" value="0">
-          <input type="text" name="_honey" style="display:none">
-        </form>
-      </div>
-        </div>
-      </section>
-
-
-            <!-- Appel final -->
-      <section class="bg-[#FFF7E8] w-full">
-        <div class="max-w-[74rem] mx-auto px-8 py-16 md:py-24">
-        <div class="mx-auto px-8 pb-24 md:pb-32">
-        <div class="border-t border-[rgba(22,26,33,0.12)] pt-14 flex flex-wrap items-center gap-5">
-          <a href="/nouveau-projet" class="inline-flex items-center gap-2 rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-colors text-white text-base font-medium px-7 py-3.5">
-            Cadrer mon premier agent
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
-          <p class="hand text-2xl">vingt minutes, pas un rendez-vous commercial</p>
-        </div>
-      </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer id="contact" class="bg-[#161A22] text-[#F2F4F8] w-full relative z-30">
-      <div class="max-w-[80rem] mx-auto px-6 md:px-12 pt-24 md:pt-28 pb-10">
-
-        <!-- Accroche -->
-        <h2 class="footer-titre text-white text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.92] tracking-[-0.035em] mb-14 md:mb-16">
-          <span aria-hidden="true" class="inline-grid place-items-center align-[-0.08em] mr-4 rounded-full w-[0.78em] h-[0.78em] bg-gradient-to-br from-[#4F8268] to-[#2A4AD1]"><span class="text-[0.2em] font-semibold tracking-[0.06em]">MB</span></span>Travaillons<br>ensemble
-        </h2>
-
-        <!-- Filet traversé par le bouton -->
-        <div class="relative h-[8rem] md:h-[11rem] mb-10 md:mb-12">
-          <div class="absolute inset-x-0 top-1/2 border-t border-white/12"></div>
-          <a href="/contact"
-             class="absolute right-0 top-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-[#2A4AD1] hover:bg-[#1E3AA6] transition-all hover:scale-[1.04] text-white font-manrope text-[0.82rem] md:text-[0.95rem] tracking-tight w-[8rem] md:w-[11rem] aspect-square">
-            Discutons
-          </a>
-        </div>
-
-        <!-- Coordonnées -->
-        <div class="flex flex-wrap items-center gap-3 font-manrope mb-16 md:mb-20">
-          <a href="mailto:contact@biladesigns.com" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">contact@biladesigns.com</a>
-          <a href="tel:+33659086800" class="rounded-full border border-white/20 hover:border-white/70 transition-colors px-9 py-5 text-[1.15rem] md:text-[1.45rem]">06 59 08 68 00</a>
-        </div>
-
-        <!-- Ligne du bas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 font-manrope border-t border-white/12 pt-8">
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Version</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">2026 © Édition</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Heure locale</p>
-            <p class="text-[0.86rem] text-[#B9C0CB] tabular-nums" data-horloge>—</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Basé à</p>
-            <p class="text-[0.86rem] text-[#B9C0CB]">Lyon, France</p>
-          </div>
-          <div>
-            <p class="text-[0.62rem] tracking-[0.2em] uppercase text-[#6E7683] mb-2.5">Réseaux</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-[0.86rem] text-[#B9C0CB]">
-              <a href="https://www.instagram.com/biladesigns" class="hover:text-white transition-colors">Instagram</a>
-              <a href="https://www.linkedin.com/company/biladesigns" class="hover:text-white transition-colors">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-wrap gap-x-7 gap-y-2 text-[0.86rem] text-[#B9C0CB] font-manrope border-t border-white/12 mt-8 pt-8">
-          <a href="/automatisations" class="hover:text-white transition-colors">Automatisations</a>
-          <a href="/services" class="hover:text-white transition-colors">Site web / Branding</a>
-          <a href="/avocats" class="hover:text-white transition-colors">Avocats</a>
-          <a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a>
-          <a href="/agence" class="hover:text-white transition-colors">L'agence</a>
-          <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-          <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
-          <a href="/politique-confidentialite" class="hover:text-white transition-colors">Confidentialité</a>
-          <button type="button" onclick="if(typeof cookieManager!=='undefined')cookieManager.openPreferences()" class="hover:text-white transition-colors text-left">Gestion des cookies</button>
-        </div>
-
-      </div>
-      <script>
-        (function () {
-          var cibles = document.querySelectorAll('[data-horloge]');
-          if (!cibles.length) return;
-          function tic() {
-            var h = new Date().toLocaleTimeString('fr-FR', {
-              hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris'
-            });
-            cibles.forEach(function (c) { c.textContent = h + ' CET'; });
-          }
-          tic();
-          setInterval(tic, 20000);
-        })();
-      </script>
-    </footer>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#FAFBFD] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-      <button id="mobile-menu-close" class="absolute top-8 right-8 text-stone-900 p-2" aria-label="Fermer le menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 6 6 18"></path>
-          <path d="m6 6 12 12"></path>
+        <svg viewBox="0 0 320 220" style="display: block; width: 100%; height: auto; overflow: visible;">
+          <g stroke="rgba(16,27,51,0.16)" stroke-width="1" fill="none">
+            <rect x="20" y="24" width="120" height="70"></rect>
+            <rect x="184" y="24" width="116" height="46"></rect>
+            <rect x="184" y="96" width="116" height="46"></rect>
+            <rect x="20" y="126" width="120" height="70"></rect>
+            <rect x="184" y="168" width="116" height="28"></rect>
+          </g>
+          <g stroke="#2743E3" stroke-width="1.2" fill="none">
+            <path d="M 140 59 H 162 V 47 H 184" stroke-dasharray="56" style="animation: bila-trace-a 6s ease-in-out infinite;"></path>
+            <path d="M 140 59 H 162 V 119 H 184" stroke-dasharray="104" style="animation: bila-trace-b 6s ease-in-out 0.35s infinite;"></path>
+            <path d="M 80 94 V 126" stroke-dasharray="32" style="animation: bila-trace-c 6s ease-in-out 0.7s infinite;"></path>
+            <path d="M 140 161 H 162 V 182 H 184" stroke-dasharray="65" style="animation: bila-trace-d 6s ease-in-out 1.05s infinite;"></path>
+          </g>
+          <g fill="#2743E3">
+            <rect x="76" y="90" width="8" height="8" transform="rotate(45 80 94)"></rect>
+            <rect x="76" y="122" width="8" height="8" transform="rotate(45 80 126)"></rect>
+          </g>
+          <g stroke="rgba(39,67,227,0.28)" stroke-width="1" stroke-dasharray="3 5" fill="none">
+            <line x1="20" y1="210" x2="300" y2="210"></line>
+          </g>
         </svg>
-      </button>
-      <nav class="flex flex-col items-center gap-8 text-3xl font-instrument-serif italic text-stone-900">
-        <a href="/automatisations" class="hover:opacity-70 transition-opacity">
-              Automatisations
-            </a>
-            <a href="/services" class="hover:opacity-70 transition-opacity">
-              Site web / Branding
-            </a>
-            <a href="/avocats" class="hover:opacity-70 transition-opacity">
-              Avocats
-            </a>
-        <a href="/nouveau-projet" class="mobile-link mt-4 px-8 py-3 bg-teal-700 text-white rounded-full font-manrope not-italic text-lg hover:bg-teal-800 transition-all">Démarrer un projet</a>
-        <a href="/contact" class="mobile-link px-8 py-3 border border-stone-900 rounded-full font-manrope not-italic text-lg hover:bg-stone-900 hover:text-white transition-all">Discutons</a>
-      </nav>
-    </div>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner" class="fixed bottom-6 right-6 z-[60] max-w-sm w-[calc(100%-3rem)] bg-[#FAFBFD] rounded-2xl p-6 shadow-2xl border border-[#161A22]/10 hidden transform transition-all duration-500 translate-y-20 opacity-0">
-      <div class="flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <div class="bg-[#2A4AD1]/10 p-2 rounded-full text-[#2A4AD1] shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cookie">
-              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5 2 2 0 0 1 2-2Z"></path>
-              <path d="M8.5 8.5v.01"></path>
-              <path d="M16 15.5v.01"></path>
-              <path d="M12 12v.01"></path>
-              <path d="M11 17v.01"></path>
-              <path d="M7 14v.01"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-serif text-lg text-[#161A22] mb-1">Votre vie privée</h3>
-            <p class="text-xs text-[#2A4AD1] leading-relaxed">
-              Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu.
-            </p>
-          </div>
-        </div>
-        <div class="flex flex-col gap-2">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="cookieManager.refuseAll()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Refuser</button>
-            <button onclick="cookieManager.openPreferences()" class="py-2 px-4 rounded-lg border border-[#161A22]/10 text-xs font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Personnaliser</button>
-          </div>
-          <button onclick="cookieManager.acceptAll()" class="w-full py-2.5 px-4 rounded-lg bg-[#161A22] text-[#FAFBFD] text-xs font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Tout Accepter</button>
-        </div>
+        <span style="font-size: 13px; line-height: 1.7; color: #6B7280; text-wrap: pretty;">Cadrage, chaînes d'agents, points de validation humaine : la page est en train d'être redessinée avec le même soin que le reste du site.</span>
       </div>
     </div>
+  </div>
 
-    <!-- Cookie Preferences Modal -->
-    <div id="cookie-preferences" class="fixed inset-0 z-[70] hidden">
-      <div class="absolute inset-0 bg-[#161A22]/60 backdrop-blur-sm" onclick="cookieManager.closePreferences()"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-[#FAFBFD] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div class="p-6 md:p-8">
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="text-[1.9rem] md:text-[2.6rem] font-serif text-[#161A22] mb-2">Préférences Cookies</h2>
-              <p class="text-sm text-[#2A4AD1]">Gérez vos préférences de consentement pour chaque catégorie.</p>
-            </div>
-            <button onclick="cookieManager.closePreferences()" class="p-2 hover:bg-[#161A22]/5 rounded-full transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
-            </button>
-          </div>
-          <div class="space-y-6">
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-[#161A22]/5 border border-[#161A22]/5">
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-[#161A22]">Essentiels</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161A22] text-white">Requis</span>
-                </div>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nécessaires au bon fonctionnement du site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none opacity-50 cursor-not-allowed">
-                <input type="checkbox" checked="" disabled="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#161A22] appearance-none cursor-not-allowed right-0">
-                <label class="toggle-label block overflow-hidden h-5 rounded-full bg-[#161A22] cursor-not-allowed"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Analytique</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Nous permettent de comprendre comment vous utilisez le site.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_analytics" id="cookie_analytics" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_analytics" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Marketing</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Utilisés pour afficher du contenu tiers.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_marketing" id="cookie_marketing" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_marketing" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Performance</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Optimisent la vitesse de chargement.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_performance" id="cookie_performance" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_performance" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-            <div class="flex items-start justify-between gap-4 p-4 rounded-xl border border-[#161A22]/10 hover:border-[#161A22]/30 transition-colors">
-              <div>
-                <span class="font-bold text-[#161A22] block mb-1">Préférences</span>
-                <p class="text-xs text-[#2A4AD1] leading-relaxed max-w-md">Permettent au site de se souvenir de vos choix.</p>
-              </div>
-              <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                <input type="checkbox" name="cookie_preferences" id="cookie_preferences" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-[#e5e7eb] appearance-none cursor-pointer transition-all duration-300 left-0">
-                <label for="cookie_preferences" class="toggle-label block overflow-hidden h-5 rounded-full bg-[#e5e7eb] cursor-pointer transition-colors duration-300"></label>
-              </div>
-            </div>
-          </div>
-          <div class="flex flex-col md:flex-row gap-3 mt-8 pt-6 border-t border-[#161A22]/10 justify-end">
-            <button onclick="cookieManager.refuseAll()" class="py-3 px-6 rounded-full border border-[#161A22]/20 text-sm font-bold text-[#161A22] hover:bg-[#161A22]/5 transition-colors">Tout Refuser</button>
-            <button onclick="cookieManager.savePreferences()" class="py-3 px-6 rounded-full bg-[#161A22] text-[#FAFBFD] text-sm font-bold hover:bg-[#161A22]/90 transition-colors shadow-lg">Enregistrer mes choix</button>
-          </div>
-        </div>
+  <footer style="position: relative; z-index: 2; margin-top: 64px; padding: 34px var(--gut) 34px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="position: relative; width: 22px; height: 26px; overflow: hidden; background: #2743E3;">
+        <div style="position: absolute; left: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-right-radius: 10px 26px;"></div>
+        <div style="position: absolute; right: 0; top: 0; width: 10px; height: 26px; background: #101B33; border-top-left-radius: 10px 26px;"></div>
       </div>
+      <span style="white-space: nowrap; font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
     </div>
-
-    <script>
-      // Safe Lucide init
-      try {
-        if (typeof lucide !== 'undefined' && lucide.createIcons) {
-          lucide.createIcons();
-        }
-      } catch (e) {
-        console.warn('Lucide icons non disponible:', e);
-      }
-
-      // SEO Cards Animation on Scroll
-      const seoCards = document.querySelectorAll('.seo-card');
-
-      // Fallback: rendre les cartes visibles après 2s si IntersectionObserver échoue
-      const seoFallbackTimeout = setTimeout(() => {
-        seoCards.forEach(card => card.classList.add('visible'));
-      }, 2000);
-
-      // Fonction pour réinitialiser les icônes Lucide
-      function refreshLucideIcons() {
-        try {
-          if (typeof lucide !== 'undefined' && lucide.createIcons) {
-            lucide.createIcons();
-          }
-        } catch (e) {}
-      }
-
-      try {
-        const seoObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              clearTimeout(seoFallbackTimeout);
-              entry.target.classList.add('animate');
-              seoObserver.unobserve(entry.target);
-              refreshLucideIcons(); // Re-render icônes après animation
-            }
-          });
-        }, { threshold: 0.1, rootMargin: '50px' });
-        seoCards.forEach(card => seoObserver.observe(card));
-      } catch (e) {
-        // Fallback si IntersectionObserver non supporté
-        seoCards.forEach(card => card.classList.add('visible'));
-        refreshLucideIcons();
-      }
-
-      // Re-render icônes après chargement complet
-      window.addEventListener('load', refreshLucideIcons);
-
-      // Navigation Mobile
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const closeBtn = document.getElementById('mobile-menu-close');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
-
-      function openMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = 'hidden';
-          if (menuIcon) menuIcon.classList.add('opacity-0');
-          if (closeIcon) closeIcon.classList.remove('opacity-0');
-        }
-      }
-
-      function closeMenu() {
-        if (mobileMenu) {
-          mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-          mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-          document.body.style.overflow = '';
-          if (menuIcon) menuIcon.classList.remove('opacity-0');
-          if (closeIcon) closeIcon.classList.add('opacity-0');
-        }
-      }
-
-      if (menuBtn) menuBtn.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('opacity-0')) { openMenu(); } else { closeMenu(); }
-      });
-      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-      // GDPR Cookie Manager Logic
-      const cookieManager = {
-        consent: { essential: true, analytics: false, marketing: false, performance: false, preferences: false },
-        gaLoaded: false,
-        init() {
-          const storedConsent = localStorage.getItem('bila_cookie_consent');
-          if (storedConsent) {
-            this.consent = JSON.parse(storedConsent);
-            if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-          }
-          else { this.showBanner(); }
-        },
-        loadGoogleAnalytics() {
-          if (this.gaLoaded) return;
-          this.gaLoaded = true;
-          const script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8CXZ6K9C2R';
-          document.head.appendChild(script);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-8CXZ6K9C2R');
-        },
-        showBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.remove('hidden');
-          setTimeout(() => { banner.classList.remove('translate-y-20', 'opacity-0'); }, 100);
-        },
-        hideBanner() {
-          const banner = document.getElementById('cookie-banner');
-          banner.classList.add('translate-y-20', 'opacity-0');
-          setTimeout(() => { banner.classList.add('hidden'); }, 500);
-        },
-        openPreferences() {
-          document.getElementById('cookie_analytics').checked = this.consent.analytics;
-          document.getElementById('cookie_marketing').checked = this.consent.marketing;
-          document.getElementById('cookie_performance').checked = this.consent.performance;
-          document.getElementById('cookie_preferences').checked = this.consent.preferences;
-          document.getElementById('cookie-preferences').classList.remove('hidden');
-        },
-        closePreferences() { document.getElementById('cookie-preferences').classList.add('hidden'); },
-        acceptAll() {
-          this.consent = { essential: true, analytics: true, marketing: true, performance: true, preferences: true };
-          this.saveAndRun();
-        },
-        refuseAll() {
-          this.consent = { essential: true, analytics: false, marketing: false, performance: false, preferences: false };
-          this.saveAndRun();
-        },
-        savePreferences() {
-          this.consent.analytics = document.getElementById('cookie_analytics').checked;
-          this.consent.marketing = document.getElementById('cookie_marketing').checked;
-          this.consent.performance = document.getElementById('cookie_performance').checked;
-          this.consent.preferences = document.getElementById('cookie_preferences').checked;
-          this.closePreferences();
-          this.saveAndRun();
-        },
-        saveAndRun() {
-          localStorage.setItem('bila_cookie_consent', JSON.stringify(this.consent));
-          this.hideBanner();
-          if (this.consent.analytics) { this.loadGoogleAnalytics(); }
-        }
-      };
-      document.addEventListener('DOMContentLoaded', () => { cookieManager.init(); });
-    </script>
-
-
-<script>
-(function () {
-  var f = document.getElementById('test-fuites');
-  if (!f) return;
-  var sortie = document.getElementById('score');
-  var mot    = document.getElementById('score-mot');
-  var champ  = document.getElementById('champ-resultat');
-  function calcule() {
-    var total = 0;
-    ['q1','q2','q3','q4','q5'].forEach(function (n) {
-      var c = f.querySelector('input[name="' + n + '"]:checked');
-      if (c) total += parseFloat(c.value);
-    });
-    var heures = Math.round(total * 0.9 * 2) / 2;   // 0 a 13,5 h
-    sortie.textContent = (heures ? '~ ' : '') + heures.toString().replace('.', ',') + ' h';
-    champ.value = heures + ' h par semaine';
-    if (heures === 0)      mot.textContent = "par semaine. Tout est déjà en place chez vous.";
-    else if (heures < 4)   mot.textContent = "par semaine. Quelques automatismes suffiraient.";
-    else if (heures < 9)   mot.textContent = "par semaine. Il y a de quoi faire, et ça se règle vite.";
-    else                   mot.textContent = "par semaine. C'est plus d'une journée de travail par mois.";
-  }
-  f.addEventListener('change', calcule);
-  calcule();
-})();
-</script>
-
-<script>
-(function () {
-  var CAS = [
-    { legende: "> formulaire, fiche client, devis, agenda",
-      etapes: [
-        ["La demande arrive",       "Le message tombe dans votre boîte, et dans le système en même temps."],
-        ["La fiche se crée",        "Nom, activité, origine du contact : rien à ressaisir nulle part."],
-        ["Le devis part pré-rempli","Vous relisez, vous corrigez si besoin, vous envoyez."],
-        ["Le rendez-vous est calé", "Le créneau se réserve, la confirmation part, vous n'avez qu'à venir."]
-      ] },
-    { legende: "> échéancier, relances, suivi client",
-      etapes: [
-        ["L'échéance passe",   "Le système la voit le jour même, pas trois semaines plus tard."],
-        ["Une relance part",   "Polie, écrite avec vos mots, avec la facture jointe."],
-        ["Vous êtes prévenu",  "Seulement si le silence dure. Sinon, vous n'entendez parler de rien."],
-        ["Le suivi se met à jour","Payé ou non, l'information est au bon endroit pour tout le monde."]
-      ] },
-    { legende: "> clôture, facturation, avis, archivage",
-      etapes: [
-        ["Le dossier se clôt",     "Vous le marquez terminé, une seule fois, à un seul endroit."],
-        ["La facture finale part", "Montants et mentions déjà remplis à partir du dossier."],
-        ["Un avis est demandé",    "Au bon moment, quand le client est encore content de vous."],
-        ["Le client reçoit tout",  "Documents rassemblés, envoyés, archivés. Le dossier est vraiment fini."]
-      ] }
-  ];
-  var boutons = document.querySelectorAll('.scenario');
-  var lignes  = document.querySelectorAll('#etapes li');
-  var legende = document.getElementById('legende');
-  if (!boutons.length || !lignes.length) return;
-
-  function montre(i) {
-    var cas = CAS[i];
-    lignes.forEach(function (li, k) {
-      li.querySelector('[data-titre]').textContent = cas.etapes[k][0];
-      li.querySelector('[data-texte]').textContent = cas.etapes[k][1];
-    });
-    legende.textContent = cas.legende;
-    boutons.forEach(function (b, k) { b.classList.toggle('est-actif', k === i); });
-  }
-  boutons.forEach(function (b) {
-    b.addEventListener('click', function () { montre(parseInt(b.dataset.cas, 10)); });
-  });
-  montre(0);
-})();
-</script>
-</body></html>
+    <div style="display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">
+      <a href="/accueil/" style="font-size: 14px; color: #2C3348;">Accueil</a>
+      <a href="/services/" style="font-size: 14px; color: #2C3348;">Sites web &amp; branding</a>
+      <a href="/avocats/" style="font-size: 14px; color: #2C3348;">Avocats</a>
+      <a href="mailto:mathieu@biladesigns.com" style="font-size: 14px; color: #2C3348;">mathieu@biladesigns.com</a>
+      <span style="font-size: 12px; color: #8A8F9C;">2026 © Bila Designs</span>
+    </div>
+  </footer>
+</section>
+</main>
+<script src="/assets/js/bila-motion.js" defer></script>
+<script src="/assets/js/bila-ui.js" defer></script>
+</body>
+</html>
