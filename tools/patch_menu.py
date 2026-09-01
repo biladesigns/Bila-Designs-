@@ -16,7 +16,9 @@ BOUTON = """<button type="button" class="menu-bouton" aria-expanded="false" aria
 def panneau(entrees, courante):
     lignes = []
     for i, (href, libelle) in enumerate(entrees, 1):
-        actif = ' data-courante' if libelle == courante else ''
+        # aria-current dit au lecteur d'ecran ou l'on se trouve ;
+        # data-courante ne sert qu'a la mise en forme.
+        actif = ' data-courante aria-current="page"' if libelle == courante else ''
         lignes.append(
             '<a href="%s"%s class="menu-entree">'
             '<span class="menu-rang">%02d</span>'
