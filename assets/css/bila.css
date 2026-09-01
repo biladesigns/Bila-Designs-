@@ -189,13 +189,31 @@ button[disabled] { opacity: 0.55; cursor: progress; }
     margin-top: 16px;
   }
 
-  /* Les images de heros calees a droite passent en fond pleine largeur,
-     tres attenue, pour que le titre reste lisible. */
+  /* Heros : sur un ecran etroit, le dessin passe derriere le texte. Le
+     contraste reste suffisant — mesure entre 6,9 et 7,8 pour 1 — mais les
+     traits traversent les mots, et c'est cela qui gene la lecture.
+     Attenuer l'image en bloc l'affadissait sans regler le probleme : un
+     voile en diagonale degage la zone de texte, en haut a gauche, et
+     laisse le dessin respirer en bas a droite. Voile clair et non
+     assombri : le fond du site est clair, et l'encre du texte aussi. */
   main section > div[style*="width: 62%"],
   main section > div[style*="width: 66%"],
   main section > div[style*="width: 68%"] {
     width: 100% !important;
-    opacity: 0.5;
+  }
+  main section > div[style*="width: 62%"]::after,
+  main section > div[style*="width: 66%"]::after,
+  main section > div[style*="width: 68%"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(158deg,
+      rgba(251,251,250,0.94) 0%,
+      rgba(251,251,250,0.88) 38%,
+      rgba(251,251,250,0.55) 62%,
+      rgba(251,251,250,0.10) 84%,
+      rgba(251,251,250,0) 100%);
   }
 
   /* Cible tactile de 44px minimum sur les liens et boutons de pied de page. */
@@ -328,6 +346,49 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   .g-3 > *:not(:first-child),
   .g-4 > *:not(:first-child) { padding-top: 26px !important; }
 
+  /* Etapes de « Sites web & branding » : les cartes restent collantes,
+     donc leur hauteur doit tenir dans la fenetre. Une carte plus haute se
+     fait rogner par le bas et c'est la phase 2 qu'on voyait coupee. La
+     vignette carree pleine largeur coutait a elle seule 350 px. */
+  main #process [id^="step-"] > div[data-rise] {
+    max-width: 190px;
+    margin-top: 4px;
+  }
+  main #process [id^="step-"] { padding-bottom: 20px !important; }
+
+  /* Le decalage entre les trois cartes collantes est ce qui donne l'effet
+     d'empilement. Sur un ecran court il coute la place qui manque en bas :
+     il est reduit sans disparaitre. */
+  main #step-1 { top: 56px !important; }
+  main #step-2 { top: 68px !important; }
+  main #step-3 { top: 80px !important; }
+
+  /* Chaine du dossier : cinq onglets partageant la largeur donnent 71 px
+     chacun sur un telephone, et les libelles se chevauchent. Ils passent
+     en liste verticale, chacun sur sa ligne, le numero devant. */
+  .onglets-chaine {
+    flex-direction: column !important;
+    border-bottom: none !important;
+  }
+  .onglets-chaine > [data-choix] {
+    flex: 1 1 auto !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 16px !important;
+    padding: 16px 2px !important;
+    border-left: none !important;
+    border-bottom: 1px solid rgba(16,27,51,0.14);
+    box-shadow: none !important;
+  }
+  .onglets-chaine > [data-choix][aria-selected="true"] {
+    box-shadow: inset 3px 0 0 0 #2743E3 !important;
+    padding-left: 16px !important;
+  }
+  .onglets-chaine > [data-choix] > span:last-child {
+    font-size: 20px !important;
+    white-space: normal;
+  }
+
   /* Barre d'audit : le filet qui separait l'etiquette du titre ne separe
      plus rien une fois les deux passes l'un sous l'autre. */
   main section span[style*="width: 1px"][style*="height: 22px"] { display: none !important; }
@@ -399,6 +460,15 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main button[style*="border-radius: 999px"] { font-size: 15px !important; }
 }
 
+/* Sur les ecrans les plus courts, le decalage des cartes collantes se
+   resserre encore : huit pixels manquaient a la troisieme pour tenir
+   entiere dans la fenetre. */
+@media (max-width: 400px) {
+  main #step-1 { top: 40px !important; }
+  main #step-2 { top: 50px !important; }
+  main #step-3 { top: 60px !important; }
+}
+
 /* ── Mouvement reduit ────────────────────────────────────────────────────
    bila-motion.js gele deja ses propres animations ; cette regle couvre
    celles qui restent en CSS pur. */
@@ -415,6 +485,31 @@ button[disabled] { opacity: 0.55; cursor: progress; }
 @media print {
   main section > div[style*="inset: 0"] { display: none !important; }
   main header nav, main footer { display: none !important; }
+}
+
+/* ── Schema des huit leviers ─────────────────────────────────────────────
+   Dessine pour 1240 px. En dessous, il garde sa taille de lecture et se
+   parcourt lateralement plutot que de se reduire en timbre-poste. */
+.schema-invite { display: none; }
+
+@media (max-width: 1000px) {
+  .schema-piste {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    /* le degrade dit qu'il reste quelque chose a droite */
+    mask-image: linear-gradient(to right, #000 0, #000 92%, rgba(0,0,0,0.35) 100%);
+  }
+  .schema-piste svg { min-width: 940px; }
+  .schema-invite {
+    display: block;
+    margin-top: 14px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    transform: rotate(-1deg);
+  }
 }
 
 /* ── Menu de telephone ───────────────────────────────────────────────────
@@ -608,6 +703,14 @@ body[data-menu-ouvert] { overflow: hidden; }
 }
 
 .ecran-3d-plaque {
+  /* Le filet bleu qui tourne autour du cadre. Le principe est celui du
+     balayage deja employe dans les maquettes : un degrade conique bien
+     plus grand que la boite, qui tourne derriere le contenu et n'est
+     visible que sur le lisere d'un pixel laisse libre par le rembourrage.
+     Il tourne en continu, sans attendre le survol. */
+  box-sizing: border-box;
+  padding: 1px;
+  background-color: rgba(16, 27, 51, 0.16) !important;
   transform: rotateX(6deg) rotateY(-8deg) scale(0.95);
   transform-origin: 50% 60%;
   box-shadow: 20px 30px 64px rgba(16, 27, 51, 0.20),
@@ -615,6 +718,38 @@ body[data-menu-ouvert] { overflow: hidden; }
   transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.85s ease;
   will-change: transform;
+}
+
+.ecran-3d-plaque::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180%;
+  height: 320%;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg,
+    transparent 0deg, transparent 246deg,
+    rgba(39, 67, 227, 0.30) 296deg,
+    #2743E3 336deg,
+    rgba(39, 67, 227, 0.30) 16deg,
+    transparent 66deg, transparent 360deg);
+  animation: bila-sweep 6s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Le contenu passe au-dessus du balayage : seul le lisere reste visible. */
+.ecran-3d-plaque > * { position: relative; z-index: 1; }
+
+/* Les quatre cadres ne tournent pas ensemble : le decalage evite l'effet
+   de guirlande synchronisee. */
+article:nth-child(2) .ecran-3d-plaque::before { animation-delay: -1.5s; }
+article:nth-child(3) .ecran-3d-plaque::before { animation-delay: -3s; }
+article:nth-child(4) .ecran-3d-plaque::before { animation-delay: -4.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ecran-3d-plaque::before { animation: none; }
 }
 
 /* Le second de chaque rangee penche dans l'autre sens : les quatre

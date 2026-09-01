@@ -39,6 +39,26 @@ const { chromium, PAGES, LARGEURS, ouvrir } = require('./harnais');
           if (b.width > 0 && b.width <= 2.5 && b.height >= 100) filets.push(b);
         }
         out.filets = filets.length;
+        // Un texte coupe par un conteneur defilant n'est pas dessine au-dela
+        // de ce conteneur, mais getClientRects rend sa geometrie complete.
+        // Sans cette intersection, le schema de referencement — large et
+        // parcourable lateralement — declenchait de faux croisements.
+        function fenetreVisible(el) {
+          let n = el.parentElement, boite = null;
+          while (n && n !== document.body) {
+            const cs = getComputedStyle(n);
+            if (/auto|scroll|hidden|clip/.test(cs.overflowX + cs.overflowY)) {
+              const b = n.getBoundingClientRect();
+              boite = boite
+                ? { left: Math.max(boite.left, b.left), right: Math.min(boite.right, b.right),
+                    top: Math.max(boite.top, b.top), bottom: Math.min(boite.bottom, b.bottom) }
+                : { left: b.left, right: b.right, top: b.top, bottom: b.bottom };
+            }
+            n = n.parentElement;
+          }
+          return boite;
+        }
+
         const boites = [];
         const it = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
         let n;
@@ -46,8 +66,18 @@ const { chromium, PAGES, LARGEURS, ouvrir } = require('./harnais');
           if (!n.nodeValue.trim()) continue;
           const p = n.parentElement;
           if (!p || getComputedStyle(p).visibility === 'hidden') continue;
+          const clip = fenetreVisible(p);
           const rg = document.createRange(); rg.selectNodeContents(n);
-          for (const rr of rg.getClientRects()) if (rr.width > 2 && rr.height > 2) boites.push(rr);
+          for (const rr of rg.getClientRects()) {
+            if (rr.width <= 2 || rr.height <= 2) continue;
+            let b = { left: rr.left, right: rr.right, top: rr.top, bottom: rr.bottom };
+            if (clip) {
+              b = { left: Math.max(b.left, clip.left), right: Math.min(b.right, clip.right),
+                    top: Math.max(b.top, clip.top), bottom: Math.min(b.bottom, clip.bottom) };
+              if (b.right - b.left <= 2 || b.bottom - b.top <= 2) continue;
+            }
+            boites.push(b);
+          }
         }
         for (const f of filets) {
           for (const t of boites) {

@@ -456,10 +456,77 @@
     });
   }
 
+
+  /* ── Compteurs de statistiques ─────────────────────────────────────────
+     Les quatre chiffres de la section referencement montent depuis zero a
+     leur entree dans le champ de vision. Le format est lu dans le texte
+     deja en place — decimale a la francaise, symbole eventuel — pour que
+     rien ne soit ecrit deux fois. */
+  function initCompteurs() {
+    var cibles = document.querySelectorAll('[data-stat]');
+    if (!cibles.length) return;
+    var sobre = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    for (var i = 0; i < cibles.length; i++) {
+      (function (bloc) {
+        if (bloc.__bilaCompteur) return;
+        var valeur = bloc.querySelector('span');
+        if (!valeur) return;
+        var brut = valeur.textContent.trim();
+        // « 68,7 % » -> nombre 68.7, une decimale, suffixe « % »
+        var m = brut.match(/^([\d]+)(?:,([\d]+))?(.*)$/);
+        if (!m) return;
+        bloc.__bilaCompteur = true;
+
+        var cible = parseFloat(m[1] + '.' + (m[2] || '0'));
+        var decimales = m[2] ? m[2].length : 0;
+        var suffixe = m[3] || '';
+
+        // La largeur ne doit pas sauter pendant le decompte.
+        valeur.style.fontVariantNumeric = 'tabular-nums';
+
+        function ecrire(v) {
+          var t = v.toFixed(decimales).replace('.', ',');
+          valeur.textContent = t + suffixe;
+        }
+
+        if (sobre) return;
+
+        var lance = false;
+        function demarrer() {
+          if (lance) return;
+          lance = true;
+          var t0 = 0;
+          var duree = 1100;
+          function pas(t) {
+            if (!t0) t0 = t;
+            var p = Math.min((t - t0) / duree, 1);
+            // ralentissement en fin de course : le chiffre se pose
+            var e = 1 - Math.pow(1 - p, 3);
+            ecrire(cible * e);
+            if (p < 1) requestAnimationFrame(pas);
+            else ecrire(cible);
+          }
+          requestAnimationFrame(pas);
+        }
+
+        if (!('IntersectionObserver' in window)) { demarrer(); return; }
+        ecrire(0);
+        var oeil = new IntersectionObserver(function (entrees) {
+          for (var k = 0; k < entrees.length; k++) {
+            if (entrees[k].isIntersecting) { demarrer(); oeil.disconnect(); }
+          }
+        }, { threshold: 0.4 });
+        oeil.observe(bloc);
+      })(cibles[i]);
+    }
+  }
+
   function demarrer() {
     initOnglets();
     initGroupes();
     initMenu();
+    initCompteurs();
     initPastilles();
     initCadres();
     initRetournables();
