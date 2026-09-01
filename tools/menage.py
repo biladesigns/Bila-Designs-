@@ -37,7 +37,7 @@ for f in PAGES:
     # liens internes
     morts = []
     for href in set(re.findall(r'href="(/[^"]*)"', s)):
-        chemin = href.split('#')[0]
+        chemin = href.split('#')[0].split('?')[0]
         if not chemin:
             continue
         if os.path.splitext(chemin)[1]:

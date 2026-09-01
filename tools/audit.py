@@ -41,6 +41,7 @@ morts = set()
 for p in pages:
     s = open(R + p + '/index.html', encoding='utf-8').read()
     for href in re.findall(r'href="(/[^"#]*)(?:#[^"]*)?"', s):
+        href = href.split('?')[0]
         if href.startswith('/assets') or href.startswith('/public'):
             if not os.path.exists(R + href.lstrip('/')):
                 morts.add(href)
