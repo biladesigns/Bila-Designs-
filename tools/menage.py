@@ -54,6 +54,23 @@ for f in PAGES:
     else:
         print('%-34s propre' % nom)
 
+# ── Fichiers hors pages ───────────────────────────────────────────────────
+# Le favicon et les ressources de marque suivent la meme palette que le
+# reste. Le vert de l'ancienne DA y a survecu longtemps parce que ce
+# controle ne regardait que les pages.
+for f in ['favicon.svg']:
+    chemin = R + f
+    if not os.path.exists(chemin):
+        continue
+    t = open(chemin, encoding='utf-8').read()
+    vieux = [c for c in ('#0f2f28', '#161A22', '#2A4AD1', '#4F8268', '#FAFBFD')
+             if c.lower() in t.lower()]
+    if vieux:
+        probleme += 1
+        print('%-34s ancienne palette : %s' % (f, ', '.join(vieux)))
+    else:
+        print('%-34s propre' % f)
+
 print()
-print('Pages avec des restes :', probleme)
+print('Fichiers avec des restes :', probleme)
 sys.exit(1 if probleme else 0)
