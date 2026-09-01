@@ -1,0 +1,30 @@
+# Ce que Cloudflare ne doit pas mettre en ligne.
+#
+# wrangler.json declare « assets.directory: ./ » : sans ce fichier,
+# Cloudflare televerse le depot entier, y compris .git — soit 32 Mo
+# d'objets git publies sur le web, et deux fois plus de donnees que le
+# site n'en contient. C'est ce qui faisait echouer la construction.
+
+# L'historique du depot n'a rien a faire en ligne : un .git accessible
+# permet de recloner tout le code et tout le passe du projet.
+.git/**
+.github/**
+.gitignore
+
+# Outils de construction : ils tournent avant la mise en ligne, pas apres.
+tools/**
+*.py
+**/*.py
+*.sh
+**/*.sh
+*.md
+**/*.md
+
+# Les PNG d'origine sont les sources des illustrations ; le site sert les
+# WebP. Les garder au depot, pas sur le serveur.
+assets/img/*.png
+public/images/*.png
+
+# Configuration de deploiement.
+wrangler.json
+.assetsignore
