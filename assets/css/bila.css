@@ -513,45 +513,123 @@ button[disabled] { opacity: 0.55; cursor: progress; }
 }
 
 /* ── Menu de telephone ───────────────────────────────────────────────────
-   Un bouton et un panneau plein ecran, dans la grammaire du site : filets
-   de 1 px, angles vifs, losanges, Fraunces pour les entrees. Cache au-dela
-   de 768 px, ou la barre de navigation tient sur une ligne. */
+   Le geste vient du StaggeredMenu de React Bits : deux sous-couches
+   glissent l'une apres l'autre, le panneau arrive par-dessus, puis les
+   entrees montent en cascade depuis le bas de leur ligne. Ni React ni
+   GSAP ici : des transitions decalees suffisent, et le decalage est
+   ecrit dans les delais plutot que dans une frise d'animation.
 
+   Les durees et les courbes reprennent celles du composant d'origine :
+   0,5 s pour les sous-couches, 0,65 s pour le panneau, 1 s pour les
+   entrees, toutes en power4.out ; 0,32 s en power3.in a la fermeture. */
+
+:root {
+  --menu-sortie: cubic-bezier(0.16, 1, 0.30, 1);   /* power4.out */
+  --menu-entree: cubic-bezier(0.55, 0.055, 0.675, 0.19); /* power3.in */
+}
+
+/* ── Le bouton ───────────────────────────────────────────────────────────*/
 .menu-bouton {
   display: none;
-  position: relative;
-  width: 44px;
-  height: 44px;
-  margin-right: -10px;
-  padding: 0;
+  align-items: center;
+  gap: 10px;
+  margin-right: -6px;
+  padding: 10px 6px;
   border: 0;
   background: transparent;
   cursor: pointer;
+  color: var(--encre);
   flex: 0 0 auto;
 }
-.menu-trait {
-  position: absolute;
-  left: 11px;
-  width: 22px;
-  height: 1px;
-  background: var(--encre);
-  transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), opacity 0.2s ease;
+.menu-bouton-mots {
+  display: block;
+  height: 12px;
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
-.menu-trait:nth-child(1) { top: 19px; }
-.menu-trait:nth-child(2) { top: 25px; }
+.menu-bouton-defile {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.55s var(--menu-sortie);
+}
+.menu-bouton-defile > span { display: block; height: 12px; line-height: 12px; }
 
-.menu-panneau {
+.menu-bouton-croix {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  transition: transform 0.8s var(--menu-sortie);
+}
+.menu-bouton-croix > span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+.menu-bouton-croix > span:last-child { transform: rotate(90deg); }
+
+/* A l'ouverture : le mot roule vers « Fermer », la croix pivote d'un
+   quart de tour et demi, exactement comme le composant d'origine. */
+body[data-menu-ouvert] .menu-bouton-defile { transform: translateY(-12px); }
+body[data-menu-ouvert] .menu-bouton-croix { transform: rotate(225deg); }
+body[data-menu-ouvert] .menu-bouton { color: var(--bleu); }
+
+/* ── L'enveloppe, les sous-couches et le panneau ─────────────────────────*/
+.menu-enveloppe {
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: var(--fond);
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 0.36s;
+}
+body[data-menu-ouvert] .menu-enveloppe {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.menu-souscouches { position: absolute; inset: 0; }
+.menu-souscouches > span {
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  transition: transform 0.32s var(--menu-entree);
+}
+.menu-souscouches > span:first-child { background: #5D7EFF; }
+.menu-souscouches > span:last-child  { background: #2743E3; }
+
+.menu-panneau {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   padding: 30px var(--gut) 40px;
   box-sizing: border-box;
+  background: var(--fond);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  transform: translateX(100%);
+  transition: transform 0.32s var(--menu-entree);
 }
+
+body[data-menu-ouvert] .menu-souscouches > span,
+body[data-menu-ouvert] .menu-panneau {
+  transform: translateX(0);
+  transition: transform 0.5s var(--menu-sortie);
+}
+body[data-menu-ouvert] .menu-souscouches > span:last-child { transition-delay: 0.07s; }
+body[data-menu-ouvert] .menu-panneau {
+  transition-duration: 0.65s;
+  transition-delay: 0.15s;
+}
+
 .menu-filets { position: absolute; inset: 0; pointer-events: none; }
 .menu-filets span {
   position: absolute;
@@ -562,80 +640,71 @@ button[disabled] { opacity: 0.55; cursor: progress; }
 .menu-filets span:first-child { left: var(--rail); }
 .menu-filets span:last-child  { right: var(--rail); }
 
-.menu-tete {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 26px;
-}
-.menu-titre {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bleu);
-}
-.menu-fermer {
-  position: relative;
-  width: 44px; height: 44px;
-  margin-right: -10px;
-  padding: 0; border: 0;
-  background: transparent;
-  cursor: pointer;
-}
-.menu-fermer span {
-  position: absolute;
-  left: 11px; top: 21px;
-  width: 22px; height: 1px;
-  background: var(--encre);
-}
-.menu-fermer span:first-child { transform: rotate(45deg); }
-.menu-fermer span:last-child  { transform: rotate(-45deg); }
-
+/* ── Les entrees ─────────────────────────────────────────────────────────*/
 .menu-liste {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
   border-top: 1px solid rgba(16,27,51,0.14);
 }
-.menu-entree {
+.menu-ligne {
   display: flex;
   align-items: baseline;
-  gap: 18px;
-  padding: 22px 2px;
+  gap: 16px;
+  padding: 18px 2px;
   border-bottom: 1px solid rgba(16,27,51,0.14);
-  color: var(--encre);
-  text-decoration: none;
 }
 .menu-rang {
   flex: 0 0 auto;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: var(--mute);
+  color: var(--bleu);
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
-.menu-libelle {
+.menu-item {
   flex: 1 1 auto;
+  display: block;
+  overflow: hidden;
+  color: var(--encre);
+  text-decoration: none;
+}
+.menu-mot {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  transform: translateY(140%) rotate(10deg);
+  transition: transform 0.32s var(--menu-entree);
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 500;
-  font-size: clamp(26px, 16px + 2.6vw, 34px);
-  line-height: 1.15;
+  font-size: clamp(30px, 8.4vw, 42px);
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
-.menu-losange {
-  flex: 0 0 auto;
-  width: 7px; height: 7px;
-  background: var(--bleu);
-  transform: rotate(45deg);
-  opacity: 0;
-}
-.menu-entree[data-courante] .menu-rang { color: var(--bleu); }
-.menu-entree[data-courante] .menu-libelle { color: var(--bleu); }
-.menu-entree[data-courante] .menu-losange { opacity: 1; }
+.menu-item[aria-current] .menu-mot { color: var(--bleu); }
+.menu-item:hover .menu-mot,
+.menu-item:focus-visible .menu-mot { color: var(--bleu); }
 
+body[data-menu-ouvert] .menu-mot {
+  transform: translateY(0) rotate(0deg);
+  transition: transform 1s var(--menu-sortie);
+}
+body[data-menu-ouvert] .menu-rang { opacity: 1; }
+
+/* Le decalage : chaque entree part un dixieme de seconde apres la
+   precedente, les numeros un peu apres elles. */
+body[data-menu-ouvert] .menu-ligne:nth-child(1) .menu-mot { transition-delay: 0.25s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(2) .menu-mot { transition-delay: 0.35s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(3) .menu-mot { transition-delay: 0.45s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(4) .menu-mot { transition-delay: 0.55s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(1) .menu-rang { transition-delay: 0.35s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(2) .menu-rang { transition-delay: 0.43s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(3) .menu-rang { transition-delay: 0.51s; }
+body[data-menu-ouvert] .menu-ligne:nth-child(4) .menu-rang { transition-delay: 0.59s; }
+
+/* ── Le pied du panneau ──────────────────────────────────────────────────*/
 .menu-pied {
   position: relative;
   z-index: 1;
@@ -644,8 +713,17 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 18px;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.3s ease, transform 0.3s var(--menu-entree);
 }
+body[data-menu-ouvert] .menu-pied {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.55s ease 0.45s, transform 0.55s var(--menu-sortie) 0.45s;
+}
+
 .menu-cta {
   display: inline-flex;
   align-items: center;
@@ -658,7 +736,9 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   text-decoration: none;
 }
 .menu-cta:hover, .menu-cta:focus-visible { background: var(--encre); color: #FFFFFF; }
-.menu-contact {
+
+.menu-coord { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.menu-coord a {
   font-size: 16px;
   font-weight: 500;
   color: var(--encre);
@@ -666,7 +746,29 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   border-bottom: 1px solid rgba(16,27,51,0.22);
   padding-bottom: 3px;
 }
-.menu-contact--sobre { color: var(--texte); border-bottom-color: transparent; }
+.menu-coord a.menu-coord--sobre { color: var(--texte); border-bottom-color: transparent; }
+
+.menu-reseaux { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.menu-reseaux-titre {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.menu-reseaux ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.menu-reseau {
+  font-size: 15px;
+  color: var(--texte);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+.menu-reseau:hover, .menu-reseau:focus-visible {
+  color: var(--bleu);
+  border-bottom-color: var(--bleu);
+}
+
 .menu-note {
   font-family: 'Caveat', cursive;
   font-size: 21px;
@@ -679,18 +781,25 @@ button[disabled] { opacity: 0.55; cursor: progress; }
 body[data-menu-ouvert] { overflow: hidden; }
 
 @media (max-width: 768px) {
-  .menu-bouton { display: block; }
-  /* La barre de bureau laisse la place au bouton. */
+  .menu-bouton { display: inline-flex; }
   main header nav { display: none !important; }
   main header { flex-wrap: nowrap !important; gap: 16px !important; }
-  body[data-menu-ouvert] .menu-bouton .menu-trait:nth-child(1) { transform: translateY(3px) rotate(45deg); }
-  body[data-menu-ouvert] .menu-bouton .menu-trait:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
 }
 
 @media (min-width: 769px) {
-  /* Au-dela, le panneau n'a pas lieu d'etre, meme s'il etait reste ouvert
-     au moment d'une rotation d'ecran. */
-  .menu-panneau { display: none !important; }
+  /* Au-dela, la barre reprend la main, meme si le panneau etait reste
+     ouvert au moment d'une rotation d'ecran. */
+  .menu-enveloppe { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-souscouches > span,
+  .menu-panneau,
+  .menu-mot,
+  .menu-rang,
+  .menu-pied,
+  .menu-bouton-defile,
+  .menu-bouton-croix { transition-duration: 0.001ms !important; transition-delay: 0s !important; }
 }
 
 /* ── Realisations : l'ecran vu de trois quarts ───────────────────────────

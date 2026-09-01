@@ -1,46 +1,70 @@
 #!/usr/bin/env python3
-"""Ajoute le menu de telephone : un bouton et un panneau plein ecran.
+"""Le menu de telephone : bouton, sous-couches et panneau.
 
-En dessous de 768 px, la barre de navigation se repliait sur plusieurs
-lignes. Ca tenait, mais ce n'etait pas un menu : c'etait une barre de
-bureau qui deborde. Le panneau reprend la grammaire du site — filets de
-1 px, angles vifs, losanges, Fraunces pour les entrees.
+Le geste est repris du StaggeredMenu de React Bits, dont Mathieu voulait
+l'allure : deux sous-couches colorees glissent l'une apres l'autre, le
+panneau arrive par-dessus, puis les entrees montent en cascade depuis le
+bas de leur ligne. La bibliotheque, elle, n'est pas reprise — ni React ni
+GSAP : tout tient en transitions CSS decalees et en une quarantaine de
+lignes de JavaScript.
+
+Les couleurs, la typographie et les losanges viennent de la DA du site,
+pas de celles du composant d'origine.
 """
 import re, os, glob, html
 
 R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')) + '/'
 
-BOUTON = """<button type="button" class="menu-bouton" aria-expanded="false" aria-controls="menu-telephone" aria-label="Ouvrir le menu"><span class="menu-trait"></span><span class="menu-trait"></span></button>"""
+BOUTON = (
+    '<button type="button" class="menu-bouton" aria-expanded="false" '
+    'aria-controls="menu-telephone" aria-label="Ouvrir le menu">'
+    '<span class="menu-bouton-mots" aria-hidden="true">'
+    '<span class="menu-bouton-defile"><span>Menu</span><span>Fermer</span></span></span>'
+    '<span class="menu-bouton-croix" aria-hidden="true"><span></span><span></span></span>'
+    '</button>'
+)
+
+RESEAUX = [
+    ('Instagram', 'https://www.instagram.com/biladesigns'),
+    ('LinkedIn', 'https://www.linkedin.com/company/biladesigns'),
+]
 
 
 def panneau(entrees, courante):
     lignes = []
     for i, (href, libelle) in enumerate(entrees, 1):
-        # aria-current dit au lecteur d'ecran ou l'on se trouve ;
-        # data-courante ne sert qu'a la mise en forme.
-        actif = ' data-courante aria-current="page"' if libelle == courante else ''
+        actif = ' aria-current="page"' if libelle == courante else ''
         lignes.append(
-            '<a href="%s"%s class="menu-entree">'
-            '<span class="menu-rang">%02d</span>'
-            '<span class="menu-libelle">%s</span>'
-            '<span class="menu-losange" aria-hidden="true"></span></a>'
-            % (href, actif, i, libelle))
-    return """<div id="menu-telephone" class="menu-panneau" hidden role="dialog" aria-modal="true" aria-label="Menu">
-  <div class="menu-filets" aria-hidden="true"><span></span><span></span></div>
-  <div class="menu-tete">
-    <span class="menu-titre">Menu</span>
-    <button type="button" class="menu-fermer" aria-label="Fermer le menu"><span></span><span></span></button>
-  </div>
-  <nav class="menu-liste">
-    %s
-  </nav>
-  <div class="menu-pied">
-    <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
-    <a href="mailto:mathieu@biladesigns.com" class="menu-contact">mathieu@biladesigns.com</a>
-    <a href="tel:+33659086800" class="menu-contact menu-contact--sobre">06 59 08 68 00</a>
-    <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
-  </div>
-</div>""" % ('\n    '.join(lignes))
+            '<li class="menu-ligne">'
+            '<span class="menu-rang" aria-hidden="true">%02d</span>'
+            '<a class="menu-item" href="%s"%s><span class="menu-mot">%s</span></a>'
+            '</li>' % (i, href, actif, libelle))
+
+    reseaux = ''.join(
+        '<li><a class="menu-reseau" href="%s" target="_blank" rel="noopener">%s</a></li>'
+        % (u, n) for n, u in RESEAUX)
+
+    return """<div class="menu-enveloppe">
+  <div class="menu-souscouches" aria-hidden="true"><span></span><span></span></div>
+  <aside id="menu-telephone" class="menu-panneau" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="menu-filets" aria-hidden="true"><span></span><span></span></div>
+    <ul class="menu-liste" role="list">
+      %s
+    </ul>
+    <div class="menu-pied">
+      <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
+      <div class="menu-coord">
+        <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a>
+        <a href="tel:+33659086800" class="menu-coord--sobre">06 59 08 68 00</a>
+      </div>
+      <div class="menu-reseaux">
+        <span class="menu-reseaux-titre">Réseaux</span>
+        <ul role="list">%s</ul>
+      </div>
+      <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
+    </div>
+  </aside>
+</div>""" % ('\n      '.join(lignes), reseaux)
 
 
 pages = sorted(glob.glob(R + '*/index.html')) + [R + 'index.html', R + 'accueil.html']

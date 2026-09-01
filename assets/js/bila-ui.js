@@ -392,51 +392,68 @@
 
 
   /* ── Menu de telephone ──────────────────────────────────────────────────
-     Ouverture, fermeture, et ce qui va avec : le defilement de la page
-     derriere est bloque, le clavier reste enferme dans le panneau tant
-     qu'il est ouvert, et Echap referme. */
+     L'apparition est entierement en CSS : ce script ne fait que poser
+     l'attribut qui la declenche, et s'occuper de ce que le CSS ne sait
+     pas faire — bloquer le defilement, enfermer le clavier, refermer sur
+     Echap, sur un clic a cote, ou quand l'ecran s'elargit. */
   function initMenu() {
     var bouton = document.querySelector('.menu-bouton');
+    var enveloppe = document.querySelector('.menu-enveloppe');
     var panneau = document.getElementById('menu-telephone');
-    if (!bouton || !panneau || panneau.__bilaMenu) return;
+    if (!bouton || !enveloppe || !panneau || panneau.__bilaMenu) return;
     panneau.__bilaMenu = true;
 
-    var fermer = panneau.querySelector('.menu-fermer');
+    var corps = document.body;
     var focusables = function () {
       return panneau.querySelectorAll('a[href], button:not([disabled])');
     };
 
+    function ouvert() { return corps.hasAttribute('data-menu-ouvert'); }
+
     function ouvrir() {
-      panneau.hidden = false;
-      document.body.setAttribute('data-menu-ouvert', '');
+      corps.setAttribute('data-menu-ouvert', '');
       bouton.setAttribute('aria-expanded', 'true');
       bouton.setAttribute('aria-label', 'Fermer le menu');
-      var premier = focusables()[0];
-      if (premier) premier.focus();
+      panneau.removeAttribute('aria-hidden');
+      // Le focus attend que le panneau soit arrive : le poser tout de
+      // suite ferait sauter la page vers un element encore hors champ.
+      setTimeout(function () {
+        if (!ouvert()) return;
+        var premier = focusables()[0];
+        if (premier) premier.focus({ preventScroll: true });
+      }, 420);
     }
 
     function refermer(rendreLeFocus) {
-      panneau.hidden = true;
-      document.body.removeAttribute('data-menu-ouvert');
+      if (!ouvert()) return;
+      corps.removeAttribute('data-menu-ouvert');
       bouton.setAttribute('aria-expanded', 'false');
       bouton.setAttribute('aria-label', 'Ouvrir le menu');
-      if (rendreLeFocus) bouton.focus();
+      panneau.setAttribute('aria-hidden', 'true');
+      if (rendreLeFocus) bouton.focus({ preventScroll: true });
     }
 
-    bouton.addEventListener('click', function () {
-      if (panneau.hidden) ouvrir(); else refermer(true);
+    panneau.setAttribute('aria-hidden', 'true');
+
+    bouton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (ouvert()) refermer(true); else ouvrir();
     });
-    if (fermer) fermer.addEventListener('click', function () { refermer(true); });
 
     // Une entree qui mene ailleurs referme d'elle-meme ; une ancre de la
     // page courante doit refermer pour qu'on voie ou l'on atterrit.
     panneau.addEventListener('click', function (e) {
-      var lien = e.target.closest && e.target.closest('a[href]');
-      if (lien) refermer(false);
+      if (e.target.closest && e.target.closest('a[href]')) refermer(false);
+    });
+
+    // Clic a cote : le panneau occupe tout l'ecran, mais ses marges
+    // laissent passer le clic sur l'enveloppe.
+    enveloppe.addEventListener('click', function (e) {
+      if (e.target === enveloppe) refermer(true);
     });
 
     document.addEventListener('keydown', function (e) {
-      if (panneau.hidden) return;
+      if (!ouvert()) return;
       if (e.key === 'Escape') { e.preventDefault(); refermer(true); return; }
       if (e.key !== 'Tab') return;
       var liste = focusables();
@@ -449,13 +466,10 @@
       }
     });
 
-    // Si l'ecran s'elargit alors que le panneau est ouvert, la barre de
-    // navigation reprend la main : le panneau doit suivre.
     window.addEventListener('resize', function () {
-      if (!panneau.hidden && window.innerWidth > 768) refermer(false);
+      if (ouvert() && window.innerWidth > 768) refermer(false);
     });
   }
-
 
   /* ── Compteurs de statistiques ─────────────────────────────────────────
      Les quatre chiffres de la section referencement montent depuis zero a
