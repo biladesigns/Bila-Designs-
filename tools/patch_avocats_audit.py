@@ -8,6 +8,10 @@ barre d'audit, rien de plus.
 
 La barre d'audit elle-meme est conservee : elle etait imbriquee dans cette
 section, c'est elle qui recolte les demandes.
+
+Le bloc retire se terminait par la fermeture du conteneur qui portait
+les filets verticaux de la section : elle est reecrite, sans quoi la
+section suivante se retrouve imbriquee dans celle-ci.
 """
 import re, os
 
@@ -27,6 +31,7 @@ REMPLACEMENT = """  <div style="position: relative; z-index: 2; padding: 0 var(-
   </div>
 
   <div style="height: 56px;"></div>
+  </div>
 
   """
 
