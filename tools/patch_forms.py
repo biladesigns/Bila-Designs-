@@ -38,7 +38,13 @@ def cabler_audit(bloc):
     """Barre d'audit : lien du site + adresse, les deux requis."""
     bloc = champ(bloc, r'<input type="url"[^>]*>',
                  'name="site" required aria-label="Adresse de votre site" '
-                 'data-libelle="l’adresse de votre site" autocomplete="url"')
+                 'data-libelle="l’adresse de votre site" data-site autocomplete="url" '
+                 'inputmode="url" spellcheck="false"')
+    # « type=url » impose une adresse complete avec son protocole. Un
+    # visiteur tape « moncabinet.fr », pas « https://moncabinet.fr » : le
+    # navigateur refusait alors la saisie la plus naturelle. Le champ
+    # devient un champ texte, et bila-ui.js complete l'adresse.
+    bloc = re.sub(r'(<input )type="url"(?=[^>]*name="site")', r'\1type="text"', bloc)
     bloc = champ(bloc, r'<input type="email"[^>]*>',
                  'name="email" required aria-label="Votre adresse electronique" '
                  'data-libelle="votre adresse electronique" autocomplete="email"')
@@ -101,7 +107,8 @@ for page in PAGES:
         s = champ(s, r'<input type="text" placeholder="Cabinet, société…"[^>]*>',
                   'name="entreprise" autocomplete="organization"')
         s = champ(s, r'<input type="url" placeholder="votre-site\.fr"(?![^>]*name=)[^>]*>',
-                  'name="site" autocomplete="url"')
+                  'name="site" data-site autocomplete="url" inputmode="url" spellcheck="false"')
+        s = re.sub(r'(<input )type="url"(?=[^>]*name="site")', r'\1type="text"', s)
         s = s.replace('<textarea rows="5"',
                       '<textarea rows="5" name="message" required '
                       'data-libelle="votre message"', 1)

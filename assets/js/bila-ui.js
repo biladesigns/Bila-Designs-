@@ -183,9 +183,35 @@
           retour.setAttribute('data-etat', etat || '');
         }
 
+        /* Adresse de site : on accepte ce que les gens tapent vraiment.
+           « moncabinet.fr », « www.moncabinet.fr », « Moncabinet.FR/ » sont
+           tous valides ; le protocole est ajoute avant l'envoi pour que le
+           lien recu soit cliquable. */
+        function normaliserSite(champ) {
+          var v = champ.value.trim().replace(/\s+/g, '');
+          if (!v) return true;
+          v = v.replace(/^https?:\/\//i, '');
+          v = v.replace(/\/+$/, '');
+          // un point, pas d'espace, et quelque chose de part et d'autre
+          if (!/^[^\s./]+(\.[^\s./]+)+(\/\S*)?$/.test(v)) return false;
+          champ.value = 'https://' + v.toLowerCase();
+          return true;
+        }
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           dire('', '');
+
+          var siteChamp = form.querySelector('[data-site]');
+          if (siteChamp) {
+            siteChamp.classList.remove('champ-erreur');
+            if (!normaliserSite(siteChamp)) {
+              siteChamp.classList.add('champ-erreur');
+              siteChamp.focus();
+              dire('Cette adresse ne ressemble pas a un site. Essayez « moncabinet.fr ».', 'erreur');
+              return;
+            }
+          }
 
           // Champs requis : on signale le premier fautif et on s'y arrete.
           var requis = form.querySelectorAll('[required]');
@@ -196,9 +222,12 @@
             if (!requis[q].checkValidity()) {
               requis[q].classList.add('champ-erreur');
               requis[q].focus();
+              var libelle = requis[q].getAttribute('data-libelle') || 'un champ';
               dire(requis[q].validity.valueMissing
-                ? 'Il manque ' + (requis[q].getAttribute('data-libelle') || 'un champ') + '.'
-                : 'Cette valeur ne semble pas valide.', 'erreur');
+                ? 'Il manque ' + libelle + '.'
+                : (requis[q].type === 'email'
+                    ? 'Cette adresse electronique ne semble pas valide.'
+                    : 'Verifiez ' + libelle + '.'), 'erreur');
               return;
             }
           }

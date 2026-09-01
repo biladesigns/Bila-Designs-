@@ -1,5 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Bila Designs">
-  <rect width="32" height="32" fill="#2743E3"></rect>
-  <path d="M0 0 L0 32 L9 32 A9 32 0 0 0 0 0 Z" fill="#FFFFFF"></path>
-  <path d="M32 0 L32 32 L23 32 A9 32 0 0 1 32 0 Z" fill="#FFFFFF"></path>
+  <!-- Le cadre navy est obligatoire sur fond clair : sans lui, les jambes
+       blanches se fondent dans le fond de l'onglet et il ne reste qu'un
+       entonnoir bleu. Meme regle que pour la signature de mail. -->
+  <rect width="32" height="32" fill="#101B33"></rect>
+  <!-- Le champ garde le rapport 44/50 de la marque : le reduire a un carre
+       ferait trop evaser les jambes et mangerait tout le bleu. -->
+  <g transform="translate(4.5 3) scale(0.5227)">
+    <rect width="44" height="50" fill="#2743E3"></rect>
+    <path d="M0 0 L0 50 L12 50 A12 50 0 0 0 0 0 Z" fill="#FFFFFF"></path>
+    <path d="M44 0 L44 50 L32 50 A12 50 0 0 1 44 0 Z" fill="#FFFFFF"></path>
+  </g>
 </svg>
