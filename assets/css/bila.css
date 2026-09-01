@@ -270,7 +270,9 @@ button[disabled] { opacity: 0.55; cursor: progress; }
     padding-top: 13px;
     padding-bottom: 13px;
   }
-  main header > a { padding: 7px 0; }
+  /* Le lien du logotype atteint 44 px de haut : le monogramme fait 23 px
+     de corps rendu, le rembourrage fait le reste. */
+  main header > a { padding: 11px 0; }
 
   /* Les liens de navigation et de pied de page sont du texte courant :
      ils suivent le meme plancher de 15px que les paragraphes. */
@@ -800,6 +802,73 @@ body[data-menu-ouvert] { overflow: hidden; }
   .menu-pied,
   .menu-bouton-defile,
   .menu-bouton-croix { transition-duration: 0.001ms !important; transition-delay: 0s !important; }
+}
+
+/* ── Logotype « Deux encres » ────────────────────────────────────────────
+   Deux lettres en Fraunces 600 imprimees l'une sur l'autre. La zone
+   commune produit une troisieme encre : ce n'est pas un ornement, c'est
+   la marque. Voir assets/marque/LISEZ-MOI-logo.md.
+
+   isolation: isolate est obligatoire. Sans lui, les lettres se melangent
+   avec le fond de la page entiere et non entre elles seules. */
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.logo-bd {
+  display: inline-flex;
+  isolation: isolate;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 1em;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+}
+
+.logo-b { color: #101B33; mix-blend-mode: multiply; }
+
+/* Le D remonte sur le B : c'est ce chevauchement qui cree l'encre
+   commune. Ne pas toucher a la valeur. */
+.logo-d { margin-left: -0.34em; color: #2743E3; mix-blend-mode: multiply; }
+
+.logo-filet {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(16, 27, 51, 0.2);
+  flex: 0 0 1px;
+}
+
+/* Le nom suit la taille du monogramme : il est en em, jamais en pixels. */
+.logo-nom {
+  font-family: 'Archivo', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.48em;
+  letter-spacing: -0.012em;
+  color: #101B33;
+  white-space: nowrap;
+}
+
+/* Sur fond navy la logique s'inverse. */
+.logo--sombre .logo-b { color: #FFFFFF; mix-blend-mode: screen; }
+.logo--sombre .logo-d { color: #5D7EFF; mix-blend-mode: screen; }
+.logo--sombre .logo-nom { color: #FFFFFF; }
+.logo--sombre .logo-filet { background: rgba(255, 255, 255, 0.22); }
+
+/* Repli sans melange, pour l'impression et les captures. */
+@media print {
+  .logo-b, .logo-d { mix-blend-mode: normal; }
+}
+
+/* En dessous de 20 px de corps le recouvrement se referme et les deux
+   lettres se confondent : le nom passe a la ligne plutot que de forcer
+   la reduction du monogramme. */
+@media (max-width: 400px) {
+  .logo { gap: 11px; }
 }
 
 /* ── Realisations : l'ecran vu de trois quarts ───────────────────────────

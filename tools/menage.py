@@ -58,11 +58,14 @@ for f in PAGES:
 # Le favicon et les ressources de marque suivent la meme palette que le
 # reste. Le vert de l'ancienne DA y a survecu longtemps parce que ce
 # controle ne regardait que les pages.
-for f in ['favicon.svg']:
+for f in ['favicon.ico', 'site.webmanifest', 'assets/marque/LISEZ-MOI-logo.md']:
     chemin = R + f
     if not os.path.exists(chemin):
         continue
-    t = open(chemin, encoding='utf-8').read()
+    try:
+        t = open(chemin, encoding='utf-8').read()
+    except UnicodeDecodeError:
+        continue  # fichier binaire : rien a verifier
     vieux = [c for c in ('#0f2f28', '#161A22', '#2A4AD1', '#4F8268', '#FAFBFD')
              if c.lower() in t.lower()]
     if vieux:
