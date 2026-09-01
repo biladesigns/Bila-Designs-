@@ -19,7 +19,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2?v=3a85c6bb41" crossorigin>
 <link rel="preload" as="image" href="/assets/img/hero-arche-crop.webp" fetchpriority="high">
 <link rel="stylesheet" href="/assets/css/fonts.css?v=45cd174480">
-<link rel="stylesheet" href="/assets/css/bila.css?v=83f2598775">
+<link rel="stylesheet" href="/assets/css/bila.css?v=d08feb1e24">
 <style>
   @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
   @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
@@ -70,7 +70,25 @@
         <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1">Démarrer un projet</a>
       </span>
     </nav>
-  </header>
+  <button type="button" class="menu-bouton" aria-expanded="false" aria-controls="menu-telephone" aria-label="Ouvrir le menu"><span class="menu-trait"></span><span class="menu-trait"></span></button></header>
+<div id="menu-telephone" class="menu-panneau" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-filets" aria-hidden="true"><span></span><span></span></div>
+  <div class="menu-tete">
+    <span class="menu-titre">Menu</span>
+    <button type="button" class="menu-fermer" aria-label="Fermer le menu"><span></span><span></span></button>
+  </div>
+  <nav class="menu-liste">
+    <a href="/services/" class="menu-entree"><span class="menu-rang">01</span><span class="menu-libelle">Sites web & branding</span><span class="menu-losange" aria-hidden="true"></span></a>
+    <a href="/automatisations/" class="menu-entree"><span class="menu-rang">02</span><span class="menu-libelle">Automatisations</span><span class="menu-losange" aria-hidden="true"></span></a>
+    <a href="/avocats/" class="menu-entree"><span class="menu-rang">03</span><span class="menu-libelle">Avocats</span><span class="menu-losange" aria-hidden="true"></span></a>
+  </nav>
+  <div class="menu-pied">
+    <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
+    <a href="mailto:mathieu@biladesigns.com" class="menu-contact">mathieu@biladesigns.com</a>
+    <a href="tel:+33659086800" class="menu-contact menu-contact--sobre">06 59 08 68 00</a>
+    <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
+  </div>
+</div>
 
   <div style="position: relative; z-index: 2; padding: 128px var(--gut) 132px; max-width: 780px; display: flex; flex-direction: column; align-items: flex-start; gap: 26px;">
     <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Sites web · IA · Automatisations</span>
@@ -413,6 +431,6 @@
 </section>
 </main>
 <script src="/assets/js/bila-motion.js?v=5309f18e5c" defer></script>
-<script src="/assets/js/bila-ui.js?v=cbea31ff85" defer></script>
+<script src="/assets/js/bila-ui.js?v=ca785d3390" defer></script>
 </body>
 </html>

@@ -390,9 +390,76 @@
     }
   }
 
+
+  /* ── Menu de telephone ──────────────────────────────────────────────────
+     Ouverture, fermeture, et ce qui va avec : le defilement de la page
+     derriere est bloque, le clavier reste enferme dans le panneau tant
+     qu'il est ouvert, et Echap referme. */
+  function initMenu() {
+    var bouton = document.querySelector('.menu-bouton');
+    var panneau = document.getElementById('menu-telephone');
+    if (!bouton || !panneau || panneau.__bilaMenu) return;
+    panneau.__bilaMenu = true;
+
+    var fermer = panneau.querySelector('.menu-fermer');
+    var focusables = function () {
+      return panneau.querySelectorAll('a[href], button:not([disabled])');
+    };
+
+    function ouvrir() {
+      panneau.hidden = false;
+      document.body.setAttribute('data-menu-ouvert', '');
+      bouton.setAttribute('aria-expanded', 'true');
+      bouton.setAttribute('aria-label', 'Fermer le menu');
+      var premier = focusables()[0];
+      if (premier) premier.focus();
+    }
+
+    function refermer(rendreLeFocus) {
+      panneau.hidden = true;
+      document.body.removeAttribute('data-menu-ouvert');
+      bouton.setAttribute('aria-expanded', 'false');
+      bouton.setAttribute('aria-label', 'Ouvrir le menu');
+      if (rendreLeFocus) bouton.focus();
+    }
+
+    bouton.addEventListener('click', function () {
+      if (panneau.hidden) ouvrir(); else refermer(true);
+    });
+    if (fermer) fermer.addEventListener('click', function () { refermer(true); });
+
+    // Une entree qui mene ailleurs referme d'elle-meme ; une ancre de la
+    // page courante doit refermer pour qu'on voie ou l'on atterrit.
+    panneau.addEventListener('click', function (e) {
+      var lien = e.target.closest && e.target.closest('a[href]');
+      if (lien) refermer(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (panneau.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); refermer(true); return; }
+      if (e.key !== 'Tab') return;
+      var liste = focusables();
+      if (!liste.length) return;
+      var premier = liste[0], dernier = liste[liste.length - 1];
+      if (e.shiftKey && document.activeElement === premier) {
+        e.preventDefault(); dernier.focus();
+      } else if (!e.shiftKey && document.activeElement === dernier) {
+        e.preventDefault(); premier.focus();
+      }
+    });
+
+    // Si l'ecran s'elargit alors que le panneau est ouvert, la barre de
+    // navigation reprend la main : le panneau doit suivre.
+    window.addEventListener('resize', function () {
+      if (!panneau.hidden && window.innerWidth > 768) refermer(false);
+    });
+  }
+
   function demarrer() {
     initOnglets();
     initGroupes();
+    initMenu();
     initPastilles();
     initCadres();
     initRetournables();

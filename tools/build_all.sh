@@ -17,6 +17,7 @@ python3 tools/patch_marque.py
 python3 tools/patch_annexes.py
 python3 tools/build_annexes.py
 python3 tools/audit.py
+python3 tools/patch_menu.py
 python3 tools/patch_mobile.py
 python3 tools/patch_versions.py
 python3 tools/menage.py
