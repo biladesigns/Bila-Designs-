@@ -1,62 +1,71 @@
 # Signature mail — Bila Designs
 
-Version retenue : **prospection avocats**. Le fichier `signature-bila-designs.html` contient la signature prête à copier, entourée d'un mode d'emploi ; le bloc à reprendre est la seule `<table>` de la page.
+Logo **« Deux encres »**, version prospection avocats. Le fichier `signature-bila-designs.html` est la source de vérité : ouvre-le dans un navigateur, le bloc à copier est la première `<table>` de la page.
 
 ## Contenu du dossier
 
 | Fichier | Rôle |
 |---|---|
-| `signature-bila-designs.html` | Page de copie + signature complète (source de vérité) |
-| `assets/logo-mark.svg` | Marque seule, 44 × 50 — sur fond navy uniquement |
-| `assets/logo-mark-framed.svg` | Marque dans son cadre navy, 58 × 64 — **c'est celle de la signature** |
-| `assets/favicon.svg` | Carré 32 × 32, exception de format |
+| `signature-bila-designs.html` | Page de copie + signature complète, monogramme embarqué en base64 |
+| `assets/bd-mark.png` | Le monogramme rendu, 424 × 315 (densité ≈ 7×), fond blanc |
 
-## La marque
+## Le logo — « Deux encres »
 
-Champ bleu `#2743E3` de 44 × 50, deux jambes blanches en quart d'ellipse (largeur 12, hauteur 50) à fleur des bords gauche et droit, vide central bleu de 20 en bas.
+Deux lettres en **Fraunces 600** imprimées l'une sur l'autre. Le D remonte sur le B de `-0.34em` et les deux sont en `mix-blend-mode: multiply`, ce qui crée une troisième couleur dans la zone commune. Ce n'est pas un effet décoratif : c'est la marque.
 
-```
-M0 0 L0 50 L12 50 A12 50 0 0 0 0 0 Z
-M44 0 L44 50 L32 50 A12 50 0 0 1 44 0 Z
-```
+| Encre | Valeur | Rôle |
+|---|---|---|
+| B | `#101B33` | Encre de fond |
+| D | `#2743E3` | Encre de dessus, transparente |
+| Recouvrement | `#02072D` | Produit des deux, à reproduire tel quel si le mélange est impossible |
 
-**Règle non négociable :** sur fond clair — et le corps d'un mail est blanc — la marque doit porter son cadre navy `#101B33` (marge de 7 sur les quatre côtés, soit 1/7 de la largeur). Sans lui, les jambes blanches se fondent dans le fond et il ne reste qu'un V bleu. C'est pour cette raison que la signature utilise `logo-mark-framed.svg` et non `logo-mark.svg`.
+Sur fond navy la logique s'inverse : `mix-blend-mode: screen`, B en `#FFFFFF`, D en `#5D7EFF`.
 
-Ne jamais : arrondir les angles, changer le rapport 44/50, ajouter dégradé, ombre ou contour, descendre sous 24 px de large.
+**Contrainte de code :** le mélange exige `isolation: isolate` sur le conteneur, sinon les lettres se mélangent avec le fond de la page. La charte complète est dans `Charte Logo Deux Encres.dc.html`.
+
+## Pourquoi le monogramme est une image
+
+Aucun client mail ne gère `mix-blend-mode`, et Fraunces ne s'y charge pas non plus : en texte, la marque tomberait en Times avec deux lettres qui se chevauchent bêtement. Le monogramme est donc rendu en PNG à densité 7×, **encodé en base64 directement dans le `src`** — rien à héberger, rien à recharger, et il survit au copier-coller vers Gmail.
+
+Si tu régénères ce PNG : rends-le sur fond blanc, recadre au pixel d'encre, et garde le ratio **1.346** (424 × 315). Dans la signature il est affiché à `width="62" height="46"`.
 
 ## Contenu de la signature
 
 - **Mathieu Bila**
-- Bila Designs · sites web pour cabinets d'avocats
+- Fondateur · Bila Designs
+- Sites web, référencement & automatisations
 - mathieu@biladesigns.com — `mailto:`
-- 06 59 08 68 00 — `tel:+33659086800`
-- Accroche : « Des cabinets m'ont déjà confié leur site. » + lien **Voir leur avant / après →** vers `https://biladesigns.com`
+- 06 59 08 68 00 — `tel:+33659086800` · biladesigns.com
+- Accroche en serif : « Des cabinets m'ont déjà confié leur site. » + lien **Voir leur avant / après →** vers `https://biladesigns.com`
+- Mention de clôture : Lyon, France · réponse sous 24 h ouvrées
 
-Le nom et l'intitulé sont à confirmer côté Mathieu.
+Un filet vertical `rgba(16,27,51,0.18)` sépare le monogramme du bloc texte — c'est le verrouillage défini dans la charte.
 
 ## Typographie
 
 | Élément | Police | Corps | Couleur |
 |---|---|---|---|
-| Nom | Archivo 700 (repli Helvetica, Arial) | 16 px | `#101B33` |
-| Ligne d'activité | Archivo 400 | 12,5 px | `#4A5163` |
-| Coordonnées | Archivo 400 / 600 | 12,5 px | `#4A5163` / `#2743E3` |
-| Accroche | Georgia (serif) | 14,5 px | `#101B33` |
+| Nom | Archivo 700 (repli Helvetica, Arial) | 17 px | `#101B33` |
+| Fonction | Archivo 400/600 | 12,5 px | `#4A5163` / `#101B33` |
+| Spécialités | Archivo 400 | 12,5 px | `#6B7280` |
+| Coordonnées | Archivo 400/600 | 12,5 px | `#4A5163` / `#2743E3` |
+| Accroche | Georgia | 14,5 px | `#101B33` |
+| Clôture | Archivo 400 | 11 px | `#A0A5B0` |
 
-Fraunces, la police de titrage du site, ne s'affiche pas dans les clients mail : Georgia la remplace, dans le même registre. Ne pas charger de webfont — aucun client mail fiable ne les honore.
-
-Filet de séparation au-dessus de l'accroche : 1 px `rgba(39,67,227,0.28)`.
+Georgia remplace Fraunces dans le corps de la signature : c'est le seul serif fiable dans les clients mail. Ne charge aucune webfont.
 
 ## Intégration
 
-1. **Gmail (le plus simple).** Ouvrir `signature-bila-designs.html` dans un navigateur, sélectionner la signature du « M » de Mathieu jusqu'à la flèche en incluant le carré bleu, copier, puis Paramètres → Général → Signature → Créer, et coller.
-2. **Outlook, Apple Mail, clients divers.** Reprendre le bloc `<table>` tel quel. Il est en styles `inline`, sans classe ni feuille de style : c'est voulu, aucun client mail ne garantit le `<style>`.
-3. **Si la marque ne passe pas.** Certains clients rabotent `border-radius` sur les `<div>`. Dans ce cas, remplacer le bloc de la marque par une image hébergée : exporter `assets/logo-mark-framed.svg` en PNG à 116 × 128 (densité 2×), l'héberger sur `biladesigns.com`, et l'appeler en `<img src="…" width="58" height="64" alt="Bila Designs">`. Ne pas utiliser de SVG en pièce jointe : Gmail ne l'affiche pas.
+1. Ouvrir `signature-bila-designs.html` dans un navigateur.
+2. Sélectionner du monogramme jusqu'à « réponse sous 24 h ouvrées », copier.
+3. Gmail → Paramètres → Général → Signature → Créer, puis coller.
+
+Pour Outlook, Apple Mail ou un autre client : reprendre la `<table>` telle quelle. Elle est en styles `inline`, sans classe ni feuille de style — c'est voulu, aucun client mail ne garantit le `<style>`.
 
 ## Contraintes à respecter
 
-- Largeur totale libre, mais rien ne doit dépasser 540 px : au-delà, la signature casse sur mobile.
-- Pas d'image de fond, pas de `position: fixed`, pas de flex : uniquement des tables et des styles inline.
+- Largeur fixée à 520 px. Ne pas dépasser 540 : au-delà, la signature casse sur mobile.
+- Tables et styles inline uniquement. Pas de flex, pas de grid, pas d'image de fond.
 - Pas de tracker, pas de pixel espion.
-- Les liens gardent `text-decoration: none` et une couleur explicite : sans cela, Gmail les repasse en bleu système.
-- Une seule police par élément, avec son repli. Jamais `font-family: Fraunces` sans `Georgia, serif` derrière.
+- Les liens gardent `text-decoration: none` et une couleur explicite, sinon Gmail les repasse en bleu système.
+- Toujours un repli après chaque police : `Georgia, 'Times New Roman', serif` et `Archivo, Helvetica, Arial, sans-serif`.
