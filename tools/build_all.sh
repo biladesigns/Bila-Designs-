@@ -13,5 +13,6 @@ python3 tools/patch_images.py
 python3 tools/patch_annexes.py
 python3 tools/build_annexes.py
 python3 tools/audit.py
+python3 tools/patch_mobile.py
 python3 tools/menage.py
 python3 tools/valide.py accueil/index.html services/index.html avocats/index.html contact/index.html automatisations/index.html

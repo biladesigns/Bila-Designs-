@@ -153,6 +153,19 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   [style*="position: sticky"] { position: static !important; }
   main div[style*="height: 42vh"],
   main div[style*="height: 30vh"] { height: 40px !important; }
+
+  /* Les separateurs verticaux d'une grille a trois colonnes restent a un
+     tiers et deux tiers de la largeur une fois la grille empilee : ils
+     traversent alors le texte. Regle de la DA : aucun trait sur du texte.
+     Ils tombent donc en meme temps que la grille, a 900px et non a 768. */
+  main div[style*="(100% - var(--gut) * 2)"] { display: none !important; }
+  main div[style*="left: calc(50% - 0.5px)"] { display: none !important; }
+
+  /* Les traits obliques du fond sont traces pour une mise en page large ;
+     une fois le contenu empile, ils passent en travers. */
+  main div[style*="transform: rotate(-7deg)"],
+  main div[style*="transform: rotate(6deg)"],
+  main div[style*="transform: rotate(-8deg)"] { display: none !important; }
 }
 
 @media (max-width: 760px) {
@@ -195,6 +208,85 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main form { width: 100%; }
   main form input, main form textarea { width: 100% !important; min-width: 0; }
   main form button { width: 100%; justify-content: center; }
+}
+
+/* ── Declinaison telephone : lisibilite et prise en main ─────────────────
+   Verifie a 360, 390, 430, 600 et 768 px sur les huit pages. */
+@media (max-width: 768px) {
+
+  /* Les rangees horizontales passent a la ligne plutot que de deborder.
+     La classe est posee a la construction sur les seules rangees qui ne
+     savaient pas encore le faire (voir tag_flex dans dc_convert.py). */
+  .fx-row { flex-wrap: wrap !important; }
+
+  /* Plancher de lisibilite. Les etiquettes en capitales tiennent a 11px ;
+     en dessous elles deviennent illisibles au telephone. Le desktop garde
+     les valeurs de la maquette. */
+  .t9  { font-size: 11px !important; }
+  .t10 { font-size: 11.5px !important; }
+  .t11 { font-size: 11.5px !important; }
+  .t12 { font-size: 12.5px !important; }
+
+  /* Le texte courant ne descend pas sous 15px sur telephone. */
+  .t13, .t14 { font-size: 15px !important; }
+
+  /* Les etiquettes de la carte « ce qu'on branche » sont posees par le
+     script : elles portent leur propre classe pour suivre le plancher. */
+  .puce-agent { font-size: 15px !important; padding: 10px 16px !important; }
+
+  /* Cibles tactiles. Les liens de navigation et de pied de page sont des
+     lignes de texte de 15px de haut : au doigt, c'est inatteignable. */
+  main header nav > a,
+  main footer a,
+  main .prose a,
+  main a[href^="tel:"],
+  main a[href^="mailto:"] {
+    display: inline-block;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+  main header > a { padding: 7px 0; }
+
+  /* Les liens de navigation et de pied de page sont du texte courant :
+     ils suivent le meme plancher de 15px que les paragraphes. */
+  main header nav > a,
+  main footer a { font-size: 15px !important; }
+
+  /* Les champs de formulaire atteignent 44px de haut. */
+  main input[type="text"],
+  main input[type="email"],
+  main input[type="url"],
+  main input[type="tel"] {
+    padding-top: 12px !important;
+    padding-bottom: 14px !important;
+    font-size: 16px !important; /* en dessous de 16px, iOS zoome au focus */
+  }
+  main textarea { font-size: 16px !important; }
+  main button { min-height: 44px; }
+  main .pastille { padding-top: 13px !important; padding-bottom: 13px !important; }
+
+  /* Zone tactile de 44px sans deplacer le soulignement : les liens de
+     texte souligne recoivent une zone cliquable invisible, centree sur
+     eux. Le dessin ne bouge pas, le doigt les atteint. */
+  /* Les liens de texte deviennent atteignables au doigt. Le filet sous le
+     mot descend de quelques pixels : sur telephone c'est invisible, et
+     cela vaut mieux qu'un lien qu'on n'arrive pas a toucher. */
+  main a[style*="border-bottom"] {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  /* Les petits liens utilitaires souligned n'ont pas de filet a preserver :
+     un vrai rembourrage suffit, et il est plus fiable. */
+  main a[style*="text-decoration: underline"] {
+    display: inline-block;
+    padding: 11px 0;
+  }
+
+  /* Les boutons pleins suivent le meme plancher de lisibilite que le
+     texte courant. */
+  main a[style*="border-radius: 999px"],
+  main button[style*="border-radius: 999px"] { font-size: 15px !important; }
 }
 
 /* ── Mouvement reduit ────────────────────────────────────────────────────

@@ -15,6 +15,14 @@
 
   function initNav() {
     if (nav) return;
+    // Le crochet suit une barre de navigation sur une seule ligne. En
+    // dessous de 768px le menu passe sous le logo et se replie sur
+    // plusieurs lignes : le repere n'a plus rien a souligner.
+    if (window.innerWidth <= 768) {
+      var vieux = document.querySelectorAll('[data-bila-navmark]');
+      for (var v = 0; v < vieux.length; v++) vieux[v].remove();
+      return;
+    }
     var host = document.querySelector('header nav');
     if (!host) return;
     var stale = document.querySelectorAll('[data-bila-navmark]');

@@ -302,6 +302,7 @@
             listes[j].textContent = '';
             for (var k = 0; k < items.length; k++) {
               var sp = document.createElement('span');
+              sp.className = 'puce-agent';
               sp.style.cssText = style;
               sp.textContent = items[k];
               listes[j].appendChild(sp);
