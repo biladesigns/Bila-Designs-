@@ -126,6 +126,11 @@ const { chromium, PAGES, LARGEURS, ouvrir } = require('./harnais');
             const px = parseFloat(getComputedStyle(el).fontSize);
             // .piege : etiquette lue par les lecteurs d'ecran, jamais affichee
             if (el.closest('.skip-link') || el.closest('.piege') || el.classList.contains('piege')) continue;
+            // Le logotype est une marque, pas du texte courant : la taille
+            // du nom est fixee par le verrouillage (0,48 fois le corps du
+            // monogramme) et ne se negocie pas. Meme raison pour laquelle
+            // les logos sont hors du champ des regles de lisibilite.
+            if (el.closest('.logo')) continue;
             const cs2 = getComputedStyle(el);
             // Trois planchers, selon le role du texte : etiquette en
             // capitales, mention secondaire (gris clair), texte courant.

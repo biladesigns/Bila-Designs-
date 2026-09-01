@@ -16,7 +16,7 @@ python3 tools/patch_liens.py
 python3 tools/patch_nav.py
 python3 tools/patch_images.py
 python3 tools/patch_3d.py
-python3 tools/patch_marque.py
+python3 tools/patch_logo.py
 python3 tools/patch_annexes.py
 python3 tools/build_annexes.py
 python3 tools/audit.py

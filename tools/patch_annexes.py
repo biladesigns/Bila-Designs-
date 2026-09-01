@@ -23,7 +23,9 @@ GABARIT = """<!DOCTYPE html>
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://www.biladesigns.com%(cible)s">
 <meta http-equiv="refresh" content="0; url=%(cible)s">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/favicon/favicon-180.png">
+<meta name="theme-color" content="#101B33">
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/bila.css">
 </head>

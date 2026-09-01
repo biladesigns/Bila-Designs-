@@ -10,14 +10,17 @@ NAV = [
 ]
 
 
-def marque(h=30, l=27):
-    """La marque livree par le designer, dans sa version cadree.
+def marque(corps=28):
+    """Le logotype « Deux encres », compose en texte.
 
-    Le fond des pages est clair : sans son cadre navy, les jambes blanches
-    se fondent dans le fond et il ne reste qu'un entonnoir bleu."""
-    return ('<img src="/assets/marque/logo-mark-framed.svg" alt="" '
-            'width="%d" height="%d" style="display: block; width: %dpx; '
-            'height: %dpx; flex: 0 0 auto;">' % (l, h, l, h))
+    Deux lettres en Fraunces 600 imprimees l'une sur l'autre : le
+    recouvrement produit une troisieme encre, et c'est lui qui fait la
+    marque. Voir assets/marque/LISEZ-MOI-logo.md."""
+    return ('<span class="logo" style="font-size: %dpx;">'
+            '<span class="logo-bd" aria-hidden="true">'
+            '<span class="logo-b">B</span><span class="logo-d">D</span></span>'
+            '<span class="logo-filet" aria-hidden="true"></span>'
+            '<span class="logo-nom">Bila Designs</span></span>' % corps)
 
 
 def entete(actif=None):
@@ -32,7 +35,6 @@ def entete(actif=None):
     return """  <header style="position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 0 var(--gut);">
     <a href="/accueil/" style="flex: 0 0 auto; display: flex; align-items: center; gap: 13px;">
       %s
-      <span style="white-space: nowrap; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #101B33;">Bila Designs</span>
     </a>
     <nav style="flex: 0 0 auto; display: flex; align-items: center; gap: 26px;">
       %s
@@ -42,7 +44,7 @@ def entete(actif=None):
         <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-cta">Démarrer un projet</a>
       </span>
     </nav>
-  </header>""" % (marque(), '\n      '.join(liens))
+  </header>""" % (marque(28), '\n      '.join(liens))
 
 
 PIED = """  <footer style="position: relative; z-index: 2; padding: 44px var(--gut) 40px; border-top: 1px solid rgba(16,27,51,0.14); display: flex; flex-direction: column; gap: 40px;">
@@ -50,7 +52,6 @@ PIED = """  <footer style="position: relative; z-index: 2; padding: 44px var(--g
       <div style="display: flex; flex-direction: column; gap: 16px; min-width: 220px; background: #FBFBFA; padding-right: 18px;">
         <div style="display: flex; align-items: center; gap: 12px;">
           %s
-          <span style="font-size: 16px; font-weight: 600; letter-spacing: -0.01em;">Bila Designs</span>
         </div>
         <span style="font-size: 13px; line-height: 1.7; color: #6B7280;">Studio indépendant de design et d'automatisation.<br>Basé à Lyon, France.</span>
       </div>
@@ -79,7 +80,7 @@ PIED = """  <footer style="position: relative; z-index: 2; padding: 44px var(--g
         <a href="/politique-confidentialite/" style="font-size: 12px; color: #8A8F9C;">Confidentialité</a>
       </div>
     </div>
-  </footer>""" % marque(26, 24)
+  </footer>""" % marque(24)
 
 FILETS = """  <div style="position: absolute; inset: 0; overflow: hidden;">
     <div style="position: absolute; left: var(--rail); top: 44px; bottom: 0; width: 1px; background: rgba(16,27,51,0.1);"></div>
@@ -100,7 +101,11 @@ def document(titre, description, canonique, corps, style_extra='', script_extra=
 <title>%(titre)s</title>
 <meta name="description" content="%(desc)s">
 %(robots)s<link rel="canonical" href="https://www.biladesigns.com%(can)s">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/favicon/favicon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#101B33">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bila Designs">
 <meta property="og:locale" content="fr_FR">

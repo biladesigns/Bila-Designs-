@@ -276,7 +276,11 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
 %(robots)s<link rel="canonical" href="https://www.biladesigns.com%(canonical)s">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/favicon/favicon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#101B33">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bila Designs">
 <meta property="og:locale" content="fr_FR">
