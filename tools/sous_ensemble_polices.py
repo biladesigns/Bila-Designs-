@@ -8,31 +8,13 @@ typographique et les fleches utilisees dans les boutons — de quoi ecrire
 n'importe quelle page a venir sans retomber sur une police de secours.
 """
 import os, subprocess, glob, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')) + '/'
 D = R + 'assets/fonts/'
 SRC = R + 'tools/polices-source/'
 
-# Jeu de caracteres conserve : bien plus large que ce que le site utilise
-# aujourd'hui, pour qu'un texte ajoute demain reste correctement rendu.
-BASE = (
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    'abcdefghijklmnopqrstuvwxyz'
-    '0123456789'
-    ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-    # francais complet
-    'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝŸÆŒ'
-    'àáâãäåçèéêëìíîïñòóôõöùúûüýÿæœ'
-    'ß'
-    # ponctuation et signes typographiques
-    '«»“”‘’„‹›–—…·•·°№§¶†‡'
-    '€£¥¢₽'
-    '×÷±≈≠≤≥∞µ'
-    # fleches et puces employees dans les boutons et les listes
-    '→←↑↓↗↘↙↖⟶▸►▪◆◇○●□■'
-    # espaces particuliers : insecable et fine insecable
-    '   '
-)
+from jeu_caracteres import BASE
 
 os.makedirs(SRC, exist_ok=True)
 gain_total = 0

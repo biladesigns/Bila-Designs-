@@ -54,4 +54,32 @@ for p in pages:
         if href not in cibles:
             morts.add(href)
 print('\nliens internes morts :', sorted(morts) or 'aucun')
+# ── Couverture des polices ────────────────────────────────────────────────
+# Les polices sont reduites a un jeu de caracteres fixe. Un caractere
+# absent de ce jeu retombe sur une police systeme au milieu d'une phrase,
+# ce qui se voit tout de suite. Ce controle l'interdit.
+import html as _html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from jeu_caracteres import BASE
+
+_garde = set(BASE) | set('\n\r\t')
+_absents = {}
+for f in glob.glob(R + '*/index.html') + [R + 'index.html', R + 'accueil.html']:
+    if not os.path.exists(f):
+        continue
+    t = open(f, encoding='utf-8').read()
+    t = re.sub(r'<(script|style)\b.*?</\1>', '', t, flags=re.S | re.I)
+    t = re.sub(r'<[^>]+>', ' ', t)
+    for c in set(_html.unescape(t)):
+        if c not in _garde:
+            _absents.setdefault(c, set()).add(os.path.relpath(f, R))
+
+if _absents:
+    print('\nCARACTERES ABSENTS DES POLICES :')
+    for c, pages in sorted(_absents.items()):
+        print('  %r  U+%04X   %s' % (c, ord(c), ', '.join(sorted(pages))[:70]))
+    souci += len(_absents)
+else:
+    print('\npolices : tous les caracteres des pages sont couverts')
+
 sys.exit(1 if (souci or morts) else 0)
