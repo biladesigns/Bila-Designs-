@@ -19,7 +19,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2?v=3a85c6bb41" crossorigin>
 <link rel="preload" as="image" href="/assets/img/hero-avocats.webp" fetchpriority="high">
 <link rel="stylesheet" href="/assets/css/fonts.css?v=45cd174480">
-<link rel="stylesheet" href="/assets/css/bila.css?v=83f2598775">
+<link rel="stylesheet" href="/assets/css/bila.css?v=d08feb1e24">
 <style>
   @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
   @keyframes bila-sweep { to { transform: translate(-50%, -50%) rotate(360deg); } }
@@ -65,7 +65,25 @@
         <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 13px 24px; background: #2743E3; color: #FFFFFF; font-size: 14px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-1 t14">Démarrer un projet</a>
       </span>
     </nav>
-  </header>
+  <button type="button" class="menu-bouton" aria-expanded="false" aria-controls="menu-telephone" aria-label="Ouvrir le menu"><span class="menu-trait"></span><span class="menu-trait"></span></button></header>
+<div id="menu-telephone" class="menu-panneau" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="menu-filets" aria-hidden="true"><span></span><span></span></div>
+  <div class="menu-tete">
+    <span class="menu-titre">Menu</span>
+    <button type="button" class="menu-fermer" aria-label="Fermer le menu"><span></span><span></span></button>
+  </div>
+  <nav class="menu-liste">
+    <a href="/services/" class="menu-entree"><span class="menu-rang">01</span><span class="menu-libelle">Sites web & branding</span><span class="menu-losange" aria-hidden="true"></span></a>
+    <a href="/automatisations/" class="menu-entree"><span class="menu-rang">02</span><span class="menu-libelle">Automatisations</span><span class="menu-losange" aria-hidden="true"></span></a>
+    <a href="#" data-courante class="menu-entree"><span class="menu-rang">03</span><span class="menu-libelle">Avocats</span><span class="menu-losange" aria-hidden="true"></span></a>
+  </nav>
+  <div class="menu-pied">
+    <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
+    <a href="mailto:mathieu@biladesigns.com" class="menu-contact">mathieu@biladesigns.com</a>
+    <a href="tel:+33659086800" class="menu-contact menu-contact--sobre">06 59 08 68 00</a>
+    <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
+  </div>
+</div>
 
   <div style="position: relative; z-index: 2; margin-top: 92px; padding: 0 var(--gut); display: flex; flex-direction: column; align-items: flex-start; gap: 24px;">
     <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;" class="t12">Cabinets d'avocats</span>
@@ -310,6 +328,6 @@
 <script type="application/json" id="donnees-avocats">{"steps": [{"label": "Acquisition", "title": "Développer la clientèle", "sub": "Acquisition · le bouche-à-oreille ne suffit plus", "probleme": "L'essentiel des nouveaux dossiers vient de la recommandation. Chacun publie quand il a le temps, c'est-à-dire rarement, et les quelques heures passées sur les réseaux ne se transforment presque jamais en rendez-vous.", "branche": "Un agent de veille suit les évolutions de vos domaines et alimente un agent qui rédige des propositions de publications. Un troisième trie les messages entrants et vous signale ceux qui méritent votre attention. Chaque texte passe un contrôle déontologique avant de vous être soumis.", "chips": ["Veille juridique", "Rédaction assistée", "Tri des messages", "Contrôle déontologique"], "change": "Vous publiez régulièrement sans y penser, et vous ne lisez que les messages qui valent votre temps. Le temps passé sur les réseaux se compte en minutes, plus en heures.", "decide": "Zéro publication automatique. Aucun texte, aucun message ne part sans votre clic. Les règles de communication sont posées avec vous, et vérifiables."}, {"label": "Ouverture du dossier", "title": "Conflits d'intérêts et déontologie", "sub": "Ouverture du dossier · la vérification qui prend une matinée", "probleme": "Chaque nouveau dossier demande une vérification manuelle, souvent sur un tableur tenu à la main. C'est long, c'est fastidieux, et un conflit manqué expose le cabinet bien au-delà du désagrément.", "branche": "Vos dossiers passés sont mis en base, anonymisés. À chaque nouveau dossier, l'agent croise les parties, les adverses et les bénéficiaires effectifs, puis produit une note d'analyse assortie d'un degré de certitude.", "chips": ["Base de dossiers", "Croisement des parties", "Note d'analyse", "Journalisation"], "change": "La vérification passe de plusieurs dizaines de minutes à quelques-unes, et la décision d'ouvrir ou non se prend le jour même plutôt qu'en fin de semaine.", "decide": "L'agent ne tranche aucune question déontologique. Chaque vérification donne lieu à une décision d'associé, horodatée et journalisée."}, {"label": "Recherche", "title": "La recherche jurisprudentielle", "sub": "Recherche · le poste le plus lourd des collaborateurs", "probleme": "Un dossier complexe demande plusieurs heures de recherche, et cette recherche est souvent refaite ailleurs dans le cabinet sans que personne ne le sache. La jurisprudence la plus récente passe régulièrement à côté.", "branche": "Un agent interroge vos bases documentaires, hiérarchise les décisions par autorité et rédige une synthèse. Un second vérifie chaque citation contre la base avant qu'elle n'entre dans la note.", "chips": ["Bases documentaires", "Hiérarchisation", "Synthèse", "Vérification des citations"], "change": "La recherche se fait en une fraction du temps, elle n'est plus dupliquée entre équipes, et la jurisprudence récente cesse d'être oubliée.", "decide": "Chaque citation est vérifiée contre la base, ou explicitement marquée « à vérifier ». L'associé relit chaque synthèse avant usage."}, {"label": "Audience", "title": "Le mémo de plaidoirie", "sub": "Audience · la chronologie reconstruite à la main", "probleme": "Préparer une audience importante demande une journée, dont une bonne part passée à reconstruire la chronologie à partir de dizaines, parfois de centaines de pièces. Le mémo se termine souvent la veille.", "branche": "L'agent lit les pièces du dossier, reconstruit la chronologie des faits, va chercher la jurisprudence utile et propose une première version du mémo, que vous reprenez et affinez.", "chips": ["Lecture des pièces", "Chronologie", "Jurisprudence", "Pré-rédaction"], "change": "La préparation se concentre sur le raisonnement plutôt que sur la mise en ordre, et le mémo cesse de se boucler dans les dernières heures.", "decide": "L'agent ne signe rien, ne dépose rien au greffe, ne parle jamais à un tiers. Vous restez seul signataire."}, {"label": "Facturation", "title": "Les honoraires jamais saisis", "sub": "Facturation · le temps travaillé qui n'arrive pas sur la facture", "probleme": "Des heures réellement travaillées ne sont jamais saisies, parce que la fiche se remplit des jours après. Et une part des factures dépasse largement l'échéance sans qu'aucune relance ne parte.", "branche": "L'agent lit vos échanges et votre agenda, pré-remplit chaque fiche de temps avec le dossier et son justificatif, et déclenche les relances d'impayés selon le rythme que vous fixez.", "chips": ["Agenda et messagerie", "Fiches de temps", "Justificatifs", "Relances échelonnées"], "change": "Le temps travaillé se retrouve sur la facture, et les impayés cessent de vieillir en silence.", "decide": "Aucune fiche de temps n'est validée automatiquement. Passé un certain retard, aucune relance ne part sans revue de l'associé."}]}</script>
 </main>
 <script src="/assets/js/bila-motion.js?v=5309f18e5c" defer></script>
-<script src="/assets/js/bila-ui.js?v=cbea31ff85" defer></script>
+<script src="/assets/js/bila-ui.js?v=ca785d3390" defer></script>
 </body>
 </html>

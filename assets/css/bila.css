@@ -417,6 +417,187 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main header nav, main footer { display: none !important; }
 }
 
+/* ── Menu de telephone ───────────────────────────────────────────────────
+   Un bouton et un panneau plein ecran, dans la grammaire du site : filets
+   de 1 px, angles vifs, losanges, Fraunces pour les entrees. Cache au-dela
+   de 768 px, ou la barre de navigation tient sur une ligne. */
+
+.menu-bouton {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.menu-trait {
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 1px;
+  background: var(--encre);
+  transition: transform 0.28s cubic-bezier(0.22,0.61,0.36,1), opacity 0.2s ease;
+}
+.menu-trait:nth-child(1) { top: 19px; }
+.menu-trait:nth-child(2) { top: 25px; }
+
+.menu-panneau {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--fond);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  padding: 30px var(--gut) 40px;
+  box-sizing: border-box;
+}
+.menu-filets { position: absolute; inset: 0; pointer-events: none; }
+.menu-filets span {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(16,27,51,0.1);
+}
+.menu-filets span:first-child { left: var(--rail); }
+.menu-filets span:last-child  { right: var(--rail); }
+
+.menu-tete {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 26px;
+}
+.menu-titre {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bleu);
+}
+.menu-fermer {
+  position: relative;
+  width: 44px; height: 44px;
+  margin-right: -10px;
+  padding: 0; border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.menu-fermer span {
+  position: absolute;
+  left: 11px; top: 21px;
+  width: 22px; height: 1px;
+  background: var(--encre);
+}
+.menu-fermer span:first-child { transform: rotate(45deg); }
+.menu-fermer span:last-child  { transform: rotate(-45deg); }
+
+.menu-liste {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(16,27,51,0.14);
+}
+.menu-entree {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 22px 2px;
+  border-bottom: 1px solid rgba(16,27,51,0.14);
+  color: var(--encre);
+  text-decoration: none;
+}
+.menu-rang {
+  flex: 0 0 auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--mute);
+}
+.menu-libelle {
+  flex: 1 1 auto;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(26px, 16px + 2.6vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.menu-losange {
+  flex: 0 0 auto;
+  width: 7px; height: 7px;
+  background: var(--bleu);
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.menu-entree[data-courante] .menu-rang { color: var(--bleu); }
+.menu-entree[data-courante] .menu-libelle { color: var(--bleu); }
+.menu-entree[data-courante] .menu-losange { opacity: 1; }
+
+.menu-pied {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.menu-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 17px 32px;
+  border-radius: 999px;
+  background: var(--bleu);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.menu-cta:hover, .menu-cta:focus-visible { background: var(--encre); color: #FFFFFF; }
+.menu-contact {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--encre);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(16,27,51,0.22);
+  padding-bottom: 3px;
+}
+.menu-contact--sobre { color: var(--texte); border-bottom-color: transparent; }
+.menu-note {
+  font-family: 'Caveat', cursive;
+  font-size: 21px;
+  color: var(--texte);
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+/* Pendant l'ouverture, la page derriere ne defile pas. */
+body[data-menu-ouvert] { overflow: hidden; }
+
+@media (max-width: 768px) {
+  .menu-bouton { display: block; }
+  /* La barre de bureau laisse la place au bouton. */
+  main header nav { display: none !important; }
+  main header { flex-wrap: nowrap !important; gap: 16px !important; }
+  body[data-menu-ouvert] .menu-bouton .menu-trait:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+  body[data-menu-ouvert] .menu-bouton .menu-trait:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+}
+
+@media (min-width: 769px) {
+  /* Au-dela, le panneau n'a pas lieu d'etre, meme s'il etait reste ouvert
+     au moment d'une rotation d'ecran. */
+  .menu-panneau { display: none !important; }
+}
+
 /* ── Realisations : l'ecran vu de trois quarts ───────────────────────────
    Le seul element repris de l'ancien site. Chaque capture est presentee
    comme un ecran pose de biais, qui se redresse quand on s'en approche.
