@@ -148,11 +148,12 @@ button[disabled] { opacity: 0.55; cursor: progress; }
      de colonne a separer une fois la grille empilee. */
   .g-2 > div[style*="left: calc(50%"] { display: none !important; }
 
-  /* Les cartes en position sticky se remettent dans le flux : empilees,
-     elles se recouvriraient. */
-  [style*="position: sticky"] { position: static !important; }
+  /* Les cartes en position sticky restent collantes : c'est l'effet
+     d'empilement de « Notre expertise », et il fonctionne aussi bien au
+     pouce qu'a la souris. Seuls les intervalles de defilement sont
+     raccourcis, un ecran de telephone etant bien plus court. */
   main div[style*="height: 42vh"],
-  main div[style*="height: 30vh"] { height: 40px !important; }
+  main div[style*="height: 30vh"] { height: 30vh !important; }
 
   /* Les separateurs verticaux d'une grille a trois colonnes restent a un
      tiers et deux tiers de la largeur une fois la grille empilee : ils
@@ -178,8 +179,14 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main header nav {
     width: 100%;
     flex-wrap: wrap !important;
-    gap: 16px !important;
-    row-gap: 14px !important;
+    gap: 20px !important;
+    row-gap: 0 !important;
+  }
+  /* Le bouton prend sa propre ligne : colle a la derniere entree de menu,
+     il donnait une barre bancale sur deux niveaux inegaux. */
+  main header nav > span:last-child {
+    flex: 1 0 100% !important;
+    margin-top: 16px;
   }
 
   /* Les images de heros calees a droite passent en fond pleine largeur,
@@ -264,6 +271,109 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main textarea { font-size: 16px !important; }
   main button { min-height: 44px; }
   main .pastille { padding-top: 13px !important; padding-bottom: 13px !important; }
+
+
+  /* ── Corrections de composition propres au telephone ───────────────────
+     La DA est geometrique : une fois les colonnes empilees, les traits
+     doivent se reorganiser plutot que de subsister a l'horizontale. */
+
+  /* Hero : l'appel a l'action secondaire passe sous le bouton plutot que
+     de se couper en deux a cote de lui. */
+  main section div[style*="display: flex"][style*="gap: 28px"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+
+  /* Bandeau de confiance : l'etiquette occupait la moitie de la largeur et
+     ecrasait le defilement. Elle passe au-dessus, sur toute la largeur, et
+     la piste prend l'espace qui reste. */
+  main section > div[style*="align-items: stretch"] { flex-wrap: wrap !important; }
+  main section > div[style*="align-items: stretch"] > div:first-child {
+    /* border-box ici uniquement : la maquette est dessinee en content-box,
+       et « width: 100% » plus le rembourrage deborderait de la fenetre. */
+    box-sizing: border-box;
+    width: 100%;
+    flex: 1 0 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+    padding: 14px var(--gut) !important;
+  }
+  main section > div[style*="align-items: stretch"] > div:last-child {
+    box-sizing: border-box;
+    width: 100%;
+    flex: 1 0 100% !important;
+  }
+
+  /* Grilles a colonnes : une fois empilees, la separation verticale n'a
+     plus de sens. Elle devient horizontale, et le decalage interne saute. */
+  .g-2 > *[style*="border-left"],
+  .g-3 > *[style*="border-left"],
+  .g-4 > *[style*="border-left"] {
+    border-left: none !important;
+    border-top: 1px solid rgba(16,27,51,0.14);
+  }
+  main section[style*="background: #101B33"] .g-2 > *[style*="border-left"],
+  main section[style*="background: #101B33"] .g-3 > *[style*="border-left"],
+  main section[style*="background: #101B33"] .g-4 > *[style*="border-left"] {
+    border-top-color: rgba(255,255,255,0.16);
+  }
+  /* Les colonnes portaient des retraits asymetriques, pensees cote a cote :
+     empilees, elles doivent toutes partir du meme bord. */
+  .g-2 > *, .g-3 > *, .g-4 > * {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .g-2 > *:not(:first-child),
+  .g-3 > *:not(:first-child),
+  .g-4 > *:not(:first-child) { padding-top: 26px !important; }
+
+  /* Barre d'audit : le filet qui separait l'etiquette du titre ne separe
+     plus rien une fois les deux passes l'un sous l'autre. */
+  main section span[style*="width: 1px"][style*="height: 22px"] { display: none !important; }
+
+  /* Rangee des confreres : le nom et la prestation tiennent sur deux
+     lignes alignees a gauche, la meme pour tous, plutot que de dependre
+     de la longueur du nom. */
+  main a[data-firm] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  /* Pied de page : les colonnes portaient un retrait interne pense pour
+     une disposition cote a cote. Empilees, ce retrait les decalait les
+     unes par rapport aux autres. Elles repartent toutes du meme bord,
+     separees par un filet, comme le reste de la mise en page. */
+  main footer > div:first-child {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  main footer > div:first-child > div {
+    width: 100%;
+    min-width: 0 !important;
+    padding: 24px 0 0 !important;
+    margin-top: 24px;
+    border-top: 1px solid rgba(16,27,51,0.12);
+  }
+  main footer > div:first-child > div:first-child {
+    padding-top: 0 !important;
+    margin-top: 0;
+    border-top: none;
+  }
+
+  /* Bas du pied de page : les mentions s'alignent a gauche sous le
+     copyright au lieu de flotter a droite. */
+  main footer > div:last-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  main footer > div:last-child > div {
+    padding: 0 !important;
+    gap: 18px !important;
+  }
+  main footer > div:last-child > span { padding: 0 !important; }
 
   /* Zone tactile de 44px sans deplacer le soulignement : les liens de
      texte souligne recoivent une zone cliquable invisible, centree sur
@@ -350,15 +460,20 @@ article:nth-child(even) .ecran-3d:hover .ecran-3d-plaque {
 
 .ecran-3d:hover .ecran-3d-reflet { opacity: 0; }
 
-/* Sur un ecran tactile il n'y a pas de survol : les captures sont
-   presentees droites, et lisibles. */
+/* Sur un ecran tactile il n'y a pas de survol, donc pas de redressement :
+   l'inclinaison est simplement plus douce, pour que la capture reste
+   lisible tout en gardant l'effet de maquette posee de biais. */
 @media (hover: none), (max-width: 900px) {
-  .ecran-3d-plaque,
-  article:nth-child(even) .ecran-3d-plaque {
-    transform: none;
-    box-shadow: 0 12px 30px rgba(16, 27, 51, 0.12);
+  .ecran-3d { perspective: 900px; }
+  .ecran-3d-plaque {
+    transform: rotateX(4deg) rotateY(-5deg) scale(0.97);
+    box-shadow: 12px 18px 40px rgba(16, 27, 51, 0.16),
+                0 2px 10px rgba(16, 27, 51, 0.08);
   }
-  .ecran-3d-reflet { opacity: 0; }
+  article:nth-child(even) .ecran-3d-plaque {
+    transform: rotateX(4deg) rotateY(5deg) scale(0.97);
+  }
+  .ecran-3d-reflet { opacity: 0.55; }
 }
 
 @media (prefers-reduced-motion: reduce) {

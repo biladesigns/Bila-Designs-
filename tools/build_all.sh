@@ -7,6 +7,7 @@ python3 tools/optimiser_captures.py
 python3 tools/build.py
 python3 tools/patch_contact.py
 python3 tools/patch_avocats.py
+python3 tools/patch_avocats_audit.py
 python3 tools/patch_forms.py
 python3 tools/patch_liens.py
 python3 tools/patch_nav.py
