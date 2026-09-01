@@ -446,6 +446,12 @@
       if (e.target.closest && e.target.closest('a[href]')) refermer(false);
     });
 
+    // Le bouton « Retour », en bas du panneau : la croix en haut fait la
+    // meme chose, mais elle est hors de portee du pouce sur un grand
+    // telephone.
+    var retour = panneau.querySelector('.menu-retour');
+    if (retour) retour.addEventListener('click', function () { refermer(true); });
+
     // Clic a cote : le panneau occupe tout l'ecran, mais ses marges
     // laissent passer le clic sur l'enveloppe.
     enveloppe.addEventListener('click', function (e) {

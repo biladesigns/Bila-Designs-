@@ -10,6 +10,10 @@ lignes de JavaScript.
 
 Les couleurs, la typographie et les losanges viennent de la DA du site,
 pas de celles du composant d'origine.
+
+Le panneau ne porte que la navigation et l'appel a l'action : les
+coordonnees et les reseaux y brouillaient la lecture, et ils sont deja
+dans le pied de page, a un ecran de defilement.
 """
 import re, os, glob, html
 
@@ -24,12 +28,6 @@ BOUTON = (
     '</button>'
 )
 
-RESEAUX = [
-    ('Instagram', 'https://www.instagram.com/biladesigns'),
-    ('LinkedIn', 'https://www.linkedin.com/company/biladesigns'),
-]
-
-
 def panneau(entrees, courante):
     lignes = []
     for i, (href, libelle) in enumerate(entrees, 1):
@@ -40,10 +38,6 @@ def panneau(entrees, courante):
             '<a class="menu-item" href="%s"%s><span class="menu-mot">%s</span></a>'
             '</li>' % (i, href, actif, libelle))
 
-    reseaux = ''.join(
-        '<li><a class="menu-reseau" href="%s" target="_blank" rel="noopener">%s</a></li>'
-        % (u, n) for n, u in RESEAUX)
-
     return """<div class="menu-enveloppe">
   <div class="menu-souscouches" aria-hidden="true"><span></span><span></span></div>
   <aside id="menu-telephone" class="menu-panneau" role="dialog" aria-modal="true" aria-label="Menu">
@@ -53,18 +47,12 @@ def panneau(entrees, courante):
     </ul>
     <div class="menu-pied">
       <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
-      <div class="menu-coord">
-        <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a>
-        <a href="tel:+33659086800" class="menu-coord--sobre">06 59 08 68 00</a>
-      </div>
-      <div class="menu-reseaux">
-        <span class="menu-reseaux-titre">Réseaux</span>
-        <ul role="list">%s</ul>
-      </div>
-      <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
+      <button type="button" class="menu-retour">
+        <span aria-hidden="true">&larr;</span> Retour
+      </button>
     </div>
   </aside>
-</div>""" % ('\n      '.join(lignes), reseaux)
+</div>""" % ('\n      '.join(lignes),)
 
 
 pages = sorted(glob.glob(R + '*/index.html')) + [R + 'index.html', R + 'accueil.html']

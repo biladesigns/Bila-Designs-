@@ -94,3 +94,24 @@ for page in PAGES:
     if k:
         print('%-28s  bouton « Discutons » -> %s' % (page, CIBLE))
     open(chemin, 'w', encoding='utf-8').write(s)
+
+# ── Les appels a l'action menent au formulaire ────────────────────────────
+# « Cadrer mon premier agent », « Donner vie a votre projet », « En parler
+# dix minutes » pointaient vers l'ancre #contact de leur propre page. Cette
+# ancre mene a un bloc qui affiche une adresse et un numero, pas un
+# formulaire : le visiteur arrivait au bout de sa lecture sans rien a
+# remplir. Ils menent desormais au formulaire de la page Contact.
+# Les ancres #audit ne changent pas : elles pointent deja sur un formulaire.
+for page in PAGES:
+    chemin = R + page
+    s = open(chemin, encoding='utf-8').read()
+    avant = s
+    s = re.sub(r'href="#contact"(?=[^>]*>(?:[^<]*)?(?:Donner vie|Parler de votre|Cadrer mon|En parler|Discutons))',
+               'href="/contact/#formulaire"', s)
+    # le lien « Contact » du pied de page mene a la page, pas a une ancre
+    s = s.replace('<a href="#contact" style="font-size: 14px; color: #2C3348;">Contact</a>',
+                  '<a href="/contact/" style="font-size: 14px; color: #2C3348;">Contact</a>')
+    if s != avant:
+        open(chemin, 'w', encoding='utf-8').write(s)
+        n = len(re.findall(r'/contact/#formulaire', s))
+        print('%-28s  %d lien(s) vers le formulaire' % (page, n))

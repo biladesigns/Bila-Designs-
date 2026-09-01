@@ -31,7 +31,7 @@
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2?v=3a85c6bb41" crossorigin>
 <link rel="preload" as="image" href="/assets/img/hero-arche-crop.webp" fetchpriority="high">
 <link rel="stylesheet" href="/assets/css/fonts.css?v=45cd174480">
-<link rel="stylesheet" href="/assets/css/bila.css?v=e5b215f908">
+<link rel="stylesheet" href="/assets/css/bila.css?v=ca72137162">
 <style>
   @keyframes bila-halo { 0% { transform: scale(1); opacity: 0.9; } 65% { transform: scale(1.34); opacity: 0; } 100% { transform: scale(1.34); opacity: 0; } }
   @keyframes bila-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(39,67,227,0.32), 0 8px 22px rgba(39,67,227,0.28); } 50% { box-shadow: 0 0 0 9px rgba(39,67,227,0), 0 12px 30px rgba(39,67,227,0.42); } }
@@ -94,15 +94,9 @@
     </ul>
     <div class="menu-pied">
       <a href="/contact/#formulaire" class="menu-cta">Démarrer un projet</a>
-      <div class="menu-coord">
-        <a href="mailto:mathieu@biladesigns.com">mathieu@biladesigns.com</a>
-        <a href="tel:+33659086800" class="menu-coord--sobre">06 59 08 68 00</a>
-      </div>
-      <div class="menu-reseaux">
-        <span class="menu-reseaux-titre">Réseaux</span>
-        <ul role="list"><li><a class="menu-reseau" href="https://www.instagram.com/biladesigns" target="_blank" rel="noopener">Instagram</a></li><li><a class="menu-reseau" href="https://www.linkedin.com/company/biladesigns" target="_blank" rel="noopener">LinkedIn</a></li></ul>
-      </div>
-      <span class="menu-note">réponse sous vingt-quatre heures, par un humain</span>
+      <button type="button" class="menu-retour">
+        <span aria-hidden="true">&larr;</span> Retour
+      </button>
     </div>
   </aside>
 </div>
@@ -115,7 +109,7 @@
       <span style="position: relative; display: inline-flex; flex: 0 0 auto;">
         <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.85); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 0.5s infinite; pointer-events: none;"></span>
         <span style="position: absolute; inset: -4px; border-radius: 999px; border: 2px solid rgba(39,67,227,0.55); animation: bila-halo 2.4s cubic-bezier(0.22,0.61,0.36,1) 1.7s infinite; pointer-events: none;"></span>
-        <a href="#contact" style="display: inline-flex; align-items: center; padding: 18px 34px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Donner vie à votre projet</a>
+        <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; padding: 18px 34px; background: #2743E3; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 999px; animation: bila-glow 2.4s ease-in-out infinite;" class="hv-2">Donner vie à votre projet</a>
       </span>
       <a href="#realisations" style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #101B33; border-bottom: 1px solid #C9CCD4; padding-bottom: 4px;" class="hv-3">Voir les réalisations <span style="font-size: 13px;">↗</span></a>
     </div>
@@ -297,7 +291,7 @@
       <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #2743E3;">Notre expertise</span>
       <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(26px, 16.3px + 2.475vw, 52px); line-height: 1.1; letter-spacing: -0.02em;">Trois métiers, une seule main.</h2>
     </div>
-    <a href="#contact" style="display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; font-size: 15px; font-weight: 600; color: #2743E3; border-bottom: 1px solid rgba(39,67,227,0.35);" class="hv-10">Parler de votre projet <span style="font-size: 15px;">→</span></a>
+    <a href="/contact/#formulaire" style="display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; font-size: 15px; font-weight: 600; color: #2743E3; border-bottom: 1px solid rgba(39,67,227,0.35);" class="hv-10">Parler de votre projet <span style="font-size: 15px;">→</span></a>
   </div>
 
   <div style="position: relative; z-index: 2; margin-top: 88px; padding: 0 var(--gut) 120px; display: flex; flex-direction: column;">
@@ -427,7 +421,7 @@
         <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Studio</span>
         <a href="#realisations" style="font-size: 14px; color: #2C3348;">Portfolio</a>
         <a href="#audit" style="font-size: 14px; color: #2C3348;">Audit gratuit</a>
-        <a href="#contact" style="font-size: 14px; color: #2C3348;">Contact</a>
+        <a href="/contact/" style="font-size: 14px; color: #2C3348;">Contact</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 12px; background: #FBFBFA; padding: 0 16px;">
         <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A0A5B0;">Réseaux</span>
@@ -447,6 +441,6 @@
 </section>
 </main>
 <script src="/assets/js/bila-motion.js?v=5309f18e5c" defer></script>
-<script src="/assets/js/bila-ui.js?v=88d2095462" defer></script>
+<script src="/assets/js/bila-ui.js?v=d91ea5ead4" defer></script>
 </body>
 </html>
