@@ -21,7 +21,11 @@ GABARIT = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(titre)s — Bila Designs</title>
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.biladesigns.com%(cible)s">
+<!-- Validation Search Console. Elle etait sur l'ancien index.html et a
+     disparu a la refonte : sans elle, la propriete se devalide et les
+     donnees de recherche deviennent inaccessibles. Ne pas retirer. -->
+<meta name="google-site-verification" content="Oj3liP5Lr66iUeKpmd0JBHDn18SN1DfZQ09xbNRVG1g">
+<link rel="canonical" href="https://www.biladesigns.com%(propre)s">
 <meta http-equiv="refresh" content="0; url=%(cible)s">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/favicon/favicon-180.png">
@@ -46,8 +50,10 @@ for dossier, (cible, titre) in REDIRECTIONS.items():
     if not cible:
         continue
     os.makedirs(R + dossier, exist_ok=True)
+    # Une canonique designe une page, jamais une ancre : Google ignore
+    # le fragment, autant declarer directement l'adresse visee.
     open(R + dossier + '/index.html', 'w', encoding='utf-8').write(
-        GABARIT % dict(cible=cible, titre=titre))
+        GABARIT % dict(cible=cible, propre=cible.split('#')[0], titre=titre))
     print('redirection       -> /%s/  vers %s' % (dossier, cible))
 
 # ── Racine : plus de page intermediaire, l'accueil est servi directement ──
@@ -63,13 +69,15 @@ open(R + 'accueil.html', 'w', encoding='utf-8').write(racine)
 print('accueil.html      -> synchronise')
 
 # ── Plan du site ──────────────────────────────────────────────────────────
+# Les adresses declarees sont les adresses finales, avec leur barre
+# oblique : sans elle, chaque entree du plan pointe vers une redirection.
 PAGES = [
-    ('/accueil',                   'weekly',  '1.0'),
-    ('/services',                  'monthly', '0.9'),
-    ('/avocats',                   'monthly', '0.9'),
-    ('/contact',                   'monthly', '0.8'),
-    ('/mentions-legales',          'yearly',  '0.3'),
-    ('/politique-confidentialite', 'yearly',  '0.3'),
+    ('/accueil/',                   'weekly',  '1.0'),
+    ('/services/',                  'monthly', '0.9'),
+    ('/avocats/',                   'monthly', '0.9'),
+    ('/contact/',                   'monthly', '0.8'),
+    ('/mentions-legales/',          'yearly',  '0.3'),
+    ('/politique-confidentialite/', 'yearly',  '0.3'),
 ]
 lignes = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -87,7 +95,9 @@ print('sitemap.xml       -> %d adresses (page d’attente exclue)' % len(PAGES))
 
 open(R + 'robots.txt', 'w', encoding='utf-8').write(
     "User-agent: *\n"
-    "Allow: /\n"
-    "Disallow: /desabonnement\n\n"
+    "Allow: /\n\n"
+    "# Aucun Disallow : les pages a tenir hors de l'index portent un\n"
+    "# noindex, et un robot doit pouvoir lire la page pour le voir.\n"
+    "# Les interdire d'exploration produirait l'effet inverse.\n\n"
     "Sitemap: https://www.biladesigns.com/sitemap.xml\n")
 print('robots.txt        -> mis a jour')

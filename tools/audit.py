@@ -83,4 +83,40 @@ if _absents:
 else:
     print('\npolices : tous les caracteres des pages sont couverts')
 
+# ── Balises qui ne doivent jamais disparaitre ─────────────────────────────
+# La validation Search Console a ete perdue une fois a la refonte : la
+# propriete se devalide en silence et les donnees de recherche deviennent
+# inaccessibles. Meme logique pour la canonique et la langue.
+OBLIGATOIRES = {
+    'validation Search Console': r'name="google-site-verification"',
+    'canonique':                 r'rel="canonical"',
+    'langue':                    r'<html lang="fr"',
+    'image de partage':          r'property="og:image"',
+}
+
+for f in sorted(glob.glob(R + '*/index.html')) + [R + 'index.html', R + 'accueil.html']:
+    if not os.path.exists(f):
+        continue
+    t = open(f, encoding='utf-8').read()
+    exigees = dict(OBLIGATOIRES)
+    # Une page de redirection en noindex n'a pas d'apercu a partager.
+    if re.search(r'content="noindex', t) and 'http-equiv="refresh"' in t:
+        exigees.pop('image de partage', None)
+    absents = [nom for nom, motif in exigees.items() if not re.search(motif, t)]
+    if absents:
+        souci += 1
+        print('%-34s balise(s) manquante(s) : %s' % (os.path.relpath(f, R), ', '.join(absents)))
+
+# Un titre de page ne doit pas contenir de reste de gabarit.
+for f in sorted(glob.glob(R + '*/index.html')):
+    t = open(f, encoding='utf-8').read()
+    m = re.search(r'<h1[^>]*>(.*?)</h1>', t, re.S)
+    if m:
+        titre = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+        if '[[' in titre or re.match(r'^\d{2}\[', titre):
+            souci += 1
+            print('%-34s h1 douteux : %s' % (os.path.relpath(f, R), titre[:50]))
+
+print('\nbalises obligatoires : %s' % ('des manques' if souci else 'toutes presentes sur toutes les pages'))
+
 sys.exit(1 if (souci or morts) else 0)

@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /desabonnement
+
+# Aucun Disallow : les pages a tenir hors de l'index portent un
+# noindex, et un robot doit pouvoir lire la page pour le voir.
+# Les interdire d'exploration produirait l'effet inverse.
 
 Sitemap: https://www.biladesigns.com/sitemap.xml

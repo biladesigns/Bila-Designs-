@@ -12,7 +12,7 @@ Analytics et un calendrier de reservation. Le nouveau site n'en pose
 aucun, et laisser ecrit qu'on suit les visiteurs alors que c'est faux
 serait pire qu'une reecriture.
 """
-import sys, os, re, html
+import sys, os, re, html, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from annexes_gabarit import entete, PIED, FILETS, document
 
@@ -24,23 +24,18 @@ def liens(t):
     return re.sub(r'\[\[([^|\]]+)\|([^\]]+)\]\]', r'<a href="\2">\1</a>', t)
 
 
-def extraire(fichier):
-    s = open(fichier, encoding='utf-8').read()
-    m = re.search(r'<main\b[^>]*>(.*?)</main>', s, re.S)
-    c = re.sub(r'<script.*?</script>', '', m.group(1), flags=re.S)
-    blocs = []
-    for mm in re.finditer(r'<(h1|h2|h3|p|li)\b[^>]*>(.*?)</\1>', c, re.S):
-        tag, txt = mm.group(1), mm.group(2)
-        txt = re.sub(r'<a\b[^>]*href="([^"]*)"[^>]*>(.*?)</a>', r'[[\2|\1]]', txt, flags=re.S)
-        txt = re.sub(r'<br\s*/?>', ' ', txt)
-        txt = html.unescape(re.sub(r'<[^>]+>', '', txt)).strip()
-        txt = re.sub(r'\s+', ' ', txt)
-        if txt:
-            blocs.append([tag, txt])
-    return blocs
+def extraire(nom):
+    """Le contenu juridique vient d'un fichier de donnees, pas de la page.
+
+    Il etait relu dans la page produite au tour precedent. Tant que seuls
+    des titres et des paragraphes s'y trouvaient cela passait ; le jour ou
+    le menu de telephone y a ajoute des <li>, ils ont ete pris pour du
+    texte de page et le titre est devenu « 01[[Sites web & branding|...]] ».
+    Une construction ne doit pas dependre de sa propre sortie."""
+    with open(R + 'tools/contenu-annexes.json', encoding='utf-8') as f:
+        return json.load(f)[nom]
 
 
-# Les deux adresses coexistaient ; le site n'en affiche plus qu'une.
 def normaliser(blocs):
     for b in blocs:
         b[1] = b[1].replace('contact@biladesigns.com', 'mathieu@biladesigns.com')
@@ -87,7 +82,7 @@ def rendre(blocs, sous_titre):
 
 
 def page_prose(source, sortie, actif, titre_onglet, description, canonique, eyebrow, remplacements=None):
-    blocs = normaliser(extraire(R + source))
+    blocs = normaliser(extraire(source))
     if remplacements:
         blocs = remplacements(blocs)
     titre, prose = rendre(blocs, eyebrow)
@@ -138,17 +133,17 @@ def corriger_cookies(blocs):
     return blocs[:debut] + neuf + blocs[fin:]
 
 
-page_prose('mentions-legales/index.html', 'mentions-legales/index.html', None,
+page_prose('mentions-legales', 'mentions-legales/index.html', None,
            'Mentions légales — Bila Designs',
            "Mentions légales de biladesigns.com : éditeur, hébergement, propriété "
            "intellectuelle et droit applicable.",
-           '/mentions-legales', 'Informations légales')
+           '/mentions-legales/', 'Informations légales')
 
-page_prose('politique-confidentialite/index.html', 'politique-confidentialite/index.html', None,
+page_prose('politique-confidentialite', 'politique-confidentialite/index.html', None,
            'Politique de confidentialité — Bila Designs',
            "Quelles données sont collectées sur biladesigns.com, pourquoi, combien de "
            "temps, et comment exercer vos droits.",
-           '/politique-confidentialite', 'Vos données',
+           '/politique-confidentialite/', 'Vos données',
            remplacements=corriger_cookies)
 
 
@@ -282,5 +277,5 @@ DESAB_SCRIPT = """<script>
 open(R + 'desabonnement/index.html', 'w', encoding='utf-8').write(
     document('Se désabonner — Bila Designs',
              "Retirez votre adresse de la liste de diffusion de Bila Designs.",
-             '/desabonnement', DESAB_CORPS, script_extra=DESAB_SCRIPT, noindex=True))
+             '/desabonnement/', DESAB_CORPS, script_extra=DESAB_SCRIPT, noindex=True))
 print('%-30s -> %s' % ('desabonnement', 'desabonnement/index.html'))
