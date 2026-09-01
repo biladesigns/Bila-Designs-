@@ -25,10 +25,24 @@ for libelle, (src, alt) in CAPTURES.items():
         r'<div style="position: absolute; inset: 0; display: flex; align-items: center; '
         r'justify-content: center;">\s*<span style="font-family: ui-monospace[^"]*">'
         + re.escape(libelle) + r'[^<]*</span>\s*</div>', re.S)
+    # Trois largeurs, et une indication de la taille d'affichage reelle :
+    # une carte occupe toute la largeur utile sur telephone, la moitie
+    # d'une grille de deux colonnes au-dela. Sans « sizes », le navigateur
+    # supposerait 100vw et telechargerait toujours le plus gros fichier.
+    base = src.replace('.webp', '')
     remplacement = (
-        '<img src="%s" alt="%s" width="1600" height="1200" loading="lazy" decoding="async" '
+        '<img src="%s" '
+        'srcset="%s-640.webp 640w, %s-800.webp 800w, %s-1200.webp 1200w, %s 1600w" '
+        # « sizes » n'accepte que des longueurs : une variable CSS y est
+        # invalide et l'attribut serait ignore en entier, ramenant le
+        # navigateur a 100vw. Les valeurs suivent les gouttieres reelles.
+        'sizes="(max-width: 640px) calc(100vw - 40px), '
+        '(max-width: 900px) calc(100vw - 64px), '
+        '(max-width: 1180px) calc(50vw - 80px), '
+        '(max-width: 1440px) calc(50vw - 122px), 620px" '
+        'alt="%s" width="1600" height="1200" loading="lazy" decoding="async" '
         'style="position: absolute; inset: 0; width: 100%%; height: 100%%; object-fit: cover; '
-        'object-position: 50%% 0;">' % (src, alt))
+        'object-position: 50%% 0;">' % (src, base, base, base, src, alt))
     s, n = motif.subn(remplacement, s)
     assert n == 1, 'emplacement « %s » : %d' % (libelle, n)
     place += 1

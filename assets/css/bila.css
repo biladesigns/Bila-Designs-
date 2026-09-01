@@ -307,6 +307,65 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   main header nav, main footer { display: none !important; }
 }
 
+/* ── Realisations : l'ecran vu de trois quarts ───────────────────────────
+   Le seul element repris de l'ancien site. Chaque capture est presentee
+   comme un ecran pose de biais, qui se redresse quand on s'en approche.
+   L'inclinaison est celle d'origine ; l'habillage suit la nouvelle DA :
+   angles vifs, ombre encree et non noire, pas de rayon. */
+.ecran-3d {
+  perspective: 1400px;
+}
+
+.ecran-3d-plaque {
+  transform: rotateX(6deg) rotateY(-8deg) scale(0.95);
+  transform-origin: 50% 60%;
+  box-shadow: 20px 30px 64px rgba(16, 27, 51, 0.20),
+              0 3px 14px rgba(16, 27, 51, 0.10);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.85s ease;
+  will-change: transform;
+}
+
+/* Le second de chaque rangee penche dans l'autre sens : les quatre
+   ecrans ne regardent pas tous du meme cote, la grille respire. */
+article:nth-child(even) .ecran-3d-plaque {
+  transform: rotateX(6deg) rotateY(8deg) scale(0.95);
+}
+
+.ecran-3d-reflet {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%,
+                                       rgba(255,255,255,0.05) 40%,
+                                       transparent 70%);
+  transition: opacity 0.85s ease;
+}
+
+.ecran-3d:hover .ecran-3d-plaque,
+article:nth-child(even) .ecran-3d:hover .ecran-3d-plaque {
+  transform: rotateX(0deg) rotateY(0deg) scale(1);
+  box-shadow: 0 18px 44px rgba(16, 27, 51, 0.14);
+}
+
+.ecran-3d:hover .ecran-3d-reflet { opacity: 0; }
+
+/* Sur un ecran tactile il n'y a pas de survol : les captures sont
+   presentees droites, et lisibles. */
+@media (hover: none), (max-width: 900px) {
+  .ecran-3d-plaque,
+  article:nth-child(even) .ecran-3d-plaque {
+    transform: none;
+    box-shadow: 0 12px 30px rgba(16, 27, 51, 0.12);
+  }
+  .ecran-3d-reflet { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecran-3d-plaque, article:nth-child(even) .ecran-3d-plaque { transform: none; }
+  .ecran-3d-reflet { opacity: 0; }
+}
+
 /* ── Cadre lumineux (BorderGlow) — repris tel quel de la maquette ─────── */
 .border-glow-card {
   --edge-proximity: 0;
