@@ -69,3 +69,15 @@ Pour Outlook, Apple Mail ou un autre client : reprendre la `<table>` telle quell
 - Pas de tracker, pas de pixel espion.
 - Les liens gardent `text-decoration: none` et une couleur explicite, sinon Gmail les repasse en bleu système.
 - Toujours un repli après chaque police : `Georgia, 'Times New Roman', serif` et `Archivo, Helvetica, Arial, sans-serif`.
+
+## `bd-mark-mail@3x.png` — la version des signatures de mail
+
+258 × 210, a afficher en 86 × 70. C'est `bd-mark@3x.png` pose au centre d'une
+plaque blanche avec 36 px de marge de chaque cote (12 px une fois affiche).
+
+Le monogramme est livre sans marge : dans une signature de mail lue en mode
+sombre, le rectangle blanc de l'image epouse exactement les lettres et le logo
+parait enferme dans une boite. La marge lui rend de l'air.
+
+Ne pas remplacer `bd-mark@3x.png` par celle-ci : le site s'en sert sans fond
+blanc. Deux usages, deux fichiers.
