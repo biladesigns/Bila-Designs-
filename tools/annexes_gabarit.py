@@ -100,7 +100,11 @@ def document(titre, description, canonique, corps, style_extra='', script_extra=
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(titre)s</title>
 <meta name="description" content="%(desc)s">
-%(robots)s<link rel="canonical" href="https://www.biladesigns.com%(can)s">
+%(robots)s<!-- Validation Search Console. Elle etait sur l'ancien index.html et a
+     disparu a la refonte : sans elle, la propriete se devalide et les
+     donnees de recherche deviennent inaccessibles. Ne pas retirer. -->
+<meta name="google-site-verification" content="Oj3liP5Lr66iUeKpmd0JBHDn18SN1DfZQ09xbNRVG1g">
+<link rel="canonical" href="https://www.biladesigns.com%(can)s">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon/favicon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/favicon/favicon-180.png">
@@ -111,6 +115,11 @@ def document(titre, description, canonique, corps, style_extra='', script_extra=
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="%(titre)s">
 <meta property="og:description" content="%(desc)s">
+<meta property="og:url" content="https://www.biladesigns.com%(can)s">
+<meta property="og:image" content="https://www.biladesigns.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/fraunces-latin.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css">

@@ -348,6 +348,34 @@ button[disabled] { opacity: 0.55; cursor: progress; }
   .g-3 > *:not(:first-child),
   .g-4 > *:not(:first-child) { padding-top: 26px !important; }
 
+  /* ── Formulaire de contact : plus compact, et il ressemble a un
+     formulaire ─────────────────────────────────────────────────────────
+     Sur telephone il faisait 1 900 px, soit deux ecrans et demi de lignes
+     eparses : on n'en voyait jamais qu'un fragment, et rien ne disait
+     qu'il s'agissait d'un formulaire. L'ecart entre les champs est
+     resserre et les pastilles tiennent a deux par ligne. Les zones
+     tactiles ne bougent pas. */
+  main form[data-form] {
+    gap: 22px !important;
+    padding: 26px 20px 28px !important;
+  }
+  main form[data-form] label { gap: 4px !important; }
+  main form[data-form] label > span:first-child {
+    min-height: 0 !important;
+    line-height: 1.3 !important;
+  }
+  main form[data-form] > div { gap: 10px !important; }
+
+  /* Les pastilles s'emboitent au plus serre : une largeur imposee les
+     mettait a une par ligne et allongeait le formulaire. */
+  main [data-pastilles] { gap: 8px !important; }
+  main .pastille {
+    padding: 14px 15px !important;
+    font-size: 14px !important;
+  }
+
+  main form[data-form] textarea { min-height: 110px; }
+
   /* Etapes de « Sites web & branding » : les cartes restent collantes,
      donc leur hauteur doit tenir dans la fenetre. Une carte plus haute se
      fait rogner par le bas et c'est la phase 2 qu'on voyait coupee. La
@@ -738,6 +766,23 @@ body[data-menu-ouvert] .menu-pied {
   text-decoration: none;
 }
 .menu-cta:hover, .menu-cta:focus-visible { background: var(--encre); color: #FFFFFF; }
+
+/* Le retour ferme le panneau et rend la page. La croix en haut fait la
+   meme chose ; celui-ci est a portee de pouce, en bas de l'ecran. */
+.menu-retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--texte);
+  font-family: 'Archivo', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.menu-retour:hover, .menu-retour:focus-visible { color: var(--bleu); }
 
 .menu-coord { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .menu-coord a {
