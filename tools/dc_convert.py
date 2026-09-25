@@ -273,6 +273,7 @@ def main(src, out, title, desc, canonical, nav_active, extra_css='', extra_js=''
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="Oj3liP5Lr66iUeKpmd0JBHDn18SN1DfZQ09xbNRVG1g">
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
 %(robots)s<link rel="canonical" href="https://www.biladesigns.com%(canonical)s">
